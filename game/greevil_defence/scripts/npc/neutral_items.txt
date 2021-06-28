@@ -1,0 +1,130 @@
+"neutral_items"
+{
+	"1"
+	{
+		"drop_rates"
+		{
+			"1:00"
+			{
+				"0" "9"
+				"1" "6"
+				"2" "3"
+			}
+		}
+		
+		"items"
+		{
+			"item_keen_optic"				  "0"
+			"item_poor_mans_shield"			  "0"
+			"item_iron_talon"				  "0"
+			"item_royal_jelly"				  "0"
+			"item_broom_handle"				  "0"
+			"item_faded_broach"				  "0"
+			"item_arcane_ring"				  "0"
+		}
+	}
+	"2"
+	{
+		"drop_rates"
+		{
+			"10:00"
+			{
+				"0" "9"
+				"1" "6"
+				"2" "3"
+			}
+		}
+
+		"items"
+		{
+			"item_grove_bow"				  "0"
+			"item_vampire_fangs"			  "0"
+			"item_ring_of_aquila"			  "0"
+			"item_pupils_gift"				  "0"
+			"item_imp_claw"					  "0"
+			"item_nether_shawl"				  "0"
+			"item_dragon_scale"				  "0"
+			"item_essence_ring"				  "0"
+			"item_clumsy_net"				  "0"
+		}
+	}
+	"3"
+	{
+		"drop_rates"
+		{
+			"15:00"
+			{
+				"0" "9"
+				"1" "6"
+				"2" "3"
+			}
+		}
+
+		"items"
+		{
+			"item_craggy_coat"				  "0"
+			"item_greater_faerie_fire"		  "0"
+			"item_quickening_charm"			  "0"
+			"item_spider_legs"				  "0"
+			"item_enchanted_quiver"			  "0"
+			"item_paladin_sword"			  "0"
+			"item_orb_of_destruction"		  "0"
+			"item_titan_sliver"				  "0"
+			"item_spy_gadget"				  "0"
+			"item_mind_breaker"				  "0"
+		}
+	}
+	"4"
+	{	
+		"drop_rates"
+		{
+			"20:00"
+			{
+				"0" "9"
+				"1" "6"
+				"2" "3"
+			}
+		}
+
+		"items"
+		{
+			"item_witless_shako"			  "0"
+			"item_timeless_relic"			  "0"
+			"item_spell_prism"				  "0"
+			"item_princes_knife"			  "0"
+			"item_ninja_gear"				  "0"
+			"item_illusionsts_cape"			  "0"
+			"item_havoc_hammer"				  "0"
+			"item_panic_button"				  "0"
+			"item_the_leveller"				  "0"
+			"item_minotaur_horn"			  "0"
+		}
+	}
+	"5"
+	{
+		"drop_rates"
+		{
+			"30:00"
+			{
+				"0" "9"
+				"1" "6"
+				"2" "3"
+			}
+		}
+
+		"items"
+		{
+			"item_force_boots"				  "0"
+			"item_desolator_2"				  "0"
+			"item_phoenix_ash"				  "0"
+			"item_seer_stone"				  "0"
+			"item_mirror_shield"			  "0"
+			"item_fusion_rune"				  "0"
+			"item_apex"						  "0"
+			"item_ballista"					  "0"
+			"item_woodland_striders"		  "1"
+			"item_pirate_hat"				  "0"
+			"item_ex_machina"				  "0"
+		}
+	}
+}

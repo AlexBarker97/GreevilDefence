@@ -1,0 +1,93 @@
+"dota_shops"
+{
+	"consumables"
+	{
+		"item1" 		"item_blue_egg_att"
+		"item2" 		"item_green_egg_att"
+		"item3" 		"item_yellow_egg_att"
+		"item4" 		"item_orange_egg_att"
+		"item5" 		"item_red_egg_att"
+		"item6" 		"item_purple_egg_att"
+		"item7" 		"item_white_egg_att"
+		"item8" 		"item_black_egg_att"
+	}
+
+	"attributes"
+	{
+		"item1" 		"item_blue_egg_def"
+		"item2" 		"item_green_egg_def"
+		"item3" 		"item_yellow_egg_def"
+		"item4" 		"item_orange_egg_def"
+		"item5" 		"item_red_egg_def"
+		"item6" 		"item_purple_egg_def"
+		"item7" 		"item_white_egg_def"
+		"item8" 		"item_black_egg_def"
+	}
+
+	"weapons_armor"
+	{
+		"item1"			"item_sendboss"
+	}
+
+	"misc"
+	{
+		
+	}
+	
+	// Level 1 - Green Recipes
+	"basics"
+	{
+
+	}
+
+	// Level 2 - Blue Recipes
+	"support"
+	{
+
+	}
+
+	// Arcane Recipes
+	"magics"
+	{
+
+	}
+		
+	// Level 3 - Purple Recipes	
+	"defense"
+	{
+
+	}
+
+	// Weapon Recipes
+	"weapons"
+	{
+
+	}
+
+	// Level 4 - Orange / Orb / Artifacts				
+	"artifacts"
+	{
+
+	}
+
+	"sideshop1"
+	{
+	
+	}
+
+	"sideshop2"
+	{
+	
+	}
+
+	"secretshop"
+	{
+
+	}
+
+	// items during Strategy Time
+	"pregame"
+	{
+
+	}
+}

@@ -1,0 +1,78 @@
+<root>
+
+	<styles>
+		<include src="file://{resources}/styles/BossHP/BossHP.css" />
+	</styles>
+	
+	<scripts>
+		<include src="file://{resources}/scripts/BossHP/BossHP.js" />
+	</scripts>
+	
+	<snippets>
+	</snippets>
+	
+	<Panel hittest="false" class="Bosses" >
+		<Panel class="SideRad" BossName ="Rad">
+			<Panel class="TeamName_Bosses" id ="TeamnameRad">
+				<Label id="BossNameRad" text="Radiant Bosses" />
+			</Panel>
+			<Panel class="BossIconBox" id ="BossIconBoxRad">
+				<Panel class="BossIcon" id ="radiant_red">
+			
+				</Panel>
+				<Panel class="BossIcon" id ="radiant_orange">
+			
+				</Panel>
+				<Panel class="BossIcon" id ="radiant_yellow">
+			
+				</Panel>
+				<Panel class="BossIcon" id ="radiant_green">
+			
+				</Panel>
+				<Panel class="BossIcon" id ="radiant_blue">
+			
+				</Panel>
+				<Panel class="BossIcon" id ="radiant_purple">
+			
+				</Panel>
+				<Panel class="BossIcon" id ="radiant_white">
+			
+				</Panel>
+				<Panel class="BossIcon" id ="radiant_black">
+			
+				</Panel>
+			</Panel>
+		</Panel>
+		<Panel class="SideDire" id ="Dire">
+			<Panel class="TeamName_Bosses" id ="TeamnameDire">
+				<Label id="BossNameDire" text="Dire Bosses" />
+			</Panel>
+			<Panel class="BossIconBox" id ="BossIconBoxDire">
+				<Panel class="BossIcon" id ="dire_red">
+			
+				</Panel>
+				<Panel class="BossIcon" id ="dire_orange">
+			
+				</Panel>
+				<Panel class="BossIcon" id ="dire_yellow">
+			
+				</Panel>
+				<Panel class="BossIcon" id ="dire_green">
+			
+				</Panel>
+				<Panel class="BossIcon" id ="dire_blue">
+			
+				</Panel>
+				<Panel class="BossIcon" id ="dire_purple">
+			
+				</Panel>
+				<Panel class="BossIcon" id ="dire_white">
+			
+				</Panel>
+				<Panel class="BossIcon" id ="dire_black">
+			
+				</Panel>
+			</Panel>
+		</Panel>	
+	</Panel>
+</root>

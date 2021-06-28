@@ -1,0 +1,180 @@
+.Bosses
+{
+	width: 800px;
+	height: 94px;
+	border-top-width: 0px;
+	margin-top: 50px;
+	horizontal-align: center;
+	vertical-align: top;
+	//background-color: black;
+	opacity: 1;
+}
+
+.SideRad
+{
+	width: 400px;
+	height: 100px;
+	border-top-width: 0px;
+	border-left-width: 0px;
+	border-right-width: 0px;
+	horizontal-align: left;
+	vertical-align: center;	
+	//background-color: #00aa00aa;
+	opacity: 1;
+}
+
+.SideDire
+{
+	width: 400px;
+	height: 100px;
+	border-top-width: 0px;
+	border-left-width: 0px;
+	border-right-width: 0px;
+	horizontal-align: right;
+	vertical-align: center;	
+	//background-color: #aa0000aa;
+	opacity: 1;
+}
+
+.TeamName_Bosses
+{
+	width: 150px;
+	height: 40px;
+	horizontal-align: center;
+	vertical-align: top;
+	background-color: black;
+	opacity: 0.8;
+}
+
+#BossNameRad
+{
+	font-weight: bold;
+	font-size: 18;
+	horizontal-align:center;
+	vertical-align:center;
+	color: #FFFFFFFF;
+	text-shadow: 1px 1px 3px 1.0 #00aa00aa;
+}
+
+#BossNameDire
+{
+	font-weight: bold;
+	font-size: 18;
+	horizontal-align:center;
+	vertical-align:center;
+	color: #FFFFFFFF;
+	text-shadow: 1px 1px 3px 1.0 #aa0000aa;
+}
+
+.BossIconBox
+{
+	width: 396px;
+	height: 50px;
+	horizontal-align: right;
+	vertical-align: bottom;
+	margin-top: 2px;
+	margin-bottom: 2px;
+	margin-right: 2px;
+	margin-left: 2px;
+	background-color: black;
+	opacity: 0.8;
+}
+
+.BossIcon
+{
+	width: 20px;
+	height: 20px;
+	vertical-align: center;
+	opacity: 1;
+}
+
+#BossIconBoxRad
+{
+	flow-children:left;
+}
+
+#BossIconBoxDire
+{
+	flow-children:right;
+}
+
+.BossIcon
+{
+	width: 40px;
+	height: 40px;
+	horizontal-align: center;
+	vertical-align: center;
+	margin-right: 8px;
+	margin-left: 8px;
+	background-image: url("file://{images}/bosses/default_s.png");
+	opacity: 1;
+}
+
+.1Alive
+{
+	background-image: url("file://{images}/bosses/red_alive_s.png");
+}
+.1Dead
+{
+	background-image: url("file://{images}/bosses/red_dead_s.png");
+}
+.2Alive
+{
+	background-image: url("file://{images}/bosses/orange_alive_s.png");
+}
+.2Dead
+{
+	background-image: url("file://{images}/bosses/orange_dead_s.png");
+}
+.3Alive
+{
+	background-image: url("file://{images}/bosses/yellow_alive_s.png");
+}
+.3Dead
+{
+	background-image: url("file://{images}/bosses/yellow_dead_s.png");
+}
+.4Alive
+{
+	background-image: url("file://{images}/bosses/green_alive_s.png");
+}
+.4Dead
+{
+	background-image: url("file://{images}/bosses/green_dead_s.png");
+}
+.5Alive
+{
+	background-image: url("file://{images}/bosses/blue_alive_s.png");
+}
+.5Dead
+{
+	background-image: url("file://{images}/bosses/blue_dead_s.png");
+}
+.6Alive
+{
+	background-image: url("file://{images}/bosses/purple_alive_s.png");
+}
+.6Dead
+{
+	background-image: url("file://{images}/bosses/purple_dead_s.png");
+}
+.7Alive
+{
+	background-image: url("file://{images}/bosses/white_alive_s.png");
+}
+.7Dead
+{
+	background-image: url("file://{images}/bosses/white_dead_s.png");
+}
+.8Alive
+{
+	background-color: red;
+	width: 30px;
+	height: 30px;
+}
+.8Dead
+{
+	background-color: red;
+	width: 30px;
+	height: 30px;
+}

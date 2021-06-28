@@ -1,5 +1,5 @@
 trans_red = class({})
-LinkLuaModifier("transformation_mod", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("transformation_mod", "modifiers/transformation/transformation_mod.lua", LUA_MODIFIER_MOTION_NONE)
 require ("libraries/selection")
 
 function CreateGreevil(keys)

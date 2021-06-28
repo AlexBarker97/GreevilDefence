@@ -280,7 +280,6 @@
 	"item_arcane_blink"							"REMOVE"
 	"item_keen_optic"							"REMOVE"
 	"item_aghanims_shard"						"REMOVE"
-	"item_tpscroll"								"REMOVE"
 	"item_ultimate_scepter_2"					"REMOVE"
 	"item_ultimate_scepter_roshan"				"REMOVE"
 	"item_aghanims_shard_roshan"				"REMOVE"

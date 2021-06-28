@@ -51,7 +51,6 @@ end
 
 -- Generated from template
 if GameMode == nil then
-	print ( '[BAREBONES] creating barebones game mode' )
 	GameMode = class({})
 end
 
@@ -135,8 +134,7 @@ mode = nil
 -- This function is called 1 to 2 times as the player connects initially but before they
 -- have completely connected
 function GameMode:PlayerConnect(keys)
-	print('[BAREBONES] PlayerConnect')
-	DeepPrintTable(keys)
+	--DeepPrintTable(keys)
 
 	if keys.bot == 1 then
 		-- This user is a Bot, so add it to the bots table
@@ -146,8 +144,7 @@ end
 
 -- This function is called once when the player fully connects and becomes "Ready" during Loading
 function GameMode:OnConnectFull(keys)
-	print ('[BAREBONES] OnConnectFull')
-	DeepPrintTable(keys)
+	--DeepPrintTable(keys)
 	GameMode:CaptureGameMode()
 
 	local entIndex = keys.index+1
@@ -236,7 +233,6 @@ end
   It can be used to initialize state that isn't initializeable in InitGameMode() but needs to be done before everyone loads in.
 ]]
 function GameMode:OnFirstPlayerLoaded()
-	print("[BAREBONES] First Player has loaded")
 end
 
 --[[
@@ -244,7 +240,6 @@ end
   It can be used to initialize non-hero player state or adjust the hero selection (i.e. force random etc)
 ]]
 function GameMode:OnAllPlayersLoaded()
-	print("[BAREBONES] All Players have loaded into the game")
 end
 
 --[[
@@ -255,7 +250,6 @@ end
   The hero parameter is the hero entity that just spawned in.
 ]]
 function GameMode:OnHeroInGame(hero)
-	print("[BAREBONES] Hero spawned in game for first time -- " .. hero:GetUnitName())
 
 	-- Store a reference to the player handle inside this hero handle.
 	hero.player = PlayerResource:GetPlayer(hero:GetPlayerID())
@@ -272,10 +266,6 @@ function GameMode:OnHeroInGame(hero)
 		local item = CreateItem("item_selection_whistle", hero, hero)
 		hero:AddItem(item)
 	end
-	
-	
-	local item = CreateItem("item_example_item", hero, hero)
-	hero:AddItem(item)
 	
 	local pointr = Entities:FindAllByName("spawnerino_boss")
 			for k,v in pairs(pointr) do
@@ -305,7 +295,6 @@ function GameMode:OnHeroInGame(hero)
 				
 			return 1
 			end)
-	
 end
 
 --[[
@@ -315,17 +304,12 @@ end
 ]]
 function GameMode:OnGameInProgress()
 	print("[BAREBONES] The game has officially begun")
-
-	Timers:CreateTimer(30, function() -- Start this timer 30 game-time seconds later
-		--print("This function is called 30 seconds after the game begins, and every 30 seconds thereafter")
-		return 30.0 -- Rerun this timer every 30 game-time seconds
-	end)
 end
 
 -- Cleanup a player when they leave
 function GameMode:OnDisconnect(keys)
 	print('[BAREBONES] Player Disconnected ' .. tostring(keys.userid))
-	DeepPrintTable(keys)
+	--DeepPrintTable(keys)
 
 	local name = keys.name
 	local networkid = keys.networkid
@@ -336,7 +320,7 @@ end
 -- The overall game state has changed
 function GameMode:OnGameRulesStateChange(keys)
 	print("[BAREBONES] GameRules State Changed")
-	DeepPrintTable(keys)
+	--DeepPrintTable(keys)
 
 	local newState = GameRules:State_Get()
 	if newState == DOTA_GAMERULES_STATE_WAIT_FOR_PLAYERS_TO_LOAD then
@@ -367,7 +351,7 @@ end
 -- An NPC has spawned somewhere in game.  This includes heroes
 function GameMode:OnNPCSpawned(keys)
 	print("[BAREBONES] NPC Spawned")
-	DeepPrintTable(keys)
+	--DeepPrintTable(keys)
 	local npc = EntIndexToHScript(keys.entindex)
 
 	if npc:IsRealHero() and npc.bFirstSpawned == nil then
@@ -387,8 +371,7 @@ end
 
 -- An item was picked up off the ground
 function GameMode:OnItemPickedUp(keys)
-	print ( '[BAREBONES] OnItemPurchased' )
-	DeepPrintTable(keys)
+	--DeepPrintTable(keys)
 
 	local heroEntity = EntIndexToHScript(keys.HeroEntityIndex)
 	local itemEntity = EntIndexToHScript(keys.ItemEntityIndex)
@@ -400,30 +383,654 @@ end
 -- state as necessary
 function GameMode:OnPlayerReconnect(keys)
 	print ( '[BAREBONES] OnPlayerReconnect' )
-	DeepPrintTable(keys)
+	--DeepPrintTable(keys)
 end
 
 -- An item was purchased by a player
 function GameMode:OnItemPurchased( keys )
-	print ( '[BAREBONES] OnItemPurchased' )
-	DeepPrintTable(keys)
+	--DeepPrintTable(keys)
 
-	-- The playerID of the hero who is buying something
-	local plyID = keys.PlayerID
-	if not plyID then return end
+	local playerID = keys.PlayerID
+	if not playerID then
+		return
+	end
 
-	-- The name of the item purchased
-	local itemName = keys.itemname
+	local item_name = keys.itemname
 
-	-- The cost of the item purchased
-	local itemcost = keys.itemcost
+	local item_cost = keys.itemcost
+	
+	local purchaseEntity = PlayerResource:GetSelectedHeroEntity(playerID)
 
+	if item_name == "item_blue_egg_att" then
+		if PlayerResource:GetTeam(playerID) == 2 then
+			location = (Vector(5872, 5200, 304)) + (Vector(RandomInt(0, 1056),RandomInt(0, 944), 0))
+			FindUnits = FindUnitsInRadius(DOTA_TEAM_GOODGUYS, location, nil, 300, DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_NONE, FIND_ANY_ORDER, false)
+			x = 1
+			while FindUnits[1] ~= nil and x < 100 do 
+				x = x + 1
+				location = (Vector(5872, 5200, 304)) + (Vector(RandomInt(0, 1056),RandomInt(0, 944), 0))
+				FindUnits = FindUnitsInRadius(DOTA_TEAM_GOODGUYS, location, nil, 200, DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_NONE, FIND_ANY_ORDER, false)
+			end
+			local unit = CreateUnitByName("greevil_blue_rad_att", location, true, nil, nil, DOTA_TEAM_GOODGUYS)
+		else
+			location = (Vector(-6928, 5200, 304)) + (Vector(RandomInt(0, 1056),RandomInt(0, 944), 0))
+			FindUnits = FindUnitsInRadius(DOTA_TEAM_BADGUYS, location, nil, 300, DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_NONE, FIND_ANY_ORDER, false)
+			x = 1
+			while FindUnits[1] ~= nil and x < 100 do
+				x = x + 1
+				location = (Vector(-6928, 5200, 304)) + (Vector(RandomInt(0, 1056),RandomInt(0, 944), 0))
+				FindUnits = FindUnitsInRadius(DOTA_TEAM_BADGUYS, location, nil, 200, DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_NONE, FIND_ANY_ORDER, false)
+			end	
+			local unit = CreateUnitByName("greevil_blue_dire_att", location, true, nil, nil, DOTA_TEAM_BADGUYS)
+		end
+		for i=0,8 do
+			local item1 = purchaseEntity:GetItemInSlot(i)
+			--DeepPrintTable(purchaseEntity)
+			if item1 ~= nil and item1:GetAbilityName() == "greevil_blue_dire_att" then
+				purchaseEntity:RemoveItem(item1)
+			end
+			local item2 = purchaseEntity.greevil:GetItemInSlot(i)
+			--DeepPrintTable(purchaseEntity)
+			if item2 ~= nil and item2:GetAbilityName() == "greevil_blue_dire_att" then
+				purchaseEntity.greevil:RemoveItem(item2)
+			end
+		end
+	elseif item_name == "item_green_egg_att" then
+		if PlayerResource:GetTeam(playerID) == 2 then
+			location = (Vector(5872, 5200, 304)) + (Vector(RandomInt(0, 1056),RandomInt(0, 944), 0))
+			FindUnits = FindUnitsInRadius(DOTA_TEAM_GOODGUYS, location, nil, 300, DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_NONE, FIND_ANY_ORDER, false)
+			x = 1
+			while FindUnits[1] ~= nil and x < 100 do 
+				x = x + 1
+				location = (Vector(5872, 5200, 304)) + (Vector(RandomInt(0, 1056),RandomInt(0, 944), 0))
+				FindUnits = FindUnitsInRadius(DOTA_TEAM_GOODGUYS, location, nil, 200, DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_NONE, FIND_ANY_ORDER, false)
+			end	
+			local unit = CreateUnitByName("greevil_green_rad_att", location, true, nil, nil, DOTA_TEAM_GOODGUYS)
+		else
+			location = (Vector(-6928, 5200, 304)) + (Vector(RandomInt(0, 1056),RandomInt(0, 944), 0))
+			FindUnits = FindUnitsInRadius(DOTA_TEAM_BADGUYS, location, nil, 300, DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_NONE, FIND_ANY_ORDER, false)
+			x = 1
+			while FindUnits[1] ~= nil and x < 100 do 
+				x = x + 1
+				location = (Vector(-6928, 5200, 304)) + (Vector(RandomInt(0, 1056),RandomInt(0, 944), 0))
+				FindUnits = FindUnitsInRadius(DOTA_TEAM_BADGUYS, location, nil, 200, DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_NONE, FIND_ANY_ORDER, false)
+			end	
+			local unit = CreateUnitByName("greevil_green_dire_att", location, true, nil, nil, DOTA_TEAM_BADGUYS)
+		end
+		for i=0,8 do
+			local item1 = purchaseEntity:GetItemInSlot(i)
+			--DeepPrintTable(purchaseEntity)
+			if item1 ~= nil and item1:GetAbilityName() == "greevil_green_dire_att" then
+				purchaseEntity:RemoveItem(item1)
+			end
+			local item2 = purchaseEntity.greevil:GetItemInSlot(i)
+			--DeepPrintTable(purchaseEntity)
+			if item2 ~= nil and item2:GetAbilityName() == "greevil_green_dire_att" then
+				purchaseEntity.greevil:RemoveItem(item2)
+			end
+		end
+	elseif item_name == "item_yellow_egg_att" then
+		if PlayerResource:GetTeam(playerID) == 2 then
+			location = (Vector(5872, 5200, 304)) + (Vector(RandomInt(0, 1056),RandomInt(0, 944), 0))
+			FindUnits = FindUnitsInRadius(DOTA_TEAM_GOODGUYS, location, nil, 300, DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_NONE, FIND_ANY_ORDER, false)
+			x = 1
+			while FindUnits[1] ~= nil and x < 100 do 
+				x = x + 1
+				location = (Vector(5872, 5200, 304)) + (Vector(RandomInt(0, 1056),RandomInt(0, 944), 0))
+				FindUnits = FindUnitsInRadius(DOTA_TEAM_GOODGUYS, location, nil, 200, DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_NONE, FIND_ANY_ORDER, false)
+			end	
+			local unit = CreateUnitByName("greevil_yellow_rad_att", location, true, nil, nil, DOTA_TEAM_GOODGUYS)
+		else
+			location = (Vector(-6928, 5200, 304)) + (Vector(RandomInt(0, 1056),RandomInt(0, 944), 0))
+			FindUnits = FindUnitsInRadius(DOTA_TEAM_BADGUYS, location, nil, 300, DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_NONE, FIND_ANY_ORDER, false)
+			x = 1
+			while FindUnits[1] ~= nil and x < 100 do 
+				x = x + 1
+				location = (Vector(-6928, 5200, 304)) + (Vector(RandomInt(0, 1056),RandomInt(0, 944), 0))
+				FindUnits = FindUnitsInRadius(DOTA_TEAM_BADGUYS, location, nil, 200, DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_NONE, FIND_ANY_ORDER, false)
+			end	
+			local unit = CreateUnitByName("greevil_yellow_dire_att", location, true, nil, nil, DOTA_TEAM_BADGUYS)
+		end
+		for i=0,8 do
+			local item1 = purchaseEntity:GetItemInSlot(i)
+			--DeepPrintTable(purchaseEntity)
+			if item1 ~= nil and item1:GetAbilityName() == "greevil_yellow_dire_att" then
+				purchaseEntity:RemoveItem(item1)
+			end
+			local item2 = purchaseEntity.greevil:GetItemInSlot(i)
+			--DeepPrintTable(purchaseEntity)
+			if item2 ~= nil and item2:GetAbilityName() == "greevil_yellow_dire_att" then
+				purchaseEntity.greevil:RemoveItem(item2)
+			end
+		end
+	elseif item_name == "item_orange_egg_att" then
+		if PlayerResource:GetTeam(playerID) == 2 then
+			location = (Vector(5872, 5200, 304)) + (Vector(RandomInt(0, 1056),RandomInt(0, 944), 0))
+			FindUnits = FindUnitsInRadius(DOTA_TEAM_GOODGUYS, location, nil, 300, DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_NONE, FIND_ANY_ORDER, false)
+			x = 1
+			while FindUnits[1] ~= nil and x < 100 do 
+				x = x + 1
+				location = (Vector(5872, 5200, 304)) + (Vector(RandomInt(0, 1056),RandomInt(0, 944), 0))
+				FindUnits = FindUnitsInRadius(DOTA_TEAM_GOODGUYS, location, nil, 200, DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_NONE, FIND_ANY_ORDER, false)
+			end	
+			local unit = CreateUnitByName("greevil_orange_rad_att", location, true, nil, nil, DOTA_TEAM_GOODGUYS)
+		else
+			location = (Vector(-6928, 5200, 304)) + (Vector(RandomInt(0, 1056),RandomInt(0, 944), 0))
+			FindUnits = FindUnitsInRadius(DOTA_TEAM_BADGUYS, location, nil, 300, DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_NONE, FIND_ANY_ORDER, false)
+			x = 1
+			while FindUnits[1] ~= nil and x < 100 do 
+				x = x + 1
+				location = (Vector(-6928, 5200, 304)) + (Vector(RandomInt(0, 1056),RandomInt(0, 944), 0))
+				FindUnits = FindUnitsInRadius(DOTA_TEAM_BADGUYS, location, nil, 200, DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_NONE, FIND_ANY_ORDER, false)
+			end	
+			local unit = CreateUnitByName("greevil_orange_dire_att", location, true, nil, nil, DOTA_TEAM_BADGUYS)
+		end
+		for i=0,8 do
+			local item1 = purchaseEntity:GetItemInSlot(i)
+			--DeepPrintTable(purchaseEntity)
+			if item1 ~= nil and item1:GetAbilityName() == "greevil_orange_dire_att" then
+				purchaseEntity:RemoveItem(item1)
+			end
+			local item2 = purchaseEntity.greevil:GetItemInSlot(i)
+			--DeepPrintTable(purchaseEntity)
+			if item2 ~= nil and item2:GetAbilityName() == "greevil_orange_dire_att" then
+				purchaseEntity.greevil:RemoveItem(item2)
+			end
+		end
+	elseif item_name == "item_red_egg_att" then
+		if PlayerResource:GetTeam(playerID) == 2 then
+			location = (Vector(5872, 5200, 304)) + (Vector(RandomInt(0, 1056),RandomInt(0, 944), 0))
+			FindUnits = FindUnitsInRadius(DOTA_TEAM_GOODGUYS, location, nil, 300, DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_NONE, FIND_ANY_ORDER, false)
+			x = 1
+			while FindUnits[1] ~= nil and x < 100 do 
+				x = x + 1
+				location = (Vector(5872, 5200, 304)) + (Vector(RandomInt(0, 1056),RandomInt(0, 944), 0))
+				FindUnits = FindUnitsInRadius(DOTA_TEAM_GOODGUYS, location, nil, 200, DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_NONE, FIND_ANY_ORDER, false)
+			end	
+			local unit = CreateUnitByName("greevil_red_rad_att", location, true, nil, nil, DOTA_TEAM_GOODGUYS)
+		else
+			location = (Vector(-6928, 5200, 304)) + (Vector(RandomInt(0, 1056),RandomInt(0, 944), 0))
+			FindUnits = FindUnitsInRadius(DOTA_TEAM_BADGUYS, location, nil, 300, DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_NONE, FIND_ANY_ORDER, false)
+			x = 1
+			while FindUnits[1] ~= nil and x < 100 do 
+				x = x + 1
+				location = (Vector(-6928, 5200, 304)) + (Vector(RandomInt(0, 1056),RandomInt(0, 944), 0))
+				FindUnits = FindUnitsInRadius(DOTA_TEAM_BADGUYS, location, nil, 200, DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_NONE, FIND_ANY_ORDER, false)
+			end	
+			local unit = CreateUnitByName("greevil_red_dire_att", location, true, nil, nil, DOTA_TEAM_BADGUYS)
+		end
+		for i=0,8 do
+			local item1 = purchaseEntity:GetItemInSlot(i)
+			--DeepPrintTable(purchaseEntity)
+			if item1 ~= nil and item1:GetAbilityName() == "greevil_red_dire_att" then
+				purchaseEntity:RemoveItem(item1)
+			end
+			local item2 = purchaseEntity.greevil:GetItemInSlot(i)
+			--DeepPrintTable(purchaseEntity)
+			if item2 ~= nil and item2:GetAbilityName() == "greevil_red_dire_att" then
+				purchaseEntity.greevil:RemoveItem(item2)
+			end
+		end
+	elseif item_name == "item_purple_egg_att" then
+		if PlayerResource:GetTeam(playerID) == 2 then
+			location = (Vector(5872, 5200, 304)) + (Vector(RandomInt(0, 1056),RandomInt(0, 944), 0))
+			FindUnits = FindUnitsInRadius(DOTA_TEAM_GOODGUYS, location, nil, 300, DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_NONE, FIND_ANY_ORDER, false)
+			x = 1
+			while FindUnits[1] ~= nil and x < 100 do 
+				x = x + 1
+				location = (Vector(5872, 5200, 304)) + (Vector(RandomInt(0, 1056),RandomInt(0, 944), 0))
+				FindUnits = FindUnitsInRadius(DOTA_TEAM_GOODGUYS, location, nil, 200, DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_NONE, FIND_ANY_ORDER, false)
+			end	
+			local unit = CreateUnitByName("greevil_purple_rad_att", location, true, nil, nil, DOTA_TEAM_GOODGUYS)
+		else
+			location = (Vector(-6928, 5200, 304)) + (Vector(RandomInt(0, 1056),RandomInt(0, 944), 0))
+			FindUnits = FindUnitsInRadius(DOTA_TEAM_BADGUYS, location, nil, 300, DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_NONE, FIND_ANY_ORDER, false)
+			x = 1
+			while FindUnits[1] ~= nil and x < 100 do 
+				x = x + 1
+				location = (Vector(-6928, 5200, 304)) + (Vector(RandomInt(0, 1056),RandomInt(0, 944), 0))
+				FindUnits = FindUnitsInRadius(DOTA_TEAM_BADGUYS, location, nil, 200, DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_NONE, FIND_ANY_ORDER, false)
+			end	
+			local unit = CreateUnitByName("greevil_purple_dire_att", location, true, nil, nil, DOTA_TEAM_BADGUYS)
+		end
+		for i=0,8 do
+			local item1 = purchaseEntity:GetItemInSlot(i)
+			--DeepPrintTable(purchaseEntity)
+			if item1 ~= nil and item1:GetAbilityName() == "greevil_purple_dire_att" then
+				purchaseEntity:RemoveItem(item1)
+			end
+			local item2 = purchaseEntity.greevil:GetItemInSlot(i)
+			--DeepPrintTable(purchaseEntity)
+			if item2 ~= nil and item2:GetAbilityName() == "greevil_purple_dire_att" then
+				purchaseEntity.greevil:RemoveItem(item2)
+			end
+		end
+	elseif item_name == "item_black_egg_att" then
+		if PlayerResource:GetTeam(playerID) == 2 then
+			location = (Vector(5872, 5200, 304)) + (Vector(RandomInt(0, 1056),RandomInt(0, 944), 0))
+			FindUnits = FindUnitsInRadius(DOTA_TEAM_GOODGUYS, location, nil, 300, DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_NONE, FIND_ANY_ORDER, false)
+			x = 1
+			while FindUnits[1] ~= nil and x < 100 do 
+				x = x + 1
+				location = (Vector(5872, 5200, 304)) + (Vector(RandomInt(0, 1056),RandomInt(0, 944), 0))
+				FindUnits = FindUnitsInRadius(DOTA_TEAM_GOODGUYS, location, nil, 200, DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_NONE, FIND_ANY_ORDER, false)
+			end	
+			local unit = CreateUnitByName("greevil_black_rad_att", location, true, nil, nil, DOTA_TEAM_GOODGUYS)
+		else
+			location = (Vector(-6928, 5200, 304)) + (Vector(RandomInt(0, 1056),RandomInt(0, 944), 0))
+			FindUnits = FindUnitsInRadius(DOTA_TEAM_BADGUYS, location, nil, 300, DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_NONE, FIND_ANY_ORDER, false)
+			x = 1
+			while FindUnits[1] ~= nil and x < 100 do 
+				x = x + 1
+				location = (Vector(-6928, 5200, 304)) + (Vector(RandomInt(0, 1056),RandomInt(0, 944), 0))
+				FindUnits = FindUnitsInRadius(DOTA_TEAM_BADGUYS, location, nil, 200, DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_NONE, FIND_ANY_ORDER, false)
+			end	
+			local unit = CreateUnitByName("greevil_black_dire_att", location, true, nil, nil, DOTA_TEAM_BADGUYS)
+		end
+		for i=0,8 do
+			local item1 = purchaseEntity:GetItemInSlot(i)
+			--DeepPrintTable(purchaseEntity)
+			if item1 ~= nil and item1:GetAbilityName() == "greevil_black_dire_att" then
+				purchaseEntity:RemoveItem(item1)
+			end
+			local item2 = purchaseEntity.greevil:GetItemInSlot(i)
+			--DeepPrintTable(purchaseEntity)
+			if item2 ~= nil and item2:GetAbilityName() == "greevil_black_dire_att" then
+				purchaseEntity.greevil:RemoveItem(item2)
+			end
+		end
+	elseif item_name == "item_white_egg_att" then
+		if PlayerResource:GetTeam(playerID) == 2 then
+			location = (Vector(5872, 5200, 304)) + (Vector(RandomInt(0, 1056),RandomInt(0, 944), 0))
+			FindUnits = FindUnitsInRadius(DOTA_TEAM_GOODGUYS, location, nil, 300, DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_NONE, FIND_ANY_ORDER, false)
+			x = 1
+			while FindUnits[1] ~= nil and x < 100 do 
+				x = x + 1
+				location = (Vector(5872, 5200, 304)) + (Vector(RandomInt(0, 1056),RandomInt(0, 944), 0))
+				FindUnits = FindUnitsInRadius(DOTA_TEAM_GOODGUYS, location, nil, 200, DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_NONE, FIND_ANY_ORDER, false)
+			end	
+			local unit = CreateUnitByName("greevil_white_rad_att", location, true, nil, nil, DOTA_TEAM_GOODGUYS)
+		else
+			location = (Vector(-6928, 5200, 304)) + (Vector(RandomInt(0, 1056),RandomInt(0, 944), 0))
+			FindUnits = FindUnitsInRadius(DOTA_TEAM_BADGUYS, location, nil, 300, DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_NONE, FIND_ANY_ORDER, false)
+			x = 1
+			while FindUnits[1] ~= nil and x < 100 do 
+				x = x + 1
+				location = (Vector(-6928, 5200, 304)) + (Vector(RandomInt(0, 1056),RandomInt(0, 944), 0))
+				FindUnits = FindUnitsInRadius(DOTA_TEAM_BADGUYS, location, nil, 200, DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_NONE, FIND_ANY_ORDER, false)
+			end	
+			local unit = CreateUnitByName("greevil_white_dire_att", location, true, nil, nil, DOTA_TEAM_BADGUYS)
+		end
+		for i=0,8 do
+			local item1 = purchaseEntity:GetItemInSlot(i)
+			--DeepPrintTable(purchaseEntity)
+			if item1 ~= nil and item1:GetAbilityName() == "greevil_white_dire_att" then
+				purchaseEntity:RemoveItem(item1)
+			end
+			local item2 = purchaseEntity.greevil:GetItemInSlot(i)
+			--DeepPrintTable(purchaseEntity)
+			if item2 ~= nil and item2:GetAbilityName() == "greevil_white_dire_att" then
+				purchaseEntity.greevil:RemoveItem(item2)
+			end
+		end
+	elseif item_name == "item_blue_egg_def" then
+		if PlayerResource:GetTeam(playerID) == 2 then
+			location = (Vector(-6928, -2896, 304)) + (Vector(RandomInt(0,1056),RandomInt(0,944), 0))
+			FindUnits = FindUnitsInRadius(DOTA_TEAM_GOODGUYS, location, nil, 300, DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_NONE, FIND_ANY_ORDER, false)
+			x = 1
+			while FindUnits[1] ~= nil and x < 100 do 
+				x = x + 1
+				location = (Vector(-6928, -2896, 304)) + (Vector(RandomInt(0,1056),RandomInt(0,944), 0))
+				FindUnits = FindUnitsInRadius(DOTA_TEAM_GOODGUYS, location, nil, 200, DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_NONE, FIND_ANY_ORDER, false)
+			end	
+			local unit = CreateUnitByName("greevil_blue_rad_def", location, true, nil, nil, DOTA_TEAM_GOODGUYS)
+		else
+			location = (Vector(5872, -2896, 304)) + (Vector(RandomInt(0,1056),RandomInt(0,944), 0))
+			FindUnits = FindUnitsInRadius(DOTA_TEAM_BADGUYS, location, nil, 300, DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_NONE, FIND_ANY_ORDER, false)
+			x = 1
+			while FindUnits[1] ~= nil and x < 100 do 
+				x = x + 1
+				location = (Vector(5872, -2896, 304)) + (Vector(RandomInt(0,1056),RandomInt(0,944), 0))
+				FindUnits = FindUnitsInRadius(DOTA_TEAM_BADGUYS, location, nil, 200, DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_NONE, FIND_ANY_ORDER, false)
+			end	
+			local unit = CreateUnitByName("greevil_blue_dire_def", location, true, nil, nil, DOTA_TEAM_BADGUYS)
+		end
+		for i=0,8 do
+			local item1 = purchaseEntity:GetItemInSlot(i)
+			--DeepPrintTable(purchaseEntity)
+			if item1 ~= nil and item1:GetAbilityName() == "greevil_blue_dire_def" then
+				purchaseEntity:RemoveItem(item1)
+			end
+			local item2 = purchaseEntity.greevil:GetItemInSlot(i)
+			--DeepPrintTable(purchaseEntity)
+			if item2 ~= nil and item2:GetAbilityName() == "greevil_blue_dire_def" then
+				purchaseEntity.greevil:RemoveItem(item2)
+			end
+		end
+	elseif item_name == "item_green_egg_def" then
+		if PlayerResource:GetTeam(playerID) == 2 then
+			location = (Vector(-6928, -2896, 304)) + (Vector(RandomInt(0, 1056),RandomInt(0, 944), 0))
+			FindUnits = FindUnitsInRadius(DOTA_TEAM_GOODGUYS, location, nil, 300, DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_NONE, FIND_ANY_ORDER, false)
+			x = 1
+			while FindUnits[1] ~= nil and x < 100 do 
+				x = x + 1
+				location = (Vector(-6928, -2896, 304)) + (Vector(RandomInt(0, 1056),RandomInt(0, 944), 0))
+				FindUnits = FindUnitsInRadius(DOTA_TEAM_GOODGUYS, location, nil, 200, DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_NONE, FIND_ANY_ORDER, false)
+			end	
+			local unit = CreateUnitByName("greevil_green_rad_def", location, true, nil, nil, DOTA_TEAM_GOODGUYS)
+		else
+			location = (Vector(5872, -2896, 304)) + (Vector(RandomInt(0, 1056),RandomInt(0, 944), 0))
+			FindUnits = FindUnitsInRadius(DOTA_TEAM_BADGUYS, location, nil, 300, DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_NONE, FIND_ANY_ORDER, false)
+			x = 1
+			while FindUnits[1] ~= nil and x < 100 do 
+				x = x + 1
+				location = (Vector(5872, -2896, 304)) + (Vector(RandomInt(0, 1056),RandomInt(0, 944), 0))
+				FindUnits = FindUnitsInRadius(DOTA_TEAM_BADGUYS, location, nil, 200, DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_NONE, FIND_ANY_ORDER, false)
+			end	
+			local unit = CreateUnitByName("greevil_green_dire_def", location, true, nil, nil, DOTA_TEAM_BADGUYS)
+		end
+		for i=0,8 do
+			local item1 = purchaseEntity:GetItemInSlot(i)
+			--DeepPrintTable(purchaseEntity)
+			if item1 ~= nil and item1:GetAbilityName() == "greevil_green_dire_def" then
+				purchaseEntity:RemoveItem(item1)
+			end
+			local item2 = purchaseEntity.greevil:GetItemInSlot(i)
+			--DeepPrintTable(purchaseEntity)
+			if item2 ~= nil and item2:GetAbilityName() == "greevil_green_dire_def" then
+				purchaseEntity.greevil:RemoveItem(item2)
+			end
+		end
+	elseif item_name == "item_yellow_egg_def" then
+		if PlayerResource:GetTeam(playerID) == 2 then
+			location = (Vector(-6928, -2896, 304)) + (Vector(RandomInt(0, 1056),RandomInt(0, 944), 0))
+			FindUnits = FindUnitsInRadius(DOTA_TEAM_GOODGUYS, location, nil, 300, DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_NONE, FIND_ANY_ORDER, false)
+			x = 1
+			while FindUnits[1] ~= nil and x < 100 do 
+				x = x + 1
+				location = (Vector(-6928, -2896, 304)) + (Vector(RandomInt(0, 1056),RandomInt(0, 944), 0))
+				FindUnits = FindUnitsInRadius(DOTA_TEAM_GOODGUYS, location, nil, 200, DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_NONE, FIND_ANY_ORDER, false)
+			end	
+			local unit = CreateUnitByName("greevil_yellow_rad_def", location, true, nil, nil, DOTA_TEAM_GOODGUYS)
+		else
+			location = (Vector(5872, -2896, 304)) + (Vector(RandomInt(0, 1056),RandomInt(0, 944), 0))
+			FindUnits = FindUnitsInRadius(DOTA_TEAM_BADGUYS, location, nil, 300, DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_NONE, FIND_ANY_ORDER, false)
+			x = 1
+			while FindUnits[1] ~= nil and x < 100 do 
+				x = x + 1
+				location = (Vector(5872, -2896, 304)) + (Vector(RandomInt(0, 1056),RandomInt(0, 944), 0))
+				FindUnits = FindUnitsInRadius(DOTA_TEAM_BADGUYS, location, nil, 200, DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_NONE, FIND_ANY_ORDER, false)
+			end	
+			local unit = CreateUnitByName("greevil_yellow_dire_def", location, true, nil, nil, DOTA_TEAM_BADGUYS)
+		end
+		for i=0,8 do
+			local item1 = purchaseEntity:GetItemInSlot(i)
+			--DeepPrintTable(purchaseEntity)
+			if item1 ~= nil and item1:GetAbilityName() == "greevil_yellow_dire_def" then
+				purchaseEntity:RemoveItem(item1)
+			end
+			local item2 = purchaseEntity.greevil:GetItemInSlot(i)
+			--DeepPrintTable(purchaseEntity)
+			if item2 ~= nil and item2:GetAbilityName() == "greevil_yellow_dire_def" then
+				purchaseEntity.greevil:RemoveItem(item2)
+			end
+		end
+	elseif item_name == "item_orange_egg_def" then
+		if PlayerResource:GetTeam(playerID) == 2 then
+			location = (Vector(-6928, -2896, 304)) + (Vector(RandomInt(0, 1056),RandomInt(0, 944), 0))
+			FindUnits = FindUnitsInRadius(DOTA_TEAM_GOODGUYS, location, nil, 300, DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_NONE, FIND_ANY_ORDER, false)
+			x = 1
+			while FindUnits[1] ~= nil and x < 100 do 
+				x = x + 1
+				location = (Vector(-6928, -2896, 304)) + (Vector(RandomInt(0, 1056),RandomInt(0, 944), 0))
+				FindUnits = FindUnitsInRadius(DOTA_TEAM_GOODGUYS, location, nil, 200, DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_NONE, FIND_ANY_ORDER, false)
+			end	
+			local unit = CreateUnitByName("greevil_orange_rad_def", location, true, nil, nil, DOTA_TEAM_GOODGUYS)
+		else
+			location = (Vector(5872, -2896, 304)) + (Vector(RandomInt(0, 1056),RandomInt(0, 944), 0))
+			FindUnits = FindUnitsInRadius(DOTA_TEAM_BADGUYS, location, nil, 300, DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_NONE, FIND_ANY_ORDER, false)
+			x = 1
+			while FindUnits[1] ~= nil and x < 100 do 
+				x = x + 1
+				location = (Vector(5872, -2896, 304)) + (Vector(RandomInt(0, 1056),RandomInt(0, 944), 0))
+				FindUnits = FindUnitsInRadius(DOTA_TEAM_BADGUYS, location, nil, 200, DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_NONE, FIND_ANY_ORDER, false)
+			end	
+			local unit = CreateUnitByName("greevil_orange_dire_def", location, true, nil, nil, DOTA_TEAM_BADGUYS)
+		end
+		for i=0,8 do
+			local item1 = purchaseEntity:GetItemInSlot(i)
+			--DeepPrintTable(purchaseEntity)
+			if item1 ~= nil and item1:GetAbilityName() == "greevil_orange_dire_def" then
+				purchaseEntity:RemoveItem(item1)
+			end
+			local item2 = purchaseEntity.greevil:GetItemInSlot(i)
+			--DeepPrintTable(purchaseEntity)
+			if item2 ~= nil and item2:GetAbilityName() == "greevil_orange_dire_def" then
+				purchaseEntity.greevil:RemoveItem(item2)
+			end
+		end
+	elseif item_name == "item_red_egg_def" then
+		if PlayerResource:GetTeam(playerID) == 2 then
+			location = (Vector(-6928, -2896, 304)) + (Vector(RandomInt(0, 1056),RandomInt(0, 944), 0))
+			FindUnits = FindUnitsInRadius(DOTA_TEAM_GOODGUYS, location, nil, 300, DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_NONE, FIND_ANY_ORDER, false)
+			x = 1
+			while FindUnits[1] ~= nil and x < 100 do 
+				x = x + 1
+				location = (Vector(-6928, -2896, 304)) + (Vector(RandomInt(0, 1056),RandomInt(0, 944), 0))
+				FindUnits = FindUnitsInRadius(DOTA_TEAM_GOODGUYS, location, nil, 200, DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_NONE, FIND_ANY_ORDER, false)
+			end	
+			local unit = CreateUnitByName("greevil_red_rad_def", location, true, nil, nil, DOTA_TEAM_GOODGUYS)
+		else
+			location = (Vector(5872, -2896, 304)) + (Vector(RandomInt(0, 1056),RandomInt(0, 944), 0))
+			FindUnits = FindUnitsInRadius(DOTA_TEAM_BADGUYS, location, nil, 300, DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_NONE, FIND_ANY_ORDER, false)
+			x = 1
+			while FindUnits[1] ~= nil and x < 100 do 
+				x = x + 1
+				location = (Vector(5872, -2896, 304)) + (Vector(RandomInt(0, 1056),RandomInt(0, 944), 0))
+				FindUnits = FindUnitsInRadius(DOTA_TEAM_BADGUYS, location, nil, 200, DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_NONE, FIND_ANY_ORDER, false)
+			end	
+			local unit = CreateUnitByName("greevil_red_dire_def", location, true, nil, nil, DOTA_TEAM_BADGUYS)
+		end
+		for i=0,8 do
+			local item1 = purchaseEntity:GetItemInSlot(i)
+			--DeepPrintTable(purchaseEntity)
+			if item1 ~= nil and item1:GetAbilityName() == "greevil_red_dire_def" then
+				purchaseEntity:RemoveItem(item1)
+			end
+			local item2 = purchaseEntity.greevil:GetItemInSlot(i)
+			--DeepPrintTable(purchaseEntity)
+			if item2 ~= nil and item2:GetAbilityName() == "greevil_red_dire_def" then
+				purchaseEntity.greevil:RemoveItem(item2)
+			end
+		end
+	elseif item_name == "item_purple_egg_def" then
+		if PlayerResource:GetTeam(playerID) == 2 then
+			location = (Vector(-6928, -2896, 304)) + (Vector(RandomInt(0, 1056),RandomInt(0, 944), 0))
+			FindUnits = FindUnitsInRadius(DOTA_TEAM_GOODGUYS, location, nil, 300, DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_NONE, FIND_ANY_ORDER, false)
+			x = 1
+			while FindUnits[1] ~= nil and x < 100 do 
+				x = x + 1
+				location = (Vector(-6928, -2896, 304)) + (Vector(RandomInt(0, 1056),RandomInt(0, 944), 0))
+				FindUnits = FindUnitsInRadius(DOTA_TEAM_GOODGUYS, location, nil, 200, DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_NONE, FIND_ANY_ORDER, false)
+			end	
+			local unit = CreateUnitByName("greevil_purple_rad_def", location, true, nil, nil, DOTA_TEAM_GOODGUYS)
+		else
+			location = (Vector(5872, -2896, 304)) + (Vector(RandomInt(0, 1056),RandomInt(0, 944), 0))
+			FindUnits = FindUnitsInRadius(DOTA_TEAM_BADGUYS, location, nil, 300, DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_NONE, FIND_ANY_ORDER, false)
+			x = 1
+			while FindUnits[1] ~= nil and x < 100 do 
+				x = x + 1
+				location = (Vector(5872, -2896, 304)) + (Vector(RandomInt(0, 1056),RandomInt(0, 944), 0))
+				FindUnits = FindUnitsInRadius(DOTA_TEAM_BADGUYS, location, nil, 200, DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_NONE, FIND_ANY_ORDER, false)
+			end	
+			local unit = CreateUnitByName("greevil_purple_dire_def", location, true, nil, nil, DOTA_TEAM_BADGUYS)
+		end
+		for i=0,8 do
+			local item1 = purchaseEntity:GetItemInSlot(i)
+			--DeepPrintTable(purchaseEntity)
+			if item1 ~= nil and item1:GetAbilityName() == "greevil_purple_dire_def" then
+				purchaseEntity:RemoveItem(item1)
+			end
+			local item2 = purchaseEntity.greevil:GetItemInSlot(i)
+			--DeepPrintTable(purchaseEntity)
+			if item2 ~= nil and item2:GetAbilityName() == "greevil_purple_dire_def" then
+				purchaseEntity.greevil:RemoveItem(item2)
+			end
+		end
+	elseif item_name == "item_black_egg_def" then
+		if PlayerResource:GetTeam(playerID) == 2 then
+			location = (Vector(-6928, -2896, 304)) + (Vector(RandomInt(0, 1056),RandomInt(0, 944), 0))
+			FindUnits = FindUnitsInRadius(DOTA_TEAM_GOODGUYS, location, nil, 300, DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_NONE, FIND_ANY_ORDER, false)
+			x = 1
+			while FindUnits[1] ~= nil and x < 100 do 
+				x = x + 1
+				location = (Vector(-6928, -2896, 304)) + (Vector(RandomInt(0, 1056),RandomInt(0, 944), 0))
+				FindUnits = FindUnitsInRadius(DOTA_TEAM_GOODGUYS, location, nil, 200, DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_NONE, FIND_ANY_ORDER, false)
+			end	
+			local unit = CreateUnitByName("greevil_black_rad_def", location, true, nil, nil, DOTA_TEAM_GOODGUYS)
+		else
+			location = (Vector(5872, -2896, 304)) + (Vector(RandomInt(0, 1056),RandomInt(0, 944), 0))
+			FindUnits = FindUnitsInRadius(DOTA_TEAM_BADGUYS, location, nil, 300, DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_NONE, FIND_ANY_ORDER, false)
+			x = 1
+			while FindUnits[1] ~= nil and x < 100 do 
+				x = x + 1
+				location = (Vector(5872, -2896, 304)) + (Vector(RandomInt(0, 1056),RandomInt(0, 944), 0))
+				FindUnits = FindUnitsInRadius(DOTA_TEAM_BADGUYS, location, nil, 200, DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_NONE, FIND_ANY_ORDER, false)
+			end	
+			local unit = CreateUnitByName("greevil_black_dire_def", location, true, nil, nil, DOTA_TEAM_BADGUYS)
+		end
+		for i=0,8 do
+			local item1 = purchaseEntity:GetItemInSlot(i)
+			--DeepPrintTable(purchaseEntity)
+			if item1 ~= nil and item1:GetAbilityName() == "greevil_black_dire_def" then
+				purchaseEntity:RemoveItem(item1)
+			end
+			local item2 = purchaseEntity.greevil:GetItemInSlot(i)
+			--DeepPrintTable(purchaseEntity)
+			if item2 ~= nil and item2:GetAbilityName() == "greevil_black_dire_def" then
+				purchaseEntity.greevil:RemoveItem(item2)
+			end
+		end
+	elseif item_name == "item_white_egg_def" then
+		if PlayerResource:GetTeam(playerID) == 2 then
+			location = (Vector(-6928, -2896, 304)) + (Vector(RandomInt(0, 1056),RandomInt(0, 944), 0))
+			FindUnits = FindUnitsInRadius(DOTA_TEAM_GOODGUYS, location, nil, 300, DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_NONE, FIND_ANY_ORDER, false)
+			x = 1
+			while FindUnits[1] ~= nil and x < 100 do 
+				x = x + 1
+				location = (Vector(-6928, -2896, 304)) + (Vector(RandomInt(0, 1056),RandomInt(0, 944), 0))
+				FindUnits = FindUnitsInRadius(DOTA_TEAM_GOODGUYS, location, nil, 200, DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_NONE, FIND_ANY_ORDER, false)
+			end	
+			local unit = CreateUnitByName("greevil_white_rad_def", location, true, nil, nil, DOTA_TEAM_GOODGUYS)
+		else
+			location = (Vector(5872, -2896, 304)) + (Vector(RandomInt(0, 1056),RandomInt(0, 944), 0))
+			FindUnits = FindUnitsInRadius(DOTA_TEAM_BADGUYS, location, nil, 300, DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_NONE, FIND_ANY_ORDER, false)
+			x = 1
+			while FindUnits[1] ~= nil and x < 100 do 
+				x = x + 1
+				location = (Vector(5872, -2896, 304)) + (Vector(RandomInt(0, 1056),RandomInt(0, 944), 0))
+				FindUnits = FindUnitsInRadius(DOTA_TEAM_BADGUYS, location, nil, 200, DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_NONE, FIND_ANY_ORDER, false)
+			end	
+			local unit = CreateUnitByName("greevil_white_dire_def", location, true, nil, nil, DOTA_TEAM_BADGUYS)
+		end
+		for i=0,8 do
+			local item1 = purchaseEntity:GetItemInSlot(i)
+			--DeepPrintTable(purchaseEntity)
+			if item1 ~= nil and item1:GetAbilityName() == "greevil_white_dire_def" then
+				purchaseEntity:RemoveItem(item1)
+			end
+			local item2 = purchaseEntity.greevil:GetItemInSlot(i)
+			--DeepPrintTable(purchaseEntity)
+			if item2 ~= nil and item2:GetAbilityName() == "greevil_white_dire_def" then
+				purchaseEntity.greevil:RemoveItem(item2)
+			end
+		end
+	elseif item_name == "item_sendboss" then
+		local team = purchaseEntity:GetTeam()
+		for i=0,8 do
+			local item = purchaseEntity:GetItemInSlot(i)
+			if item ~= nil and item:GetAbilityName() == "item_sendboss" then
+				purchaseEntity:RemoveItem(item)
+			elseif item ~= nil and item:GetAbilityName() == "item_bosstoken_red" then
+				purchaseEntity:RemoveItem(item)
+				if team == DOTA_TEAM_GOODGUYS then
+					location = (Vector(5872, 3500, 304)) + (Vector(RandomInt(0, 1056),RandomInt(0, 944), 0))
+				elseif team == DOTA_TEAM_BADGUYS then
+					location = (Vector(-6928, 3500, 304)) + (Vector(RandomInt(0, 1056),RandomInt(0, 944), 0))
+				end
+				local unit = CreateUnitByName("greevil_red_boss_att", location, true, nil, nil, team)
+				print("item_bosstoken_red_removed")
+			elseif item ~= nil and item:GetAbilityName() == "item_bosstoken_orange" then
+				purchaseEntity:RemoveItem(item)
+				if team == DOTA_TEAM_GOODGUYS then
+					location = (Vector(5872, 3500, 304)) + (Vector(RandomInt(0, 1056),RandomInt(0, 944), 0))
+				elseif team == DOTA_TEAM_BADGUYS then
+					location = (Vector(-6928, 3500, 304)) + (Vector(RandomInt(0, 1056),RandomInt(0, 944), 0))
+				end
+				local unit = CreateUnitByName("greevil_orange_boss_att", location, true, nil, nil, team)
+				print("item_bosstoken_orange_removed")
+			elseif item ~= nil and item:GetAbilityName() == "item_bosstoken_yellow" then
+				purchaseEntity:RemoveItem(item)
+				if team == DOTA_TEAM_GOODGUYS then
+					location = (Vector(5872, 3500, 304)) + (Vector(RandomInt(0, 1056),RandomInt(0, 944), 0))
+				elseif team == DOTA_TEAM_BADGUYS then
+					location = (Vector(-6928, 3500, 304)) + (Vector(RandomInt(0, 1056),RandomInt(0, 944), 0))
+				end
+				local unit = CreateUnitByName("greevil_yellow_boss_att", location, true, nil, nil, team)
+				print("item_bosstoken_yellow_removed")
+			elseif item ~= nil and item:GetAbilityName() == "item_bosstoken_green" then
+				purchaseEntity:RemoveItem(item)
+				if team == DOTA_TEAM_GOODGUYS then
+					location = (Vector(5872, 3500, 304)) + (Vector(RandomInt(0, 1056),RandomInt(0, 944), 0))
+				elseif team == DOTA_TEAM_BADGUYS then
+					location = (Vector(-6928, 3500, 304)) + (Vector(RandomInt(0, 1056),RandomInt(0, 944), 0))
+				end
+				local unit = CreateUnitByName("greevil_green_boss_att", location, true, nil, nil, team)
+				print("item_bosstoken_green_removed")
+			elseif item ~= nil and item:GetAbilityName() == "item_bosstoken_blue" then
+				purchaseEntity:RemoveItem(item)
+				if team == DOTA_TEAM_GOODGUYS then
+					location = (Vector(5872, 3500, 304)) + (Vector(RandomInt(0, 1056),RandomInt(0, 944), 0))
+				elseif team == DOTA_TEAM_BADGUYS then
+					location = (Vector(-6928, 3500, 304)) + (Vector(RandomInt(0, 1056),RandomInt(0, 944), 0))
+				end
+				local unit = CreateUnitByName("greevil_blue_boss_att", location, true, nil, nil, team)
+				print("item_bosstoken_blue_removed")
+			elseif item ~= nil and item:GetAbilityName() == "item_bosstoken_purple" then
+				purchaseEntity:RemoveItem(item)
+				if team == DOTA_TEAM_GOODGUYS then
+					location = (Vector(5872, 3500, 304)) + (Vector(RandomInt(0, 1056),RandomInt(0, 944), 0))
+				elseif team == DOTA_TEAM_BADGUYS then
+					location = (Vector(-6928, 3500, 304)) + (Vector(RandomInt(0, 1056),RandomInt(0, 944), 0))
+				end
+				local unit = CreateUnitByName("greevil_purple_boss_att", location, true, nil, nil, team)
+				print("item_bosstoken_purple_removed")
+			elseif item ~= nil and item:GetAbilityName() == "item_bosstoken_white" then
+				purchaseEntity:RemoveItem(item)
+				if team == DOTA_TEAM_GOODGUYS then
+					location = (Vector(5872, 3500, 304)) + (Vector(RandomInt(0, 1056),RandomInt(0, 944), 0))
+				elseif team == DOTA_TEAM_BADGUYS then
+					location = (Vector(-6928, 3500, 304)) + (Vector(RandomInt(0, 1056),RandomInt(0, 944), 0))
+				end
+				local unit = CreateUnitByName("greevil_white_boss_att", location, true, nil, nil, team)
+				print("item_bosstoken_white_removed")
+			elseif item ~= nil and item:GetAbilityName() == "item_bosstoken_black" then
+				purchaseEntity:RemoveItem(item)
+				if team == DOTA_TEAM_GOODGUYS then
+					location = (Vector(5872, 3500, 304)) + (Vector(RandomInt(0, 1056),RandomInt(0, 944), 0))
+				elseif team == DOTA_TEAM_BADGUYS then
+					location = (Vector(-6928, 3500, 304)) + (Vector(RandomInt(0, 1056),RandomInt(0, 944), 0))
+				end
+				local unit = CreateUnitByName("greevil_black_boss_att", location, true, nil, nil, team)
+				print("item_bosstoken_black_removed")
+			end
+		end
+	end
 end
 
 -- An ability was used by a player
 function GameMode:OnAbilityUsed(keys)
-	print('[BAREBONES] AbilityUsed')
-	DeepPrintTable(keys)
+	--DeepPrintTable(keys)
 
 	local player = EntIndexToHScript(keys.PlayerID)
 	local abilityname = keys.abilityname
@@ -431,16 +1038,14 @@ end
 
 -- A non-player entity (necro-book, chen creep, etc) used an ability
 function GameMode:OnNonPlayerUsedAbility(keys)
-	print('[BAREBONES] OnNonPlayerUsedAbility')
-	DeepPrintTable(keys)
+	--DeepPrintTable(keys)
 
 	local abilityname=  keys.abilityname
 end
 
 -- A player changed their name
 function GameMode:OnPlayerChangedName(keys)
-	print('[BAREBONES] OnPlayerChangedName')
-	DeepPrintTable(keys)
+	--DeepPrintTable(keys)
 
 	local newName = keys.newname
 	local oldName = keys.oldName
@@ -448,8 +1053,7 @@ end
 
 -- A player leveled up an ability
 function GameMode:OnPlayerLearnedAbility( keys)
-	print ('[BAREBONES] OnPlayerLearnedAbility')
-	DeepPrintTable(keys)
+	--DeepPrintTable(keys)
 
 	local player = EntIndexToHScript(keys.player)
 	local abilityname = keys.abilityname
@@ -457,8 +1061,7 @@ end
 
 -- A channelled ability finished by either completing or being interrupted
 function GameMode:OnAbilityChannelFinished(keys)
-	print ('[BAREBONES] OnAbilityChannelFinished')
-	DeepPrintTable(keys)
+	--DeepPrintTable(keys)
 
 	local abilityname = keys.abilityname
 	local interrupted = keys.interrupted == 1
@@ -466,8 +1069,7 @@ end
 
 -- A player leveled up
 function GameMode:OnPlayerLevelUp(keys)
-	print ('[BAREBONES] OnPlayerLevelUp')
-	DeepPrintTable(keys)
+	--DeepPrintTable(keys)
 
 	local player = EntIndexToHScript(keys.player)
 	local level = keys.level
@@ -475,8 +1077,7 @@ end
 
 -- A player last hit a creep, a tower, or a hero
 function GameMode:OnLastHit(keys)
-	print ('[BAREBONES] OnLastHit')
-	DeepPrintTable(keys)
+	--DeepPrintTable(keys)
 
 	local isFirstBlood = keys.FirstBlood == 1
 	local isHeroKill = keys.HeroKill == 1
@@ -486,8 +1087,7 @@ end
 
 -- A tree was cut down by tango, quelling blade, etc
 function GameMode:OnTreeCut(keys)
-	print ('[BAREBONES] OnTreeCut')
-	DeepPrintTable(keys)
+	--DeepPrintTable(keys)
 
 	local treeX = keys.tree_x
 	local treeY = keys.tree_y
@@ -495,8 +1095,7 @@ end
 
 -- A rune was activated by a player
 function GameMode:OnRuneActivated (keys)
-	print ('[BAREBONES] OnRuneActivated')
-	DeepPrintTable(keys)
+	--DeepPrintTable(keys)
 
 	local player = PlayerResource:GetPlayer(keys.PlayerID)
 	local rune = keys.rune
@@ -505,8 +1104,7 @@ end
 
 -- A player took damage from a tower
 function GameMode:OnPlayerTakeTowerDamage(keys)
-	print ('[BAREBONES] OnPlayerTakeTowerDamage')
-	DeepPrintTable(keys)
+	--DeepPrintTable(keys)
 
 	local player = PlayerResource:GetPlayer(keys.PlayerID)
 	local damage = keys.damage
@@ -514,8 +1112,7 @@ end
 
 -- A player picked a hero
 function GameMode:OnPlayerPickHero(keys)
-	print ('[BAREBONES] OnPlayerPickHero')
-	DeepPrintTable(keys)
+	--DeepPrintTable(keys)
 
 	local heroClass = keys.hero
 	local heroEntity = EntIndexToHScript(keys.heroindex)
@@ -524,8 +1121,7 @@ end
 
 -- A player killed another player in a multi-team context
 function GameMode:OnTeamKillCredit(keys)
-	print ('[BAREBONES] OnTeamKillCredit')
-	DeepPrintTable(keys)
+	--DeepPrintTable(keys)
 
 	local killerPlayer = PlayerResource:GetPlayer(keys.killer_userid)
 	local victimPlayer = PlayerResource:GetPlayer(keys.victim_userid)
@@ -535,8 +1131,7 @@ end
 
 -- An entity died
 function GameMode:OnEntityKilled( keys )
-	print( '[BAREBONES] OnEntityKilled Called' )
-	DeepPrintTable( keys )
+	--DeepPrintTable( keys )
 
 	-- The Unit that was Killed
 	local killedUnit = EntIndexToHScript( keys.entindex_killed )

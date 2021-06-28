@@ -1,0 +1,15 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\content\\greevil_defence",
+    "\\game",
+    "\\game\\greevil_defence",
+    "\\game\\greevil_defence\\scripts",
+    "\\game\\greevil_defence\\scripts\\npc",
+    "\\game\\greevil_defence\\scripts\\vscripts",
+    "\\game\\greevil_defence\\scripts\\vscripts\\modifiers",
+    "\\game\\greevil_defence\\scripts\\vscripts\\modifiers\\transformation"
+  ],
+  "SelectedNode": "\\game\\greevil_defence\\scripts\\vscripts\\modifiers\\transformation\\trans_orange.lua",
+  "PreviewInSolutionExplorer": false
+}

@@ -72,7 +72,7 @@
 		// Movement
 		//----------------------------------------------------------------
 		"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_GROUND"			
-		"MovementSpeed"				"300"								
+		"MovementSpeed"				"150"								
 		"MovementTurnRate"			"0.5"								
 
 		// Status
@@ -134,7 +134,7 @@
 		// Movement
 		//----------------------------------------------------------------
 		"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_GROUND"			
-		"MovementSpeed"				"300"								
+		"MovementSpeed"				"150"								
 		"MovementTurnRate"			"0.5"								
 
 		// Status
@@ -1769,10 +1769,10 @@
 		"MovementSpeed"				"300"
 		"MovementTurnRate"			"0.5"
 		
-		"ArmorPhysical"				"25"
-		"MagicalResistance"			"40"
+		"ArmorPhysical"				"1000"
+		"MagicalResistance"			"100"
 		"StatusHealth"				"12"
-		"StatusHealthRegen"			"10"
+		"StatusHealthRegen"			"0"
 		"StatusMana"				"0"
 		"StatusManaRegen"			"0"
 

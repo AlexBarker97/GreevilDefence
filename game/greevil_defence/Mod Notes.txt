@@ -1,0 +1,115 @@
+
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+--------ToDo--------------------ToDo--------------------ToDo--------------------ToDo--------------------ToDo---------------
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+• Wilderness gate
+• Greevil death
+
+• Neutral Boss AI
+• Attack Boss abilities + AI
+• Ability sounds on boss greevils
+• More general event game sounds
+	D:\Steam\steamapps\common\dota 2 beta\content\dota_addons\greevil_showdown\sounds
+• Red greevil spears x3 or replace with another ability
+• Greevil items?
+
+Health		Colour	trigger						Aura
+12 -> 11	r 		Legion Q 	-> 	Spawn		()
+11 -> 10	o 		Lina LSA 	-> 	Spawn		(warlock_golem_permanent_immolation)
+10 ->  9	y 		Avalanche 	->  Spawn		(granite_golem_hp_aura)
+ 9 ->  8	g 		Troll Net	-> 	Spawn		(greevil_spawnlord_aura)
+ 8 ->  7	b 		Cold Snap 	-> 	Spawn		(tusk_frozen_sigil)
+ 7 ->  6	p 		Vac 		-> 	Spawn		(night_stalker_crippling_fear)
+ 6 ->  0	ALL		AoE_DBlast 	->	Spawn
+
+• Frostivus version (new map) June-December
+
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+--------Abilities---------------Abilities---------------Abilities---------------Abilities---------------Abilities----------
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+greevil_miniboss_orange_dragon_slave
+greevil_miniboss_orange_light_strike_array
+greevil_miniboss_yellow_ion_shell
+greevil_miniboss_yellow_surge
+greevil_miniboss_green_living_armor
+greevil_miniboss_green_overgrowth
+greevil_miniboss_blue_cold_feet
+greevil_miniboss_blue_ice_vortex
+invoker_ice_wall
+greevil_miniboss_purple_venomous_gale
+greevil_miniboss_purple_plague_ward
+greevil_miniboss_white_purification
+greevil_miniboss_white_degen_aura
+greevil_miniboss_black_brain_sap
+greevil_miniboss_black_nightmare
+
+Greevil Golem
+Greevice Wall
+Greevil Hole
+Greevil Missile
+Greevil Hook
+Greevil Wave
+Greevil's Attendants
+Leech Greevil
+Greevil Slam
+Greevil Bonds
+Greevil Fury
+Greevil Nova
+Greevildict
+Greevilaguna blade
+Greevil Rot
+Degreevilfy
+Greevilication
+Greevilust
+Greevil Lock
+Phantom Greevil
+
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+--------ITEMS--------------------ITEMS--------------------ITEMS--------------------ITEMS--------------------ITEMS----------
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+stocking:
+Upon use, the user is granted the following items:
+A Greeviling Greevil Whistle icon.png Greevil Whistle
+One of these boots: Power Treads, Phase Boots, Arcane Boots, Tranquil Boots, Speed Skates
+One of these Consumables: Fruit-bit Cake, Wizard Cookie, Cocoa with Marshmallows, Kringle, Clove Studded Ham
+
+Speed Skates:
+The Speed Skates are an item only obtainable from the Xmas Stocking during the Greeviling event.
+These boots will allow the wearer to walk more easily on the frozen river.
+
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+----------LINKS---------------------------LINKS---------------------------LINKS---------------------------LINKS------------
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+Game Events:
+https://github.com/bmddota/SotA/blob/master/game/dota_addons/sota/scripts/vscripts/eventtest.lua
+
+CSS Properties:
+https://developer.valvesoftware.com/wiki/Dota_2_Workshop_Tools/Panorama/CSS_Properties
+
+HexColourCodes:
+https://htmlcolorcodes.com/
+
+ModDota Tutorials:
+https://web.archive.org/web/20181225103425/http://moddota.com/forums/tutorial-index
+
+Action List:
+https://developer.valvesoftware.com/wiki/Dota_2_Workshop_Tools/Actions_List
+
+Built in Abilities:
+https://developer.valvesoftware.com/wiki/Dota_2_Workshop_Tools:ru/Scripting:ru/Built-In_Ability_Names:ru
+
+EpicBossFight2:
+https://github.com/PlexusDuMenton/Epic_Boss_Fight_V2/blob/master/game/dota_addons/epic_boss_fight_v2
+
+ImbaReborn:
+https://github.com/EarthSalamander42/dota_imba/tree/master/game/dota_addons/dota_imba_reborn
+
+Game Files (git):
+https://github.com/SteamDatabase/GameTracking-Dota2/tree/master/game/dota/pak01_dir
+
+Frostivus_2017:
+https://github.com/SteamDatabase/GameTracking-Dota2/blob/master/game/dota_addons/frostivus_2017

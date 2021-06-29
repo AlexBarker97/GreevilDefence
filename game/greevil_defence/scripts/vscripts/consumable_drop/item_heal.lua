@@ -5,10 +5,10 @@ function item_heal:OnSpellStart()
     
 	local currentHP = caster:GetHealth()
 	local maxHP = caster:GetMaxHealth()
-	if (currentHP + 100) > maxHP then
+	if (currentHP + 200) > maxHP then
 		caster:SetHealth(maxHP)
 	else
-		caster:SetHealth(currentHP + 100)
+		caster:SetHealth(currentHP + 200)
 	end
 	self:SpendCharge()
 	EmitSoundOn("DOTA_Item.FaerieSpark.Activate", caster)

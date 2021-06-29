@@ -5,10 +5,10 @@ function item_mana:OnSpellStart()
     
 	local currentMP = caster:GetMana()
 	local maxMP = caster:GetMaxMana()
-	if (currentMP + 100) > maxMP then
+	if (currentMP + 200) > maxMP then
 		caster:SetMana(maxMP)
 	else
-		caster:SetMana(currentMP + 100)
+		caster:SetMana(currentMP + 200)
 	end
 	self:SpendCharge()
 	EmitSoundOn("DOTA_Item.Mango.Activate", caster)

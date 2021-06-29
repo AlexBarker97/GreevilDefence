@@ -301,69 +301,6 @@ function SpawnFrostWard()
 	end
 end
 
-function LevelGreevils()
-	playerGreevils = FindUnitsInRadius(DOTA_TEAM_BADGUYS,
-		Vector(0, 0, 0),
-		nil,
-		FIND_UNITS_EVERYWHERE,
-		DOTA_UNIT_TARGET_TEAM_BOTH,
-		DOTA_UNIT_TARGET_ALL,
-		DOTA_UNIT_TARGET_FLAG_NONE,
-		FIND_ANY_ORDER,
-		false)
-	for k,v in pairs(playerGreevils) do
-		if v:GetUnitName() == "greevil_red_player" or
-		v:GetUnitName() == "greevil_orange_player" or
-		v:GetUnitName() == "greevil_yellow_player" or
-		v:GetUnitName() == "greevil_green_player" or
-		v:GetUnitName() == "greevil_blue_player" or
-		v:GetUnitName() == "greevil_purple_player" or
-		v:GetUnitName() == "greevil_white_player" or
-		v:GetUnitName() == "greevil_black_player" then
-			local currLvl = v:GetLevel()
-			if currLvl < 6 then
-				v:CreatureLevelUp(1)
-			end
-		end
-	end
-	--PrintTable(playerGreevils)
-	--print(playerGreevils)
-	--print(playerGreevils[0])
-end
-
-function SpawnCreeps()
-	local pointr = Entities:FindAllByName("spawnerino_naked_dire")
-	local pointd = Entities:FindAllByName("spawnerino_naked_rad")
-	
-	if count < 240 then
-		x = 3
-	elseif count < 480 then
-		x = 4
-	elseif count < 720 then
-		x = 5
-	elseif count < 960 then
-		x = 6
-	else
-		x = 7
-	end
-
-	counter = x
-	while counter > 0 do
-		v = pointr[8 - counter]
-		counter = counter - 1
-		local location = v:GetAbsOrigin()
-		local unit = CreateUnitByName("greevil_naked_dire", location, false, nil, nil, DOTA_TEAM_BADGUYS)
-	end
-	
-	counter = x
-	while counter > 0 do
-		v = pointd[8 - counter]
-		counter = counter - 1
-		local location = v:GetAbsOrigin()
-		local unit = CreateUnitByName("greevil_naked_rad", location, false, nil, nil, DOTA_TEAM_GOODGUYS)
-	end
-end
-
 function SpawnBosses()
 	local pointr = Entities:FindAllByName("spawnerino_red")
 	for k,v in pairs(pointr) do				
@@ -515,6 +452,62 @@ function SpawnBosses()
 			unit = CreateUnitByName("greevil_black", location, false, nil, nil, DOTA_TEAM_NEUTRALS)
 			unit.spawnPos = location
 		end
+	end
+end
+
+function LevelGreevils()
+	playerGreevils = FindUnitsInRadius(DOTA_TEAM_BADGUYS,
+		Vector(0, 0, 0),
+		nil,
+		FIND_UNITS_EVERYWHERE,
+		DOTA_UNIT_TARGET_TEAM_BOTH,
+		DOTA_UNIT_TARGET_ALL,
+		DOTA_UNIT_TARGET_FLAG_NONE,
+		FIND_ANY_ORDER,
+		false)
+	for k,v in pairs(playerGreevils) do
+		if v:GetUnitName() == "greevil_red_player" or
+		v:GetUnitName() == "greevil_orange_player" or
+		v:GetUnitName() == "greevil_yellow_player" or
+		v:GetUnitName() == "greevil_green_player" or
+		v:GetUnitName() == "greevil_blue_player" or
+		v:GetUnitName() == "greevil_purple_player" or
+		v:GetUnitName() == "greevil_white_player" or
+		v:GetUnitName() == "greevil_black_player" then
+			local currLvl = v:GetLevel()
+			if currLvl < 6 then
+				v:CreatureLevelUp(1)
+			end
+		end
+	end
+	--PrintTable(playerGreevils)
+	--print(playerGreevils)
+	--print(playerGreevils[0])
+end
+
+function SpawnCreeps()
+	local pointr = Entities:FindAllByName("spawnerino_naked_dire")
+	local pointd = Entities:FindAllByName("spawnerino_naked_rad")
+	
+	if count < 240 then		-- 0-4 mins
+		x = 5
+	elseif count < 480 then	-- 4-8 mins
+		x = 6
+	elseif count < 720 then	-- 8-12 mins
+		x = 7
+	elseif count < 960 then	-- 12-16 mins
+		x = 8
+	else					-- 16+ mins
+		x = 10
+	end
+
+	for i=1,x do
+		vr = pointr[i]
+		vd = pointd[i]
+		local locationr = vr:GetAbsOrigin()
+		local locationd = vd:GetAbsOrigin()
+		local unit = CreateUnitByName("greevil_naked_dire", locationr, false, nil, nil, DOTA_TEAM_BADGUYS)
+		local unit = CreateUnitByName("greevil_naked_rad", locationd, false, nil, nil, DOTA_TEAM_GOODGUYS)
 	end
 end
 

@@ -1,26 +1,26 @@
 print ('[BAREBONES] barebones.lua' )
 
 -- GameRules Variables
-ENABLE_HERO_RESPAWN = true              -- Should the heroes automatically respawn on a timer or stay dead until manually respawned
+ENABLE_HERO_RESPAWN = false              -- Should the heroes automatically respawn on a timer or stay dead until manually respawned
 UNIVERSAL_SHOP_MODE = false             -- Should the main shop contain Secret Shop items as well as regular items
 ALLOW_SAME_HERO_SELECTION = true        -- Should we let people select the same hero as each other
 
-HERO_SELECTION_TIME = 1.0              -- How long should we let people select their hero?
-PRE_GAME_TIME = 0.0                    -- How long after people select their heroes should the horn blow and the game start?
-POST_GAME_TIME = 60.0                   -- How long should we let people look at the scoreboard before closing the server automatically?
-TREE_REGROW_TIME = 60.0                 -- How long should it take individual trees to respawn after being cut down/destroyed?
+HERO_SELECTION_TIME = 15.0				-- How long should we let people select their hero?
+PRE_GAME_TIME = 20.0					-- How long after people select their heroes should the horn blow and the game start?
+POST_GAME_TIME = 30.0                   -- How long should we let people look at the scoreboard before closing the server automatically?
+TREE_REGROW_TIME = 1.0					-- How long should it take individual trees to respawn after being cut down/destroyed?
 
-GOLD_PER_TICK = 100                     -- How much gold should players get per tick?
+GOLD_PER_TICK = 0						-- How much gold should players get per tick?
 GOLD_TICK_TIME = 5                      -- How long should we wait in seconds between gold ticks?
 
-RECOMMENDED_BUILDS_DISABLED = false     -- Should we disable the recommened builds for heroes (Note: this is not working currently I believe)
+RECOMMENDED_BUILDS_DISABLED = true		-- Should we disable the recommened builds for heroes (Note: this is not working currently I believe)
 CAMERA_DISTANCE_OVERRIDE = 1600.0       -- How far out should we allow the camera to go?  1134 is the default in Dota
 
 MINIMAP_ICON_SIZE = 1                   -- What icon size should we use for our heroes?
-MINIMAP_CREEP_ICON_SIZE = 1             -- What icon size should we use for creeps?
+MINIMAP_CREEP_ICON_SIZE = 2             -- What icon size should we use for creeps?
 MINIMAP_RUNE_ICON_SIZE = 1              -- What icon size should we use for runes?
 
-RUNE_SPAWN_TIME = 120                    -- How long in seconds should we wait between rune spawns?
+RUNE_SPAWN_TIME = 120                   -- How long in seconds should we wait between rune spawns?
 CUSTOM_BUYBACK_COST_ENABLED = true      -- Should we use a custom buyback cost setting?
 CUSTOM_BUYBACK_COOLDOWN_ENABLED = true  -- Should we use a custom buyback time?
 BUYBACK_ENABLED = false                 -- Should we allow people to buyback when they die?
@@ -32,22 +32,30 @@ USE_CUSTOM_TOP_BAR_VALUES = true        -- Should we do customized top bar value
 TOP_BAR_VISIBLE = true                  -- Should we display the top bar score/count at all?
 SHOW_KILLS_ON_TOPBAR = true             -- Should we display kills only on the top bar? (No denies, suicides, kills by neutrals)  Requires USE_CUSTOM_TOP_BAR_VALUES
 
-ENABLE_TOWER_BACKDOOR_PROTECTION = false  -- Should we enable backdoor protection for our towers?
+ENABLE_TOWER_BACKDOOR_PROTECTION = false-- Should we enable backdoor protection for our towers?
 REMOVE_ILLUSIONS_ON_DEATH = false       -- Should we remove all illusions if the main hero dies?
 DISABLE_GOLD_SOUNDS = false             -- Should we disable the gold sound when players get gold?
 
-END_GAME_ON_KILLS = true                -- Should the game end after a certain number of kills?
-KILLS_TO_END_GAME_FOR_TEAM = 50         -- How many kills for a team should signify an end of game?
+END_GAME_ON_KILLS = false               -- Should the game end after a certain number of kills?
+KILLS_TO_END_GAME_FOR_TEAM = 5			-- How many kills for a team should signify an end of game?
 
 USE_CUSTOM_HERO_LEVELS = true           -- Should we allow heroes to have custom levels?
-MAX_LEVEL = 50                          -- What level should we let heroes get to?
+MAX_LEVEL = 30                          -- What level should we let heroes get to?
 USE_CUSTOM_XP_VALUES = true             -- Should we use custom XP values to level up heroes, or the default Dota numbers?
 
 -- Fill this table up with the required XP per level if you want to change it
 XP_PER_LEVEL_TABLE = {}
-for i=1,MAX_LEVEL do
-	XP_PER_LEVEL_TABLE[i] = i * 100
-end
+XP_PER_LEVEL_TABLE = {
+		100,	200,	300,	400,	500,
+		900,	1300,	1700,	2100,	2500,	2900,
+		3700,	4500,	4300,	5100,	5900,	6700,
+		7700,	8700,
+		10000,	10000,	10000,	10000,	10000,	10000,	10000,	10000,	10000,	10000,	10000
+		}
+--for i=1,MAX_LEVEL do
+--	XP_PER_LEVEL_TABLE[i] = i * 250
+--end
+DeepPrintTable(XP_PER_LEVEL_TABLE)
 
 -- Generated from template
 if GameMode == nil then
@@ -267,34 +275,6 @@ function GameMode:OnHeroInGame(hero)
 		hero:AddItem(item)
 	end
 	
-	local pointr = Entities:FindAllByName("spawnerino_boss")
-			for k,v in pairs(pointr) do
-				local location = v:GetAbsOrigin()
-				local unit = CreateUnitByName("greevil_boss", location, false, nil, nil, DOTA_TEAM_NEUTRALS)
-			end		
-			
-			count = 0;
-			Timers:CreateTimer(0, function()
-			
-				if count == 5 then
-					SpawnBot()
-				end
-				if math.fmod(count,5) == 0 then
-					SpawnFrostWard()
-				end
-				if math.fmod(count,60) == 0 then
-					SpawnBosses()
-				end
-				if math.fmod(count,120) == 0 and count ~= 0 then
-					LevelGreevils()
-				end
-				if math.fmod(count,30) == 0 then
-					SpawnCreeps()
-				end
-				count = count + 1;
-				
-			return 1
-			end)
 end
 
 --[[
@@ -373,8 +353,11 @@ end
 function GameMode:OnItemPickedUp(keys)
 	--DeepPrintTable(keys)
 
-	local heroEntity = EntIndexToHScript(keys.HeroEntityIndex)
-	local itemEntity = EntIndexToHScript(keys.ItemEntityIndex)
+	if keys.HeroEntityIndex == nil then
+		local unitEntity = EntIndexToHScript(keys.UnitEntityIndex)
+	else
+		local unitEntity = EntIndexToHScript(keys.HeroEntityIndex)
+	end
 	local player = PlayerResource:GetPlayer(keys.PlayerID)
 	local itemname = keys.itemname
 end
@@ -426,12 +409,12 @@ function GameMode:OnItemPurchased( keys )
 		for i=0,8 do
 			local item1 = purchaseEntity:GetItemInSlot(i)
 			--DeepPrintTable(purchaseEntity)
-			if item1 ~= nil and item1:GetAbilityName() == "greevil_blue_dire_att" then
+			if item1 ~= nil and item1:GetAbilityName() == "item_blue_egg_att" then
 				purchaseEntity:RemoveItem(item1)
 			end
 			local item2 = purchaseEntity.greevil:GetItemInSlot(i)
 			--DeepPrintTable(purchaseEntity)
-			if item2 ~= nil and item2:GetAbilityName() == "greevil_blue_dire_att" then
+			if item2 ~= nil and item2:GetAbilityName() == "item_blue_egg_att" then
 				purchaseEntity.greevil:RemoveItem(item2)
 			end
 		end
@@ -460,12 +443,12 @@ function GameMode:OnItemPurchased( keys )
 		for i=0,8 do
 			local item1 = purchaseEntity:GetItemInSlot(i)
 			--DeepPrintTable(purchaseEntity)
-			if item1 ~= nil and item1:GetAbilityName() == "greevil_green_dire_att" then
+			if item1 ~= nil and item1:GetAbilityName() == "item_green_egg_att" then
 				purchaseEntity:RemoveItem(item1)
 			end
 			local item2 = purchaseEntity.greevil:GetItemInSlot(i)
 			--DeepPrintTable(purchaseEntity)
-			if item2 ~= nil and item2:GetAbilityName() == "greevil_green_dire_att" then
+			if item2 ~= nil and item2:GetAbilityName() == "item_green_egg_att" then
 				purchaseEntity.greevil:RemoveItem(item2)
 			end
 		end
@@ -494,12 +477,12 @@ function GameMode:OnItemPurchased( keys )
 		for i=0,8 do
 			local item1 = purchaseEntity:GetItemInSlot(i)
 			--DeepPrintTable(purchaseEntity)
-			if item1 ~= nil and item1:GetAbilityName() == "greevil_yellow_dire_att" then
+			if item1 ~= nil and item1:GetAbilityName() == "item_yellow_egg_att" then
 				purchaseEntity:RemoveItem(item1)
 			end
 			local item2 = purchaseEntity.greevil:GetItemInSlot(i)
 			--DeepPrintTable(purchaseEntity)
-			if item2 ~= nil and item2:GetAbilityName() == "greevil_yellow_dire_att" then
+			if item2 ~= nil and item2:GetAbilityName() == "item_yellow_egg_att" then
 				purchaseEntity.greevil:RemoveItem(item2)
 			end
 		end
@@ -528,12 +511,12 @@ function GameMode:OnItemPurchased( keys )
 		for i=0,8 do
 			local item1 = purchaseEntity:GetItemInSlot(i)
 			--DeepPrintTable(purchaseEntity)
-			if item1 ~= nil and item1:GetAbilityName() == "greevil_orange_dire_att" then
+			if item1 ~= nil and item1:GetAbilityName() == "item_orange_egg_att" then
 				purchaseEntity:RemoveItem(item1)
 			end
 			local item2 = purchaseEntity.greevil:GetItemInSlot(i)
 			--DeepPrintTable(purchaseEntity)
-			if item2 ~= nil and item2:GetAbilityName() == "greevil_orange_dire_att" then
+			if item2 ~= nil and item2:GetAbilityName() == "item_orange_egg_att" then
 				purchaseEntity.greevil:RemoveItem(item2)
 			end
 		end
@@ -562,12 +545,12 @@ function GameMode:OnItemPurchased( keys )
 		for i=0,8 do
 			local item1 = purchaseEntity:GetItemInSlot(i)
 			--DeepPrintTable(purchaseEntity)
-			if item1 ~= nil and item1:GetAbilityName() == "greevil_red_dire_att" then
+			if item1 ~= nil and item1:GetAbilityName() == "item_red_egg_att" then
 				purchaseEntity:RemoveItem(item1)
 			end
 			local item2 = purchaseEntity.greevil:GetItemInSlot(i)
 			--DeepPrintTable(purchaseEntity)
-			if item2 ~= nil and item2:GetAbilityName() == "greevil_red_dire_att" then
+			if item2 ~= nil and item2:GetAbilityName() == "item_red_egg_att" then
 				purchaseEntity.greevil:RemoveItem(item2)
 			end
 		end
@@ -596,12 +579,12 @@ function GameMode:OnItemPurchased( keys )
 		for i=0,8 do
 			local item1 = purchaseEntity:GetItemInSlot(i)
 			--DeepPrintTable(purchaseEntity)
-			if item1 ~= nil and item1:GetAbilityName() == "greevil_purple_dire_att" then
+			if item1 ~= nil and item1:GetAbilityName() == "item_purple_egg_att" then
 				purchaseEntity:RemoveItem(item1)
 			end
 			local item2 = purchaseEntity.greevil:GetItemInSlot(i)
 			--DeepPrintTable(purchaseEntity)
-			if item2 ~= nil and item2:GetAbilityName() == "greevil_purple_dire_att" then
+			if item2 ~= nil and item2:GetAbilityName() == "item_purple_egg_att" then
 				purchaseEntity.greevil:RemoveItem(item2)
 			end
 		end
@@ -630,12 +613,12 @@ function GameMode:OnItemPurchased( keys )
 		for i=0,8 do
 			local item1 = purchaseEntity:GetItemInSlot(i)
 			--DeepPrintTable(purchaseEntity)
-			if item1 ~= nil and item1:GetAbilityName() == "greevil_black_dire_att" then
+			if item1 ~= nil and item1:GetAbilityName() == "item_black_egg_att" then
 				purchaseEntity:RemoveItem(item1)
 			end
 			local item2 = purchaseEntity.greevil:GetItemInSlot(i)
 			--DeepPrintTable(purchaseEntity)
-			if item2 ~= nil and item2:GetAbilityName() == "greevil_black_dire_att" then
+			if item2 ~= nil and item2:GetAbilityName() == "item_black_egg_att" then
 				purchaseEntity.greevil:RemoveItem(item2)
 			end
 		end
@@ -664,12 +647,12 @@ function GameMode:OnItemPurchased( keys )
 		for i=0,8 do
 			local item1 = purchaseEntity:GetItemInSlot(i)
 			--DeepPrintTable(purchaseEntity)
-			if item1 ~= nil and item1:GetAbilityName() == "greevil_white_dire_att" then
+			if item1 ~= nil and item1:GetAbilityName() == "item_white_egg_att" then
 				purchaseEntity:RemoveItem(item1)
 			end
 			local item2 = purchaseEntity.greevil:GetItemInSlot(i)
 			--DeepPrintTable(purchaseEntity)
-			if item2 ~= nil and item2:GetAbilityName() == "greevil_white_dire_att" then
+			if item2 ~= nil and item2:GetAbilityName() == "item_white_egg_att" then
 				purchaseEntity.greevil:RemoveItem(item2)
 			end
 		end
@@ -1130,17 +1113,297 @@ function GameMode:OnTeamKillCredit(keys)
 end
 
 -- An entity died
-function GameMode:OnEntityKilled( keys )
+function GameMode:OnEntityKilled(keys)
 	--DeepPrintTable( keys )
-
-	-- The Unit that was Killed
-	local killedUnit = EntIndexToHScript( keys.entindex_killed )
+	local killed_unit = EntIndexToHScript(keys.entindex_killed)
+	
+	local owner = killed_unit:GetOwner()
+	if killed_unit.hero == 1 then
+		owner:SetOrigin(killed_unit:GetOrigin())
+		owner:ForceKill(true)
+	end
+	
+	if killed_unit:IsHero() then
+		local newItem = CreateItem("item_tombstone", killed_unit , killed_unit)
+		newItem:SetPurchaseTime(0)
+		newItem:SetPurchaser(killed_unit)
+		local tombstone = SpawnEntityFromTableSynchronous("dota_item_tombstone_drop", {})
+		tombstone:SetContainedItem(newItem)
+		tombstone:SetAngles(0, RandomFloat( 0, 360 ), 0)
+		FindClearSpaceForUnit(tombstone, killed_unit:GetAbsOrigin(), true)
+	end
+	
 	-- The Killing entity
-	local killerEntity = nil
-
+	local killer_unit = nil
 	if keys.entindex_attacker ~= nil then
-		killerEntity = EntIndexToHScript( keys.entindex_attacker )
+		killer_unit = EntIndexToHScript(keys.entindex_attacker)
 	end
 
-	-- Put code here to handle when an entity gets killed
+	if killed_unit:GetUnitName() == "greevil_naked_dire" or
+	   killed_unit:GetUnitName() == "greevil_naked_rad" then
+		local dropRoll = RandomInt(1, 10)
+		if dropRoll == 5 then
+			local pos = killed_unit:GetAbsOrigin()
+			local Heal = CreateItem("item_heal", nil, nil)
+			Heal:SetPurchaseTime(0)
+			CreateItemOnPositionSync(pos, Heal)
+			Heal:LaunchLoot(false, 300, 0.75, pos + RandomVector(RandomFloat(50, 350)))
+		end
+		if dropRoll == 10 then
+			local pos = killed_unit:GetAbsOrigin()
+			local Mana = CreateItem("item_mana", nil, nil)
+			Mana:SetPurchaseTime(0)
+			CreateItemOnPositionSync(pos, Mana)
+			Mana:LaunchLoot(false, 300, 0.75, pos + RandomVector(RandomFloat(50, 350)))
+		end
+	end
+	
+	--killed_unit:GetTeam()
+		--radiant = 2
+		--dire = 3
+		--neturals = 4
+	
+	if killer_unit ~= nil then
+		if killed_unit:GetUnitName() == "greevil_red" 
+		or killed_unit:GetUnitName() == "greevil_orange" 
+		or killed_unit:GetUnitName() == "greevil_yellow" 
+		or killed_unit:GetUnitName() == "greevil_blue" 
+		or killed_unit:GetUnitName() == "greevil_purple" 
+		or killed_unit:GetUnitName() == "greevil_black"
+		or killed_unit:GetUnitName() == "greevil_white" then
+			local killerTeam = killer_unit:GetTeam()
+			local PlayerCountOnTeam = PlayerResource:GetPlayerCountForTeam(killerTeam)
+			
+			for i=1,PlayerCountOnTeam do
+				local playerId = PlayerResource:GetNthPlayerIDOnTeam(killerTeam, i)
+				local hero = PlayerResource:GetSelectedHeroEntity(playerId)
+				hero:AddExperience(750,0,false,false)
+			end
+		elseif killed_unit:GetUnitName() == "greevil_naked_rad"
+		or killed_unit:GetUnitName() == "greevil_naked_dire" then
+			local killerTeam = killer_unit:GetTeam()
+			local PlayerCountOnTeam = PlayerResource:GetPlayerCountForTeam(killerTeam)
+			for i=1,PlayerCountOnTeam do
+				local playerId = PlayerResource:GetNthPlayerIDOnTeam(killerTeam, i)
+				local hero = PlayerResource:GetSelectedHeroEntity(playerId)
+				hero:AddExperience(150,0,false,false)
+				hero:ModifyGold(15/PlayerCountOnTeam,false,0)
+				local particle = ParticleManager:CreateParticleForTeam("particles/generic_gameplay/lasthit_coins.vpcf", PATTACH_ABSORIGIN_FOLLOW, hero, killerTeam)
+				ParticleManager:SetParticleControl(particle, 1, hero:GetAbsOrigin())
+				ParticleManager:ReleaseParticleIndex(1)				
+			end
+		end
+		
+		if killed_unit:GetUnitName() == "greevil_green" then
+			local origin = killed_unit:GetOrigin()
+			unit = CreateUnitByName("greevil_green_2", origin, true, nil, nil, DOTA_TEAM_NEUTRALS)
+			unit.spawnPos = killed_unit.spawnPos
+			unit = CreateUnitByName("greevil_green_2", origin, true, nil, nil, DOTA_TEAM_NEUTRALS)
+			unit.spawnPos = killed_unit.spawnPos
+		end
+		
+		if killed_unit:GetUnitName() == "greevil_green_2" then
+			local origin = killed_unit:GetOrigin()
+			unit = CreateUnitByName("greevil_green_3", origin, true, nil, nil, DOTA_TEAM_NEUTRALS)
+			unit.spawnPos = killed_unit.spawnPos
+			unit = CreateUnitByName("greevil_green_3", origin, true, nil, nil, DOTA_TEAM_NEUTRALS)
+			unit.spawnPos = killed_unit.spawnPos
+		end
+		
+		-- Hero gets lasthit on boss
+		if killed_unit:GetUnitName() == "greevil_red" and killer_unit:IsRealHero() == true then
+			killer_unit:AddItemByName("item_boss_drop_red")
+		elseif killed_unit:GetUnitName() == "greevil_orange" and killer_unit:IsRealHero() == true then
+			killer_unit:AddItemByName("item_boss_drop_orange")
+		elseif killed_unit:GetUnitName() == "greevil_yellow" and killer_unit:IsRealHero() == true then
+			killer_unit:AddItemByName("item_boss_drop_yellow")
+		elseif killed_unit:GetUnitName() == "greevil_green" and killer_unit:IsRealHero() == true then
+			killer_unit:AddItemByName("item_boss_drop_green")
+		elseif killed_unit:GetUnitName() == "greevil_blue" and killer_unit:IsRealHero() == true then
+			killer_unit:AddItemByName("item_boss_drop_blue")
+		elseif killed_unit:GetUnitName() == "greevil_purple" and killer_unit:IsRealHero() == true then
+			killer_unit:AddItemByName("item_boss_drop_purple")
+		elseif killed_unit:GetUnitName() == "greevil_white" and killer_unit:IsRealHero() == true then
+			killer_unit:AddItemByName("item_boss_drop_white")
+		elseif killed_unit:GetUnitName() == "greevil_black" and killer_unit:IsRealHero() == true then
+			killer_unit:AddItemByName("item_boss_drop_black")
+		
+		-- Illusion gets lasthit on boss
+		elseif killed_unit:GetUnitName() == "greevil_red" and killer_unit:GetOwner() ~= nil then
+			killer_unit:GetOwner():AddItemByName("item_boss_drop_red")		
+		elseif killed_unit:GetUnitName() == "greevil_orange" and killer_unit:GetOwner() ~= nil then
+			killer_unit:GetOwner():AddItemByName("item_boss_drop_orange")
+		elseif killed_unit:GetUnitName() == "greevil_yellow" and killer_unit:GetOwner() ~= nil then
+			killer_unit:GetOwner():AddItemByName("item_boss_drop_yellow")
+		elseif killed_unit:GetUnitName() == "greevil_green" and killer_unit:GetOwner() ~= nil then
+			killer_unit:GetOwner():AddItemByName("item_boss_drop_green")
+		elseif killed_unit:GetUnitName() == "greevil_blue" and killer_unit:GetOwner() ~= nil then
+			killer_unit:GetOwner():AddItemByName("item_boss_drop_blue")
+		elseif killed_unit:GetUnitName() == "greevil_purple" and killer_unit:GetOwner() ~= nil then
+			killer_unit:GetOwner():AddItemByName("item_boss_drop_purple")
+		elseif killed_unit:GetUnitName() == "greevil_white" and killer_unit:GetOwner() ~= nil then
+			killer_unit:GetOwner():AddItemByName("item_boss_drop_white")
+		elseif killed_unit:GetUnitName() == "greevil_black" and killer_unit:GetOwner() ~= nil then
+			killer_unit:GetOwner():AddItemByName("item_boss_drop_black")
+		
+		-- Summon gets lasthit on boss
+		elseif killed_unit:GetUnitName() == "greevil_red" then
+			killer_unit:GetOwner():AddItemByName("item_boss_drop_red")		
+		elseif killed_unit:GetUnitName() == "greevil_orange" then
+			killer_unit:GetOwner():AddItemByName("item_boss_drop_orange")
+		elseif killed_unit:GetUnitName() == "greevil_yellow" then
+			killer_unit:GetOwner():AddItemByName("item_boss_drop_yellow")
+		elseif killed_unit:GetUnitName() == "greevil_green" then
+			killer_unit:GetOwner():AddItemByName("item_boss_drop_green")
+		elseif killed_unit:GetUnitName() == "greevil_blue" then
+			killer_unit:GetOwner():AddItemByName("item_boss_drop_blue")
+		elseif killed_unit:GetUnitName() == "greevil_purple" then
+			killer_unit:GetOwner():AddItemByName("item_boss_drop_purple")
+		elseif killed_unit:GetUnitName() == "greevil_white" then
+			killer_unit:GetOwner():AddItemByName("item_boss_drop_white")
+		elseif killed_unit:GetUnitName() == "greevil_black" then
+			killer_unit:GetOwner():AddItemByName("item_boss_drop_black")
+		end
+	end
+		
+	-- The ability/item used to kill, or nil if not killed by an item/ability
+	local killing_ability = nil
+	
+	if keys.entindex_inflictor ~= nil then
+		killing_ability = EntIndexToHScript(keys.entindex_inflictor)
+	end
+	
+	-- For Meepo clones, find the original
+	if killed_unit:IsClone() then
+		if killed_unit:GetCloneSource() then
+			killed_unit = killed_unit:GetCloneSource()
+		end
+	end
+	
+	-- Killed Unit is a hero (not an illusion) and he is not reincarnating
+	if killed_unit:IsRealHero() and (not killed_unit:IsReincarnating()) then
+		-- Hero gold bounty update for the killer
+		if USE_CUSTOM_HERO_GOLD_BOUNTY then
+			if killer_unit:IsRealHero() then
+				-- Get his killing streak
+				local hero_streak = killer_unit:GetStreak()
+				-- Get his level
+				local hero_level = killer_unit:GetLevel()
+				-- Adjust Gold bounty
+				local gold_bounty
+				if hero_streak > 2 then
+					gold_bounty = HERO_KILL_GOLD_BASE + hero_level*HERO_KILL_GOLD_PER_LEVEL + (hero_streak-2)*HERO_KILL_GOLD_PER_STREAK
+				else
+					gold_bounty = HERO_KILL_GOLD_BASE + hero_level*HERO_KILL_GOLD_PER_LEVEL
+				end
+				
+				killer_unit:SetMinimumGoldBounty(gold_bounty)
+				killer_unit:SetMaximumGoldBounty(gold_bounty)
+			end
+		end
+
+		-- Hero Respawn time configuration
+		if ENABLE_HERO_RESPAWN then
+			local killed_unit_level = killed_unit:GetLevel()
+
+			-- Respawn time without buyback penalty (+25 sec)
+			local respawn_time = 1
+			if USE_CUSTOM_RESPAWN_TIMES then
+				-- Get respawn time from the table that we defined
+				respawn_time = CUSTOM_RESPAWN_TIME[killed_unit_level]
+			else
+				-- Get dota default respawn time
+				respawn_time = killed_unit:GetRespawnTime()
+			end
+
+			-- Fixing respawn time after level 25, this is usually bugged in custom games
+			local respawn_time_after_25 = 100 + (killed_unit_level-25)*5
+			if killed_unit_level > 25 and respawn_time < respawn_time_after_25	then
+				respawn_time = respawn_time_after_25
+			end
+
+			-- Bloodstone reduction (bloodstone can't be in backpack)
+			-- for i=DOTA_ITEM_SLOT_1, DOTA_ITEM_SLOT_6 do
+				-- local item = killed_unit:GetItemInSlot(i)
+				-- if item then
+					-- if item:GetName() == "item_bloodstone" then
+						-- local current_charges = item:GetCurrentCharges()
+						-- local charges_before_death = math.ceil(current_charges*1.5)
+						-- local reduction_per_charge = item:GetLevelSpecialValueFor("respawn_time_reduction", item:GetLevel() - 1)
+						-- local respawn_reduction = charges_before_death*reduction_per_charge
+						-- respawn_time = math.max(1, respawn_time-respawn_reduction)
+						-- break -- break the for loop, to prevent multiple bloodstones granting respawn reduction
+					-- end
+				-- end
+			-- end
+
+			-- Killer is a neutral creep
+			if killer_unit:IsNeutralUnitType() then
+				-- If a hero is killed by a neutral creep, respawn time can be modified here
+			end
+
+			-- Maximum Respawn Time
+			if respawn_time > MAX_RESPAWN_TIME then
+				DebugPrint("Reducing respawn time of "..killed_unit:GetUnitName().." because it was too long.")
+				respawn_time = MAX_RESPAWN_TIME
+			end
+
+			if not killed_unit:IsReincarnating() then
+				killed_unit:SetTimeUntilRespawn(respawn_time)
+			end
+		end
+
+		-- Buyback Cooldown
+		if CUSTOM_BUYBACK_COOLDOWN_ENABLED then
+			PlayerResource:SetCustomBuybackCooldown(killed_unit:GetPlayerID(), CUSTOM_BUYBACK_COOLDOWN_TIME)
+		end
+
+		-- Buyback Fixed Gold Cost
+		if CUSTOM_BUYBACK_COST_ENABLED then
+			PlayerResource:SetCustomBuybackCost(killed_unit:GetPlayerID(), BUYBACK_FIXED_GOLD_COST)
+		end
+
+		-- Killer is not a real hero but it killed a hero
+		if killer_unit:IsTower() or killer_unit:IsCreep() or killer_unit:IsFountain() then
+			-- Put stuff here that you want to happen if a hero is killed by a creep, tower or fountain.
+		end
+
+		-- When team hero kill limit is reached declare the winner
+		if END_GAME_ON_KILLS and GetTeamHeroKills(killer_unit:GetTeam()) >= KILLS_TO_END_GAME_FOR_TEAM then
+			GameRules:SetGameWinner(killer_unit:GetTeam())
+		end
+
+		-- Setting top bar values
+		if SHOW_KILLS_ON_TOPBAR then
+			GameRules:GetGameModeEntity():SetTopBarTeamValue(DOTA_TEAM_BADGUYS, GetTeamHeroKills(DOTA_TEAM_BADGUYS))
+			GameRules:GetGameModeEntity():SetTopBarTeamValue(DOTA_TEAM_GOODGUYS, GetTeamHeroKills(DOTA_TEAM_GOODGUYS))
+		end
+	end
+
+	-- Ancient destruction detection (if the map doesn't have ancients with these names, this will never happen)
+	if killed_unit:GetUnitName() == "npc_dota_badguys_fort" then
+		GameRules:SetGameWinner(DOTA_TEAM_GOODGUYS)
+		GameRules:SetCustomVictoryMessage("#dota_post_game_radiant_victory")
+		GameRules:SetCustomVictoryMessageDuration(POST_GAME_TIME)
+	elseif killed_unit:GetUnitName() == "npc_dota_goodguys_fort" then
+		GameRules:SetGameWinner(DOTA_TEAM_BADGUYS)
+		GameRules:SetCustomVictoryMessage("#dota_post_game_dire_victory")
+		GameRules:SetCustomVictoryMessageDuration(POST_GAME_TIME)
+	end
+
+	-- Remove dead non-hero units from selection -> bugged ability/cast bar
+	if killed_unit:IsIllusion() or (killed_unit:IsControllableByAnyPlayer() and (not killed_unit:IsRealHero()) and (not killed_unit:IsCourier()) and (not killed_unit:IsClone())) and (not killed_unit:IsTempestDouble()) then
+		local player = killed_unit:GetPlayerOwner()
+		local playerID
+		if player == nil then
+			playerID = killed_unit:GetPlayerOwnerID()
+		else
+			playerID = player:GetPlayerID()
+		end
+		
+		if Selection then
+			-- Without Selection library this will return an error
+			PlayerResource:RemoveFromSelection(playerID, killed_unit)
+		end
+	end
 end

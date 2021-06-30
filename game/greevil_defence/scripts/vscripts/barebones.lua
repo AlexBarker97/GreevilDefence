@@ -370,19 +370,17 @@ function GameMode:OnPlayerReconnect(keys)
 end
 
 -- An item was purchased by a player
-function GameMode:OnItemPurchased( keys )
+function GameMode:OnItemPurchased(keys)
 	--DeepPrintTable(keys)
 
+	local item_name = keys.itemname
+	local item_cost = keys.itemcost
+	local purchaseEntity = PlayerResource:GetSelectedHeroEntity(playerID)
+	local team = purchaseEntity:GetTeam()
 	local playerID = keys.PlayerID
 	if not playerID then
 		return
 	end
-
-	local item_name = keys.itemname
-
-	local item_cost = keys.itemcost
-	
-	local purchaseEntity = PlayerResource:GetSelectedHeroEntity(playerID)
 
 	if item_name == "item_blue_egg_att" then
 		if PlayerResource:GetTeam(playerID) == 2 then
@@ -407,15 +405,13 @@ function GameMode:OnItemPurchased( keys )
 			local unit = CreateUnitByName("greevil_blue_dire_att", location, true, nil, nil, DOTA_TEAM_BADGUYS)
 		end
 		for i=0,8 do
-			local item1 = purchaseEntity:GetItemInSlot(i)
-			--DeepPrintTable(purchaseEntity)
-			if item1 ~= nil and item1:GetAbilityName() == "item_blue_egg_att" then
-				purchaseEntity:RemoveItem(item1)
+			local itemHero = purchaseEntity:GetItemInSlot(i)
+			if itemHero ~= nil and itemHero:GetAbilityName() == "item_blue_egg_att" then
+				purchaseEntity:RemoveItem(itemHero)
 			end
-			local item2 = purchaseEntity.greevil:GetItemInSlot(i)
-			--DeepPrintTable(purchaseEntity)
-			if item2 ~= nil and item2:GetAbilityName() == "item_blue_egg_att" then
-				purchaseEntity.greevil:RemoveItem(item2)
+			local itemGreevil = purchaseEntity.greevil:GetItemInSlot(i)
+			if itemGreevil ~= nil and itemGreevil:GetAbilityName() == "item_blue_egg_att" then
+				purchaseEntity.greevil:RemoveItem(itemGreevil)
 			end
 		end
 	elseif item_name == "item_green_egg_att" then
@@ -441,15 +437,13 @@ function GameMode:OnItemPurchased( keys )
 			local unit = CreateUnitByName("greevil_green_dire_att", location, true, nil, nil, DOTA_TEAM_BADGUYS)
 		end
 		for i=0,8 do
-			local item1 = purchaseEntity:GetItemInSlot(i)
-			--DeepPrintTable(purchaseEntity)
-			if item1 ~= nil and item1:GetAbilityName() == "item_green_egg_att" then
-				purchaseEntity:RemoveItem(item1)
+			local itemHero = purchaseEntity:GetItemInSlot(i)
+			if itemHero ~= nil and itemHero:GetAbilityName() == "item_green_egg_att" then
+				purchaseEntity:RemoveItem(itemHero)
 			end
-			local item2 = purchaseEntity.greevil:GetItemInSlot(i)
-			--DeepPrintTable(purchaseEntity)
-			if item2 ~= nil and item2:GetAbilityName() == "item_green_egg_att" then
-				purchaseEntity.greevil:RemoveItem(item2)
+			local itemGreevil = purchaseEntity.greevil:GetItemInSlot(i)
+			if itemGreevil ~= nil and itemGreevil:GetAbilityName() == "item_green_egg_att" then
+				purchaseEntity.greevil:RemoveItem(itemGreevil)
 			end
 		end
 	elseif item_name == "item_yellow_egg_att" then
@@ -475,15 +469,13 @@ function GameMode:OnItemPurchased( keys )
 			local unit = CreateUnitByName("greevil_yellow_dire_att", location, true, nil, nil, DOTA_TEAM_BADGUYS)
 		end
 		for i=0,8 do
-			local item1 = purchaseEntity:GetItemInSlot(i)
-			--DeepPrintTable(purchaseEntity)
-			if item1 ~= nil and item1:GetAbilityName() == "item_yellow_egg_att" then
-				purchaseEntity:RemoveItem(item1)
+			local itemHero = purchaseEntity:GetItemInSlot(i)
+			if itemHero ~= nil and itemHero:GetAbilityName() == "item_yellow_egg_att" then
+				purchaseEntity:RemoveItem(itemHero)
 			end
-			local item2 = purchaseEntity.greevil:GetItemInSlot(i)
-			--DeepPrintTable(purchaseEntity)
-			if item2 ~= nil and item2:GetAbilityName() == "item_yellow_egg_att" then
-				purchaseEntity.greevil:RemoveItem(item2)
+			local itemGreevil = purchaseEntity.greevil:GetItemInSlot(i)
+			if itemGreevil ~= nil and itemGreevil:GetAbilityName() == "item_yellow_egg_att" then
+				purchaseEntity.greevil:RemoveItem(itemGreevil)
 			end
 		end
 	elseif item_name == "item_orange_egg_att" then
@@ -509,15 +501,13 @@ function GameMode:OnItemPurchased( keys )
 			local unit = CreateUnitByName("greevil_orange_dire_att", location, true, nil, nil, DOTA_TEAM_BADGUYS)
 		end
 		for i=0,8 do
-			local item1 = purchaseEntity:GetItemInSlot(i)
-			--DeepPrintTable(purchaseEntity)
-			if item1 ~= nil and item1:GetAbilityName() == "item_orange_egg_att" then
-				purchaseEntity:RemoveItem(item1)
+			local itemHero = purchaseEntity:GetItemInSlot(i)
+			if itemHero ~= nil and itemHero:GetAbilityName() == "item_orange_egg_att" then
+				purchaseEntity:RemoveItem(itemHero)
 			end
-			local item2 = purchaseEntity.greevil:GetItemInSlot(i)
-			--DeepPrintTable(purchaseEntity)
-			if item2 ~= nil and item2:GetAbilityName() == "item_orange_egg_att" then
-				purchaseEntity.greevil:RemoveItem(item2)
+			local itemGreevil = purchaseEntity.greevil:GetItemInSlot(i)
+			if itemGreevil ~= nil and itemGreevil:GetAbilityName() == "item_orange_egg_att" then
+				purchaseEntity.greevil:RemoveItem(itemGreevil)
 			end
 		end
 	elseif item_name == "item_red_egg_att" then
@@ -543,15 +533,13 @@ function GameMode:OnItemPurchased( keys )
 			local unit = CreateUnitByName("greevil_red_dire_att", location, true, nil, nil, DOTA_TEAM_BADGUYS)
 		end
 		for i=0,8 do
-			local item1 = purchaseEntity:GetItemInSlot(i)
-			--DeepPrintTable(purchaseEntity)
-			if item1 ~= nil and item1:GetAbilityName() == "item_red_egg_att" then
-				purchaseEntity:RemoveItem(item1)
+			local itemHero = purchaseEntity:GetItemInSlot(i)
+			if itemHero ~= nil and itemHero:GetAbilityName() == "item_red_egg_att" then
+				purchaseEntity:RemoveItem(itemHero)
 			end
-			local item2 = purchaseEntity.greevil:GetItemInSlot(i)
-			--DeepPrintTable(purchaseEntity)
-			if item2 ~= nil and item2:GetAbilityName() == "item_red_egg_att" then
-				purchaseEntity.greevil:RemoveItem(item2)
+			local itemGreevil = purchaseEntity.greevil:GetItemInSlot(i)
+			if itemGreevil ~= nil and itemGreevil:GetAbilityName() == "item_red_egg_att" then
+				purchaseEntity.greevil:RemoveItem(itemGreevil)
 			end
 		end
 	elseif item_name == "item_purple_egg_att" then
@@ -577,15 +565,13 @@ function GameMode:OnItemPurchased( keys )
 			local unit = CreateUnitByName("greevil_purple_dire_att", location, true, nil, nil, DOTA_TEAM_BADGUYS)
 		end
 		for i=0,8 do
-			local item1 = purchaseEntity:GetItemInSlot(i)
-			--DeepPrintTable(purchaseEntity)
-			if item1 ~= nil and item1:GetAbilityName() == "item_purple_egg_att" then
-				purchaseEntity:RemoveItem(item1)
+			local itemHero = purchaseEntity:GetItemInSlot(i)
+			if itemHero ~= nil and itemHero:GetAbilityName() == "item_purple_egg_att" then
+				purchaseEntity:RemoveItem(itemHero)
 			end
-			local item2 = purchaseEntity.greevil:GetItemInSlot(i)
-			--DeepPrintTable(purchaseEntity)
-			if item2 ~= nil and item2:GetAbilityName() == "item_purple_egg_att" then
-				purchaseEntity.greevil:RemoveItem(item2)
+			local itemGreevil = purchaseEntity.greevil:GetItemInSlot(i)
+			if itemGreevil ~= nil and itemGreevil:GetAbilityName() == "item_purple_egg_att" then
+				purchaseEntity.greevil:RemoveItem(itemGreevil)
 			end
 		end
 	elseif item_name == "item_black_egg_att" then
@@ -611,15 +597,13 @@ function GameMode:OnItemPurchased( keys )
 			local unit = CreateUnitByName("greevil_black_dire_att", location, true, nil, nil, DOTA_TEAM_BADGUYS)
 		end
 		for i=0,8 do
-			local item1 = purchaseEntity:GetItemInSlot(i)
-			--DeepPrintTable(purchaseEntity)
-			if item1 ~= nil and item1:GetAbilityName() == "item_black_egg_att" then
-				purchaseEntity:RemoveItem(item1)
+			local itemHero = purchaseEntity:GetItemInSlot(i)
+			if itemHero ~= nil and itemHero:GetAbilityName() == "item_black_egg_att" then
+				purchaseEntity:RemoveItem(itemHero)
 			end
-			local item2 = purchaseEntity.greevil:GetItemInSlot(i)
-			--DeepPrintTable(purchaseEntity)
-			if item2 ~= nil and item2:GetAbilityName() == "item_black_egg_att" then
-				purchaseEntity.greevil:RemoveItem(item2)
+			local itemGreevil = purchaseEntity.greevil:GetItemInSlot(i)
+			if itemGreevil ~= nil and itemGreevil:GetAbilityName() == "item_black_egg_att" then
+				purchaseEntity.greevil:RemoveItem(itemGreevil)
 			end
 		end
 	elseif item_name == "item_white_egg_att" then
@@ -645,15 +629,13 @@ function GameMode:OnItemPurchased( keys )
 			local unit = CreateUnitByName("greevil_white_dire_att", location, true, nil, nil, DOTA_TEAM_BADGUYS)
 		end
 		for i=0,8 do
-			local item1 = purchaseEntity:GetItemInSlot(i)
-			--DeepPrintTable(purchaseEntity)
-			if item1 ~= nil and item1:GetAbilityName() == "item_white_egg_att" then
-				purchaseEntity:RemoveItem(item1)
+			local itemHero = purchaseEntity:GetItemInSlot(i)
+			if itemHero ~= nil and itemHero:GetAbilityName() == "item_white_egg_att" then
+				purchaseEntity:RemoveItem(itemHero)
 			end
-			local item2 = purchaseEntity.greevil:GetItemInSlot(i)
-			--DeepPrintTable(purchaseEntity)
-			if item2 ~= nil and item2:GetAbilityName() == "item_white_egg_att" then
-				purchaseEntity.greevil:RemoveItem(item2)
+			local itemGreevil = purchaseEntity.greevil:GetItemInSlot(i)
+			if itemGreevil ~= nil and itemGreevil:GetAbilityName() == "item_white_egg_att" then
+				purchaseEntity.greevil:RemoveItem(itemGreevil)
 			end
 		end
 	elseif item_name == "item_blue_egg_def" then
@@ -679,15 +661,13 @@ function GameMode:OnItemPurchased( keys )
 			local unit = CreateUnitByName("greevil_blue_dire_def", location, true, nil, nil, DOTA_TEAM_BADGUYS)
 		end
 		for i=0,8 do
-			local item1 = purchaseEntity:GetItemInSlot(i)
-			--DeepPrintTable(purchaseEntity)
-			if item1 ~= nil and item1:GetAbilityName() == "greevil_blue_dire_def" then
-				purchaseEntity:RemoveItem(item1)
+			local itemHero = purchaseEntity:GetItemInSlot(i)
+			if itemHero ~= nil and itemHero:GetAbilityName() == "item_blue_egg_def" then
+				purchaseEntity:RemoveItem(itemHero)
 			end
-			local item2 = purchaseEntity.greevil:GetItemInSlot(i)
-			--DeepPrintTable(purchaseEntity)
-			if item2 ~= nil and item2:GetAbilityName() == "greevil_blue_dire_def" then
-				purchaseEntity.greevil:RemoveItem(item2)
+			local itemGreevil = purchaseEntity.greevil:GetItemInSlot(i)
+			if itemGreevil ~= nil and itemGreevil:GetAbilityName() == "item_blue_egg_def" then
+				purchaseEntity.greevil:RemoveItem(itemGreevil)
 			end
 		end
 	elseif item_name == "item_green_egg_def" then
@@ -713,15 +693,13 @@ function GameMode:OnItemPurchased( keys )
 			local unit = CreateUnitByName("greevil_green_dire_def", location, true, nil, nil, DOTA_TEAM_BADGUYS)
 		end
 		for i=0,8 do
-			local item1 = purchaseEntity:GetItemInSlot(i)
-			--DeepPrintTable(purchaseEntity)
-			if item1 ~= nil and item1:GetAbilityName() == "greevil_green_dire_def" then
-				purchaseEntity:RemoveItem(item1)
+			local itemHero = purchaseEntity:GetItemInSlot(i)
+			if itemHero ~= nil and itemHero:GetAbilityName() == "item_green_egg_def" then
+				purchaseEntity:RemoveItem(itemHero)
 			end
-			local item2 = purchaseEntity.greevil:GetItemInSlot(i)
-			--DeepPrintTable(purchaseEntity)
-			if item2 ~= nil and item2:GetAbilityName() == "greevil_green_dire_def" then
-				purchaseEntity.greevil:RemoveItem(item2)
+			local itemGreevil = purchaseEntity.greevil:GetItemInSlot(i)
+			if itemGreevil ~= nil and itemGreevil:GetAbilityName() == "item_green_egg_def" then
+				purchaseEntity.greevil:RemoveItem(itemGreevil)
 			end
 		end
 	elseif item_name == "item_yellow_egg_def" then
@@ -747,15 +725,13 @@ function GameMode:OnItemPurchased( keys )
 			local unit = CreateUnitByName("greevil_yellow_dire_def", location, true, nil, nil, DOTA_TEAM_BADGUYS)
 		end
 		for i=0,8 do
-			local item1 = purchaseEntity:GetItemInSlot(i)
-			--DeepPrintTable(purchaseEntity)
-			if item1 ~= nil and item1:GetAbilityName() == "greevil_yellow_dire_def" then
-				purchaseEntity:RemoveItem(item1)
+			local itemHero = purchaseEntity:GetItemInSlot(i)
+			if itemHero ~= nil and itemHero:GetAbilityName() == "item_yellow_egg_def" then
+				purchaseEntity:RemoveItem(itemHero)
 			end
-			local item2 = purchaseEntity.greevil:GetItemInSlot(i)
-			--DeepPrintTable(purchaseEntity)
-			if item2 ~= nil and item2:GetAbilityName() == "greevil_yellow_dire_def" then
-				purchaseEntity.greevil:RemoveItem(item2)
+			local itemGreevil = purchaseEntity.greevil:GetItemInSlot(i)
+			if itemGreevil ~= nil and itemGreevil:GetAbilityName() == "item_yellow_egg_def" then
+				purchaseEntity.greevil:RemoveItem(itemGreevil)
 			end
 		end
 	elseif item_name == "item_orange_egg_def" then
@@ -781,15 +757,13 @@ function GameMode:OnItemPurchased( keys )
 			local unit = CreateUnitByName("greevil_orange_dire_def", location, true, nil, nil, DOTA_TEAM_BADGUYS)
 		end
 		for i=0,8 do
-			local item1 = purchaseEntity:GetItemInSlot(i)
-			--DeepPrintTable(purchaseEntity)
-			if item1 ~= nil and item1:GetAbilityName() == "greevil_orange_dire_def" then
-				purchaseEntity:RemoveItem(item1)
+			local itemHero = purchaseEntity:GetItemInSlot(i)
+			if itemHero ~= nil and itemHero:GetAbilityName() == "item_orange_egg_def" then
+				purchaseEntity:RemoveItem(itemHero)
 			end
-			local item2 = purchaseEntity.greevil:GetItemInSlot(i)
-			--DeepPrintTable(purchaseEntity)
-			if item2 ~= nil and item2:GetAbilityName() == "greevil_orange_dire_def" then
-				purchaseEntity.greevil:RemoveItem(item2)
+			local itemGreevil = purchaseEntity.greevil:GetItemInSlot(i)
+			if itemGreevil ~= nil and itemGreevil:GetAbilityName() == "item_orange_egg_def" then
+				purchaseEntity.greevil:RemoveItem(itemGreevil)
 			end
 		end
 	elseif item_name == "item_red_egg_def" then
@@ -815,15 +789,13 @@ function GameMode:OnItemPurchased( keys )
 			local unit = CreateUnitByName("greevil_red_dire_def", location, true, nil, nil, DOTA_TEAM_BADGUYS)
 		end
 		for i=0,8 do
-			local item1 = purchaseEntity:GetItemInSlot(i)
-			--DeepPrintTable(purchaseEntity)
-			if item1 ~= nil and item1:GetAbilityName() == "greevil_red_dire_def" then
-				purchaseEntity:RemoveItem(item1)
+			local itemHero = purchaseEntity:GetItemInSlot(i)
+			if itemHero ~= nil and itemHero:GetAbilityName() == "item_red_egg_def" then
+				purchaseEntity:RemoveItem(itemHero)
 			end
-			local item2 = purchaseEntity.greevil:GetItemInSlot(i)
-			--DeepPrintTable(purchaseEntity)
-			if item2 ~= nil and item2:GetAbilityName() == "greevil_red_dire_def" then
-				purchaseEntity.greevil:RemoveItem(item2)
+			local itemGreevil = purchaseEntity.greevil:GetItemInSlot(i)
+			if itemGreevil ~= nil and itemGreevil:GetAbilityName() == "item_red_egg_def" then
+				purchaseEntity.greevil:RemoveItem(itemGreevil)
 			end
 		end
 	elseif item_name == "item_purple_egg_def" then
@@ -849,15 +821,13 @@ function GameMode:OnItemPurchased( keys )
 			local unit = CreateUnitByName("greevil_purple_dire_def", location, true, nil, nil, DOTA_TEAM_BADGUYS)
 		end
 		for i=0,8 do
-			local item1 = purchaseEntity:GetItemInSlot(i)
-			--DeepPrintTable(purchaseEntity)
-			if item1 ~= nil and item1:GetAbilityName() == "greevil_purple_dire_def" then
-				purchaseEntity:RemoveItem(item1)
+			local itemHero = purchaseEntity:GetItemInSlot(i)
+			if itemHero ~= nil and itemHero:GetAbilityName() == "item_purple_egg_def" then
+				purchaseEntity:RemoveItem(itemHero)
 			end
-			local item2 = purchaseEntity.greevil:GetItemInSlot(i)
-			--DeepPrintTable(purchaseEntity)
-			if item2 ~= nil and item2:GetAbilityName() == "greevil_purple_dire_def" then
-				purchaseEntity.greevil:RemoveItem(item2)
+			local itemGreevil = purchaseEntity.greevil:GetItemInSlot(i)
+			if itemGreevil ~= nil and itemGreevil:GetAbilityName() == "item_purple_egg_def" then
+				purchaseEntity.greevil:RemoveItem(itemGreevil)
 			end
 		end
 	elseif item_name == "item_black_egg_def" then
@@ -883,15 +853,13 @@ function GameMode:OnItemPurchased( keys )
 			local unit = CreateUnitByName("greevil_black_dire_def", location, true, nil, nil, DOTA_TEAM_BADGUYS)
 		end
 		for i=0,8 do
-			local item1 = purchaseEntity:GetItemInSlot(i)
-			--DeepPrintTable(purchaseEntity)
-			if item1 ~= nil and item1:GetAbilityName() == "greevil_black_dire_def" then
-				purchaseEntity:RemoveItem(item1)
+			local itemHero = purchaseEntity:GetItemInSlot(i)
+			if itemHero ~= nil and itemHero:GetAbilityName() == "item_black_egg_def" then
+				purchaseEntity:RemoveItem(itemHero)
 			end
-			local item2 = purchaseEntity.greevil:GetItemInSlot(i)
-			--DeepPrintTable(purchaseEntity)
-			if item2 ~= nil and item2:GetAbilityName() == "greevil_black_dire_def" then
-				purchaseEntity.greevil:RemoveItem(item2)
+			local itemGreevil = purchaseEntity.greevil:GetItemInSlot(i)
+			if itemGreevil ~= nil and itemGreevil:GetAbilityName() == "item_black_egg_def" then
+				purchaseEntity.greevil:RemoveItem(itemGreevil)
 			end
 		end
 	elseif item_name == "item_white_egg_def" then
@@ -917,95 +885,13 @@ function GameMode:OnItemPurchased( keys )
 			local unit = CreateUnitByName("greevil_white_dire_def", location, true, nil, nil, DOTA_TEAM_BADGUYS)
 		end
 		for i=0,8 do
-			local item1 = purchaseEntity:GetItemInSlot(i)
-			--DeepPrintTable(purchaseEntity)
-			if item1 ~= nil and item1:GetAbilityName() == "greevil_white_dire_def" then
-				purchaseEntity:RemoveItem(item1)
+			local itemHero = purchaseEntity:GetItemInSlot(i)
+			if itemHero ~= nil and itemHero:GetAbilityName() == "item_white_egg_def" then
+				purchaseEntity:RemoveItem(itemHero)
 			end
-			local item2 = purchaseEntity.greevil:GetItemInSlot(i)
-			--DeepPrintTable(purchaseEntity)
-			if item2 ~= nil and item2:GetAbilityName() == "greevil_white_dire_def" then
-				purchaseEntity.greevil:RemoveItem(item2)
-			end
-		end
-	elseif item_name == "item_sendboss" then
-		local team = purchaseEntity:GetTeam()
-		for i=0,8 do
-			local item = purchaseEntity:GetItemInSlot(i)
-			if item ~= nil and item:GetAbilityName() == "item_sendboss" then
-				purchaseEntity:RemoveItem(item)
-			elseif item ~= nil and item:GetAbilityName() == "item_bosstoken_red" then
-				purchaseEntity:RemoveItem(item)
-				if team == DOTA_TEAM_GOODGUYS then
-					location = (Vector(5872, 3500, 304)) + (Vector(RandomInt(0, 1056),RandomInt(0, 944), 0))
-				elseif team == DOTA_TEAM_BADGUYS then
-					location = (Vector(-6928, 3500, 304)) + (Vector(RandomInt(0, 1056),RandomInt(0, 944), 0))
-				end
-				local unit = CreateUnitByName("greevil_red_boss_att", location, true, nil, nil, team)
-				print("item_bosstoken_red_removed")
-			elseif item ~= nil and item:GetAbilityName() == "item_bosstoken_orange" then
-				purchaseEntity:RemoveItem(item)
-				if team == DOTA_TEAM_GOODGUYS then
-					location = (Vector(5872, 3500, 304)) + (Vector(RandomInt(0, 1056),RandomInt(0, 944), 0))
-				elseif team == DOTA_TEAM_BADGUYS then
-					location = (Vector(-6928, 3500, 304)) + (Vector(RandomInt(0, 1056),RandomInt(0, 944), 0))
-				end
-				local unit = CreateUnitByName("greevil_orange_boss_att", location, true, nil, nil, team)
-				print("item_bosstoken_orange_removed")
-			elseif item ~= nil and item:GetAbilityName() == "item_bosstoken_yellow" then
-				purchaseEntity:RemoveItem(item)
-				if team == DOTA_TEAM_GOODGUYS then
-					location = (Vector(5872, 3500, 304)) + (Vector(RandomInt(0, 1056),RandomInt(0, 944), 0))
-				elseif team == DOTA_TEAM_BADGUYS then
-					location = (Vector(-6928, 3500, 304)) + (Vector(RandomInt(0, 1056),RandomInt(0, 944), 0))
-				end
-				local unit = CreateUnitByName("greevil_yellow_boss_att", location, true, nil, nil, team)
-				print("item_bosstoken_yellow_removed")
-			elseif item ~= nil and item:GetAbilityName() == "item_bosstoken_green" then
-				purchaseEntity:RemoveItem(item)
-				if team == DOTA_TEAM_GOODGUYS then
-					location = (Vector(5872, 3500, 304)) + (Vector(RandomInt(0, 1056),RandomInt(0, 944), 0))
-				elseif team == DOTA_TEAM_BADGUYS then
-					location = (Vector(-6928, 3500, 304)) + (Vector(RandomInt(0, 1056),RandomInt(0, 944), 0))
-				end
-				local unit = CreateUnitByName("greevil_green_boss_att", location, true, nil, nil, team)
-				print("item_bosstoken_green_removed")
-			elseif item ~= nil and item:GetAbilityName() == "item_bosstoken_blue" then
-				purchaseEntity:RemoveItem(item)
-				if team == DOTA_TEAM_GOODGUYS then
-					location = (Vector(5872, 3500, 304)) + (Vector(RandomInt(0, 1056),RandomInt(0, 944), 0))
-				elseif team == DOTA_TEAM_BADGUYS then
-					location = (Vector(-6928, 3500, 304)) + (Vector(RandomInt(0, 1056),RandomInt(0, 944), 0))
-				end
-				local unit = CreateUnitByName("greevil_blue_boss_att", location, true, nil, nil, team)
-				print("item_bosstoken_blue_removed")
-			elseif item ~= nil and item:GetAbilityName() == "item_bosstoken_purple" then
-				purchaseEntity:RemoveItem(item)
-				if team == DOTA_TEAM_GOODGUYS then
-					location = (Vector(5872, 3500, 304)) + (Vector(RandomInt(0, 1056),RandomInt(0, 944), 0))
-				elseif team == DOTA_TEAM_BADGUYS then
-					location = (Vector(-6928, 3500, 304)) + (Vector(RandomInt(0, 1056),RandomInt(0, 944), 0))
-				end
-				local unit = CreateUnitByName("greevil_purple_boss_att", location, true, nil, nil, team)
-				print("item_bosstoken_purple_removed")
-			elseif item ~= nil and item:GetAbilityName() == "item_bosstoken_white" then
-				purchaseEntity:RemoveItem(item)
-				if team == DOTA_TEAM_GOODGUYS then
-					location = (Vector(5872, 3500, 304)) + (Vector(RandomInt(0, 1056),RandomInt(0, 944), 0))
-				elseif team == DOTA_TEAM_BADGUYS then
-					location = (Vector(-6928, 3500, 304)) + (Vector(RandomInt(0, 1056),RandomInt(0, 944), 0))
-				end
-				local unit = CreateUnitByName("greevil_white_boss_att", location, true, nil, nil, team)
-				print("item_bosstoken_white_removed")
-			elseif item ~= nil and item:GetAbilityName() == "item_bosstoken_black" then
-				purchaseEntity:RemoveItem(item)
-				if team == DOTA_TEAM_GOODGUYS then
-					location = (Vector(5872, 3500, 304)) + (Vector(RandomInt(0, 1056),RandomInt(0, 944), 0))
-				elseif team == DOTA_TEAM_BADGUYS then
-					location = (Vector(-6928, 3500, 304)) + (Vector(RandomInt(0, 1056),RandomInt(0, 944), 0))
-				end
-				local unit = CreateUnitByName("greevil_black_boss_att", location, true, nil, nil, team)
-				print("item_bosstoken_black_removed")
+			local itemGreevil = purchaseEntity.greevil:GetItemInSlot(i)
+			if itemGreevil ~= nil and itemGreevil:GetAbilityName() == "item_white_egg_def" then
+				purchaseEntity.greevil:RemoveItem(itemGreevil)
 			end
 		end
 	end
@@ -1013,10 +899,11 @@ end
 
 -- An ability was used by a player
 function GameMode:OnAbilityUsed(keys)
-	--DeepPrintTable(keys)
 
 	local player = EntIndexToHScript(keys.PlayerID)
+	local caster = EntIndexToHScript(keys.caster_entindex)
 	local abilityname = keys.abilityname
+
 end
 
 -- A non-player entity (necro-book, chen creep, etc) used an ability
@@ -1044,10 +931,69 @@ end
 
 -- A channelled ability finished by either completing or being interrupted
 function GameMode:OnAbilityChannelFinished(keys)
-	--DeepPrintTable(keys)
+	DeepPrintTable(keys)
 
-	local abilityname = keys.abilityname
 	local interrupted = keys.interrupted == 1
+	local abilityname = keys.abilityname
+	local caster = EntIndexToHScript(keys.caster_entindex)
+
+	if abilityname == "item_bosstoken_blue" and interrupted == false then
+		for i=0,8 do
+			local item = caster:GetItemInSlot(i)
+			if item ~= nil and item:GetAbilityName() == "item_bosstoken_blue" then
+				caster:RemoveItem(item)
+			end
+		end
+	elseif abilityname == "item_bosstoken_green" and interrupted == false then
+		for i=0,8 do
+			local item = caster:GetItemInSlot(i)
+			if item ~= nil and item:GetAbilityName() == "item_bosstoken_green" then
+				caster:RemoveItem(item)
+			end
+		end
+	elseif abilityname == "item_bosstoken_yellow" and interrupted == false then
+		for i=0,8 do
+			local item = caster:GetItemInSlot(i)
+			if item ~= nil and item:GetAbilityName() == "item_bosstoken_yellow" then
+				caster:RemoveItem(item)
+			end
+		end
+	elseif abilityname == "item_bosstoken_orange" and interrupted == false then
+		for i=0,8 do
+			local item = caster:GetItemInSlot(i)
+			if item ~= nil and item:GetAbilityName() == "item_bosstoken_orange" then
+				caster:RemoveItem(item)
+			end
+		end
+	elseif abilityname == "item_bosstoken_red" and interrupted == false then
+		for i=0,8 do
+			local item = caster:GetItemInSlot(i)
+			if item ~= nil and item:GetAbilityName() == "item_bosstoken_red" then
+				caster:RemoveItem(item)
+			end
+		end
+	elseif abilityname == "item_bosstoken_purple" and interrupted == false then
+		for i=0,8 do
+			local item = caster:GetItemInSlot(i)
+			if item ~= nil and item:GetAbilityName() == "item_bosstoken_purple" then
+				caster:RemoveItem(item)
+			end
+		end
+	elseif abilityname == "item_bosstoken_white" and interrupted == false then
+		for i=0,8 do
+			local item = caster:GetItemInSlot(i)
+			if item ~= nil and item:GetAbilityName() == "item_bosstoken_white" then
+				caster:RemoveItem(item)
+			end
+		end
+	elseif abilityname == "item_bosstoken_black" and interrupted == false then
+		for i=0,8 do
+			local item = caster:GetItemInSlot(i)
+			if item ~= nil and item:GetAbilityName() == "item_bosstoken_black" then
+				caster:RemoveItem(item)
+			end
+		end
+	end
 end
 
 -- A player leveled up

@@ -4,8 +4,8 @@
     "\\game",
     "\\game\\greevil_defence",
     "\\game\\greevil_defence\\scripts",
-    "\\game\\greevil_defence\\scripts\\npc"
+    "\\game\\greevil_defence\\scripts\\vscripts"
   ],
-  "SelectedNode": "\\game\\greevil_defence\\scripts\\npc\\npc_units_custom.txt",
+  "SelectedNode": "\\game\\greevil_defence\\Mod Notes.txt",
   "PreviewInSolutionExplorer": false
 }

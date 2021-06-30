@@ -109,37 +109,9 @@
 		"ItemCost"						"0"
 	}
 	
-	"item_sendboss"
-	{
-		"BaseClass"           		"item_datadriven"
-		"AbilityTextureName"      	"item_SendBoss"
-		"AbilityBehavior"			"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"ItemQuality"				"secret_shop"
-		"SecretShop"				"1"
-
-		// Sound
-		//-------------------------------------------------------------------------------------------------------------			
-		"UIPickupSound"					"Item.PickUpGemShop"
-		"UIDropSound"					"Item.DropGemShop"
-		"WorldDropSound"				"Item.DropGemWorld"
-
-		// Item Info
-		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"0"
-		"ItemStackable"					"0"
-		"ItemShareability"				"ITEM_NOT_SHAREABLE"
-		"ItemPermanent"					"1"
-		"ItemPurchasable"				"1"
-		"ItemKillable"					"0"
-		"ItemDroppable"					"0"
-		"ItemSellable"					"0"
-		"AbilityManaCost"       		"0"
-		"ItemDeclarations"        		"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
-	}
-	
-//////////////
-// BOSSDROPS
-//////////////
+///////////////
+// BOSSDROPS //
+///////////////
 	
 	"item_boss_drop_red"
 	{
@@ -153,7 +125,15 @@
 		"ItemPurchasable"				"0"
 		"ItemCost"						"0"
 		"PingOverrideText"				"DOTA_Chat_bossdrop_Pinged"
-		"AbilityCastPoint"				"0.5"
+		"AbilityCastPoint"				"0.3"
+		"OnSpellStart"
+		{
+			"FireSound"
+			{
+				"EffectName"    "ui.map_open"
+				"Target"        "CASTER"
+			}
+		}
 	}
 	
 	"item_boss_drop_orange"
@@ -168,7 +148,15 @@
 		"ItemPurchasable"				"0"
 		"ItemCost"						"0"
 		"PingOverrideText"				"DOTA_Chat_bossdrop_Pinged"
-		"AbilityCastPoint"				"0.5"
+		"AbilityCastPoint"				"0.3"
+		"OnSpellStart"
+		{
+			"FireSound"
+			{
+				"EffectName"    "ui.map_open"
+				"Target"        "CASTER"
+			}
+		}
 	}
 
 	"item_boss_drop_yellow"
@@ -183,7 +171,15 @@
 		"ItemPurchasable"				"0"
 		"ItemCost"						"0"
 		"PingOverrideText"				"DOTA_Chat_bossdrop_Pinged"
-		"AbilityCastPoint"				"0.5"
+		"AbilityCastPoint"				"0.3"
+		"OnSpellStart"
+		{
+			"FireSound"
+			{
+				"EffectName"    "ui.map_open"
+				"Target"        "CASTER"
+			}
+		}
 	}
 	
 	"item_boss_drop_green"
@@ -198,7 +194,15 @@
 		"ItemPurchasable"				"0"
 		"ItemCost"						"0"
 		"PingOverrideText"				"DOTA_Chat_bossdrop_Pinged"
-		"AbilityCastPoint"				"0.5"
+		"AbilityCastPoint"				"0.3"
+		"OnSpellStart"
+		{
+			"FireSound"
+			{
+				"EffectName"    "ui.map_open"
+				"Target"        "CASTER"
+			}
+		}
 	}
 	
 	"item_boss_drop_blue"
@@ -213,7 +217,15 @@
 		"ItemPurchasable"				"0"
 		"ItemCost"						"0"
 		"PingOverrideText"				"DOTA_Chat_bossdrop_Pinged"
-		"AbilityCastPoint"				"0.5"
+		"AbilityCastPoint"				"0.3"
+		"OnSpellStart"
+		{
+			"FireSound"
+			{
+				"EffectName"    "ui.map_open"
+				"Target"        "CASTER"
+			}
+		}
 	}
 	
 	"item_boss_drop_purple"
@@ -228,7 +240,15 @@
 		"ItemPurchasable"				"0"
 		"ItemCost"						"0"
 		"PingOverrideText"				"DOTA_Chat_bossdrop_Pinged"
-		"AbilityCastPoint"				"0.5"
+		"AbilityCastPoint"				"0.3"
+		"OnSpellStart"
+		{
+			"FireSound"
+			{
+				"EffectName"    "ui.map_open"
+				"Target"        "CASTER"
+			}
+		}
 	}
 	
 	"item_boss_drop_white"
@@ -243,7 +263,15 @@
 		"ItemPurchasable"				"0"
 		"ItemCost"						"0"
 		"PingOverrideText"				"DOTA_Chat_bossdrop_Pinged"
-		"AbilityCastPoint"				"0.5"
+		"AbilityCastPoint"				"0.3"
+		"OnSpellStart"
+		{
+			"FireSound"
+			{
+				"EffectName"    "ui.map_open"
+				"Target"        "CASTER"
+			}
+		}
 	}
 	
 	"item_boss_drop_black"
@@ -258,7 +286,15 @@
 		"ItemPurchasable"				"0"
 		"ItemCost"						"0"
 		"PingOverrideText"				"DOTA_Chat_bossdrop_Pinged"
-		"AbilityCastPoint"				"0.5"
+		"AbilityCastPoint"				"0.3"
+		"OnSpellStart"
+		{
+			"FireSound"
+			{
+				"EffectName"    "ui.map_open"
+				"Target"        "CASTER"
+			}
+		}
 	}
 	
 	////
@@ -266,113 +302,377 @@
 	"item_bosstoken_red"
 	{
 		"BaseClass"						"item_datadriven"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"Model"							"models/props_winter/egg.vmdl"
+		"AbilityCastAnimation"			"ACT_DOTA_TELEPORT"
 		"AbilityTextureName"			"item_BossRed"
-		"ItemSellable"					"0"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_CHANNELLED"
+
+		"UIPickupSound"					"Item.PickUpGemShop"
+		"UIDropSound"					"Item.DropGemShop"
+		"WorldDropSound"				"Item.DropGemWorld"
+		"SoundSet"						"Greevil"
+
+		"AbilityCastRange"				"0"
+		"AbilityCastPoint"				"0.0"
+		"AbilityCooldown"				"1"
+		"AbilityManaCost"       		"0"
+		"AbilityChannelTime"			"1"
+
 		"ItemShareability"				"ITEM_FULLY_SHAREABLE"
 		"ItemPurchasable"				"0"
 		"ItemCost"						"0"
-		"PingOverrideText"				"DOTA_Chat_bossdrop_Pinged"
+		"ItemSellable"					"0"
 		"ItemDroppable"					"0"
+		"ItemKillable"					"0"
+		"PingOverrideText"				"DOTA_Chat_temp"
+
+		"Model"							"models/props_winter/egg.vmdl"
+		"ItemQuality"    				"artifact"
+		"OnSpellStart"
+		{
+			"FireSound"
+			{
+				"EffectName"    "Hero_Furion.TreantRoar"
+				"Target"        "CASTER"
+			}
+		}
+		"OnChannelSucceeded"
+		{
+			"RunScript"
+			{
+				"Target"		"CASTER"
+				"ScriptFile"	"boss_drop/bossdrop_red.lua"
+				"Function"		"Summon"
+			}
+		}
 	}
 	
 	"item_bosstoken_orange"
 	{
 		"BaseClass"						"item_datadriven"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"Model"							"models/props_winter/egg.vmdl"
+		"AbilityCastAnimation"			"ACT_DOTA_TELEPORT"
 		"AbilityTextureName"			"item_BossOrange"
-		"ItemSellable"					"0"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_CHANNELLED"
+
+		"UIPickupSound"					"Item.PickUpGemShop"
+		"UIDropSound"					"Item.DropGemShop"
+		"WorldDropSound"				"Item.DropGemWorld"
+		"SoundSet"						"Greevil"
+
+		"AbilityCastRange"				"0"
+		"AbilityCastPoint"				"0.0"
+		"AbilityCooldown"				"1"
+		"AbilityManaCost"       		"0"
+		"AbilityChannelTime"			"1"
+
 		"ItemShareability"				"ITEM_FULLY_SHAREABLE"
 		"ItemPurchasable"				"0"
 		"ItemCost"						"0"
-		"PingOverrideText"				"DOTA_Chat_bossdrop_Pinged"
+		"ItemSellable"					"0"
 		"ItemDroppable"					"0"
+		"ItemKillable"					"0"
+		"PingOverrideText"				"DOTA_Chat_temp"
+
+		"Model"							"models/props_winter/egg.vmdl"
+		"ItemQuality"    				"artifact"
+		"OnSpellStart"
+		{
+			"FireSound"
+			{
+				"EffectName"    "Hero_Furion.TreantRoar"
+				"Target"        "CASTER"
+			}
+		}
+		"OnChannelSucceeded"
+		{
+			"RunScript"
+			{
+				"Target"		"CASTER"
+				"ScriptFile"	"boss_drop/bossdrop_orange.lua"
+				"Function"		"Summon"
+			}
+		}
 	}
 	
 	"item_bosstoken_yellow"
 	{
 		"BaseClass"						"item_datadriven"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"Model"							"models/props_winter/egg.vmdl"
+		"AbilityCastAnimation"			"ACT_DOTA_TELEPORT"
 		"AbilityTextureName"			"item_BossYellow"
-		"ItemSellable"					"0"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_CHANNELLED"
+
+		"UIPickupSound"					"Item.PickUpGemShop"
+		"UIDropSound"					"Item.DropGemShop"
+		"WorldDropSound"				"Item.DropGemWorld"
+		"SoundSet"						"Greevil"
+
+		"AbilityCastRange"				"0"
+		"AbilityCastPoint"				"0.0"
+		"AbilityCooldown"				"1"
+		"AbilityManaCost"       		"0"
+		"AbilityChannelTime"			"1"
+
 		"ItemShareability"				"ITEM_FULLY_SHAREABLE"
 		"ItemPurchasable"				"0"
 		"ItemCost"						"0"
-		"PingOverrideText"				"DOTA_Chat_bossdrop_Pinged"
+		"ItemSellable"					"0"
 		"ItemDroppable"					"0"
+		"ItemKillable"					"0"
+		"PingOverrideText"				"DOTA_Chat_temp"
+
+		"Model"							"models/props_winter/egg.vmdl"
+		"ItemQuality"    				"artifact"
+		"OnSpellStart"
+		{
+			"FireSound"
+			{
+				"EffectName"    "Hero_Furion.TreantRoar"
+				"Target"        "CASTER"
+			}
+		}
+		"OnChannelSucceeded"
+		{
+			"RunScript"
+			{
+				"Target"		"CASTER"
+				"ScriptFile"	"boss_drop/bossdrop_yellow.lua"
+				"Function"		"Summon"
+			}
+		}
 	}
 	
 	"item_bosstoken_green"
 	{
 		"BaseClass"						"item_datadriven"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"Model"							"models/props_winter/egg.vmdl"
+		"AbilityCastAnimation"			"ACT_DOTA_TELEPORT"
 		"AbilityTextureName"			"item_BossGreen"
-		"ItemSellable"					"0"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_CHANNELLED"
+
+		"UIPickupSound"					"Item.PickUpGemShop"
+		"UIDropSound"					"Item.DropGemShop"
+		"WorldDropSound"				"Item.DropGemWorld"
+		"SoundSet"						"Greevil"
+
+		"AbilityCastRange"				"0"
+		"AbilityCastPoint"				"0.0"
+		"AbilityCooldown"				"1"
+		"AbilityManaCost"       		"0"
+		"AbilityChannelTime"			"1"
+
 		"ItemShareability"				"ITEM_FULLY_SHAREABLE"
 		"ItemPurchasable"				"0"
 		"ItemCost"						"0"
-		"PingOverrideText"				"DOTA_Chat_bossdrop_Pinged"
+		"ItemSellable"					"0"
 		"ItemDroppable"					"0"
+		"ItemKillable"					"0"
+		"PingOverrideText"				"DOTA_Chat_temp"
+
+		"Model"							"models/props_winter/egg.vmdl"
+		"ItemQuality"    				"artifact"
+		"OnSpellStart"
+		{
+			"FireSound"
+			{
+				"EffectName"    "Hero_Furion.TreantRoar"
+				"Target"        "CASTER"
+			}
+		}
+		"OnChannelSucceeded"
+		{
+			"RunScript"
+			{
+				"Target"		"CASTER"
+				"ScriptFile"	"boss_drop/bossdrop_green.lua"
+				"Function"		"Summon"
+			}
+		}
 	}
 	
 	"item_bosstoken_blue"
 	{
 		"BaseClass"						"item_datadriven"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"Model"							"models/props_winter/egg.vmdl"
+		"AbilityCastAnimation"			"ACT_DOTA_TELEPORT"
 		"AbilityTextureName"			"item_BossBlue"
-		"ItemSellable"					"0"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_CHANNELLED"
+
+		"UIPickupSound"					"Item.PickUpGemShop"
+		"UIDropSound"					"Item.DropGemShop"
+		"WorldDropSound"				"Item.DropGemWorld"
+		"SoundSet"						"Greevil"
+
+		"AbilityCastRange"				"0"
+		"AbilityCastPoint"				"0.0"
+		"AbilityCooldown"				"1"
+		"AbilityManaCost"       		"0"
+		"AbilityChannelTime"			"1"
+
 		"ItemShareability"				"ITEM_FULLY_SHAREABLE"
 		"ItemPurchasable"				"0"
 		"ItemCost"						"0"
-		"PingOverrideText"				"DOTA_Chat_bossdrop_Pinged"
+		"ItemSellable"					"0"
 		"ItemDroppable"					"0"
+		"ItemKillable"					"0"
+		"PingOverrideText"				"DOTA_Chat_temp"
+
+		"Model"							"models/props_winter/egg.vmdl"
+		"ItemQuality"    				"artifact"
+		"OnSpellStart"
+		{
+			"FireSound"
+			{
+				"EffectName"    "Hero_Furion.TreantRoar"
+				"Target"        "CASTER"
+			}
+		}
+		"OnChannelSucceeded"
+		{
+			"RunScript"
+			{
+				"Target"		"CASTER"
+				"ScriptFile"	"boss_drop/bossdrop_blue.lua"
+				"Function"		"Summon"
+			}
+		}
 	}
 	
 	"item_bosstoken_purple"
 	{
 		"BaseClass"						"item_datadriven"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"Model"							"models/props_winter/egg.vmdl"
+		"AbilityCastAnimation"			"ACT_DOTA_TELEPORT"
 		"AbilityTextureName"			"item_BossPurple"
-		"ItemSellable"					"0"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_CHANNELLED"
+
+		"UIPickupSound"					"Item.PickUpGemShop"
+		"UIDropSound"					"Item.DropGemShop"
+		"WorldDropSound"				"Item.DropGemWorld"
+		"SoundSet"						"Greevil"
+
+		"AbilityCastRange"				"0"
+		"AbilityCastPoint"				"0.0"
+		"AbilityCooldown"				"1"
+		"AbilityManaCost"       		"0"
+		"AbilityChannelTime"			"1"
+
 		"ItemShareability"				"ITEM_FULLY_SHAREABLE"
 		"ItemPurchasable"				"0"
 		"ItemCost"						"0"
-		"PingOverrideText"				"DOTA_Chat_bossdrop_Pinged"
+		"ItemSellable"					"0"
 		"ItemDroppable"					"0"
+		"ItemKillable"					"0"
+		"PingOverrideText"				"DOTA_Chat_temp"
+
+		"Model"							"models/props_winter/egg.vmdl"
+		"ItemQuality"    				"artifact"
+		"OnSpellStart"
+		{
+			"FireSound"
+			{
+				"EffectName"    "Hero_Furion.TreantRoar"
+				"Target"        "CASTER"
+			}
+		}
+		"OnChannelSucceeded"
+		{
+			"RunScript"
+			{
+				"Target"		"CASTER"
+				"ScriptFile"	"boss_drop/bossdrop_purple.lua"
+				"Function"		"Summon"
+			}
+		}
 	}
 	
 	"item_bosstoken_white"
 	{
 		"BaseClass"						"item_datadriven"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"Model"							"models/props_winter/egg.vmdl"
+		"AbilityCastAnimation"			"ACT_DOTA_TELEPORT"
 		"AbilityTextureName"			"item_BossWhite"
-		"ItemSellable"					"0"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_CHANNELLED"
+
+		"UIPickupSound"					"Item.PickUpGemShop"
+		"UIDropSound"					"Item.DropGemShop"
+		"WorldDropSound"				"Item.DropGemWorld"
+		"SoundSet"						"Greevil"
+
+		"AbilityCastRange"				"0"
+		"AbilityCastPoint"				"0.0"
+		"AbilityCooldown"				"1"
+		"AbilityManaCost"       		"0"
+		"AbilityChannelTime"			"1"
+
 		"ItemShareability"				"ITEM_FULLY_SHAREABLE"
 		"ItemPurchasable"				"0"
 		"ItemCost"						"0"
-		"PingOverrideText"				"DOTA_Chat_bossdrop_Pinged"
+		"ItemSellable"					"0"
 		"ItemDroppable"					"0"
+		"ItemKillable"					"0"
+		"PingOverrideText"				"DOTA_Chat_temp"
+
+		"Model"							"models/props_winter/egg.vmdl"
+		"ItemQuality"    				"artifact"
+		"OnSpellStart"
+		{
+			"FireSound"
+			{
+				"EffectName"    "Hero_Furion.TreantRoar"
+				"Target"        "CASTER"
+			}
+		}
+		"OnChannelSucceeded"
+		{
+			"RunScript"
+			{
+				"Target"		"CASTER"
+				"ScriptFile"	"boss_drop/bossdrop_white.lua"
+				"Function"		"Summon"
+			}
+		}
 	}
 	
 	"item_bosstoken_black"
 	{
 		"BaseClass"						"item_datadriven"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"Model"							"models/props_winter/egg.vmdl"
+		"AbilityCastAnimation"			"ACT_DOTA_TELEPORT"
 		"AbilityTextureName"			"item_BossBlack"
-		"ItemSellable"					"0"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_CHANNELLED"
+
+		"UIPickupSound"					"Item.PickUpGemShop"
+		"UIDropSound"					"Item.DropGemShop"
+		"WorldDropSound"				"Item.DropGemWorld"
+		"SoundSet"						"Greevil"
+
+		"AbilityCastRange"				"0"
+		"AbilityCastPoint"				"0.0"
+		"AbilityCooldown"				"1"
+		"AbilityManaCost"       		"0"
+		"AbilityChannelTime"			"1"
+
 		"ItemShareability"				"ITEM_FULLY_SHAREABLE"
 		"ItemPurchasable"				"0"
 		"ItemCost"						"0"
-		"PingOverrideText"				"DOTA_Chat_bossdrop_Pinged"
+		"ItemSellable"					"0"
 		"ItemDroppable"					"0"
+		"ItemKillable"					"0"
+		"PingOverrideText"				"DOTA_Chat_temp"
+
+		"Model"							"models/props_winter/egg.vmdl"
+		"ItemQuality"    				"artifact"
+		"OnSpellStart"
+		{
+			"FireSound"
+			{
+				"EffectName"    "Hero_Furion.TreantRoar"
+				"Target"        "CASTER"
+			}
+		}
+		"OnChannelSucceeded"
+		{
+			"RunScript"
+			{
+				"Target"		"CASTER"
+				"ScriptFile"	"boss_drop/bossdrop_black.lua"
+				"Function"		"Summon"
+			}
+		}
 	}
 
 	////

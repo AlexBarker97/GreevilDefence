@@ -634,13 +634,14 @@
 		"Ability3"					"greevil_natures_attendants_custom"
 		"Ability4"					"generic_hidden"
 		"Ability5"					"generic_hidden"
-		"Ability6"					"greevil_leech_seed_custom"
+		"Ability6"					"greevil_earth_splitter"
 		
 		"precache"
 		{
 			"soundfile"		"soundevents/game_sounds_heroes/game_sounds_windrunner.vsndevts"
 			"soundfile"		"soundevents/game_sounds_heroes/game_sounds_treant.vsndevts"
 			"soundfile"		"soundevents/game_sounds_heroes/game_sounds_enchantress.vsndevts"
+			"soundfile"		"soundevents/game_sounds_heroes/game_sounds_elder_titan.vsndevts"
 		}
 
 		// Armor
@@ -1331,18 +1332,16 @@
 		// Abilities
 		//----------------------------------------------------------------
 		
-		"Ability1"					"greevil_hurl_boulder"
-		"Ability2"					"greevil_destroy"
+		"Ability1"					"greevil_acorn_shot"
+		"Ability2"					"greevil_acid_spray"
 		"Ability3"					"greevil_cloak_aura"
 		"Ability4"					"greevil_spawnlord_aura"
 		"Ability5"					"greevil_miniboss_sight"
 		
 		"precache"
 		{
-			"soundfile"		"soundevents/game_sounds_heroes/game_sounds_earthshaker.vsndevts"
-			"soundfile"		"soundevents/game_sounds_heroes/game_sounds_earth_spirit.vsndevts"
-			"soundfile"		"soundevents/game_sounds_heroes/game_sounds_tiny.vsndevts"
-			"soundfile"		"soundevents/game_sounds_heroes/game_sounds_medusa.vsndevts"
+			"soundfile"		"soundevents/game_sounds_heroes/game_sounds_alchemist.vsndevts"
+			"soundfile"		"soundevents/game_sounds_heroes/game_sounds_hoodwink.vsndevts"
 			"soundfile"		"soundevents/game_sounds_greevils.vsndevts"
 		}
 
@@ -1361,8 +1360,8 @@
 		//----------------------------------------------------------------
 		"Level"                     "15"
 		
-		"AttackDamageMin"			"71"
-		"AttackDamageMax"			"78"	
+		"AttackDamageMin"			"0"
+		"AttackDamageMax"			"0"	
 		"AttackRate"				"1.8"
 		"AttackRange"				"128"
 		
@@ -1372,166 +1371,6 @@
 		"ArmorPhysical"				"25"
 		"MagicalResistance"			"40"
 		"StatusHealth"				"5000"
-		"StatusHealthRegen"			"10"
-		"StatusMana"				"0"
-		"StatusManaRegen"			"0"
-
-		// Team
-		//----------------------------------------------------------------
-		"TeamName"					"DOTA_TEAM_NEUTRALS"			// Team name.
-		"CombatClassAttack"			"DOTA_COMBAT_CLASS_ATTACK_HERO"
-		"CombatClassDefend"			"DOTA_COMBAT_CLASS_DEFEND_HERO"
-		"UnitRelationshipClass"		"DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
-		
-		// Vision
-		//----------------------------------------------------------------
-		"VisionDaytimeRange"		"1800"		// Range of vision during day light.
-		"VisionNighttimeRange"		"1200"		// Range of vision at night time.
-	}
-	
-	"greevil_green_2"
-	{
-		// General
-		//----------------------------------------------------------------
-		"BaseClass"					"npc_dota_creature"
-		"vscripts"					"ai/ai_greevil_green.lua"
-		"AutoAttacksByDefault"      "0"
-		"Model"						"models/courier/greevil/greevil.vmdl"
-		"SoundSet"					"Greevil"
-		"MinimapIcon" 				"minimap_creepcamp_mid"
-		"MinimapIconSize" 			"150"
-		"ModelScale"				"1.5"
-		"CanBeDominated"			"0"
-		"AttackCapabilities"		"DOTA_UNIT_CAP_MELEE_ATTACK"
-		"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_GROUND"
-		"AttackAnimationPoint"		"0.5"
-		"ConsideredHero"			"1"
-		"HasInventory"				"1"
-
-		// Abilities
-		//----------------------------------------------------------------
-		
-		"Ability1"					"greevil_hurl_boulder"
-		"Ability2"					"greevil_destroy"
-		"Ability3"					"greevil_cloak_aura"
-		"Ability4"					"greevil_spawnlord_aura"
-		"Ability5"					"greevil_miniboss_sight"
-		
-		"precache"
-		{
-			"soundfile"		"soundevents/game_sounds_heroes/game_sounds_earthshaker.vsndevts"
-			"soundfile"		"soundevents/game_sounds_heroes/game_sounds_earth_spirit.vsndevts"
-			"soundfile"		"soundevents/game_sounds_heroes/game_sounds_tiny.vsndevts"
-			"soundfile"		"soundevents/game_sounds_heroes/game_sounds_medusa.vsndevts"
-			"soundfile"		"soundevents/game_sounds_greevils.vsndevts"
-		}
-
-		// Bounty
-		//----------------------------------------------------------------
-		"BountyXP"                  "0"
-		"BountyGoldMin"             "0"
-		"BountyGoldMax"             "0"
-
-		// Bounds
-		//----------------------------------------------------------------
-		"RingRadius"				"90"
-		"HealthBarOffset"			"220"
-
-		// Stats
-		//----------------------------------------------------------------
-		"Level"                     "15"
-		
-		"AttackDamageMin"			"71"
-		"AttackDamageMax"			"78"	
-		"AttackRate"				"1.8"
-		"AttackRange"				"128"
-		
-		"MovementSpeed"				"300"
-		"MovementTurnRate"			"0.5"
-		
-		"ArmorPhysical"				"25"
-		"MagicalResistance"			"40"
-		"StatusHealth"				"2000"
-		"StatusHealthRegen"			"10"
-		"StatusMana"				"0"
-		"StatusManaRegen"			"0"
-
-		// Team
-		//----------------------------------------------------------------
-		"TeamName"					"DOTA_TEAM_NEUTRALS"			// Team name.
-		"CombatClassAttack"			"DOTA_COMBAT_CLASS_ATTACK_HERO"
-		"CombatClassDefend"			"DOTA_COMBAT_CLASS_DEFEND_HERO"
-		"UnitRelationshipClass"		"DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
-		
-		// Vision
-		//----------------------------------------------------------------
-		"VisionDaytimeRange"		"1800"		// Range of vision during day light.
-		"VisionNighttimeRange"		"1200"		// Range of vision at night time.
-	}
-	
-	"greevil_green_3"
-	{
-		// General
-		//----------------------------------------------------------------
-		"BaseClass"					"npc_dota_creature"
-		"vscripts"					"ai/ai_greevil_green.lua"
-		"AutoAttacksByDefault"      "0"
-		"Model"						"models/courier/greevil/greevil.vmdl"
-		"SoundSet"					"Greevil"
-		"MinimapIcon" 				"minimap_creepcamp_mid"
-		"MinimapIconSize" 			"150"
-		"ModelScale"				"1"
-		"CanBeDominated"			"0"
-		"AttackCapabilities"		"DOTA_UNIT_CAP_MELEE_ATTACK"
-		"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_GROUND"
-		"AttackAnimationPoint"		"0.5"
-		"ConsideredHero"			"1"
-		"HasInventory"				"1"
-
-		// Abilities
-		//----------------------------------------------------------------
-		
-		"Ability1"					"greevil_hurl_boulder"
-		"Ability2"					"greevil_destroy"
-		"Ability3"					"greevil_cloak_aura"
-		"Ability4"					"greevil_spawnlord_aura"
-		"Ability5"					"greevil_miniboss_sight"
-		
-		"precache"
-		{
-			"soundfile"		"soundevents/game_sounds_heroes/game_sounds_earthshaker.vsndevts"
-			"soundfile"		"soundevents/game_sounds_heroes/game_sounds_earth_spirit.vsndevts"
-			"soundfile"		"soundevents/game_sounds_heroes/game_sounds_tiny.vsndevts"
-			"soundfile"		"soundevents/game_sounds_heroes/game_sounds_medusa.vsndevts"
-			"soundfile"		"soundevents/game_sounds_greevils.vsndevts"
-		}
-
-		// Bounty
-		//----------------------------------------------------------------
-		"BountyXP"                  "0"
-		"BountyGoldMin"             "25"
-		"BountyGoldMax"             "25"
-
-		// Bounds
-		//----------------------------------------------------------------
-		"RingRadius"				"90"
-		"HealthBarOffset"			"220"
-
-		// Stats
-		//----------------------------------------------------------------
-		"Level"                     "15"
-		
-		"AttackDamageMin"			"71"
-		"AttackDamageMax"			"78"	
-		"AttackRate"				"1.8"
-		"AttackRange"				"128"
-		
-		"MovementSpeed"				"300"
-		"MovementTurnRate"			"0.5"
-		
-		"ArmorPhysical"				"25"
-		"MagicalResistance"			"40"
-		"StatusHealth"				"1000"
 		"StatusHealthRegen"			"10"
 		"StatusMana"				"0"
 		"StatusManaRegen"			"0"
@@ -1576,6 +1415,14 @@
 		"Ability3"					"greevil_ice_vortex"
 		"Ability4"					"greevil_chain_frost"
 		"Ability5"					"greevil_miniboss_sight"
+
+		"precache"
+		{
+			"soundfile"		"soundevents/game_sounds_heroes/game_sounds_lich.vsndevts"
+			"soundfile"		"soundevents/game_sounds_heroes/game_sounds_invoker.vsndevts"
+			"soundfile"		"soundevents/game_sounds_heroes/game_sounds_ancient_apparition.vsndevts"
+			"soundfile"		"soundevents/game_sounds_greevils.vsndevts"
+		}
 
 		// Bounty
 		//----------------------------------------------------------------
@@ -1667,6 +1514,15 @@
 		"Ability4"					"greevil_smoke_screen"
 		"Ability5"					"greevil_miniboss_sight"
 
+		"precache"
+		{
+			"soundfile"		"soundevents/game_sounds_heroes/game_sounds_void_spirit.vsndevts"
+			"soundfile"		"soundevents/game_sounds_heroes/game_sounds_enigma.vsndevts"
+			"soundfile"		"soundevents/game_sounds_heroes/game_sounds_dark_seer.vsndevts"
+			"soundfile"		"soundevents/game_sounds_heroes/game_sounds_riki.vsndevts"
+			"soundfile"		"soundevents/game_sounds_greevils.vsndevts"
+		}
+
 		// Bounty
 		//----------------------------------------------------------------
 		"BountyXP"                  "0"
@@ -1734,17 +1590,24 @@
 		
 		"Ability1"					"greevil_white_overwhelming_odds"
 		"Ability2"					"greevil_white_light_strike_array"
-		"Ability3"					"greevil_white_avalanche"
-		"Ability4"					"greevil_white_ensnare"
-		"Ability5"					"greevil_white_cold_snap"
+		"Ability3"					"greevil_white_echo_slam"
+		"Ability4"					"greevil_white_ravage"
+		"Ability5"					"greevil_white_frostbite"
 		"Ability6"					"greevil_white_vacuum"
-		"Ability7"					"greevil_white_deafening_blast"
+		"Ability7"					"greevil_white_will_o_wisp"
 		"Ability8"					"greevil_miniboss_sight"
-		"Ability9"					"special_bonus_unique_invoker_1"
 
-		"Ability10"					"special_bonus_unique_invoker_9"
-		"Ability11"					"special_bonus_unique_invoker_10"
-		"Ability12"					"special_bonus_unique_invoker_11"
+		"precache"
+		{
+			"soundfile"		"soundevents/game_sounds_heroes/game_sounds_legion_commander.vsndevts"
+			"soundfile"		"soundevents/game_sounds_heroes/game_sounds_lina.vsndevts"
+			"soundfile"		"soundevents/game_sounds_heroes/game_sounds_earthshaker.vsndevts"
+			"soundfile"		"soundevents/game_sounds_heroes/game_sounds_tidehunter.vsndevts"
+			"soundfile"		"soundevents/game_sounds_heroes/game_sounds_crystalmaiden.vsndevts"
+			"soundfile"		"soundevents/game_sounds_heroes/game_sounds_dark_seer.vsndevts"
+			"soundfile"		"soundevents/game_sounds_heroes/game_sounds_keeper_of_the_light.vsndevts"
+			"soundfile"		"soundevents/game_sounds_greevils.vsndevts"
+		}
 
 		// Bounty
 		//----------------------------------------------------------------
@@ -1816,6 +1679,13 @@
 		"Ability3"					"greevil_essence_shift"
 		"Ability4"					"greevil_exorcism"
 		"Ability5"					"greevil_miniboss_sight"
+
+		"precache"
+		{
+			"soundfile"		"soundevents/game_sounds_heroes/game_sounds_life_stealer.vsndevts"
+			"soundfile"		"soundevents/game_sounds_heroes/game_sounds_death_prophet.vsndevts"
+			"soundfile"		"soundevents/game_sounds_greevils.vsndevts"
+		}
 
 		// Bounty
 		//----------------------------------------------------------------
@@ -2303,22 +2173,22 @@
 
 		// Bounds
 		//----------------------------------------------------------------
-		"RingRadius"				"90"
-		"HealthBarOffset"			"220"
+		"RingRadius"				"100"
+		"HealthBarOffset"			"280"
 
 		// Stats
 		//----------------------------------------------------------------
 		"Level"                     "20"
 		
-		"AttackDamageMin"			"71"
-		"AttackDamageMax"			"78"
-		"AttackRate"				"1.8"
-		"AttackRange"				"128"
+		"AttackDamageMin"			"200"
+		"AttackDamageMax"			"300"
+		"AttackRate"				"2.0"
+		"AttackRange"				"200"
 		
 		"MovementSpeed"				"300"
 		"MovementTurnRate"			"1.5"
 		
-		"ArmorPhysical"				"15"
+		"ArmorPhysical"				"20"
 		"MagicalResistance"			"41"
 		"StatusHealth"				"10000"
 		"StatusHealthRegen"			"20"

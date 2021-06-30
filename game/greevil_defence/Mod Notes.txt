@@ -4,20 +4,19 @@
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 Required before player Testing
-• Wilderness gate
-• Greevil death !!FIX!!
-• Neutral Boss AI
-• Attack Boss abilities + AI
+• Wilderness gate (needs rig)
+• Greevil death !!FIX!! (needs rig)
 • Boss greevil candy use
-• Green greevil boss rework
 • White boss fight
+• Multiple boss tokens removed on single spawn/channel
 
 QoL
+• Attack Boss abilities + AI
+• Neutral Boss AI
 • More "one time" shop items
 • Less spam on att/def greevils in shop (balance cost attack vs def, all $ -> $$$)
-• Hero XP/Leveling balance (barebones.lua)
 • Greevil Leveling (ln:459 addon_game_mode.lua)
-• Ability sounds on boss greevils
+• Improve bossfights
 
 Luxury
 • att/def greevil upgrades
@@ -34,8 +33,8 @@ Luxury
 	12 -> 11	r 		Legion Q 	-> 	Spawn		()
 	11 -> 10	o 		Lina LSA 	-> 	Spawn		(warlock_golem_permanent_immolation)
 	10 ->  9	y 		Avalanche 	-> 	Spawn		(granite_golem_hp_aura)
-	 9 ->  8	g 		Troll Net	-> 	Spawn		(greevil_spawnlord_aura)
-	 8 ->  7	b 		Cold Snap 	-> 	Spawn		(tusk_frozen_sigil)
+	 9 ->  8	g 		Ravage		-> 	Spawn		(greevil_spawnlord_aura)
+	 8 ->  7	b 		Frostbite 	-> 	Spawn		(tusk_frozen_sigil)
 	 7 ->  6	p 		Vac 		-> 	Spawn		(night_stalker_crippling_fear)
 	 6 ->  0	ALL		AoE_DBlast 	->	Spawn
 
@@ -100,6 +99,9 @@ These boots will allow the wearer to walk more easily on the frozen river.
 
 New ModDota Website
 https://moddota.com/
+
+Hero Sounds:
+https://github.com/SteamDatabase/GameTracking-Dota2/tree/master/game/dota/pak01_dir/soundevents/game_sounds_heroes
 
 Game Events:
 https://github.com/bmddota/SotA/blob/master/game/dota_addons/sota/scripts/vscripts/eventtest.lua

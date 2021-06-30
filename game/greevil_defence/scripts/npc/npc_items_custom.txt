@@ -642,9 +642,9 @@
 
 		"AbilityCastRange"				"0"
 		"AbilityCastPoint"				"0.0"
-		"AbilityCooldown"				"1"
+		"AbilityCooldown"				"2.5"
 		"AbilityManaCost"       		"0"
-		"AbilityChannelTime"			"1"
+		"AbilityChannelTime"			"2.5"
 
 		"ItemShareability"				"ITEM_FULLY_SHAREABLE"
 		"ItemPurchasable"				"0"
@@ -660,7 +660,7 @@
 		{
 			"FireSound"
 			{
-				"EffectName"    "Hero_Furion.TreantRoar"
+				"EffectName"    "siltbreaker_silt_channeling_06"
 				"Target"        "CASTER"
 			}
 		}

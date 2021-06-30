@@ -47,6 +47,7 @@ function Precache( context )
 	-- Sounds can precached here like anything else
 	PrecacheResource("soundfile", "soundevents/game_sounds_heroes/game_sounds_furion.vsndevts", context)
 	PrecacheResource("soundfile", "soundevents/game_sounds_ui_imported.vsndevts", context)
+	PrecacheResource("soundfile", "soundevents/voscripts/game_sounds_vo_siltbreaker.vsndevts", context)
 
 	-- Entire items can be precached by name
 	-- Abilities can also be precached in this way despite the name
@@ -306,36 +307,34 @@ function SpawnBosses()
 	local pointr = Entities:FindAllByName("spawnerino_red")
 	for k,v in pairs(pointr) do				
 		local location = v:GetAbsOrigin()
-		local findUnits = FindUnitsInRadius(
-			DOTA_TEAM_GOODGUYS,
-            location,
-            nil,
-            1200,
-            DOTA_UNIT_TARGET_TEAM_BOTH + DOTA_UNIT_TARGET_TEAM_NONE,
-            DOTA_UNIT_TARGET_ALL,
-            DOTA_UNIT_TARGET_FLAG_NONE,
-            FIND_ANY_ORDER,
-            false)
-		if #findUnits == 0 then
+		local findUnits = FindUnitsInRadius(DOTA_TEAM_NEUTRALS, location, nil, 3000, 
+			DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_NONE,
+            FIND_ANY_ORDER, false)
+		local filtUnits = 0
+		for i=1,#findUnits do
+			if findUnits[i]:GetUnitName() == "greevil_red" then
+				filtUnits = 1
+			end
+		end
+		if filtUnits == 0 then
 			unit = CreateUnitByName("greevil_red", location, false, nil, nil, DOTA_TEAM_NEUTRALS)
 			unit.spawnPos = location
 		end
-	end	
+	end
 	
 	local pointr = Entities:FindAllByName("spawnerino_orange")
 	for k,v in pairs(pointr) do				
 		local location = v:GetAbsOrigin()
-		local findUnits = FindUnitsInRadius(
-			DOTA_TEAM_GOODGUYS,
-            location,
-            nil,
-            1200,
-            DOTA_UNIT_TARGET_TEAM_BOTH + DOTA_UNIT_TARGET_TEAM_NONE,
-            DOTA_UNIT_TARGET_ALL,
-            DOTA_UNIT_TARGET_FLAG_NONE,
-            FIND_ANY_ORDER,
-            false)
-		if #findUnits == 0 then
+		local findUnits = FindUnitsInRadius(DOTA_TEAM_NEUTRALS, location, nil, 3000, 
+			DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_NONE,
+            FIND_ANY_ORDER, false)
+		local filtUnits = 0
+		for i=1,#findUnits do
+			if findUnits[i]:GetUnitName() == "greevil_orange" then
+				filtUnits = 1
+			end
+		end
+		if filtUnits == 0 then
 			unit = CreateUnitByName("greevil_orange", location, false, nil, nil, DOTA_TEAM_NEUTRALS)
 			unit.spawnPos = location
 		end
@@ -343,18 +342,17 @@ function SpawnBosses()
 	
 	local pointr = Entities:FindAllByName("spawnerino_yellow")
 	for k,v in pairs(pointr) do				
-		location = v:GetAbsOrigin()
-		local findUnits = FindUnitsInRadius(
-			DOTA_TEAM_GOODGUYS,
-            location,
-            nil,
-            1200,
-            DOTA_UNIT_TARGET_TEAM_BOTH + DOTA_UNIT_TARGET_TEAM_NONE,
-            DOTA_UNIT_TARGET_ALL,
-            DOTA_UNIT_TARGET_FLAG_NONE,
-            FIND_ANY_ORDER,
-            false)
-		if #findUnits == 0 then
+		local location = v:GetAbsOrigin()
+		local findUnits = FindUnitsInRadius(DOTA_TEAM_NEUTRALS, location, nil, 3000, 
+			DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_NONE,
+            FIND_ANY_ORDER, false)
+		local filtUnits = 0
+		for i=1,#findUnits do
+			if findUnits[i]:GetUnitName() == "greevil_yellow" then
+				filtUnits = 1
+			end
+		end
+		if filtUnits == 0 then
 			unit = CreateUnitByName("greevil_yellow", location, false, nil, nil, DOTA_TEAM_NEUTRALS)
 			unit.spawnPos = location
 		end
@@ -363,17 +361,16 @@ function SpawnBosses()
 	local pointr = Entities:FindAllByName("spawnerino_green")
 	for k,v in pairs(pointr) do				
 		local location = v:GetAbsOrigin()
-		local findUnits = FindUnitsInRadius(
-			DOTA_TEAM_GOODGUYS,
-            location,
-            nil,
-            1200,
-            DOTA_UNIT_TARGET_TEAM_BOTH + DOTA_UNIT_TARGET_TEAM_NONE,
-            DOTA_UNIT_TARGET_ALL,
-            DOTA_UNIT_TARGET_FLAG_NONE,
-            FIND_ANY_ORDER,
-            false)
-		if #findUnits == 0 then
+		local findUnits = FindUnitsInRadius(DOTA_TEAM_NEUTRALS, location, nil, 3000, 
+			DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_NONE,
+            FIND_ANY_ORDER, false)
+		local filtUnits = 0
+		for i=1,#findUnits do
+			if findUnits[i]:GetUnitName() == "greevil_green" then
+				filtUnits = 1
+			end
+		end
+		if filtUnits == 0 then
 			unit = CreateUnitByName("greevil_green", location, false, nil, nil, DOTA_TEAM_NEUTRALS)
 			unit.spawnPos = location
 		end
@@ -382,17 +379,16 @@ function SpawnBosses()
 	local pointr = Entities:FindAllByName("spawnerino_blue")
 	for k,v in pairs(pointr) do				
 		local location = v:GetAbsOrigin()
-		local findUnits = FindUnitsInRadius(
-			DOTA_TEAM_GOODGUYS,
-            location,
-            nil,
-            300,
-            DOTA_UNIT_TARGET_TEAM_BOTH + DOTA_UNIT_TARGET_TEAM_NONE,
-            DOTA_UNIT_TARGET_ALL,
-            DOTA_UNIT_TARGET_FLAG_NONE,
-            FIND_ANY_ORDER,
-            false)
-		if #findUnits == 0 then
+		local findUnits = FindUnitsInRadius(DOTA_TEAM_NEUTRALS, location, nil, 3000, 
+			DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_NONE,
+            FIND_ANY_ORDER, false)
+		local filtUnits = 0
+		for i=1,#findUnits do
+			if findUnits[i]:GetUnitName() == "greevil_blue" then
+				filtUnits = 1
+			end
+		end
+		if filtUnits == 0 then
 			unit = CreateUnitByName("greevil_blue", location, false, nil, nil, DOTA_TEAM_NEUTRALS)
 			unit.spawnPos = location
 		end
@@ -401,17 +397,16 @@ function SpawnBosses()
 	local pointr = Entities:FindAllByName("spawnerino_purple")
 	for k,v in pairs(pointr) do				
 		local location = v:GetAbsOrigin()
-		local findUnits = FindUnitsInRadius(
-			DOTA_TEAM_GOODGUYS,
-            location,
-            nil,
-            1200,
-            DOTA_UNIT_TARGET_TEAM_BOTH + DOTA_UNIT_TARGET_TEAM_NONE,
-            DOTA_UNIT_TARGET_ALL,
-            DOTA_UNIT_TARGET_FLAG_NONE,
-            FIND_ANY_ORDER,
-            false)
-		if #findUnits == 0 then
+		local findUnits = FindUnitsInRadius(DOTA_TEAM_NEUTRALS, location, nil, 3000, 
+			DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_NONE,
+            FIND_ANY_ORDER, false)
+		local filtUnits = 0
+		for i=1,#findUnits do
+			if findUnits[i]:GetUnitName() == "greevil_purple" then
+				filtUnits = 1
+			end
+		end
+		if filtUnits == 0 then
 			unit = CreateUnitByName("greevil_purple", location, false, nil, nil, DOTA_TEAM_NEUTRALS)
 			unit.spawnPos = location
 		end
@@ -420,17 +415,16 @@ function SpawnBosses()
 	local pointr = Entities:FindAllByName("spawnerino_white")
 	for k,v in pairs(pointr) do				
 		local location = v:GetAbsOrigin()
-		local findUnits = FindUnitsInRadius(
-			DOTA_TEAM_GOODGUYS,
-            location,
-            nil,
-            1200,
-            DOTA_UNIT_TARGET_TEAM_BOTH + DOTA_UNIT_TARGET_TEAM_NONE,
-            DOTA_UNIT_TARGET_ALL,
-            DOTA_UNIT_TARGET_FLAG_NONE,
-            FIND_ANY_ORDER,
-            false)
-		if #findUnits == 0 then
+		local findUnits = FindUnitsInRadius(DOTA_TEAM_NEUTRALS, location, nil, 3000, 
+			DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_NONE,
+            FIND_ANY_ORDER, false)
+		local filtUnits = 0
+		for i=1,#findUnits do
+			if findUnits[i]:GetUnitName() == "greevil_white" then
+				filtUnits = 1
+			end
+		end
+		if filtUnits == 0 then
 			unit = CreateUnitByName("greevil_white", location, false, nil, nil, DOTA_TEAM_NEUTRALS)
 			unit.spawnPos = location
 		end
@@ -439,17 +433,16 @@ function SpawnBosses()
 	local pointr = Entities:FindAllByName("spawnerino_black")
 	for k,v in pairs(pointr) do				
 		local location = v:GetAbsOrigin()
-		local findUnits = FindUnitsInRadius(
-			DOTA_TEAM_GOODGUYS,
-            location,
-            nil,
-            2500.0,
-            DOTA_UNIT_TARGET_TEAM_BOTH + DOTA_UNIT_TARGET_TEAM_NONE,
-            DOTA_UNIT_TARGET_ALL,
-            DOTA_UNIT_TARGET_FLAG_NONE,
-            FIND_ANY_ORDER,
-            false)
-		if #findUnits == 0 then
+		local findUnits = FindUnitsInRadius(DOTA_TEAM_NEUTRALS, location, nil, 3000, 
+			DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_NONE,
+            FIND_ANY_ORDER, false)
+		local filtUnits = 0
+		for i=1,#findUnits do
+			if findUnits[i]:GetUnitName() == "greevil_black" then
+				filtUnits = 1
+			end
+		end
+		if filtUnits == 0 then
 			unit = CreateUnitByName("greevil_black", location, false, nil, nil, DOTA_TEAM_NEUTRALS)
 			unit.spawnPos = location
 		end

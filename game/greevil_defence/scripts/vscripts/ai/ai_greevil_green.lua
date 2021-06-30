@@ -7,7 +7,8 @@ AI_THINK_INTERVAL = 1
 
 function Spawn( entityKeyValues )
 
-	thisEntity.HBoulder = thisEntity:FindAbilityByName("greevil_hurl_boulder")
+	thisEntity.AShot = thisEntity:FindAbilityByName("greevil_acorn_shot")
+	thisEntity.ASpray = thisEntity:FindAbilityByName("greevil_acid_spray")
 	
 	thisEntity.state = 0 --Initial state
 
@@ -49,8 +50,6 @@ function AggressiveThink()
 		aggroRange, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_NONE, 
 		FIND_CLOSEST, false)
 
-	thisEntity:MoveToTargetToAttack(units[1])
-
 	--If target leaves leash range
 	if ( thisEntity.spawnPos - thisEntity:GetAbsOrigin() ):Length() > leashRange then
 		thisEntity:MoveToPosition( thisEntity.spawnPos )
@@ -65,11 +64,15 @@ function AggressiveThink()
 		return true
 	end
 
-	if thisEntity.HBoulder:IsFullyCastable() and (thisEntity:GetHealth()/thisEntity:GetMaxHealth()) < 0.8 then
-		CastHBoulder()
+	if thisEntity.ASpray:IsFullyCastable() then
+		CastASpray()
 		return true
 	end
 
+	if thisEntity.AShot:IsFullyCastable() then
+		CastAShot()
+		return true
+	end
 end
 
 function ReturningThink()
@@ -80,10 +83,16 @@ function ReturningThink()
 	end
 end
 
-function CastHBoulder()
+----------------- Abilities -----------------
+
+function CastAShot()
 	local units = FindUnitsInRadius(thisEntity:GetTeam(), thisEntity:GetAbsOrigin(), nil,
 		aggroRange, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_NONE, 
 		FIND_ANY_ORDER, false)
 	
-	thisEntity:CastAbilityOnTarget(units[1], thisEntity.HBoulder, -1)
+	thisEntity:CastAbilityOnTarget(units[1], thisEntity.AShot, -1)
+end
+
+function CastASpray()
+	thisEntity:CastAbilityOnPosition(thisEntity.spawnPos + Vector(-1000, 0, 0), thisEntity.ASpray, -1)
 end

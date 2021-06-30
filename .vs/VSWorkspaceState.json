@@ -1,11 +1,7 @@
 {
   "ExpandedNodes": [
-    "",
-    "\\game",
-    "\\game\\greevil_defence",
-    "\\game\\greevil_defence\\scripts",
-    "\\game\\greevil_defence\\scripts\\vscripts"
+    ""
   ],
-  "SelectedNode": "\\game\\greevil_defence\\Mod Notes.txt",
+  "SelectedNode": "\\game",
   "PreviewInSolutionExplorer": false
 }

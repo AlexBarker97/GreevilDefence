@@ -48,14 +48,14 @@ XP_PER_LEVEL_TABLE = {}
 XP_PER_LEVEL_TABLE = {
 		100,	200,	300,	400,	500,
 		900,	1300,	1700,	2100,	2500,	2900,
-		3700,	4500,	4300,	5100,	5900,	6700,
-		7700,	8700,
-		10000,	10000,	10000,	10000,	10000,	10000,	10000,	10000,	10000,	10000,	10000
+		3700,	4500,	5300,	6100,	6900,	7700,
+		8700,	9700,
+		12000,	12000,	12000,	12000,	12000,	12000,	12000,	12000,	12000,	12000,	12000
 		}
 --for i=1,MAX_LEVEL do
 --	XP_PER_LEVEL_TABLE[i] = i * 250
 --end
-DeepPrintTable(XP_PER_LEVEL_TABLE)
+--DeepPrintTable(XP_PER_LEVEL_TABLE)
 
 -- Generated from template
 if GameMode == nil then
@@ -330,7 +330,7 @@ end
 
 -- An NPC has spawned somewhere in game.  This includes heroes
 function GameMode:OnNPCSpawned(keys)
-	print("[BAREBONES] NPC Spawned")
+	--print("[BAREBONES] NPC Spawned")
 	--DeepPrintTable(keys)
 	local npc = EntIndexToHScript(keys.entindex)
 
@@ -371,13 +371,13 @@ end
 
 -- An item was purchased by a player
 function GameMode:OnItemPurchased(keys)
-	--DeepPrintTable(keys)
+	DeepPrintTable(keys)
 
+	local playerID = keys.PlayerID
 	local item_name = keys.itemname
 	local item_cost = keys.itemcost
 	local purchaseEntity = PlayerResource:GetSelectedHeroEntity(playerID)
 	local team = purchaseEntity:GetTeam()
-	local playerID = keys.PlayerID
 	if not playerID then
 		return
 	end
@@ -931,7 +931,7 @@ end
 
 -- A channelled ability finished by either completing or being interrupted
 function GameMode:OnAbilityChannelFinished(keys)
-	DeepPrintTable(keys)
+	--DeepPrintTable(keys)
 
 	local interrupted = keys.interrupted == 1
 	local abilityname = keys.abilityname
@@ -1123,7 +1123,7 @@ function GameMode:OnEntityKilled(keys)
 			for i=1,PlayerCountOnTeam do
 				local playerId = PlayerResource:GetNthPlayerIDOnTeam(killerTeam, i)
 				local hero = PlayerResource:GetSelectedHeroEntity(playerId)
-				hero:AddExperience(750,0,false,false)
+				hero:AddExperience(600,0,false,false)
 			end
 		elseif killed_unit:GetUnitName() == "greevil_naked_rad"
 		or killed_unit:GetUnitName() == "greevil_naked_dire" then
@@ -1132,28 +1132,12 @@ function GameMode:OnEntityKilled(keys)
 			for i=1,PlayerCountOnTeam do
 				local playerId = PlayerResource:GetNthPlayerIDOnTeam(killerTeam, i)
 				local hero = PlayerResource:GetSelectedHeroEntity(playerId)
-				hero:AddExperience(150,0,false,false)
+				hero:AddExperience(40,0,false,false)
 				hero:ModifyGold(15/PlayerCountOnTeam,false,0)
 				local particle = ParticleManager:CreateParticleForTeam("particles/generic_gameplay/lasthit_coins.vpcf", PATTACH_ABSORIGIN_FOLLOW, hero, killerTeam)
 				ParticleManager:SetParticleControl(particle, 1, hero:GetAbsOrigin())
 				ParticleManager:ReleaseParticleIndex(1)				
 			end
-		end
-		
-		if killed_unit:GetUnitName() == "greevil_green" then
-			local origin = killed_unit:GetOrigin()
-			unit = CreateUnitByName("greevil_green_2", origin, true, nil, nil, DOTA_TEAM_NEUTRALS)
-			unit.spawnPos = killed_unit.spawnPos
-			unit = CreateUnitByName("greevil_green_2", origin, true, nil, nil, DOTA_TEAM_NEUTRALS)
-			unit.spawnPos = killed_unit.spawnPos
-		end
-		
-		if killed_unit:GetUnitName() == "greevil_green_2" then
-			local origin = killed_unit:GetOrigin()
-			unit = CreateUnitByName("greevil_green_3", origin, true, nil, nil, DOTA_TEAM_NEUTRALS)
-			unit.spawnPos = killed_unit.spawnPos
-			unit = CreateUnitByName("greevil_green_3", origin, true, nil, nil, DOTA_TEAM_NEUTRALS)
-			unit.spawnPos = killed_unit.spawnPos
 		end
 		
 		-- Hero gets lasthit on boss

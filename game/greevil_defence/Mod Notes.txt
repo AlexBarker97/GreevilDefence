@@ -13,6 +13,7 @@ Required before player Testing
 • White boss fight
 
 QoL
+• More "one time" shop items
 • Less spam on att/def greevils in shop (balance cost attack vs def, all $ -> $$$)
 • Hero XP/Leveling balance (barebones.lua)
 • Greevil Leveling (ln:459 addon_game_mode.lua)

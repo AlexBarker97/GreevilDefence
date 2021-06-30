@@ -33,7 +33,7 @@ Luxury
 	Health		Colour	trigger						Aura
 	12 -> 11	r 		Legion Q 	-> 	Spawn		()
 	11 -> 10	o 		Lina LSA 	-> 	Spawn		(warlock_golem_permanent_immolation)
-	10 ->  9	y 		Avalanche 	->  Spawn		(granite_golem_hp_aura)
+	10 ->  9	y 		Avalanche 	-> 	Spawn		(granite_golem_hp_aura)
 	 9 ->  8	g 		Troll Net	-> 	Spawn		(greevil_spawnlord_aura)
 	 8 ->  7	b 		Cold Snap 	-> 	Spawn		(tusk_frozen_sigil)
 	 7 ->  6	p 		Vac 		-> 	Spawn		(night_stalker_crippling_fear)

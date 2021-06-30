@@ -5,11 +5,11 @@
 
 • Wilderness gate
 • XP/Leveling balance (barebones.lua)
-• Greevil Leveling? (addon_game_mode.lua)
-• Greevil death
-• Boss greevil candy use
+• Greevil Leveling (ln:459 addon_game_mode.lua)
+• Greevil death !!FIX!!
+• Boss greevil candy use?
 • Green greevil boss rework
-• Less spam on att/def greevils
+• Less spam on att/def greevils in shop
 
 • Neutral Boss AI
 • Attack Boss abilities + AI

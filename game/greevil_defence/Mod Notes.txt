@@ -11,13 +11,14 @@
 • Green greevil boss rework
 • Less spam on att/def greevils in shop (balance cost attack vs def, all $ -> $$$)
 
+• Greevil items (greevil starts with pack)
 • Neutral Boss AI
 • Attack Boss abilities + AI
 • Ability sounds on boss greevils
 • More general event game sounds
 	D:\Steam\steamapps\common\dota 2 beta\content\dota_addons\greevil_showdown\sounds
 • Red greevil spears x3 or replace with another ability
-• Greevil items?
+
 
 • White boss fight
 

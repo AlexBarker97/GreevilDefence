@@ -3,24 +3,31 @@
 --------ToDo--------------------ToDo--------------------ToDo--------------------ToDo--------------------ToDo---------------
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
+Required before player Testing
 • Wilderness gate
-• XP/Leveling balance (barebones.lua)
-• Greevil Leveling (ln:459 addon_game_mode.lua)
 • Greevil death !!FIX!!
-• Boss greevil candy use?
-• Green greevil boss rework
-• Less spam on att/def greevils in shop (balance cost attack vs def, all $ -> $$$)
-
-• Greevil items (greevil starts with pack)
 • Neutral Boss AI
 • Attack Boss abilities + AI
+• Boss greevil candy use
+• Green greevil boss rework
+• White boss fight
+
+QoL
+• Less spam on att/def greevils in shop (balance cost attack vs def, all $ -> $$$)
+• Hero XP/Leveling balance (barebones.lua)
+• Greevil Leveling (ln:459 addon_game_mode.lua)
 • Ability sounds on boss greevils
+
+Luxury
+• att/def greevil upgrades
+• Greevil items (greevil starts with pack)
+• Red greevil spears x3 or replace with another ability
 • More general event game sounds
 	D:\Steam\steamapps\common\dota 2 beta\content\dota_addons\greevil_showdown\sounds
-• Red greevil spears x3 or replace with another ability
 
-
-• White boss fight
+//////////////////////
+// White Boss Fight //
+//////////////////////
 
 	Health		Colour	trigger						Aura
 	12 -> 11	r 		Legion Q 	-> 	Spawn		()
@@ -90,6 +97,9 @@ These boots will allow the wearer to walk more easily on the frozen river.
 ----------LINKS---------------------------LINKS---------------------------LINKS---------------------------LINKS------------
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
+New ModDota Website
+https://moddota.com/
+
 Game Events:
 https://github.com/bmddota/SotA/blob/master/game/dota_addons/sota/scripts/vscripts/eventtest.lua
 
@@ -99,7 +109,7 @@ https://developer.valvesoftware.com/wiki/Dota_2_Workshop_Tools/Panorama/CSS_Prop
 HexColourCodes:
 https://htmlcolorcodes.com/
 
-ModDota Tutorials:
+OLD ModDota Tutorials:
 https://web.archive.org/web/20181225103425/http://moddota.com/forums/tutorial-index
 
 Action List:

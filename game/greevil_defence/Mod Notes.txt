@@ -3,21 +3,23 @@
 --------ToDo--------------------ToDo--------------------ToDo--------------------ToDo--------------------ToDo---------------
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-• Wilderness gate
-• Greevil death
-• Boss greevil candy use
-• Green greevil boss rework
-• Less spam on att/def greevils
+â€¢ Wilderness gate
+â€¢ XP/Leveling balance (barebones.lua)
+â€¢ Greevil Leveling? (addon_game_mode.lua)
+â€¢ Greevil death
+â€¢ Boss greevil candy use
+â€¢ Green greevil boss rework
+â€¢ Less spam on att/def greevils
 
-• Neutral Boss AI
-• Attack Boss abilities + AI
-• Ability sounds on boss greevils
-• More general event game sounds
+â€¢ Neutral Boss AI
+â€¢ Attack Boss abilities + AI
+â€¢ Ability sounds on boss greevils
+â€¢ More general event game sounds
 	D:\Steam\steamapps\common\dota 2 beta\content\dota_addons\greevil_showdown\sounds
-• Red greevil spears x3 or replace with another ability
-• Greevil items?
+â€¢ Red greevil spears x3 or replace with another ability
+â€¢ Greevil items?
 
-• White boss fight
+â€¢ White boss fight
 
 	Health		Colour	trigger						Aura
 	12 -> 11	r 		Legion Q 	-> 	Spawn		()

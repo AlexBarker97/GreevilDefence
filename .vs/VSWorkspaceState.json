@@ -1,7 +1,11 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\game",
+    "\\game\\greevil_defence",
+    "\\game\\greevil_defence\\scripts",
+    "\\game\\greevil_defence\\scripts\\npc"
   ],
-  "SelectedNode": "\\game",
+  "SelectedNode": "\\game\\greevil_defence\\scripts\\npc\\npc_abilities_custom.txt",
   "PreviewInSolutionExplorer": false
 }

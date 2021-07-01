@@ -95,7 +95,7 @@ function EntitySpawn()
 				BossSpawn(colour, team)
 			end)
 			BossSpawn(colour, team)
-		elseif unit:GetUnitName() == "greevil_red_rad_att" or unit:GetUnitName() == "greevil_red_dire_att" or unit:GetUnitName() == "greevil_red_rad_def" or unit:GetUnitName() == "greevil_red_dire_def" or unit:GetUnitName() == "greevil_red_player" or unit:GetUnitName() == "greevil_red_boss_att" then
+		elseif unit:GetUnitName() == "greevil_white_red" or unit:GetUnitName() == "greevil_red_rad_att" or unit:GetUnitName() == "greevil_red_dire_att" or unit:GetUnitName() == "greevil_red_rad_def" or unit:GetUnitName() == "greevil_red_dire_def" or unit:GetUnitName() == "greevil_red_player" or unit:GetUnitName() == "greevil_red_boss_att" then
 			unit:AddNewModifier(nil, nil, "modifier_greevil_red", {})
 
 		--ORANGE NEUTRAL BOSS
@@ -108,7 +108,7 @@ function EntitySpawn()
 				local team = FindTeam(unit)
 				BossSpawn(colour, team)
 			end)
-		elseif unit:GetUnitName() == "greevil_orange_rad_att" or unit:GetUnitName() == "greevil_orange_dire_att" or unit:GetUnitName() == "greevil_orange_rad_def" or unit:GetUnitName() == "greevil_orange_dire_def" or unit:GetUnitName() == "greevil_orange_player" or unit:GetUnitName() == "greevil_orange_boss_att" then
+		elseif unit:GetUnitName() == "greevil_white_orange" or unit:GetUnitName() == "greevil_orange_rad_att" or unit:GetUnitName() == "greevil_orange_dire_att" or unit:GetUnitName() == "greevil_orange_rad_def" or unit:GetUnitName() == "greevil_orange_dire_def" or unit:GetUnitName() == "greevil_orange_player" or unit:GetUnitName() == "greevil_orange_boss_att" then
 			unit:AddNewModifier(nil, nil, "modifier_greevil_orange", {})
 
 		--YELLOW NEUTRAL BOSS
@@ -121,7 +121,7 @@ function EntitySpawn()
 				local team = FindTeam(unit)
 				BossSpawn(colour, team)
 			end)
-		elseif unit:GetUnitName() == "greevil_yellow_rad_att" or unit:GetUnitName() == "greevil_yellow_dire_att" or unit:GetUnitName() == "greevil_yellow_rad_def" or unit:GetUnitName() == "greevil_yellow_dire_def" or unit:GetUnitName() == "greevil_yellow_player" or unit:GetUnitName() == "greevil_yellow_boss_att" then
+		elseif unit:GetUnitName() == "greevil_white_yellow" or unit:GetUnitName() == "greevil_yellow_rad_att" or unit:GetUnitName() == "greevil_yellow_dire_att" or unit:GetUnitName() == "greevil_yellow_rad_def" or unit:GetUnitName() == "greevil_yellow_dire_def" or unit:GetUnitName() == "greevil_yellow_player" or unit:GetUnitName() == "greevil_yellow_boss_att" then
 			unit:AddNewModifier(nil, nil, "modifier_greevil_yellow", {})
 		elseif unit:GetUnitName() == "greevil_turret" then
 			unit:AddNewModifier(nil, nil, "modifier_greevil_yellow", {})
@@ -136,7 +136,7 @@ function EntitySpawn()
 				local team = FindTeam(unit)
 				BossSpawn(colour, team)
 			end)
-		elseif unit:GetUnitName() == "greevil_green_rad_att" or unit:GetUnitName() == "greevil_green_dire_att" or unit:GetUnitName() == "greevil_green_rad_def" or unit:GetUnitName() == "greevil_green_dire_def" or unit:GetUnitName() == "greevil_green_player" or unit:GetUnitName() == "greevil_green_boss_att" then
+		elseif unit:GetUnitName() == "greevil_white_green" or unit:GetUnitName() == "greevil_green_rad_att" or unit:GetUnitName() == "greevil_green_dire_att" or unit:GetUnitName() == "greevil_green_rad_def" or unit:GetUnitName() == "greevil_green_dire_def" or unit:GetUnitName() == "greevil_green_player" or unit:GetUnitName() == "greevil_green_boss_att" then
 			unit:AddNewModifier(nil, nil, "modifier_greevil_green", {})	
 		elseif unit:GetUnitName() == "greevil_green_2" or unit:GetUnitName() == "greevil_green_3" then
 			unit:AddNewModifier(nil, nil, "modifier_greevil_green", {})
@@ -151,7 +151,7 @@ function EntitySpawn()
 				local team = FindTeam(unit)
 				BossSpawn(colour, team)
 			end)
-		elseif unit:GetUnitName() == "greevil_blue_rad_att" or unit:GetUnitName() == "greevil_blue_dire_att" or unit:GetUnitName() == "greevil_blue_rad_def" or unit:GetUnitName() == "greevil_blue_dire_def" or unit:GetUnitName() == "greevil_blue_player" or unit:GetUnitName() == "greevil_blue_boss_att" then
+		elseif unit:GetUnitName() == "greevil_white_blue" or unit:GetUnitName() == "greevil_blue_rad_att" or unit:GetUnitName() == "greevil_blue_dire_att" or unit:GetUnitName() == "greevil_blue_rad_def" or unit:GetUnitName() == "greevil_blue_dire_def" or unit:GetUnitName() == "greevil_blue_player" or unit:GetUnitName() == "greevil_blue_boss_att" then
 			unit:AddNewModifier(nil, nil, "modifier_greevil_blue", {})
 
 		--PURPLE NEUTRAL BOSS
@@ -164,7 +164,7 @@ function EntitySpawn()
 				local team = FindTeam(unit)
 				BossSpawn(colour, team)
 			end)
-		elseif unit:GetUnitName() == "greevil_purple_rad_att" or unit:GetUnitName() == "greevil_purple_dire_att" or unit:GetUnitName() == "greevil_purple_rad_def" or unit:GetUnitName() == "greevil_purple_dire_def" or unit:GetUnitName() == "greevil_purple_player" or unit:GetUnitName() == "greevil_purple_boss_att" then
+		elseif unit:GetUnitName() == "greevil_white_purple" or unit:GetUnitName() == "greevil_purple_rad_att" or unit:GetUnitName() == "greevil_purple_dire_att" or unit:GetUnitName() == "greevil_purple_rad_def" or unit:GetUnitName() == "greevil_purple_dire_def" or unit:GetUnitName() == "greevil_purple_player" or unit:GetUnitName() == "greevil_purple_boss_att" then
 			unit:AddNewModifier(nil, nil, "modifier_greevil_purple", {})
 			
 		--WHITE	NEUTRAL BOSS
@@ -194,10 +194,9 @@ function EntitySpawn()
 			unit:AddNewModifier(nil, nil, "modifier_greevil_black", {})		
 	
 		elseif unit:GetUnitName() == "greevil_naked_dire" then
-			unit:AddNewModifier(nil, nil, "modifier_greevil_naked", {})		
+			unit:AddNewModifier(nil, nil, "modifier_greevil_naked", {})
 		elseif unit:GetUnitName() == "greevil_naked_rad" then
-			unit:AddNewModifier(nil, nil, "modifier_greevil_naked", {})		
-		
+			unit:AddNewModifier(nil, nil, "modifier_greevil_naked", {})
 		end
 	end, self)
 end

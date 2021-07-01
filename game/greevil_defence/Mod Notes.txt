@@ -30,11 +30,11 @@ Luxury
 //////////////////////
 
 	Health		Colour	trigger						Aura
-	12 -> 11	r 		Legion Q 	-> 	Spawn		()
+	12 -> 11	r 		Legion Q 	-> 	Spawn		(axe_counter_helix)
 	11 -> 10	o 		Lina LSA 	-> 	Spawn		(warlock_golem_permanent_immolation)
 	10 ->  9	y 		Avalanche 	-> 	Spawn		(granite_golem_hp_aura)
-	 9 ->  8	g 		Ravage		-> 	Spawn		(greevil_spawnlord_aura)
-	 8 ->  7	b 		Frostbite 	-> 	Spawn		(tusk_frozen_sigil)
+	 9 ->  8	g 		Ravage		-> 	Spawn		(greevil_summon_natural_order)
+	 8 ->  7	b 		Frostbite 	-> 	Spawn		(lycan_summon_wolves_invisibility)
 	 7 ->  6	p 		Vac 		-> 	Spawn		(night_stalker_crippling_fear)
 	 6 ->  0	ALL		AoE_DBlast 	->	Spawn
 

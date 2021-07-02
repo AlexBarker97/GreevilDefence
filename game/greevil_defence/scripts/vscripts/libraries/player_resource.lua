@@ -1,3 +1,4 @@
+print ('player_resource.lua' )
 if not CDOTA_PlayerResource.UserIDToPlayerID then
 	CDOTA_PlayerResource.UserIDToPlayerID = {}
 end

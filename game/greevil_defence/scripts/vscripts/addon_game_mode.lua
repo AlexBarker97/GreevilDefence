@@ -14,10 +14,9 @@ LinkLuaModifier("modifier_greevil_boss_sres", "scripts/vscripts/modifiers/modifi
 	Basic Barebones
 ]]
 
--- Required files to be visible from anywhere
-require('libraries/player_resource')		-- Core lua library
-require('timers')
 require('barebones')
+require('libraries/player_resource')
+require('libraries/timers')
 
 function Precache( context )
 	-- NOTE: IT IS RECOMMENDED TO USE A MINIMAL AMOUNT OF LUA PRECACHING, AND A MAXIMAL AMOUNT OF DATADRIVEN PRECACHING.
@@ -31,7 +30,7 @@ function Precache( context )
 	See GameMode:PostLoadPrecache() in barebones.lua for more information
 	]]
 
-	print("[BAREBONES] Performing pre-load precache")
+	print("Performing pre-load precache")
 
 	-- Particles can be precached individually or by folder
 	-- It it likely that precaching a single particle system will precache all of its children, but this may not be guaranteed
@@ -73,8 +72,9 @@ end
 
 -- Create the game mode when we activate
 function Activate()
-	GameRules.GameMode = GameMode()
-	GameRules.GameMode:InitGameMode()
+	GameMode = GameMode()
+	GameMode:InitGameMode()
+	require('libraries/filters')
 	EntitySpawn()		--Listener for entity spawns
 	EntityKilled()		--Listener for entities killed
 	GameStart()			--Listener for game start (timers)
@@ -252,7 +252,13 @@ function GameStart()
 				
 			return 1
 			end)
-			
+		elseif GameRules:State_Get() == DOTA_GAMERULES_STATE_PRE_GAME then
+			local radgate = CreateUnitByName("door", Vector(-3712, 1920, 128), false, nil, nil, DOTA_TEAM_NEUTRALS)
+			local particle1 = ParticleManager:CreateParticle("particles/units/heroes/hero_arc_warden/arc_warden_flux_tgt.vpcf", PATTACH_ABSORIGIN_FOLLOW, radgate)
+			local diregate = CreateUnitByName("door", Vector(3712, 1920, 128), false, nil, nil, DOTA_TEAM_NEUTRALS)
+			local particle2 = ParticleManager:CreateParticle("particles/units/heroes/hero_arc_warden/arc_warden_flux_tgt.vpcf", PATTACH_ABSORIGIN_FOLLOW, diregate)
+			radgate.disabled = 0
+			diregate.disabled = 0	
 		end
 	end, self)
 end

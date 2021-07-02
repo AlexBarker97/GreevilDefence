@@ -1,4 +1,4 @@
-print ('[BAREBONES] barebones.lua' )
+print ('barebones.lua' )
 
 -- GameRules Variables
 ENABLE_HERO_RESPAWN = false              -- Should the heroes automatically respawn on a timer or stay dead until manually respawned
@@ -59,14 +59,14 @@ XP_PER_LEVEL_TABLE = {
 
 -- Generated from template
 if GameMode == nil then
-	GameMode = class({})
+	_G.GameMode = class({})
 end
 
 -- This function initializes the game mode and is called before anyone loads into the game
 -- It can be used to pre-initialize any values/tables that will be needed later
 function GameMode:InitGameMode()
 	GameMode = self
-	print('[BAREBONES] Starting to load Barebones gamemode...')
+	print('Starting to load Barebones gamemode...')
 
 	-- Setup rules
 	GameRules:SetHeroRespawnEnabled( ENABLE_HERO_RESPAWN )
@@ -84,7 +84,7 @@ function GameMode:InitGameMode()
 	GameRules:SetHeroMinimapIconScale( MINIMAP_ICON_SIZE )
 	GameRules:SetCreepMinimapIconScale( MINIMAP_CREEP_ICON_SIZE )
 	GameRules:SetRuneMinimapIconScale( MINIMAP_RUNE_ICON_SIZE )
-	print('[BAREBONES] GameRules set')
+	print('GameRules set')
 
 	-- Listeners - Event Hooks
 	-- All of these events can potentially be fired by the game, though only the uncommented ones have had
@@ -112,6 +112,24 @@ function GameMode:InitGameMode()
 	ListenToGameEvent('dota_team_kill_credit', Dynamic_Wrap(GameMode, 'OnTeamKillCredit'), self)
 	ListenToGameEvent("player_reconnected", Dynamic_Wrap(GameMode, 'OnPlayerReconnect'), self)
 
+	print("8")
+	print(GameMode)
+	print("9")
+	local gamemode = GameRules:GetGameModeEntity()
+	print("10")
+
+	gamemode:SetExecuteOrderFilter(Dynamic_Wrap(GameMode, "OrderFilter"), self)
+	gamemode:SetDamageFilter(Dynamic_Wrap(GameMode, "DamageFilter"), self)
+	gamemode:SetModifierGainedFilter(Dynamic_Wrap(GameMode, "ModifierFilter"), self)
+	gamemode:SetModifyExperienceFilter(Dynamic_Wrap(GameMode, "ExperienceFilter"), self)
+	gamemode:SetTrackingProjectileFilter(Dynamic_Wrap(GameMode, "ProjectileFilter"), self)
+	gamemode:SetRuneSpawnFilter(Dynamic_Wrap(GameMode, "RuneSpawnFilter"), self)
+	gamemode:SetBountyRunePickupFilter(Dynamic_Wrap(GameMode, "BountyRuneFilter"), self)
+	gamemode:SetHealingFilter(Dynamic_Wrap(GameMode, "HealingFilter"), self)
+	gamemode:SetModifyGoldFilter(Dynamic_Wrap(GameMode, "GoldFilter"), self)
+	--gamemode:SetItemAddedToInventoryFilter(Dynamic_Wrap(GameMode, "InventoryFilter"), self)
+	print("11")
+
 	-- Change random seed
 	local timeTxt = string.gsub(string.gsub(GetSystemTime(), ':', ''), '0','')
 	math.randomseed(tonumber(timeTxt))
@@ -134,7 +152,7 @@ function GameMode:InitGameMode()
 	-- Commands can be registered for debugging purposes or as functions that can be called by the custom Scaleform UI
 	Convars:RegisterCommand( "command_example", Dynamic_Wrap(GameMode, 'ExampleConsoleCommand'), "A console command example", 0 )
 
-	print('[BAREBONES] Done loading Barebones gamemode!\n\n')
+	print('Done loading Barebones gamemode!\n\n')
 end
 
 mode = nil
@@ -232,7 +250,7 @@ end
   holdout).
 ]]
 function GameMode:PostLoadPrecache()
-	print("[BAREBONES] Performing Post-Load precache")
+	print("Performing Post-Load precache")
 
 end
 
@@ -283,12 +301,12 @@ end
 	is useful for starting any game logic timers/thinkers, beginning the first round, etc.
 ]]
 function GameMode:OnGameInProgress()
-	print("[BAREBONES] The game has officially begun")
+	print("The game has officially begun")
 end
 
 -- Cleanup a player when they leave
 function GameMode:OnDisconnect(keys)
-	print('[BAREBONES] Player Disconnected ' .. tostring(keys.userid))
+	print('Player Disconnected ' .. tostring(keys.userid))
 	--DeepPrintTable(keys)
 
 	local name = keys.name
@@ -299,7 +317,7 @@ end
 
 -- The overall game state has changed
 function GameMode:OnGameRulesStateChange(keys)
-	print("[BAREBONES] GameRules State Changed")
+	print("GameRules State Changed")
 	--DeepPrintTable(keys)
 
 	local newState = GameRules:State_Get()
@@ -330,7 +348,7 @@ end
 
 -- An NPC has spawned somewhere in game.  This includes heroes
 function GameMode:OnNPCSpawned(keys)
-	--print("[BAREBONES] NPC Spawned")
+	--print("NPC Spawned")
 	--DeepPrintTable(keys)
 	local npc = EntIndexToHScript(keys.entindex)
 
@@ -343,7 +361,7 @@ end
 -- An entity somewhere has been hurt.  This event fires very often with many units so don't do too many expensive
 -- operations here
 function GameMode:OnEntityHurt(keys)
-	--print("[BAREBONES] Entity Hurt")
+	--print("Entity Hurt")
 	--DeepPrintTable(keys)
 	local entCause = EntIndexToHScript(keys.entindex_attacker)
 	local entVictim = EntIndexToHScript(keys.entindex_killed)
@@ -365,7 +383,7 @@ end
 -- A player has reconnected to the game.  This function can be used to repaint Player-based particles or change
 -- state as necessary
 function GameMode:OnPlayerReconnect(keys)
-	print ( '[BAREBONES] OnPlayerReconnect' )
+	print ( 'OnPlayerReconnect' )
 	--DeepPrintTable(keys)
 end
 
@@ -1274,7 +1292,7 @@ function GameMode:OnEntityKilled(keys)
 
 			-- Maximum Respawn Time
 			if respawn_time > MAX_RESPAWN_TIME then
-				DebugPrint("Reducing respawn time of "..killed_unit:GetUnitName().." because it was too long.")
+				print("Reducing respawn time of "..killed_unit:GetUnitName().." because it was too long.")
 				respawn_time = MAX_RESPAWN_TIME
 			end
 

@@ -1064,7 +1064,7 @@
 		"Model"						"models/courier/greevil/greevil.vmdl"
 		"SoundSet"					"Greevil"
 		"MinimapIcon" 				"minimap_creepcamp_mid"
-		"MinimapIconSize" 			"150"
+		"MinimapIconSize" 			"110"
 		"ModelScale"				"2"
 		"CanBeDominated"			"0"
 		"AttackCapabilities"		"DOTA_UNIT_CAP_MELEE_ATTACK"
@@ -1141,7 +1141,7 @@
 		"Model"						"models/courier/greevil/greevil.vmdl"
 		"SoundSet"					"Greevil"
 		"MinimapIcon" 				"minimap_creepcamp_mid"
-		"MinimapIconSize" 			"150"
+		"MinimapIconSize" 			"110"
 		"ModelScale"				"2"
 		"CanBeDominated"			"0"
 		"AttackCapabilities"		"DOTA_UNIT_CAP_MELEE_ATTACK"
@@ -1221,7 +1221,7 @@
 		"Model"						"models/courier/greevil/greevil.vmdl"
 		"SoundSet"					"Greevil"
 		"MinimapIcon" 				"minimap_creepcamp_mid"
-		"MinimapIconSize" 			"150"
+		"MinimapIconSize" 			"110"
 		"ModelScale"				"2"
 		"CanBeDominated"			"0"
 		"AttackCapabilities"		"DOTA_UNIT_CAP_MELEE_ATTACK"
@@ -1320,7 +1320,7 @@
 		"Model"						"models/courier/greevil/greevil.vmdl"
 		"SoundSet"					"Greevil"
 		"MinimapIcon" 				"minimap_creepcamp_mid"
-		"MinimapIconSize" 			"150"
+		"MinimapIconSize" 			"110"
 		"ModelScale"				"2"
 		"CanBeDominated"			"0"
 		"AttackCapabilities"		"DOTA_UNIT_CAP_MELEE_ATTACK"
@@ -1398,7 +1398,7 @@
 		"Model"						"models/courier/greevil/greevil.vmdl"
 		"SoundSet"					"Greevil"
 		"MinimapIcon" 				"minimap_creepcamp_mid"
-		"MinimapIconSize" 			"150"
+		"MinimapIconSize" 			"110"
 		"ModelScale"				"2"
 		"CanBeDominated"			"0"
 		"AttackCapabilities"		"DOTA_UNIT_CAP_MELEE_ATTACK"
@@ -1496,7 +1496,7 @@
 		"Model"						"models/courier/greevil/greevil.vmdl"
 		"SoundSet"					"Greevil"
 		"MinimapIcon" 				"minimap_creepcamp_mid"
-		"MinimapIconSize" 			"150"
+		"MinimapIconSize" 			"110"
 		"ModelScale"				"2"
 		"CanBeDominated"			"0"
 		"AttackCapabilities"		"DOTA_UNIT_CAP_MELEE_ATTACK"
@@ -1576,8 +1576,8 @@
 		"Model"						"models/courier/greevil/greevil.vmdl"
 		"SoundSet"					"Greevil"
 		"MinimapIcon" 				"minimap_creepcamp_big"
-		"MinimapIconSize" 			"200"
-		"ModelScale"				"3"
+		"MinimapIconSize" 			"190"
+		"ModelScale"				"4"
 		"CanBeDominated"			"0"
 		"AttackCapabilities"		"DOTA_UNIT_CAP_MELEE_ATTACK"
 		"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_GROUND"
@@ -1614,14 +1614,14 @@
 
 		// Stats
 		//----------------------------------------------------------------
-		"Level"                     "20"
+		"Level"                     "25"
 		
 		"AttackDamageMin"			"71"
 		"AttackDamageMax"			"78"	
 		"AttackRate"				"1.8"
-		"AttackRange"				"128"
+		"AttackRange"				"200"
 		
-		"MovementSpeed"				"300"
+		"MovementSpeed"				"310"
 		"MovementTurnRate"			"0.5"
 		
 		"ArmorPhysical"				"25"
@@ -1660,7 +1660,7 @@
 		"Model"						"models/courier/greevil/greevil.vmdl"
 		"SoundSet"					"Greevil"
 		"MinimapIcon" 				"minimap_creepcamp_big"
-		"MinimapIconSize" 			"175"
+		"MinimapIconSize" 			"150"
 		"ModelScale"				"3"
 		"CanBeDominated"			"0"
 		"AttackCapabilities"		"DOTA_UNIT_CAP_MELEE_ATTACK"
@@ -1742,9 +1742,9 @@
 		"BaseClass"					"npc_dota_creature"						// Class of entity of link to.
 		"Model"						"models/courier/greevil/greevil.vmdl"	// Model.
 		"SoundSet"					"Greevil"								// Name of sound set.
-		"ModelScale"				"1.3"
-		"vscripts"					"ai/ai_greevil_rad_red.lua"
-		"MinimapIcon" 				"minimap_sword"
+		"ModelScale"				"2.1"
+		"vscripts"					""
+		"MinimapIcon" 				"minimap_plaincircle"
 		"MinimapIconSize" 			"300"
 				
 		// Abilities
@@ -1817,9 +1817,9 @@
 		"BaseClass"					"npc_dota_creature"						// Class of entity of link to.
 		"Model"						"models/courier/greevil/greevil.vmdl"	// Model.
 		"SoundSet"					"Greevil"								// Name of sound set.
-		"ModelScale"				"1.3"
-		"vscripts"					"ai/ai_greevil_rad_red.lua"
-		"MinimapIcon" 				"minimap_sword"
+		"ModelScale"				"2.1"
+		"vscripts"					""
+		"MinimapIcon" 				"minimap_plaincircle"
 		"MinimapIconSize" 			"300"
 				
 		// Abilities
@@ -1892,9 +1892,9 @@
 		"BaseClass"					"npc_dota_creature"						// Class of entity of link to.
 		"Model"						"models/courier/greevil/greevil.vmdl"	// Model.
 		"SoundSet"					"Greevil"								// Name of sound set.
-		"ModelScale"				"1.3"
-		"vscripts"					"ai/ai_greevil_rad_red.lua"
-		"MinimapIcon" 				"minimap_sword"
+		"ModelScale"				"2.1"
+		"vscripts"					""
+		"MinimapIcon" 				"minimap_plaincircle"
 		"MinimapIconSize" 			"300"
 				
 		// Abilities
@@ -1962,9 +1962,9 @@
 		"BaseClass"					"npc_dota_creature"						// Class of entity of link to.
 		"Model"						"models/courier/greevil/greevil.vmdl"	// Model.
 		"SoundSet"					"Greevil"								// Name of sound set.
-		"ModelScale"				"1.3"
-		"vscripts"					"ai/ai_greevil_rad_red.lua"
-		"MinimapIcon" 				"minimap_sword"
+		"ModelScale"				"2.1"
+		"vscripts"					""
+		"MinimapIcon" 				"minimap_plaincircle"
 		"MinimapIconSize" 			"300"
 		
 		// Abilities
@@ -2032,9 +2032,9 @@
 		"BaseClass"					"npc_dota_creature"						// Class of entity of link to.
 		"Model"						"models/courier/greevil/greevil.vmdl"	// Model.
 		"SoundSet"					"Greevil"								// Name of sound set.
-		"ModelScale"				"1.3"
-		"vscripts"					"ai/ai_greevil_rad_red.lua"
-		"MinimapIcon" 				"minimap_sword"
+		"ModelScale"				"2.1"
+		"vscripts"					""
+		"MinimapIcon" 				"minimap_plaincircle"
 		"MinimapIconSize" 			"300"
 				
 		// Abilities
@@ -2102,9 +2102,9 @@
 		"BaseClass"					"npc_dota_creature"						// Class of entity of link to.
 		"Model"						"models/courier/greevil/greevil.vmdl"	// Model.
 		"SoundSet"					"Greevil"								// Name of sound set.
-		"ModelScale"				"1.3"
-		"vscripts"					"ai/ai_greevil_rad_red.lua"
-		"MinimapIcon" 				"minimap_sword"
+		"ModelScale"				"2.1"
+		"vscripts"					""
+		"MinimapIcon" 				"minimap_plaincircle"
 		"MinimapIconSize" 			"300"
 				
 		// Abilities

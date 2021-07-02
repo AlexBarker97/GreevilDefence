@@ -5199,13 +5199,13 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"damage"				"60"
+				"damage"				"75"
 				"LinkedSpecialBonus"		"special_bonus_unique_axe_4"
 			}
 			"02"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"radius"					"275"
+				"radius"					"300"
 			}
 			"03"
 			{
@@ -5215,7 +5215,7 @@
 			"04"
 			{
 				"var_type"					"FIELD_FLOAT"
-				"cooldown"					"0.3"
+				"cooldown"					"0.2"
 			}
 		}
 		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_3"
@@ -5238,12 +5238,12 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"aura_radius"			"300"
+				"aura_radius"			"600"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"aura_damage"			"30 50 70"
+				"aura_damage"			"70"
 			}
 		}
 		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_2"
@@ -5263,12 +5263,12 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"bonus_armor"			"3"
+				"bonus_armor"			"5"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"radius"					"1200"
+				"radius"				"1500"
 			}
 		}
 		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_3"
@@ -5296,12 +5296,12 @@
 			"02"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"armor_reduction_pct"	    "40 60 80 100"
+				"armor_reduction_pct"	    "100"
 			}
 			"03"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"magic_resistance_pct"		"40 60 80 100"
+				"magic_resistance_pct"		"100"
 			}
 		}
 	}
@@ -5320,12 +5320,12 @@
 			"01"
 			{
 				"var_type"					"FIELD_FLOAT"
-				"fade_time"					"0.0 0.0 0.0"
+				"fade_time"					"0.0"
 			}
 			"02"
 			{
 				"var_type"					"FIELD_FLOAT"
-				"fade_delay"				"1.7"
+				"fade_delay"				"1.0"
 			}
 		}
 		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_2"
@@ -5347,13 +5347,13 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"bonus_damage"			"18 32 46 60"
+				"bonus_damage"			"45"
 				"LinkedSpecialBonus"		"special_bonus_unique_spectre_2"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"radius"				"425"
+				"radius"				"350"
 			}
 		}
 		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_2"

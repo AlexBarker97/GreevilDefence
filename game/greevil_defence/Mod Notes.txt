@@ -4,8 +4,6 @@
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 Required before player Testing
-• Wilderness gate (needs rig)
-• Greevil death !!FIX!! (needs rig)
 • Boss greevil candy use
 • White boss fight
 • Multiple boss tokens removed on single spawn/channel

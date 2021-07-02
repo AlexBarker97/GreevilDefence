@@ -1,3 +1,4 @@
+print ('timers.lua' )
 TIMERS_VERSION = "1.05"
 
 --[[

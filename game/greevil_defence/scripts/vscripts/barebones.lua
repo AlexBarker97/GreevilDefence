@@ -1,4 +1,5 @@
 print ('barebones.lua' )
+require('customability/whiteboss')
 
 -- GameRules Variables
 ENABLE_HERO_RESPAWN = false              -- Should the heroes automatically respawn on a timer or stay dead until manually respawned
@@ -112,12 +113,8 @@ function GameMode:InitGameMode()
 	ListenToGameEvent('dota_team_kill_credit', Dynamic_Wrap(GameMode, 'OnTeamKillCredit'), self)
 	ListenToGameEvent("player_reconnected", Dynamic_Wrap(GameMode, 'OnPlayerReconnect'), self)
 
-	print("8")
-	print(GameMode)
-	print("9")
-	local gamemode = GameRules:GetGameModeEntity()
-	print("10")
 
+	local gamemode = GameRules:GetGameModeEntity()
 	gamemode:SetExecuteOrderFilter(Dynamic_Wrap(GameMode, "OrderFilter"), self)
 	gamemode:SetDamageFilter(Dynamic_Wrap(GameMode, "DamageFilter"), self)
 	gamemode:SetModifierGainedFilter(Dynamic_Wrap(GameMode, "ModifierFilter"), self)
@@ -128,7 +125,6 @@ function GameMode:InitGameMode()
 	gamemode:SetHealingFilter(Dynamic_Wrap(GameMode, "HealingFilter"), self)
 	gamemode:SetModifyGoldFilter(Dynamic_Wrap(GameMode, "GoldFilter"), self)
 	--gamemode:SetItemAddedToInventoryFilter(Dynamic_Wrap(GameMode, "InventoryFilter"), self)
-	print("11")
 
 	-- Change random seed
 	local timeTxt = string.gsub(string.gsub(GetSystemTime(), ':', ''), '0','')
@@ -917,18 +913,35 @@ end
 
 -- An ability was used by a player
 function GameMode:OnAbilityUsed(keys)
+	--DeepPrintTable(keys)
 
 	local player = EntIndexToHScript(keys.PlayerID)
 	local caster = EntIndexToHScript(keys.caster_entindex)
 	local abilityname = keys.abilityname
-
 end
 
 -- A non-player entity (necro-book, chen creep, etc) used an ability
 function GameMode:OnNonPlayerUsedAbility(keys)
 	--DeepPrintTable(keys)
 
-	local abilityname=  keys.abilityname
+	local caster = keys.caster_entindex
+	local abilityname = keys.abilityname
+
+	if abilityname == "greevil_white_overwhelming_odds" then
+		whiteboss:OOds(caster)
+	elseif abilityname == "greevil_white_light_strike_array" then
+		whiteboss:LSA(caster)
+	elseif abilityname == "greevil_white_echo_slam" then
+		whiteboss:ESlam(caster)
+	elseif abilityname == "greevil_white_ravage" then
+		whiteboss:Rav(caster)
+	elseif abilityname == "greevil_white_frostbite" then
+		whiteboss:FBite(caster)
+	elseif abilityname == "greevil_white_vacuum" then
+		whiteboss:Vac(caster)
+	elseif abilityname == "greevil_white_will_o_wisp" then
+		whiteboss:WoW(caster)
+	end
 end
 
 -- A player changed their name
@@ -1211,6 +1224,33 @@ function GameMode:OnEntityKilled(keys)
 			killer_unit:GetOwner():AddItemByName("item_boss_drop_white")
 		elseif killed_unit:GetUnitName() == "greevil_black" then
 			killer_unit:GetOwner():AddItemByName("item_boss_drop_black")
+
+		-- whiteboss fight
+		print(killed_unit:GetUnitName())
+		elseif killed_unit:GetUnitName() == "greevil_white_red" or killed_unit:GetUnitName() == "greevil_white_orange" or killed_unit:GetUnitName() == "greevil_white_yellow" or killed_unit:GetUnitName() == "greevil_white_green" or killed_unit:GetUnitName() == "greevil_white_blue" or killed_unit:GetUnitName() == "greevil_white_purple" then
+			if killed_unit.side == "rad" then
+				local units = FindUnitsInLine(DOTA_TEAM_NEUTRALS, (Vector(-9700, 5760, 256)), (Vector(-9700, -3584, 256)), nil, 2000.0, DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_NONE)
+				for i=1,#units do
+					if units[i]:GetUnitName() == "greevil_white" then
+						local target = units[i]
+						local remainingHP = target:GetHealth()
+						target:SetHealth(remainingHP - 1)
+						print(target)
+						print(remainingHP)
+						print(remainingHP - 1)
+					end
+				end
+			elseif killed_unit.side == "dire" then
+				local units = FindUnitsInLine(DOTA_TEAM_NEUTRALS, (Vector(9700, 5760, 256)), (Vector(9700, -3584, 256)), nil, 2000.0, DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_NONE)
+				for i=1,#units do
+					if units[i]:GetUnitName() == "greevil_white" then
+						local target = units[i]
+						local remainingHP = target:GetHealth()
+						target:SetHealth(remainingHP - 1)
+						print(target)
+					end
+				end
+			end
 		end
 	end
 		

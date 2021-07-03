@@ -15,6 +15,7 @@ QoL
 • Less spam on att/def greevils in shop (balance cost attack vs def, all $ -> $$$)
 • Greevil Leveling (ln:459 addon_game_mode.lua)
 • Improve bossfights
+• Greevil attack ranges
 
 Luxury
 • att/def greevil upgrades
@@ -30,10 +31,10 @@ Luxury
 	Health		Colour	trigger						Aura
 	12 -> 11	r 		Legion Q 	-> 	Spawn		(axe_counter_helix)
 	11 -> 10	o 		Lina LSA 	-> 	Spawn		(warlock_golem_permanent_immolation)
-	10 ->  9	y 		Avalanche 	-> 	Spawn		(granite_golem_hp_aura)
+	10 ->  9	y 		Avalanche 	-> 	Spawn		(black_dragon_dragonhide_aura)
 	 9 ->  8	g 		Ravage		-> 	Spawn		(greevil_summon_natural_order)
 	 8 ->  7	b 		Frostbite 	-> 	Spawn		(lycan_summon_wolves_invisibility)
-	 7 ->  6	p 		Vac 		-> 	Spawn		(night_stalker_crippling_fear)
+	 7 ->  6	p 		Vac 		-> 	Spawn		(spectre_desolate)
 	 6 ->  0	ALL		AoE_DBlast 	->	Spawn
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

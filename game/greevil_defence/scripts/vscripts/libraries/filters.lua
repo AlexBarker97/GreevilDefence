@@ -219,7 +219,11 @@ function GameMode:DamageFilter(keys)
 	end
 
 	if victim:GetUnitName() == "greevil_white" then
-		keys.damage = 0
+		if damage_type == 8 then
+			keys.damage = 1
+		else
+			keys.damage = 0
+		end
 	end
 	
 	return true

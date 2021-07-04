@@ -1177,7 +1177,7 @@
 
 		// Cost
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"				"90"
+		"AbilityManaCost"				"120"
 		
 			
 		// Special
@@ -1241,7 +1241,7 @@
 		
 		// Cost
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"				"20"
+		"AbilityManaCost"				"25"
 		
 		"OnSpellStart"
 		{
@@ -1378,7 +1378,7 @@
 			"03"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"shackle_distance"		"575"
+				"shackle_distance"		"700"
 			}
 			"04"
 			{
@@ -1388,7 +1388,7 @@
 			"05"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"shackle_count"			"6"
+				"shackle_count"			"8"
 			}
 			"06"
 			{
@@ -1422,7 +1422,7 @@
 
 		// Cost
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"				"80"
+		"AbilityManaCost"				"100"
 
 		// Special
 		//-------------------------------------------------------------------------------------------------------------
@@ -1450,7 +1450,7 @@
 			"04"
 			{
 				"var_type"						"FIELD_INTEGER"
-				"damage"						"180"
+				"damage"						"130"
 				"LinkedSpecialBonus"			"special_bonus_unique_treant_11"
 			}
 		}
@@ -1528,11 +1528,11 @@
 
 		// Time		
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"70"
+		"AbilityCooldown"				"100"
 
 		// Cost
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"				"175"
+		"AbilityManaCost"				"225"
 
 		// Special
 		//-------------------------------------------------------------------------------------------------------------
@@ -1571,7 +1571,7 @@
 			"07"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"damage_pct"				"60"
+				"damage_pct"				"100"
 			}
 			"08"
 			{
@@ -1623,16 +1623,16 @@
 
 		// Casting
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCastRange"				"500"
-		"AbilityCastPoint"				"0.3 0.3 0.3 0.3"
+		"AbilityCastRange"				"600"
+		"AbilityCastPoint"				"0.2"
 		
 		// Time		
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"3"
+		"AbilityCooldown"				"0"
 
 		// Cost
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"				"80"
+		"AbilityManaCost"				"60"
 
 		// Special
 		//-------------------------------------------------------------------------------------------------------------
@@ -1641,12 +1641,12 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"magic_missile_speed"	"900"
+				"magic_missile_speed"	"600"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"magic_missile_stun"	"2.0"
+				"magic_missile_stun"	"0.3"
 			}
 			"03"
 			{
@@ -1690,7 +1690,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"armor_bonus"			"4"
+				"armor_bonus"			"5"
 			}		
 			"02"
 			{
@@ -1705,7 +1705,7 @@
 			"04"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"slow_attack_speed"		"-20"
+				"slow_attack_speed"		"-40"
 			}		
 		}
 	}
@@ -1728,7 +1728,7 @@
 		
 		// Casting
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCastRange"				"400"
+		"AbilityCastRange"				"500"
 		"AbilityCastPoint"				"0.3"
 		"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_6"
 
@@ -1738,7 +1738,7 @@
 
 		// Cost
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"				"180"
+		"AbilityManaCost"				"200"
 
 		// Stats
 		//-------------------------------------------------------------------------------------------------------------
@@ -1756,12 +1756,12 @@
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"jumps"					"30"
+				"jumps"					"40"
 			}
 			"03"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"jump_range"			"400"
+				"jump_range"			"800"
 			}			
 			"04"
 			{
@@ -1814,12 +1814,12 @@
 			"01"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"mana_regen"		"0.5 1 1.5 2"
+				"mana_regen"		"2.5"
 			}
 			"02"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"self_factor"	"3.0"
+				"self_factor"		"3.0"
 			}
 		}
 	}
@@ -1836,7 +1836,7 @@
 		"AbilitySound"					"hero_Crystal.freezingField.wind"
 		"MaxLevel"						"1"
 
-		"HasScepterUpgrade"			"0"
+		"HasScepterUpgrade"				"0"
 
 		// Casting
 		//-------------------------------------------------------------------------------------------------------------
@@ -1845,12 +1845,12 @@
 		
 		// Time		
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"120"
-		"AbilityDuration"				"10.0"
+		"AbilityCooldown"				"160"
+		"AbilityDuration"				"15.0"
 
 		// Cost
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"				"400"
+		"AbilityManaCost"				"500"
 
 		// Stats
 		//-------------------------------------------------------------------------------------------------------------
@@ -1908,7 +1908,7 @@
 			"10"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"damage"			"105 170 250"
+				"damage"			"75"
 			}
 			"11"
 			{
@@ -4917,13 +4917,332 @@
 				"CalculateSpellDamageTooltip"	"0"
 			}	
 		}
-	}	
+	}
+
+	/////////////////////////////
+	//  ATTACK BOSS ABILITIES  //
+	/////////////////////////////
+	"greevil_red_boss_battle_trance"
+	{
+		"BaseClass"						"troll_warlord_battle_trance"
+		
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_BOTH"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO"
+		"SpellDispellableType"			"SPELL_DISPELLABLE_NO"
+		"FightRecapLevel"				"2"
+		"AbilitySound"					"Hero_TrollWarlord.BattleTrance.Cast"
+		"AbilityType"					"DOTA_ABILITY_TYPE_ULTIMATE"
+		"MaxLevel"						"3"
+
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_4"
+		"AbilityCastGestureSlot"		"DEFAULT"
+		"AbilityCastPoint"				"0"
+		"AbilityCastRange"				"0"
+
+		// Time		
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"30"
 	
-	////////////
-	//LANE GREEVIL PASSIVES
-	////////////
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"0"
+
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"trance_duration"		"6.5"		
+				"LinkedSpecialBonus"		"special_bonus_unique_troll_warlord_7"
+			}
+			"02"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"lifesteal"			"30"
+			}
+			"03"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"attack_speed"			"150"
+			}
+			"04"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"movement_speed"		"50"
+			}
+			"05"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"range"				"900"
+			}
+			"06"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"scepter_cooldown"	"35"
+				"RequiresScepter"	"1"
+			}
+			"07"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"scepter_duration_enemies"	"3.25"
+				"RequiresScepter"	"1"
+			}
+			"08"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"scepter_cast_range_tooltip"	"525"
+				"RequiresScepter"	"1"
+			}
+			
+		}
+	}
+
+	"greevil_orange_boss_melting_strike"
+	{
+		"BaseClass"						"forged_spirit_melting_strike"
+		
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE"
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
+		"SpellDispellableType"			"SPELL_DISPELLABLE_NO"
+		"MaxLevel"						"1"
+		
+
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"armor_removed"			"1"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"max_armor_removed"		"18"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"duration"				"10"
+			}
+		}
+		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_1"
+	}
+
+	"greevil_yellow_boss_craggy"
+	{
+		"BaseClass" 					"tiny_craggy_exterior"
 	
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"	
+		"AbilitySound"					"Hero_Tiny.CraggyExterior.Stun"
+
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"stun_chance"			"40"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"stun_duration"			"1"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"bonus_armor"			"0"
+			}
+			"04"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"damage"				"10"
+			}
+			"05"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"radius"				"1000"
+			}
+		}
+	}
+
+	"greevil_yellow_boss_stone_gaze"
+	{
+		"BaseClass"                     "medusa_stone_gaze"
+		
+		"AbilityType"					"DOTA_ABILITY_TYPE_ULTIMATE"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+		//"AbilityUnitDamageType"		"DAMAGE_TYPE_MAGICAL"	
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
+		"SpellDispellableType"			"SPELL_DISPELLABLE_NO"
+		"AbilitySound"					"Hero_Medusa.StoneGaze.Cast"
+
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastPoint"				"0.3"
+
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastRange"				"1400"
+
+		// Time		
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"60"
+
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"0"
+		
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"radius"					"1400"
+			}
+			"02"
+			{
+				"var_type"					"FIELD_FLOAT"
+				"duration"					"60"
+			}
+			"03"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"slow"						"10"
+			}
+			"04"
+			{
+				"var_type"					"FIELD_FLOAT"
+				"stone_duration"			"3.0"
+			}
+			"05"
+			{
+				"var_type"					"FIELD_FLOAT"
+				"face_duration"				"15.0"
+			}
+			"06"
+			{
+				"var_type"					"FIELD_FLOAT"
+				"vision_cone"				"0.050"		// 85 degree cone
+			}
+			"07"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"bonus_physical_damage"		"30"
+			}
+			"08"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"speed_boost"				"10"
+			}
+		}
+	}
+
+	"greevil_hurl_boulder"
+	{
+		"BaseClass"						"mud_golem_hurl_boulder"
+		
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_CREEP | DOTA_UNIT_TARGET_BASIC"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_PURE"
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
+		"SpellDispellableType"			"SPELL_DISPELLABLE_YES_STRONG"
+		"MaxLevel"						"1"
+
+		"AbilityCastRange"				"800"
+
+		// Time		
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"4"
+		"AbilityCastPoint"				"0.15"
+
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"0"		
+
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"damage"					"175"
+			}
+			"02"
+			{
+				"var_type"					"FIELD_FLOAT"
+				"duration"					"1.2"
+			}
+			"03"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"speed"						"800"
+			}
+		}
+	}
 	
+	"greevil_destroy"
+	{
+		"BaseClass"						"mud_golem_rock_destroy"
+		
+		"MaxLevel"						"1"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+	
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"radius"					"250"
+			}
+			"02"
+			{
+				"var_type"					"FIELD_FLOAT"
+				"duration"					"2"
+			}
+			"03"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"movespeed"					"-25"
+			}
+			"04"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"shard_health_tooltip"		"240"
+			}
+			"05"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"shard_damage_tooltip"		"9"
+			}
+			"06"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"shard_duration_tooltip"				"60"
+			}
+		}
+	}
+
+	
+	/////////////////////////////
+	//  LANE GREEVIL PASSIVES  //
+	/////////////////////////////
 	"greevil_bulwark"
 	{
 		"BaseClass" 					"mars_bulwark"

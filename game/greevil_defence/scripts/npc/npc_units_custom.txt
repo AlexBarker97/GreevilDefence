@@ -34,7 +34,7 @@
 		"SoundSet"					"Greevil"								// Name of sound set.
 		"ModelScale"				"1"
 		"MinimapIcon"				"minimap_sword"
-		"MinimapIconSize" 			"250"
+		"MinimapIconSize" 			"180"
 		"vscripts"					"ai/ai_naked_rad.lua"
 		
 		// Abilities
@@ -72,7 +72,7 @@
 		// Movement
 		//----------------------------------------------------------------
 		"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_GROUND"			
-		"MovementSpeed"				"150"								
+		"MovementSpeed"				"180"								
 		"MovementTurnRate"			"0.5"								
 
 		// Status
@@ -96,7 +96,7 @@
 		"SoundSet"					"Greevil"								// Name of sound set.
 		"ModelScale"				"1"
 		"MinimapIcon"				"minimap_sword"
-		"MinimapIconSize" 			"250"
+		"MinimapIconSize" 			"180"
 		"vscripts"					"ai/ai_naked_dire.lua"
 		
 		// Abilities
@@ -134,7 +134,7 @@
 		// Movement
 		//----------------------------------------------------------------
 		"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_GROUND"			
-		"MovementSpeed"				"150"								
+		"MovementSpeed"				"180"								
 		"MovementTurnRate"			"0.5"								
 
 		// Status
@@ -681,7 +681,7 @@
 		"StatusHealth"				"650"			// Base health.
 		"StatusMana"				"600"			// Base mana.
 		"StatusHealthRegen"			"8"				// Health regeneration rate.
-		"StatusManaRegen"			"8.0"			// Mana regeneration rate.
+		"StatusManaRegen"			"6"			// Mana regeneration rate.
 		
 		// Vision
 		//----------------------------------------------------------------
@@ -733,7 +733,7 @@
 
 		// Armor
 		//----------------------------------------------------------------
-		"ArmorPhysical"				"5"				// Physical protection.
+		"ArmorPhysical"				"0"				// Physical protection.
 		"MagicalResistance"			"25"			// Magical protection.
 
 		// Attack
@@ -1105,7 +1105,7 @@
 		
 		"AttackDamageMin"			"71"
 		"AttackDamageMax"			"78"	
-		"AttackRate"				"1.8"
+		"AttackRate"				"1.6"
 		"AttackRange"				"128"
 		
 		"MovementSpeed"				"300"
@@ -2198,8 +2198,8 @@
 		
 		// Abilities
 		//----------------------------------------------------------------
-		"Ability1"					"troll_warlord_fervor"
-		"Ability2"					"greevil_battle_trance"
+		"Ability1"					"greevil_fervor"
+		"Ability2"					"greevil_red_boss_battle_trance"
 		"Ability3"					"greevil_miniboss_sight"
 
 		// Bounty
@@ -2219,7 +2219,7 @@
 		
 		"AttackDamageMin"			"71"
 		"AttackDamageMax"			"78"	
-		"AttackRate"				"1.8"
+		"AttackRate"				"1.2"
 		"AttackRange"				"128"
 		
 		"MovementSpeed"				"300"
@@ -2238,7 +2238,7 @@
 		// General
 		//----------------------------------------------------------------
 		"BaseClass"					"npc_dota_creature"
-		"vscripts"					"ai/ai_greevil_red_boss_att.lua"
+		"vscripts"					"ai/ai_greevil_orange_boss_att.lua"
 		"AutoAttacksByDefault"      "0"
 		"Model"						"models/courier/greevil/greevil.vmdl"
 		"SoundSet"					"Greevil"
@@ -2254,11 +2254,10 @@
 		
 		// Abilities
 		//----------------------------------------------------------------
-		"Ability1"					"dragon_knight_breathe_fire"
-		"Ability2"					"lina_light_strike_array"
-		"Ability3"					"doom_bringer_infernal_blade"
-		"Ability4"					"phoenix_supernova"
-		"Ability5"					"greevil_miniboss_sight"
+		"Ability1"					"greevil_orange_boss_melting_strike"
+		"Ability2"					"greevil_infernal_blade"
+		"Ability3"					"greevil_supernova"
+		"Ability4"					"greevil_miniboss_sight"
 
 		// Bounty
 		//----------------------------------------------------------------
@@ -2296,7 +2295,7 @@
 		// General
 		//----------------------------------------------------------------
 		"BaseClass"					"npc_dota_creature"
-		"vscripts"					"ai/ai_greevil_red_boss_att.lua"
+		"vscripts"					"ai/ai_greevil_yellow_boss_att.lua"
 		"AutoAttacksByDefault"      "0"
 		"Model"						"models/courier/greevil/greevil.vmdl"
 		"SoundSet"					"Greevil"
@@ -2312,10 +2311,10 @@
 		
 		// Abilities
 		//----------------------------------------------------------------
-		"Ability1"					"greevil_fissure"
-		"Ability2"					"greevil_boulder_smash"
-		"Ability3"					"greevil_craggy_boss"
-		"Ability4"					"greevil_stone_gaze"
+		"Ability1"					""
+		"Ability2"					""
+		"Ability3"					"greevil_yellow_boss_craggy"
+		"Ability4"					"greevil_yellow_boss_stone_gaze"
 		"Ability5"					"greevil_miniboss_sight"
 
 		// Bounty
@@ -2351,10 +2350,8 @@
 	
 	"greevil_green_boss_att"
 	{
-		// General
-		//----------------------------------------------------------------
 		"BaseClass"					"npc_dota_creature"
-		"vscripts"					"ai/ai_greevil_red_boss_att.lua"
+		"vscripts"					"ai/ai_greevil_green_boss_att.lua"
 		"AutoAttacksByDefault"      "0"
 		"Model"						"models/courier/greevil/greevil.vmdl"
 		"SoundSet"					"Greevil"
@@ -2370,17 +2367,21 @@
 		
 		// Abilities
 		//----------------------------------------------------------------
-		"Ability1"					"mud_golem_hurl_boulder"
-		"Ability2"					"mud_golem_rock_destroy"
-		"Ability3"					"mudgolem_cloak_aura"
-		"Ability4"					"spawnlord_aura"
+		"Ability1"					"greevil_hurl_boulder"
+		"Ability2"					"greevil_destroy"
 		"Ability5"					"greevil_miniboss_sight"
+
+		"precache"
+		{
+			"soundfile"		"soundevents/game_sounds_creeps.vsndevts"
+			"soundfile"		"soundevents/game_sounds_greevils.vsndevts"
+		}
 
 		// Bounty
 		//----------------------------------------------------------------
 		"BountyXP"                  "0"
-		"BountyGoldMin"             "100"
-		"BountyGoldMax"             "100"
+		"BountyGoldMin"             "40"
+		"BountyGoldMax"             "40"
 
 		// Bounds
 		//----------------------------------------------------------------
@@ -2401,10 +2402,155 @@
 		
 		"ArmorPhysical"				"15"
 		"MagicalResistance"			"41"
-		"StatusHealth"				"10000"
+		"StatusHealth"				"5000"
 		"StatusHealthRegen"			"20"
 		"StatusMana"				"0"
 		"StatusManaRegen"			"0"
+	}
+
+	"greevil_green_boss_att_2"
+	{
+		"BaseClass"					"npc_dota_creature"
+		"vscripts"					"ai/ai_greevil_green_boss_att.lua"
+		"AutoAttacksByDefault"      "0"
+		"Model"						"models/courier/greevil/greevil.vmdl"
+		"SoundSet"					"Greevil"
+		"MinimapIcon" 				"minimap_creepcamp_mid"
+		"MinimapIconSize" 			"150"
+		"ModelScale"				"1.5"
+		"CanBeDominated"			"0"
+		"AttackCapabilities"		"DOTA_UNIT_CAP_MELEE_ATTACK"
+		"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_GROUND"
+		"AttackAnimationPoint"		"0.5"
+		"ConsideredHero"			"1"
+		"HasInventory"				"1"
+
+		// Abilities
+		//----------------------------------------------------------------
+		"Ability1"					"greevil_hurl_boulder"
+		"Ability2"					"greevil_destroy"
+		"Ability5"					"greevil_miniboss_sight"
+
+		"precache"
+		{
+			"soundfile"		"soundevents/game_sounds_creeps.vsndevts"
+			"soundfile"		"soundevents/game_sounds_greevils.vsndevts"
+		}
+
+		// Bounty
+		//----------------------------------------------------------------
+		"BountyXP"                  "0"
+		"BountyGoldMin"             "20"
+		"BountyGoldMax"             "20"
+
+		// Bounds
+		//----------------------------------------------------------------
+		"RingRadius"				"90"
+		"HealthBarOffset"			"220"
+
+		// Stats
+		//----------------------------------------------------------------
+		"Level"                     "15"
+		
+		"AttackDamageMin"			"71"
+		"AttackDamageMax"			"78"	
+		"AttackRate"				"1.8"
+		"AttackRange"				"128"
+		
+		"MovementSpeed"				"300"
+		"MovementTurnRate"			"0.5"
+		
+		"ArmorPhysical"				"25"
+		"MagicalResistance"			"40"
+		"StatusHealth"				"2000"
+		"StatusHealthRegen"			"10"
+		"StatusMana"				"0"
+		"StatusManaRegen"			"0"
+
+		// Team
+		//----------------------------------------------------------------
+		"TeamName"					"DOTA_TEAM_NEUTRALS"			// Team name.
+		"CombatClassAttack"			"DOTA_COMBAT_CLASS_ATTACK_HERO"
+		"CombatClassDefend"			"DOTA_COMBAT_CLASS_DEFEND_HERO"
+		"UnitRelationshipClass"		"DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
+		
+		// Vision
+		//----------------------------------------------------------------
+		"VisionDaytimeRange"		"1800"		// Range of vision during day light.
+		"VisionNighttimeRange"		"1200"		// Range of vision at night time.
+	}
+
+	"greevil_green_boss_att_3"
+	{
+		"BaseClass"					"npc_dota_creature"
+		"vscripts"					"ai/ai_greevil_green_boss_att.lua"
+		"AutoAttacksByDefault"      "0"
+		"Model"						"models/courier/greevil/greevil.vmdl"
+		"SoundSet"					"Greevil"
+		"MinimapIcon" 				"minimap_creepcamp_mid"
+		"MinimapIconSize" 			"150"
+		"ModelScale"				"1"
+		"CanBeDominated"			"0"
+		"AttackCapabilities"		"DOTA_UNIT_CAP_MELEE_ATTACK"
+		"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_GROUND"
+		"AttackAnimationPoint"		"0.5"
+		"ConsideredHero"			"1"
+		"HasInventory"				"1"
+
+		// Abilities
+		//----------------------------------------------------------------
+		
+		"Ability1"					"greevil_hurl_boulder"
+		"Ability2"					"greevil_destroy"
+		"Ability5"					"greevil_miniboss_sight"
+		
+		"precache"
+		{
+			"soundfile"		"soundevents/game_sounds_creeps.vsndevts"
+			"soundfile"		"soundevents/game_sounds_greevils.vsndevts"
+		}
+
+		// Bounty
+		//----------------------------------------------------------------
+		"BountyXP"                  "0"
+		"BountyGoldMin"             "5"
+		"BountyGoldMax"             "5"
+
+		// Bounds
+		//----------------------------------------------------------------
+		"RingRadius"				"90"
+		"HealthBarOffset"			"220"
+
+		// Stats
+		//----------------------------------------------------------------
+		"Level"                     "15"
+		
+		"AttackDamageMin"			"71"
+		"AttackDamageMax"			"78"	
+		"AttackRate"				"1.8"
+		"AttackRange"				"128"
+		
+		"MovementSpeed"				"300"
+		"MovementTurnRate"			"0.5"
+		
+		"ArmorPhysical"				"25"
+		"MagicalResistance"			"40"
+		"StatusHealth"				"1000"
+		"StatusHealthRegen"			"10"
+		"StatusMana"				"0"
+		"StatusManaRegen"			"0"
+
+		// Team
+		//----------------------------------------------------------------
+		"TeamName"					"DOTA_TEAM_NEUTRALS"			// Team name.
+		"CombatClassAttack"			"DOTA_COMBAT_CLASS_ATTACK_HERO"
+		"CombatClassDefend"			"DOTA_COMBAT_CLASS_DEFEND_HERO"
+		"UnitRelationshipClass"		"DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
+		
+		// Vision
+		//----------------------------------------------------------------
+		"VisionDaytimeRange"		"1800"		// Range of vision during day light.
+		"VisionNighttimeRange"		"1200"		// Range of vision at night time.
 	}
 
 	"greevil_blue_boss_att"

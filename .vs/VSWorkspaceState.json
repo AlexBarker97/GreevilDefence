@@ -4,8 +4,8 @@
     "\\game",
     "\\game\\greevil_defence",
     "\\game\\greevil_defence\\scripts",
-    "\\game\\greevil_defence\\scripts\\vscripts"
+    "\\game\\greevil_defence\\scripts\\vscripts\\ai"
   ],
-  "SelectedNode": "\\game\\greevil_defence\\scripts\\vscripts\\ai",
+  "SelectedNode": "\\game\\greevil_defence\\scripts\\custom_net_tables.txt",
   "PreviewInSolutionExplorer": false
 }

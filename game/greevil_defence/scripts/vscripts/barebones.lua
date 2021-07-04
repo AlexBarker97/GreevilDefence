@@ -2,7 +2,7 @@ print ('barebones.lua' )
 require('customability/whiteboss')
 
 -- GameRules Variables
-ENABLE_HERO_RESPAWN = false              -- Should the heroes automatically respawn on a timer or stay dead until manually respawned
+ENABLE_HERO_RESPAWN = false             -- Should the heroes automatically respawn on a timer or stay dead until manually respawned
 UNIVERSAL_SHOP_MODE = false             -- Should the main shop contain Secret Shop items as well as regular items
 ALLOW_SAME_HERO_SELECTION = true        -- Should we let people select the same hero as each other
 
@@ -23,7 +23,9 @@ MINIMAP_RUNE_ICON_SIZE = 1              -- What icon size should we use for rune
 
 RUNE_SPAWN_TIME = 120                   -- How long in seconds should we wait between rune spawns?
 CUSTOM_BUYBACK_COST_ENABLED = true      -- Should we use a custom buyback cost setting?
+BUYBACK_FIXED_GOLD_COST = 500
 CUSTOM_BUYBACK_COOLDOWN_ENABLED = true  -- Should we use a custom buyback time?
+CUSTOM_BUYBACK_COOLDOWN_TIME = 90
 BUYBACK_ENABLED = false                 -- Should we allow people to buyback when they die?
 
 DISABLE_FOG_OF_WAR_ENTIRELY = true      -- Should we disable fog of war entirely for both teams?
@@ -62,6 +64,27 @@ XP_PER_LEVEL_TABLE = {
 if GameMode == nil then
 	_G.GameMode = class({})
 end
+
+-- Defence Greevil Existence Tracker
+local DefenceGreevil = {}
+DefenceGreevil.Radiant = {}
+DefenceGreevil.Dire = {}
+DefenceGreevil.Radiant.Red = 0
+DefenceGreevil.Radiant.Orange = 0
+DefenceGreevil.Radiant.Yellow = 0
+DefenceGreevil.Radiant.Green = 0
+DefenceGreevil.Radiant.Blue = 0
+DefenceGreevil.Radiant.Purple = 0
+DefenceGreevil.Radiant.White = 0
+DefenceGreevil.Radiant.Black = 0
+DefenceGreevil.Dire.Red = 0
+DefenceGreevil.Dire.Orange = 0
+DefenceGreevil.Dire.Yellow = 0
+DefenceGreevil.Dire.Green = 0
+DefenceGreevil.Dire.Blue = 0
+DefenceGreevil.Dire.Purple = 0
+DefenceGreevil.Dire.White = 0
+DefenceGreevil.Dire.Black = 0
 
 -- This function initializes the game mode and is called before anyone loads into the game
 -- It can be used to pre-initialize any values/tables that will be needed later
@@ -385,7 +408,7 @@ end
 
 -- An item was purchased by a player
 function GameMode:OnItemPurchased(keys)
-	DeepPrintTable(keys)
+	--DeepPrintTable(keys)
 
 	local playerID = keys.PlayerID
 	local item_name = keys.itemname
@@ -399,23 +422,9 @@ function GameMode:OnItemPurchased(keys)
 	if item_name == "item_blue_egg_att" then
 		if PlayerResource:GetTeam(playerID) == 2 then
 			location = (Vector(5872, 5200, 304)) + (Vector(RandomInt(0, 1056),RandomInt(0, 944), 0))
-			FindUnits = FindUnitsInRadius(DOTA_TEAM_GOODGUYS, location, nil, 300, DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_NONE, FIND_ANY_ORDER, false)
-			x = 1
-			while FindUnits[1] ~= nil and x < 100 do 
-				x = x + 1
-				location = (Vector(5872, 5200, 304)) + (Vector(RandomInt(0, 1056),RandomInt(0, 944), 0))
-				FindUnits = FindUnitsInRadius(DOTA_TEAM_GOODGUYS, location, nil, 200, DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_NONE, FIND_ANY_ORDER, false)
-			end
 			local unit = CreateUnitByName("greevil_blue_rad_att", location, true, nil, nil, DOTA_TEAM_GOODGUYS)
 		else
 			location = (Vector(-6928, 5200, 304)) + (Vector(RandomInt(0, 1056),RandomInt(0, 944), 0))
-			FindUnits = FindUnitsInRadius(DOTA_TEAM_BADGUYS, location, nil, 300, DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_NONE, FIND_ANY_ORDER, false)
-			x = 1
-			while FindUnits[1] ~= nil and x < 100 do
-				x = x + 1
-				location = (Vector(-6928, 5200, 304)) + (Vector(RandomInt(0, 1056),RandomInt(0, 944), 0))
-				FindUnits = FindUnitsInRadius(DOTA_TEAM_BADGUYS, location, nil, 200, DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_NONE, FIND_ANY_ORDER, false)
-			end	
 			local unit = CreateUnitByName("greevil_blue_dire_att", location, true, nil, nil, DOTA_TEAM_BADGUYS)
 		end
 		for i=0,8 do
@@ -431,23 +440,9 @@ function GameMode:OnItemPurchased(keys)
 	elseif item_name == "item_green_egg_att" then
 		if PlayerResource:GetTeam(playerID) == 2 then
 			location = (Vector(5872, 5200, 304)) + (Vector(RandomInt(0, 1056),RandomInt(0, 944), 0))
-			FindUnits = FindUnitsInRadius(DOTA_TEAM_GOODGUYS, location, nil, 300, DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_NONE, FIND_ANY_ORDER, false)
-			x = 1
-			while FindUnits[1] ~= nil and x < 100 do 
-				x = x + 1
-				location = (Vector(5872, 5200, 304)) + (Vector(RandomInt(0, 1056),RandomInt(0, 944), 0))
-				FindUnits = FindUnitsInRadius(DOTA_TEAM_GOODGUYS, location, nil, 200, DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_NONE, FIND_ANY_ORDER, false)
-			end	
 			local unit = CreateUnitByName("greevil_green_rad_att", location, true, nil, nil, DOTA_TEAM_GOODGUYS)
 		else
 			location = (Vector(-6928, 5200, 304)) + (Vector(RandomInt(0, 1056),RandomInt(0, 944), 0))
-			FindUnits = FindUnitsInRadius(DOTA_TEAM_BADGUYS, location, nil, 300, DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_NONE, FIND_ANY_ORDER, false)
-			x = 1
-			while FindUnits[1] ~= nil and x < 100 do 
-				x = x + 1
-				location = (Vector(-6928, 5200, 304)) + (Vector(RandomInt(0, 1056),RandomInt(0, 944), 0))
-				FindUnits = FindUnitsInRadius(DOTA_TEAM_BADGUYS, location, nil, 200, DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_NONE, FIND_ANY_ORDER, false)
-			end	
 			local unit = CreateUnitByName("greevil_green_dire_att", location, true, nil, nil, DOTA_TEAM_BADGUYS)
 		end
 		for i=0,8 do
@@ -463,23 +458,9 @@ function GameMode:OnItemPurchased(keys)
 	elseif item_name == "item_yellow_egg_att" then
 		if PlayerResource:GetTeam(playerID) == 2 then
 			location = (Vector(5872, 5200, 304)) + (Vector(RandomInt(0, 1056),RandomInt(0, 944), 0))
-			FindUnits = FindUnitsInRadius(DOTA_TEAM_GOODGUYS, location, nil, 300, DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_NONE, FIND_ANY_ORDER, false)
-			x = 1
-			while FindUnits[1] ~= nil and x < 100 do 
-				x = x + 1
-				location = (Vector(5872, 5200, 304)) + (Vector(RandomInt(0, 1056),RandomInt(0, 944), 0))
-				FindUnits = FindUnitsInRadius(DOTA_TEAM_GOODGUYS, location, nil, 200, DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_NONE, FIND_ANY_ORDER, false)
-			end	
 			local unit = CreateUnitByName("greevil_yellow_rad_att", location, true, nil, nil, DOTA_TEAM_GOODGUYS)
 		else
 			location = (Vector(-6928, 5200, 304)) + (Vector(RandomInt(0, 1056),RandomInt(0, 944), 0))
-			FindUnits = FindUnitsInRadius(DOTA_TEAM_BADGUYS, location, nil, 300, DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_NONE, FIND_ANY_ORDER, false)
-			x = 1
-			while FindUnits[1] ~= nil and x < 100 do 
-				x = x + 1
-				location = (Vector(-6928, 5200, 304)) + (Vector(RandomInt(0, 1056),RandomInt(0, 944), 0))
-				FindUnits = FindUnitsInRadius(DOTA_TEAM_BADGUYS, location, nil, 200, DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_NONE, FIND_ANY_ORDER, false)
-			end	
 			local unit = CreateUnitByName("greevil_yellow_dire_att", location, true, nil, nil, DOTA_TEAM_BADGUYS)
 		end
 		for i=0,8 do
@@ -495,23 +476,9 @@ function GameMode:OnItemPurchased(keys)
 	elseif item_name == "item_orange_egg_att" then
 		if PlayerResource:GetTeam(playerID) == 2 then
 			location = (Vector(5872, 5200, 304)) + (Vector(RandomInt(0, 1056),RandomInt(0, 944), 0))
-			FindUnits = FindUnitsInRadius(DOTA_TEAM_GOODGUYS, location, nil, 300, DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_NONE, FIND_ANY_ORDER, false)
-			x = 1
-			while FindUnits[1] ~= nil and x < 100 do 
-				x = x + 1
-				location = (Vector(5872, 5200, 304)) + (Vector(RandomInt(0, 1056),RandomInt(0, 944), 0))
-				FindUnits = FindUnitsInRadius(DOTA_TEAM_GOODGUYS, location, nil, 200, DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_NONE, FIND_ANY_ORDER, false)
-			end	
 			local unit = CreateUnitByName("greevil_orange_rad_att", location, true, nil, nil, DOTA_TEAM_GOODGUYS)
 		else
 			location = (Vector(-6928, 5200, 304)) + (Vector(RandomInt(0, 1056),RandomInt(0, 944), 0))
-			FindUnits = FindUnitsInRadius(DOTA_TEAM_BADGUYS, location, nil, 300, DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_NONE, FIND_ANY_ORDER, false)
-			x = 1
-			while FindUnits[1] ~= nil and x < 100 do 
-				x = x + 1
-				location = (Vector(-6928, 5200, 304)) + (Vector(RandomInt(0, 1056),RandomInt(0, 944), 0))
-				FindUnits = FindUnitsInRadius(DOTA_TEAM_BADGUYS, location, nil, 200, DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_NONE, FIND_ANY_ORDER, false)
-			end	
 			local unit = CreateUnitByName("greevil_orange_dire_att", location, true, nil, nil, DOTA_TEAM_BADGUYS)
 		end
 		for i=0,8 do
@@ -527,23 +494,9 @@ function GameMode:OnItemPurchased(keys)
 	elseif item_name == "item_red_egg_att" then
 		if PlayerResource:GetTeam(playerID) == 2 then
 			location = (Vector(5872, 5200, 304)) + (Vector(RandomInt(0, 1056),RandomInt(0, 944), 0))
-			FindUnits = FindUnitsInRadius(DOTA_TEAM_GOODGUYS, location, nil, 300, DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_NONE, FIND_ANY_ORDER, false)
-			x = 1
-			while FindUnits[1] ~= nil and x < 100 do 
-				x = x + 1
-				location = (Vector(5872, 5200, 304)) + (Vector(RandomInt(0, 1056),RandomInt(0, 944), 0))
-				FindUnits = FindUnitsInRadius(DOTA_TEAM_GOODGUYS, location, nil, 200, DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_NONE, FIND_ANY_ORDER, false)
-			end	
 			local unit = CreateUnitByName("greevil_red_rad_att", location, true, nil, nil, DOTA_TEAM_GOODGUYS)
 		else
 			location = (Vector(-6928, 5200, 304)) + (Vector(RandomInt(0, 1056),RandomInt(0, 944), 0))
-			FindUnits = FindUnitsInRadius(DOTA_TEAM_BADGUYS, location, nil, 300, DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_NONE, FIND_ANY_ORDER, false)
-			x = 1
-			while FindUnits[1] ~= nil and x < 100 do 
-				x = x + 1
-				location = (Vector(-6928, 5200, 304)) + (Vector(RandomInt(0, 1056),RandomInt(0, 944), 0))
-				FindUnits = FindUnitsInRadius(DOTA_TEAM_BADGUYS, location, nil, 200, DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_NONE, FIND_ANY_ORDER, false)
-			end	
 			local unit = CreateUnitByName("greevil_red_dire_att", location, true, nil, nil, DOTA_TEAM_BADGUYS)
 		end
 		for i=0,8 do
@@ -559,23 +512,9 @@ function GameMode:OnItemPurchased(keys)
 	elseif item_name == "item_purple_egg_att" then
 		if PlayerResource:GetTeam(playerID) == 2 then
 			location = (Vector(5872, 5200, 304)) + (Vector(RandomInt(0, 1056),RandomInt(0, 944), 0))
-			FindUnits = FindUnitsInRadius(DOTA_TEAM_GOODGUYS, location, nil, 300, DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_NONE, FIND_ANY_ORDER, false)
-			x = 1
-			while FindUnits[1] ~= nil and x < 100 do 
-				x = x + 1
-				location = (Vector(5872, 5200, 304)) + (Vector(RandomInt(0, 1056),RandomInt(0, 944), 0))
-				FindUnits = FindUnitsInRadius(DOTA_TEAM_GOODGUYS, location, nil, 200, DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_NONE, FIND_ANY_ORDER, false)
-			end	
 			local unit = CreateUnitByName("greevil_purple_rad_att", location, true, nil, nil, DOTA_TEAM_GOODGUYS)
 		else
 			location = (Vector(-6928, 5200, 304)) + (Vector(RandomInt(0, 1056),RandomInt(0, 944), 0))
-			FindUnits = FindUnitsInRadius(DOTA_TEAM_BADGUYS, location, nil, 300, DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_NONE, FIND_ANY_ORDER, false)
-			x = 1
-			while FindUnits[1] ~= nil and x < 100 do 
-				x = x + 1
-				location = (Vector(-6928, 5200, 304)) + (Vector(RandomInt(0, 1056),RandomInt(0, 944), 0))
-				FindUnits = FindUnitsInRadius(DOTA_TEAM_BADGUYS, location, nil, 200, DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_NONE, FIND_ANY_ORDER, false)
-			end	
 			local unit = CreateUnitByName("greevil_purple_dire_att", location, true, nil, nil, DOTA_TEAM_BADGUYS)
 		end
 		for i=0,8 do
@@ -591,23 +530,9 @@ function GameMode:OnItemPurchased(keys)
 	elseif item_name == "item_black_egg_att" then
 		if PlayerResource:GetTeam(playerID) == 2 then
 			location = (Vector(5872, 5200, 304)) + (Vector(RandomInt(0, 1056),RandomInt(0, 944), 0))
-			FindUnits = FindUnitsInRadius(DOTA_TEAM_GOODGUYS, location, nil, 300, DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_NONE, FIND_ANY_ORDER, false)
-			x = 1
-			while FindUnits[1] ~= nil and x < 100 do 
-				x = x + 1
-				location = (Vector(5872, 5200, 304)) + (Vector(RandomInt(0, 1056),RandomInt(0, 944), 0))
-				FindUnits = FindUnitsInRadius(DOTA_TEAM_GOODGUYS, location, nil, 200, DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_NONE, FIND_ANY_ORDER, false)
-			end	
 			local unit = CreateUnitByName("greevil_black_rad_att", location, true, nil, nil, DOTA_TEAM_GOODGUYS)
 		else
 			location = (Vector(-6928, 5200, 304)) + (Vector(RandomInt(0, 1056),RandomInt(0, 944), 0))
-			FindUnits = FindUnitsInRadius(DOTA_TEAM_BADGUYS, location, nil, 300, DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_NONE, FIND_ANY_ORDER, false)
-			x = 1
-			while FindUnits[1] ~= nil and x < 100 do 
-				x = x + 1
-				location = (Vector(-6928, 5200, 304)) + (Vector(RandomInt(0, 1056),RandomInt(0, 944), 0))
-				FindUnits = FindUnitsInRadius(DOTA_TEAM_BADGUYS, location, nil, 200, DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_NONE, FIND_ANY_ORDER, false)
-			end	
 			local unit = CreateUnitByName("greevil_black_dire_att", location, true, nil, nil, DOTA_TEAM_BADGUYS)
 		end
 		for i=0,8 do
@@ -623,23 +548,9 @@ function GameMode:OnItemPurchased(keys)
 	elseif item_name == "item_white_egg_att" then
 		if PlayerResource:GetTeam(playerID) == 2 then
 			location = (Vector(5872, 5200, 304)) + (Vector(RandomInt(0, 1056),RandomInt(0, 944), 0))
-			FindUnits = FindUnitsInRadius(DOTA_TEAM_GOODGUYS, location, nil, 300, DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_NONE, FIND_ANY_ORDER, false)
-			x = 1
-			while FindUnits[1] ~= nil and x < 100 do 
-				x = x + 1
-				location = (Vector(5872, 5200, 304)) + (Vector(RandomInt(0, 1056),RandomInt(0, 944), 0))
-				FindUnits = FindUnitsInRadius(DOTA_TEAM_GOODGUYS, location, nil, 200, DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_NONE, FIND_ANY_ORDER, false)
-			end	
 			local unit = CreateUnitByName("greevil_white_rad_att", location, true, nil, nil, DOTA_TEAM_GOODGUYS)
 		else
 			location = (Vector(-6928, 5200, 304)) + (Vector(RandomInt(0, 1056),RandomInt(0, 944), 0))
-			FindUnits = FindUnitsInRadius(DOTA_TEAM_BADGUYS, location, nil, 300, DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_NONE, FIND_ANY_ORDER, false)
-			x = 1
-			while FindUnits[1] ~= nil and x < 100 do 
-				x = x + 1
-				location = (Vector(-6928, 5200, 304)) + (Vector(RandomInt(0, 1056),RandomInt(0, 944), 0))
-				FindUnits = FindUnitsInRadius(DOTA_TEAM_BADGUYS, location, nil, 200, DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_NONE, FIND_ANY_ORDER, false)
-			end	
 			local unit = CreateUnitByName("greevil_white_dire_att", location, true, nil, nil, DOTA_TEAM_BADGUYS)
 		end
 		for i=0,8 do
@@ -654,25 +565,21 @@ function GameMode:OnItemPurchased(keys)
 		end
 	elseif item_name == "item_blue_egg_def" then
 		if PlayerResource:GetTeam(playerID) == 2 then
-			location = (Vector(-6928, -2896, 304)) + (Vector(RandomInt(0,1056),RandomInt(0,944), 0))
-			FindUnits = FindUnitsInRadius(DOTA_TEAM_GOODGUYS, location, nil, 300, DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_NONE, FIND_ANY_ORDER, false)
-			x = 1
-			while FindUnits[1] ~= nil and x < 100 do 
-				x = x + 1
+			if DefenceGreevil.Radiant.Blue == 0 then
 				location = (Vector(-6928, -2896, 304)) + (Vector(RandomInt(0,1056),RandomInt(0,944), 0))
-				FindUnits = FindUnitsInRadius(DOTA_TEAM_GOODGUYS, location, nil, 200, DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_NONE, FIND_ANY_ORDER, false)
-			end	
-			local unit = CreateUnitByName("greevil_blue_rad_def", location, true, nil, nil, DOTA_TEAM_GOODGUYS)
+				local unit = CreateUnitByName("greevil_blue_rad_def", location, true, nil, nil, DOTA_TEAM_GOODGUYS)
+				DefenceGreevil.Radiant.Blue = 1
+			elseif DefenceGreevil.Radiant.Blue == 1 then
+				print("Already exists")
+			end
 		else
-			location = (Vector(5872, -2896, 304)) + (Vector(RandomInt(0,1056),RandomInt(0,944), 0))
-			FindUnits = FindUnitsInRadius(DOTA_TEAM_BADGUYS, location, nil, 300, DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_NONE, FIND_ANY_ORDER, false)
-			x = 1
-			while FindUnits[1] ~= nil and x < 100 do 
-				x = x + 1
+			if DefenceGreevil.Dire.Blue == 0 then
 				location = (Vector(5872, -2896, 304)) + (Vector(RandomInt(0,1056),RandomInt(0,944), 0))
-				FindUnits = FindUnitsInRadius(DOTA_TEAM_BADGUYS, location, nil, 200, DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_NONE, FIND_ANY_ORDER, false)
-			end	
-			local unit = CreateUnitByName("greevil_blue_dire_def", location, true, nil, nil, DOTA_TEAM_BADGUYS)
+				local unit = CreateUnitByName("greevil_blue_dire_def", location, true, nil, nil, DOTA_TEAM_BADGUYS)
+				DefenceGreevil.Dire.Blue = 1
+			elseif DefenceGreevil.Dire.Blue == 1 then
+				print("Already exists")
+			end
 		end
 		for i=0,8 do
 			local itemHero = purchaseEntity:GetItemInSlot(i)
@@ -686,25 +593,21 @@ function GameMode:OnItemPurchased(keys)
 		end
 	elseif item_name == "item_green_egg_def" then
 		if PlayerResource:GetTeam(playerID) == 2 then
-			location = (Vector(-6928, -2896, 304)) + (Vector(RandomInt(0, 1056),RandomInt(0, 944), 0))
-			FindUnits = FindUnitsInRadius(DOTA_TEAM_GOODGUYS, location, nil, 300, DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_NONE, FIND_ANY_ORDER, false)
-			x = 1
-			while FindUnits[1] ~= nil and x < 100 do 
-				x = x + 1
+			if DefenceGreevil.Radiant.Green == 0 then
 				location = (Vector(-6928, -2896, 304)) + (Vector(RandomInt(0, 1056),RandomInt(0, 944), 0))
-				FindUnits = FindUnitsInRadius(DOTA_TEAM_GOODGUYS, location, nil, 200, DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_NONE, FIND_ANY_ORDER, false)
-			end	
-			local unit = CreateUnitByName("greevil_green_rad_def", location, true, nil, nil, DOTA_TEAM_GOODGUYS)
+				local unit = CreateUnitByName("greevil_green_rad_def", location, true, nil, nil, DOTA_TEAM_GOODGUYS)
+			DefenceGreevil.Radiant.Green = 1
+			elseif DefenceGreevil.Radiant.Green == 1 then
+				print("Already exists")
+			end
 		else
-			location = (Vector(5872, -2896, 304)) + (Vector(RandomInt(0, 1056),RandomInt(0, 944), 0))
-			FindUnits = FindUnitsInRadius(DOTA_TEAM_BADGUYS, location, nil, 300, DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_NONE, FIND_ANY_ORDER, false)
-			x = 1
-			while FindUnits[1] ~= nil and x < 100 do 
-				x = x + 1
+			if DefenceGreevil.Dire.Green == 0 then
 				location = (Vector(5872, -2896, 304)) + (Vector(RandomInt(0, 1056),RandomInt(0, 944), 0))
-				FindUnits = FindUnitsInRadius(DOTA_TEAM_BADGUYS, location, nil, 200, DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_NONE, FIND_ANY_ORDER, false)
-			end	
-			local unit = CreateUnitByName("greevil_green_dire_def", location, true, nil, nil, DOTA_TEAM_BADGUYS)
+				local unit = CreateUnitByName("greevil_green_dire_def", location, true, nil, nil, DOTA_TEAM_BADGUYS)
+			DefenceGreevil.Dire.Green = 1
+			elseif DefenceGreevil.Dire.Green == 1 then
+				print("Already exists")
+			end
 		end
 		for i=0,8 do
 			local itemHero = purchaseEntity:GetItemInSlot(i)
@@ -718,25 +621,21 @@ function GameMode:OnItemPurchased(keys)
 		end
 	elseif item_name == "item_yellow_egg_def" then
 		if PlayerResource:GetTeam(playerID) == 2 then
-			location = (Vector(-6928, -2896, 304)) + (Vector(RandomInt(0, 1056),RandomInt(0, 944), 0))
-			FindUnits = FindUnitsInRadius(DOTA_TEAM_GOODGUYS, location, nil, 300, DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_NONE, FIND_ANY_ORDER, false)
-			x = 1
-			while FindUnits[1] ~= nil and x < 100 do 
-				x = x + 1
+			if DefenceGreevil.Radiant.Yellow == 0 then
 				location = (Vector(-6928, -2896, 304)) + (Vector(RandomInt(0, 1056),RandomInt(0, 944), 0))
-				FindUnits = FindUnitsInRadius(DOTA_TEAM_GOODGUYS, location, nil, 200, DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_NONE, FIND_ANY_ORDER, false)
-			end	
-			local unit = CreateUnitByName("greevil_yellow_rad_def", location, true, nil, nil, DOTA_TEAM_GOODGUYS)
+				local unit = CreateUnitByName("greevil_yellow_rad_def", location, true, nil, nil, DOTA_TEAM_GOODGUYS)
+			DefenceGreevil.Radiant.Yellow = 1
+			elseif DefenceGreevil.Radiant.Yellow == 1 then
+				print("Already exists")
+			end
 		else
-			location = (Vector(5872, -2896, 304)) + (Vector(RandomInt(0, 1056),RandomInt(0, 944), 0))
-			FindUnits = FindUnitsInRadius(DOTA_TEAM_BADGUYS, location, nil, 300, DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_NONE, FIND_ANY_ORDER, false)
-			x = 1
-			while FindUnits[1] ~= nil and x < 100 do 
-				x = x + 1
+			if DefenceGreevil.Dire.Yellow == 0 then
 				location = (Vector(5872, -2896, 304)) + (Vector(RandomInt(0, 1056),RandomInt(0, 944), 0))
-				FindUnits = FindUnitsInRadius(DOTA_TEAM_BADGUYS, location, nil, 200, DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_NONE, FIND_ANY_ORDER, false)
-			end	
-			local unit = CreateUnitByName("greevil_yellow_dire_def", location, true, nil, nil, DOTA_TEAM_BADGUYS)
+				local unit = CreateUnitByName("greevil_yellow_dire_def", location, true, nil, nil, DOTA_TEAM_BADGUYS)
+			DefenceGreevil.Dire.Yellow = 1
+			elseif DefenceGreevil.Dire.Yellow == 1 then
+				print("Already exists")
+			end
 		end
 		for i=0,8 do
 			local itemHero = purchaseEntity:GetItemInSlot(i)
@@ -750,25 +649,21 @@ function GameMode:OnItemPurchased(keys)
 		end
 	elseif item_name == "item_orange_egg_def" then
 		if PlayerResource:GetTeam(playerID) == 2 then
-			location = (Vector(-6928, -2896, 304)) + (Vector(RandomInt(0, 1056),RandomInt(0, 944), 0))
-			FindUnits = FindUnitsInRadius(DOTA_TEAM_GOODGUYS, location, nil, 300, DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_NONE, FIND_ANY_ORDER, false)
-			x = 1
-			while FindUnits[1] ~= nil and x < 100 do 
-				x = x + 1
+			if DefenceGreevil.Radiant.Orange == 0 then
 				location = (Vector(-6928, -2896, 304)) + (Vector(RandomInt(0, 1056),RandomInt(0, 944), 0))
-				FindUnits = FindUnitsInRadius(DOTA_TEAM_GOODGUYS, location, nil, 200, DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_NONE, FIND_ANY_ORDER, false)
-			end	
-			local unit = CreateUnitByName("greevil_orange_rad_def", location, true, nil, nil, DOTA_TEAM_GOODGUYS)
+				local unit = CreateUnitByName("greevil_orange_rad_def", location, true, nil, nil, DOTA_TEAM_GOODGUYS)
+			DefenceGreevil.Radiant.Orange = 1
+			elseif DefenceGreevil.Radiant.Orange == 1 then
+				print("Already exists")
+			end
 		else
-			location = (Vector(5872, -2896, 304)) + (Vector(RandomInt(0, 1056),RandomInt(0, 944), 0))
-			FindUnits = FindUnitsInRadius(DOTA_TEAM_BADGUYS, location, nil, 300, DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_NONE, FIND_ANY_ORDER, false)
-			x = 1
-			while FindUnits[1] ~= nil and x < 100 do 
-				x = x + 1
+			if DefenceGreevil.Dire.Orange == 0 then
 				location = (Vector(5872, -2896, 304)) + (Vector(RandomInt(0, 1056),RandomInt(0, 944), 0))
-				FindUnits = FindUnitsInRadius(DOTA_TEAM_BADGUYS, location, nil, 200, DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_NONE, FIND_ANY_ORDER, false)
-			end	
-			local unit = CreateUnitByName("greevil_orange_dire_def", location, true, nil, nil, DOTA_TEAM_BADGUYS)
+				local unit = CreateUnitByName("greevil_orange_dire_def", location, true, nil, nil, DOTA_TEAM_BADGUYS)
+			DefenceGreevil.Dire.Orange = 1
+			elseif DefenceGreevil.Dire.Orange == 1 then
+				print("Already exists")
+			end
 		end
 		for i=0,8 do
 			local itemHero = purchaseEntity:GetItemInSlot(i)
@@ -782,25 +677,21 @@ function GameMode:OnItemPurchased(keys)
 		end
 	elseif item_name == "item_red_egg_def" then
 		if PlayerResource:GetTeam(playerID) == 2 then
-			location = (Vector(-6928, -2896, 304)) + (Vector(RandomInt(0, 1056),RandomInt(0, 944), 0))
-			FindUnits = FindUnitsInRadius(DOTA_TEAM_GOODGUYS, location, nil, 300, DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_NONE, FIND_ANY_ORDER, false)
-			x = 1
-			while FindUnits[1] ~= nil and x < 100 do 
-				x = x + 1
+			if DefenceGreevil.Radiant.Red == 0 then
 				location = (Vector(-6928, -2896, 304)) + (Vector(RandomInt(0, 1056),RandomInt(0, 944), 0))
-				FindUnits = FindUnitsInRadius(DOTA_TEAM_GOODGUYS, location, nil, 200, DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_NONE, FIND_ANY_ORDER, false)
-			end	
-			local unit = CreateUnitByName("greevil_red_rad_def", location, true, nil, nil, DOTA_TEAM_GOODGUYS)
+				local unit = CreateUnitByName("greevil_red_rad_def", location, true, nil, nil, DOTA_TEAM_GOODGUYS)
+			DefenceGreevil.Radiant.Red = 1
+			elseif DefenceGreevil.Radiant.Red == 1 then
+				print("Already exists")
+			end
 		else
-			location = (Vector(5872, -2896, 304)) + (Vector(RandomInt(0, 1056),RandomInt(0, 944), 0))
-			FindUnits = FindUnitsInRadius(DOTA_TEAM_BADGUYS, location, nil, 300, DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_NONE, FIND_ANY_ORDER, false)
-			x = 1
-			while FindUnits[1] ~= nil and x < 100 do 
-				x = x + 1
+			if DefenceGreevil.Dire.Red == 0 then
 				location = (Vector(5872, -2896, 304)) + (Vector(RandomInt(0, 1056),RandomInt(0, 944), 0))
-				FindUnits = FindUnitsInRadius(DOTA_TEAM_BADGUYS, location, nil, 200, DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_NONE, FIND_ANY_ORDER, false)
-			end	
-			local unit = CreateUnitByName("greevil_red_dire_def", location, true, nil, nil, DOTA_TEAM_BADGUYS)
+				local unit = CreateUnitByName("greevil_red_dire_def", location, true, nil, nil, DOTA_TEAM_BADGUYS)
+			DefenceGreevil.Dire.Red = 1
+			elseif DefenceGreevil.Dire.Red == 1 then
+				print("Already exists")
+			end
 		end
 		for i=0,8 do
 			local itemHero = purchaseEntity:GetItemInSlot(i)
@@ -814,25 +705,21 @@ function GameMode:OnItemPurchased(keys)
 		end
 	elseif item_name == "item_purple_egg_def" then
 		if PlayerResource:GetTeam(playerID) == 2 then
-			location = (Vector(-6928, -2896, 304)) + (Vector(RandomInt(0, 1056),RandomInt(0, 944), 0))
-			FindUnits = FindUnitsInRadius(DOTA_TEAM_GOODGUYS, location, nil, 300, DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_NONE, FIND_ANY_ORDER, false)
-			x = 1
-			while FindUnits[1] ~= nil and x < 100 do 
-				x = x + 1
+			if DefenceGreevil.Radiant.Purple == 0 then
 				location = (Vector(-6928, -2896, 304)) + (Vector(RandomInt(0, 1056),RandomInt(0, 944), 0))
-				FindUnits = FindUnitsInRadius(DOTA_TEAM_GOODGUYS, location, nil, 200, DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_NONE, FIND_ANY_ORDER, false)
-			end	
-			local unit = CreateUnitByName("greevil_purple_rad_def", location, true, nil, nil, DOTA_TEAM_GOODGUYS)
+				local unit = CreateUnitByName("greevil_purple_rad_def", location, true, nil, nil, DOTA_TEAM_GOODGUYS)
+			DefenceGreevil.Radiant.Purple = 1
+			elseif DefenceGreevil.Radiant.Purple == 1 then
+				print("Already exists")
+			end
 		else
-			location = (Vector(5872, -2896, 304)) + (Vector(RandomInt(0, 1056),RandomInt(0, 944), 0))
-			FindUnits = FindUnitsInRadius(DOTA_TEAM_BADGUYS, location, nil, 300, DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_NONE, FIND_ANY_ORDER, false)
-			x = 1
-			while FindUnits[1] ~= nil and x < 100 do 
-				x = x + 1
+			if DefenceGreevil.Dire.Purple == 0 then
 				location = (Vector(5872, -2896, 304)) + (Vector(RandomInt(0, 1056),RandomInt(0, 944), 0))
-				FindUnits = FindUnitsInRadius(DOTA_TEAM_BADGUYS, location, nil, 200, DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_NONE, FIND_ANY_ORDER, false)
-			end	
-			local unit = CreateUnitByName("greevil_purple_dire_def", location, true, nil, nil, DOTA_TEAM_BADGUYS)
+				local unit = CreateUnitByName("greevil_purple_dire_def", location, true, nil, nil, DOTA_TEAM_BADGUYS)
+			DefenceGreevil.Dire.Purple = 1
+			elseif DefenceGreevil.Dire.Purple == 1 then
+				print("Already exists")
+			end
 		end
 		for i=0,8 do
 			local itemHero = purchaseEntity:GetItemInSlot(i)
@@ -846,25 +733,21 @@ function GameMode:OnItemPurchased(keys)
 		end
 	elseif item_name == "item_black_egg_def" then
 		if PlayerResource:GetTeam(playerID) == 2 then
-			location = (Vector(-6928, -2896, 304)) + (Vector(RandomInt(0, 1056),RandomInt(0, 944), 0))
-			FindUnits = FindUnitsInRadius(DOTA_TEAM_GOODGUYS, location, nil, 300, DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_NONE, FIND_ANY_ORDER, false)
-			x = 1
-			while FindUnits[1] ~= nil and x < 100 do 
-				x = x + 1
+			if DefenceGreevil.Radiant.Black == 0 then
 				location = (Vector(-6928, -2896, 304)) + (Vector(RandomInt(0, 1056),RandomInt(0, 944), 0))
-				FindUnits = FindUnitsInRadius(DOTA_TEAM_GOODGUYS, location, nil, 200, DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_NONE, FIND_ANY_ORDER, false)
-			end	
-			local unit = CreateUnitByName("greevil_black_rad_def", location, true, nil, nil, DOTA_TEAM_GOODGUYS)
+				local unit = CreateUnitByName("greevil_black_rad_def", location, true, nil, nil, DOTA_TEAM_GOODGUYS)
+			DefenceGreevil.Radiant.Black = 1
+			elseif DefenceGreevil.Radiant.Black == 1 then
+				print("Already exists")
+			end
 		else
-			location = (Vector(5872, -2896, 304)) + (Vector(RandomInt(0, 1056),RandomInt(0, 944), 0))
-			FindUnits = FindUnitsInRadius(DOTA_TEAM_BADGUYS, location, nil, 300, DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_NONE, FIND_ANY_ORDER, false)
-			x = 1
-			while FindUnits[1] ~= nil and x < 100 do 
-				x = x + 1
+			if DefenceGreevil.Dire.Black == 0 then
 				location = (Vector(5872, -2896, 304)) + (Vector(RandomInt(0, 1056),RandomInt(0, 944), 0))
-				FindUnits = FindUnitsInRadius(DOTA_TEAM_BADGUYS, location, nil, 200, DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_NONE, FIND_ANY_ORDER, false)
-			end	
-			local unit = CreateUnitByName("greevil_black_dire_def", location, true, nil, nil, DOTA_TEAM_BADGUYS)
+				local unit = CreateUnitByName("greevil_black_dire_def", location, true, nil, nil, DOTA_TEAM_BADGUYS)
+			DefenceGreevil.Dire.Black = 1
+			elseif DefenceGreevil.Dire.Black == 1 then
+				print("Already exists")
+			end
 		end
 		for i=0,8 do
 			local itemHero = purchaseEntity:GetItemInSlot(i)
@@ -878,25 +761,21 @@ function GameMode:OnItemPurchased(keys)
 		end
 	elseif item_name == "item_white_egg_def" then
 		if PlayerResource:GetTeam(playerID) == 2 then
-			location = (Vector(-6928, -2896, 304)) + (Vector(RandomInt(0, 1056),RandomInt(0, 944), 0))
-			FindUnits = FindUnitsInRadius(DOTA_TEAM_GOODGUYS, location, nil, 300, DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_NONE, FIND_ANY_ORDER, false)
-			x = 1
-			while FindUnits[1] ~= nil and x < 100 do 
-				x = x + 1
+			if DefenceGreevil.Radiant.White == 0 then
 				location = (Vector(-6928, -2896, 304)) + (Vector(RandomInt(0, 1056),RandomInt(0, 944), 0))
-				FindUnits = FindUnitsInRadius(DOTA_TEAM_GOODGUYS, location, nil, 200, DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_NONE, FIND_ANY_ORDER, false)
-			end	
-			local unit = CreateUnitByName("greevil_white_rad_def", location, true, nil, nil, DOTA_TEAM_GOODGUYS)
+				local unit = CreateUnitByName("greevil_white_rad_def", location, true, nil, nil, DOTA_TEAM_GOODGUYS)
+			DefenceGreevil.Radiant.White = 1
+			elseif DefenceGreevil.Radiant.White == 1 then
+				print("Already exists")
+			end
 		else
-			location = (Vector(5872, -2896, 304)) + (Vector(RandomInt(0, 1056),RandomInt(0, 944), 0))
-			FindUnits = FindUnitsInRadius(DOTA_TEAM_BADGUYS, location, nil, 300, DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_NONE, FIND_ANY_ORDER, false)
-			x = 1
-			while FindUnits[1] ~= nil and x < 100 do 
-				x = x + 1
+			if DefenceGreevil.Dire.White == 0 then
 				location = (Vector(5872, -2896, 304)) + (Vector(RandomInt(0, 1056),RandomInt(0, 944), 0))
-				FindUnits = FindUnitsInRadius(DOTA_TEAM_BADGUYS, location, nil, 200, DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_NONE, FIND_ANY_ORDER, false)
-			end	
-			local unit = CreateUnitByName("greevil_white_dire_def", location, true, nil, nil, DOTA_TEAM_BADGUYS)
+				local unit = CreateUnitByName("greevil_white_dire_def", location, true, nil, nil, DOTA_TEAM_BADGUYS)
+			DefenceGreevil.Dire.White = 1
+			elseif DefenceGreevil.Dire.White == 1 then
+				print("Already exists")
+			end
 		end
 		for i=0,8 do
 			local itemHero = purchaseEntity:GetItemInSlot(i)
@@ -973,6 +852,7 @@ function GameMode:OnAbilityChannelFinished(keys)
 			local item = caster:GetItemInSlot(i)
 			if item ~= nil and item:GetAbilityName() == "item_bosstoken_blue" then
 				caster:RemoveItem(item)
+				return
 			end
 		end
 	elseif abilityname == "item_bosstoken_green" and interrupted == false then
@@ -980,6 +860,7 @@ function GameMode:OnAbilityChannelFinished(keys)
 			local item = caster:GetItemInSlot(i)
 			if item ~= nil and item:GetAbilityName() == "item_bosstoken_green" then
 				caster:RemoveItem(item)
+				return
 			end
 		end
 	elseif abilityname == "item_bosstoken_yellow" and interrupted == false then
@@ -987,6 +868,7 @@ function GameMode:OnAbilityChannelFinished(keys)
 			local item = caster:GetItemInSlot(i)
 			if item ~= nil and item:GetAbilityName() == "item_bosstoken_yellow" then
 				caster:RemoveItem(item)
+				return
 			end
 		end
 	elseif abilityname == "item_bosstoken_orange" and interrupted == false then
@@ -994,6 +876,7 @@ function GameMode:OnAbilityChannelFinished(keys)
 			local item = caster:GetItemInSlot(i)
 			if item ~= nil and item:GetAbilityName() == "item_bosstoken_orange" then
 				caster:RemoveItem(item)
+				return
 			end
 		end
 	elseif abilityname == "item_bosstoken_red" and interrupted == false then
@@ -1001,6 +884,7 @@ function GameMode:OnAbilityChannelFinished(keys)
 			local item = caster:GetItemInSlot(i)
 			if item ~= nil and item:GetAbilityName() == "item_bosstoken_red" then
 				caster:RemoveItem(item)
+				return
 			end
 		end
 	elseif abilityname == "item_bosstoken_purple" and interrupted == false then
@@ -1008,6 +892,7 @@ function GameMode:OnAbilityChannelFinished(keys)
 			local item = caster:GetItemInSlot(i)
 			if item ~= nil and item:GetAbilityName() == "item_bosstoken_purple" then
 				caster:RemoveItem(item)
+				return
 			end
 		end
 	elseif abilityname == "item_bosstoken_white" and interrupted == false then
@@ -1015,6 +900,7 @@ function GameMode:OnAbilityChannelFinished(keys)
 			local item = caster:GetItemInSlot(i)
 			if item ~= nil and item:GetAbilityName() == "item_bosstoken_white" then
 				caster:RemoveItem(item)
+				return
 			end
 		end
 	elseif abilityname == "item_bosstoken_black" and interrupted == false then
@@ -1022,6 +908,7 @@ function GameMode:OnAbilityChannelFinished(keys)
 			local item = caster:GetItemInSlot(i)
 			if item ~= nil and item:GetAbilityName() == "item_bosstoken_black" then
 				caster:RemoveItem(item)
+				return
 			end
 		end
 	end
@@ -1093,6 +980,8 @@ end
 function GameMode:OnEntityKilled(keys)
 	--DeepPrintTable( keys )
 	local killed_unit = EntIndexToHScript(keys.entindex_killed)
+	local deathLocation = killed_unit:GetAbsOrigin()
+	local killedTeam = killed_unit:GetTeam()
 	
 	local owner = killed_unit:GetOwner()
 	if killed_unit.hero == 1 then
@@ -1225,8 +1114,49 @@ function GameMode:OnEntityKilled(keys)
 		elseif killed_unit:GetUnitName() == "greevil_black" then
 			killer_unit:GetOwner():AddItemByName("item_boss_drop_black")
 
+		-- Defence Greevils
+		elseif killed_unit:GetUnitName() == "greevil_red_rad_def" then
+			DefenceGreevil.Radiant.Red = 0
+		elseif killed_unit:GetUnitName() == "greevil_orange_rad_def" then
+			DefenceGreevil.Radiant.Orange = 0
+		elseif killed_unit:GetUnitName() == "greevil_yellow_rad_def" then
+			DefenceGreevil.Radiant.Yellow = 0
+		elseif killed_unit:GetUnitName() == "greevil_green_rad_def" then
+			DefenceGreevil.Radiant.Green = 0
+		elseif killed_unit:GetUnitName() == "greevil_blue_rad_def" then
+			DefenceGreevil.Radiant.Blue = 0
+		elseif killed_unit:GetUnitName() == "greevil_purple_rad_def" then
+			DefenceGreevil.Radiant.Purple = 0
+		elseif killed_unit:GetUnitName() == "greevil_white_rad_def" then
+			DefenceGreevil.Radiant.White = 0
+		elseif killed_unit:GetUnitName() == "greevil_black_rad_def" then
+			DefenceGreevil.Radiant.Black = 0
+		elseif killed_unit:GetUnitName() == "greevil_red_rad_def" then
+			DefenceGreevil.Dire.Red = 0
+		elseif killed_unit:GetUnitName() == "greevil_orange_rad_def" then
+			DefenceGreevil.Dire.Orange = 0
+		elseif killed_unit:GetUnitName() == "greevil_yellow_rad_def" then
+			DefenceGreevil.Dire.Yellow = 0
+		elseif killed_unit:GetUnitName() == "greevil_green_rad_def" then
+			DefenceGreevil.Dire.Green = 0
+		elseif killed_unit:GetUnitName() == "greevil_blue_rad_def" then
+			DefenceGreevil.Dire.Blue = 0
+		elseif killed_unit:GetUnitName() == "greevil_purple_rad_def" then
+			DefenceGreevil.Dire.Purple = 0
+		elseif killed_unit:GetUnitName() == "greevil_white_rad_def" then
+			DefenceGreevil.Dire.White = 0
+		elseif killed_unit:GetUnitName() == "greevil_black_rad_def" then
+			DefenceGreevil.Dire.Black = 0
+		
+		-- Green attack greevil duplication
+		elseif killed_unit:GetUnitName() == "greevil_green_boss_att" then
+			unit = CreateUnitByName("greevil_green_boss_att_2", deathLocation, true, nil, nil, killedTeam)
+			unit = CreateUnitByName("greevil_green_boss_att_2", deathLocation, true, nil, nil, killedTeam)
+		elseif killed_unit:GetUnitName() == "greevil_green_boss_att_2" then
+			unit = CreateUnitByName("greevil_green_boss_att_3", deathLocation, true, nil, nil, killedTeam)
+			unit = CreateUnitByName("greevil_green_boss_att_3", deathLocation, true, nil, nil, killedTeam)
+
 		-- whiteboss fight
-		print(killed_unit:GetUnitName())
 		elseif killed_unit:GetUnitName() == "greevil_white_red" or killed_unit:GetUnitName() == "greevil_white_orange" or killed_unit:GetUnitName() == "greevil_white_yellow" or killed_unit:GetUnitName() == "greevil_white_green" or killed_unit:GetUnitName() == "greevil_white_blue" or killed_unit:GetUnitName() == "greevil_white_purple" then
 			if killed_unit.side == "rad" then
 				local units = FindUnitsInLine(DOTA_TEAM_NEUTRALS, (Vector(-9700, 5760, 256)), (Vector(-9700, -3584, 256)), nil, 2000.0, DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_NONE)
@@ -1234,10 +1164,18 @@ function GameMode:OnEntityKilled(keys)
 					if units[i]:GetUnitName() == "greevil_white" then
 						local target = units[i]
 						local remainingHP = target:GetHealth()
-						target:SetHealth(remainingHP - 1)
-						print(target)
-						print(remainingHP)
-						print(remainingHP - 1)
+						nearEnemies = FindUnitsInRadius(target:GetTeam(), target:GetAbsOrigin(), nil,
+							2000, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_NONE, 
+							FIND_CLOSEST, false)
+						closestEnemy = nearEnemies[1]
+						local damageTable = {
+							victim = target,
+							attacker = closestEnemy,
+							damage = 1,
+							damage_type = DAMAGE_TYPE_HP_REMOVAL,
+							damage_flags = DOTA_DAMAGE_FLAG_NONE,
+							ability = nil,}
+						ApplyDamage(damageTable)
 					end
 				end
 			elseif killed_unit.side == "dire" then
@@ -1246,8 +1184,18 @@ function GameMode:OnEntityKilled(keys)
 					if units[i]:GetUnitName() == "greevil_white" then
 						local target = units[i]
 						local remainingHP = target:GetHealth()
-						target:SetHealth(remainingHP - 1)
-						print(target)
+						nearEnemies = FindUnitsInRadius(target:GetTeam(), target:GetAbsOrigin(), nil,
+							2000, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_NONE, 
+							FIND_CLOSEST, false)
+						closestEnemy = nearEnemies[1]
+						local damageTable = {
+							victim = target,
+							attacker = closestEnemy,
+							damage = 1,
+							damage_type = DAMAGE_TYPE_HP_REMOVAL,
+							damage_flags = DOTA_DAMAGE_FLAG_NONE,
+							ability = nil,}
+						ApplyDamage(damageTable)
 					end
 				end
 			end

@@ -1,5 +1,8 @@
+AI_THINK_INTERVAL = 1
+
 function Spawn( entityKeyValues )
-	thisEntity:SetContextThink("GreevilThink", GreevilThink, 0.1)
+	thisEntity:SetContextThink("GreevilThink", GreevilThink, AI_THINK_INTERVAL)
+	thisEntity.BTrance = thisEntity:FindAbilityByName("greevil_red_boss_battle_trance")
 end
 --------------------------------------------------------------------------------
 function GreevilThink()
@@ -18,9 +21,9 @@ function GreevilThink()
 	local team = thisEntity:GetTeam()
 	
 	if team == DOTA_TEAM_GOODGUYS then
-		units = FindUnitsInRadius(team, thisEntity:GetOrigin(), nil, 6000.0, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_NONE, FIND_CLOSEST, false)
+		units = FindUnitsInLine(DOTA_TEAM_GOODGUYS, (Vector(6400, 5760, 256)), (Vector(6400, -3584, 256)), nil, 1400.0, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_NONE)
 	elseif team == DOTA_TEAM_BADGUYS then
-		units = FindUnitsInRadius(team, thisEntity:GetOrigin(), nil, 6000.0, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_NONE, FIND_CLOSEST, false)
+		units = FindUnitsInLine(DOTA_TEAM_GOODGUYS, (Vector(6400, 5760, 256)), (Vector(6400, -3584, 256)), nil, 1400.0, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_NONE)
 	end
 	
   	if units ~= nil then
@@ -29,11 +32,21 @@ function GreevilThink()
   			thisEntity:MoveToPositionAggressive(target:GetOrigin())
   		end
   	end
+
+	local pctHP = thisEntity:GetHealth()/thisEntity:GetMaxHealth()
+	if pctHP < 0.3 and thisEntity.BTrance:IsFullyCastable() then
+		CastBTrance()
+	end
 	
-	if ( thisEntity:GetAggroTarget() ) then
+	if thisEntity:GetAggroTarget() then
 		return 2.0
 	end
 	
 	return 0.5
 end
---------------------------------------------------------------------------------
+
+----------------- Abilities -----------------
+
+function CastBTrance()
+	thisEntity:CastAbilityNoTarget(thisEntity.BTrance, -1)
+end

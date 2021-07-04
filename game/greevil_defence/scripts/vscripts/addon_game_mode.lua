@@ -138,7 +138,7 @@ function EntitySpawn()
 			end)
 		elseif unit:GetUnitName() == "greevil_white_green" or unit:GetUnitName() == "greevil_green_rad_att" or unit:GetUnitName() == "greevil_green_dire_att" or unit:GetUnitName() == "greevil_green_rad_def" or unit:GetUnitName() == "greevil_green_dire_def" or unit:GetUnitName() == "greevil_green_player" or unit:GetUnitName() == "greevil_green_boss_att" then
 			unit:AddNewModifier(nil, nil, "modifier_greevil_green", {})	
-		elseif unit:GetUnitName() == "greevil_green_2" or unit:GetUnitName() == "greevil_green_3" then
+		elseif unit:GetUnitName() == "greevil_green_boss_att_2" or unit:GetUnitName() == "greevil_green_boss_att_3" then
 			unit:AddNewModifier(nil, nil, "modifier_greevil_green", {})
 
 		--BLUE NEUTRAL BOSS
@@ -258,7 +258,7 @@ function GameStart()
 			local diregate = CreateUnitByName("door", Vector(3712, 1920, 128), false, nil, nil, DOTA_TEAM_NEUTRALS)
 			local particle2 = ParticleManager:CreateParticle("particles/units/heroes/hero_arc_warden/arc_warden_flux_tgt.vpcf", PATTACH_ABSORIGIN_FOLLOW, diregate)
 			radgate.disabled = 0
-			diregate.disabled = 0	
+			diregate.disabled = 0
 		end
 	end, self)
 end

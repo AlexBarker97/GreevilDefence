@@ -4,38 +4,37 @@
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 Required before player Testing
-• Boss greevil candy use
-• White boss fight
-• Multiple boss tokens removed on single spawn/channel
+• Attack Boss AI
+	• Blue
+	• Purple
+	• White
+	• Black
+• Neutral Boss AI
+	• Blue
+• White Boss Summons AI
 
 QoL
-• Attack Boss abilities + AI
-• Neutral Boss AI
-• More "one time" shop items
-• Less spam on att/def greevils in shop (balance cost attack vs def, all $ -> $$$)
-• Greevil Leveling (ln:459 addon_game_mode.lua)
-• Improve bossfights
+• White bossfight hp buggy (noticed on naix)
 • Greevil attack ranges
+• Less spam on att/def greevils in shop (balance cost attack vs def, all $ -> $$$)
+	• Modifier tracker for subsiquent purchases
+• Boss greevil candy use
+• More "one time" shop 
+• Improve bossfights
+• Greevil items (greevil starts with pack)
+• Re-add removed heroes with ability overrides
+
+Balance
+• Greevil Leveling (ln:459 addon_game_mode.lua)
+• XP/Gold from bosses
+• XP/Gold from lane greevils
 
 Luxury
-• att/def greevil upgrades
-• Greevil items (greevil starts with pack)
+• att/def greevil improvements
+• Custom animations
 • Red greevil spears x3 or replace with another ability
 • More general event game sounds
 	D:\Steam\steamapps\common\dota 2 beta\content\dota_addons\greevil_showdown\sounds
-
-//////////////////////
-// White Boss Fight //
-//////////////////////
-
-	Health		Colour	trigger						Aura
-	12 -> 11	r 		Legion Q 	-> 	Spawn		(axe_counter_helix)
-	11 -> 10	o 		Lina LSA 	-> 	Spawn		(warlock_golem_permanent_immolation)
-	10 ->  9	y 		Avalanche 	-> 	Spawn		(black_dragon_dragonhide_aura)
-	 9 ->  8	g 		Ravage		-> 	Spawn		(greevil_summon_natural_order)
-	 8 ->  7	b 		Frostbite 	-> 	Spawn		(lycan_summon_wolves_invisibility)
-	 7 ->  6	p 		Vac 		-> 	Spawn		(spectre_desolate)
-	 6 ->  0	ALL		AoE_DBlast 	->	Spawn
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 --------Abilities---------------Abilities---------------Abilities---------------Abilities---------------Abilities----------
@@ -49,7 +48,6 @@ greevil_miniboss_green_living_armor
 greevil_miniboss_green_overgrowth
 greevil_miniboss_blue_cold_feet
 greevil_miniboss_blue_ice_vortex
-invoker_ice_wall
 greevil_miniboss_purple_venomous_gale
 greevil_miniboss_purple_plague_ward
 greevil_miniboss_white_purification

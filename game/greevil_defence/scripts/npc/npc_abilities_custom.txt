@@ -3704,13 +3704,13 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityCastAnimation"			"ACT_DOTA_COLD_FEET"
 		"AbilityCastGestureSlot"		"DEFAULT"
-		"AbilityCastRange"				"700 800 900 1000"
-		"AbilityCastPoint"				"0.01 0.01 0.01 0.01"
+		"AbilityCastRange"				"1000"
+		"AbilityCastPoint"				"0.01"
 
 		// Time		
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"10 9 8 7"
-		"AbilityDuration"				"4.0 4.0 4.0 4.0"
+		"AbilityCooldown"				"10"
+		"AbilityDuration"				"10.0"
 
 		// Cost
 		//-------------------------------------------------------------------------------------------------------------
@@ -3727,17 +3727,17 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"damage"				"30 50 70 90"
+				"damage"				"50"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"break_distance"		"715"
+				"break_distance"		"500"
 			}
 			"03"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"stun_duration"			"2.0 2.5 3.0 3.5"
+				"stun_duration"			"2.0"
 			}
 			"04"
 			{
@@ -3747,101 +3747,98 @@
 		}
 	}
 	
-	"greevil_ice_wall"
+	"greevil_crystal_nova"
 	{
-		"BaseClass"						"invoker_ice_wall"
+		"BaseClass"						"crystal_maiden_crystal_nova"
 		
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING | DOTA_ABILITY_BEHAVIOR_SHOW_IN_GUIDES"
+		"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"	
 		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
-		"SpellDispellableType"			"SPELL_DISPELLABLE_NO"
-		"MaxLevel"						"1"
-		"HotKeyOverride"				"G"
-		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+		"SpellDispellableType"			"SPELL_DISPELLABLE_YES"
 		"FightRecapLevel"				"1"
-		"AbilitySound"					"Hero_Invoker.IceWall.Cast"
-
-		// Stats
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"25"
-		"AbilityManaCost"				"0"
-		"AbilityCastPoint"				"0.05"
-		"AbilityCastAnimation"			"ACT_INVALID"
-		
-		// Special
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"duration"				"3.0 4.5 6.0 7.5 9.0 10.5 12.0 13.5"
-				"levelkey"				"quaslevel"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"slow"					"-20 -40 -60 -80 -100 -120 -140 -160"
-				"levelkey"				"quaslevel"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"slow_duration"			"2.0"
-			}
-			"04"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"damage_per_second"		"6 12 18 24 30 36 42 48"
-				"levelkey"				"exortlevel"
-			}
-			"05"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"wall_place_distance"	"200"
-			}
-			"06"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"num_wall_elements"		"15"
-			}
-			"07"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"wall_element_spacing"	"80"
-			}
-			"08"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"wall_element_radius"	"105"
-			}
-		}
-	}
-	
-	"greevil_ice_vortex"
-	{
-		"BaseClass"						"ancient_apparition_ice_vortex"
-		
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
-		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
-		"SpellDispellableType"			"SPELL_DISPELLABLE_NO"
-		"AbilitySound"					"Hero_Ancient_Apparition.IceVortexCast"
+		"AbilitySound"					"Hero_Crystal.CrystalNova"
 
 		// Casting
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCastAnimation"			"ACT_DOTA_ICE_VORTEX"
-		"AbilityCastGestureSlot"		"DEFAULT"
-		"AbilityCastRange"				"1500 1500 1500 1500"
-		"AbilityCastPoint"				"0.01 0.01 0.01 0.01"
-
+		"AbilityCastRange"				"700"
+		"AbilityCastPoint"				"0"
+		
 		// Time		
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"4.0"
-		"AbilityDuration"				"16"
+		"AbilityCooldown"				"2"
+		
 
 		// Cost
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityManaCost"				"0"
+		
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"radius"			"1500"
+			}
+			"02"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"movespeed_slow"	"-30"
+			}
+			"03"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"attackspeed_slow"	"0"
+			}
+			"04"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"duration"			"2.0"
+			}
+			"05"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"vision_duration"	"1.0"
+			}
+			"06"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"nova_damage"			"30"
+				"LinkedSpecialBonus"	"special_bonus_unique_crystal_maiden_2"
+			}
+		}
+		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_1"
+	}	
+	
+	"greevil_liquid_ice"
+	{
+		"BaseClass"						"jakiro_liquid_ice"
+		
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_AUTOCAST | DOTA_ABILITY_BEHAVIOR_ATTACK"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC | DOTA_UNIT_TARGET_BUILDING"
+		"AbilityUnitTargetFlags"		"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES | DOTA_UNIT_TARGET_FLAG_DEAD"
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
+		"SpellDispellableType"			"SPELL_DISPELLABLE_YES"
+		"AbilitySound"					"Hero_Jakiro.LiquidFire"
+		"MaxLevel"						"1"
+		"FightRecapLevel"				"1"
+		"IsGrantedByShard"				"1"
+		"HasShardUpgrade"				"1"
 
+		// Stats
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"0.0"
+		"AbilityCastRange"				"200"
+		"AbilityCastPoint"				"0.0"
+		
+		// Stats
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityModifierSupportBonus"	"0"
+			
 		// Special
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilitySpecial"
@@ -3849,34 +3846,35 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"radius"				"275 275 275 275"
+				"movement_slow" 		"20"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"drag_speed"	"40 50 60 70"
+				"base_damage" 			"0"
 			}
 			"03"
 			{
-				"var_type"				"FIELD_INTEGER"
-				"movement_speed_pct"	"-15 -20 -25 -30"
+				"var_type"				"FIELD_FLOAT"
+				"pct_health_damage" 	"2.5"
 			}
 			"04"
 			{
-				"var_type"				"FIELD_INTEGER"
-				"spell_resist_pct"		"-15 -20 -25 -30"
+				"var_type"				"FIELD_FLOAT"
+				"duration"				"1.8"
 			}
 			"05"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"vision_aoe"		"200 200 200 200"
+				"radius"				"0"
 			}
 			"06"
 			{
-				"var_type"				"FIELD_INTEGER"
-				"vortex_duration"		"16"
+				"var_type"				"FIELD_FLOAT"
+				"stun_duration"			"0.15"
 			}
-		}
+		}		
+		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_3"
 	}
 	
 	"greevil_chain_frost"
@@ -5678,3 +5676,5 @@
 		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_2"
 	}
 }
+
+#base "../vscripts/lua_abilities/lich_chain_frost_lua/lich_chain_frost_lua.txt"

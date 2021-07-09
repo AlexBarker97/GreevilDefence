@@ -9,8 +9,6 @@ Required before player Testing
 	• Purple
 	• White
 	• Black
-• Neutral Boss AI
-	• Blue
 • White Boss Summons AI
 
 QoL

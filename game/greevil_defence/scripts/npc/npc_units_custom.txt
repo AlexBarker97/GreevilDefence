@@ -721,7 +721,8 @@
 		"Ability3"					"greevil_chain_frost_player_custom"
 		//"Ability4"				"shivas_ability_custom"
 		"Ability4"					"greevil_brilliance_aura_custom"
-		"Ability5"					"generic_hidden"
+		"Ability5"					"lich_chain_frost_lua"
+		//"Ability5"					"generic_hidden"
 		"Ability6"					"greevil_freezing_field_custom"
 		
 		"precache"
@@ -1411,9 +1412,9 @@
 		//----------------------------------------------------------------
 		
 		"Ability1"					"greevil_cold_feet"
-		"Ability2"					"greevil_ice_wall"
-		"Ability3"					"greevil_ice_vortex"
-		"Ability4"					"greevil_chain_frost"
+		"Ability2"					"greevil_crystal_nova"
+		"Ability3"					"greevil_liquid_ice"
+		"Ability4"					"lich_chain_frost_lua"
 		"Ability5"					"greevil_miniboss_sight"
 
 		"precache"

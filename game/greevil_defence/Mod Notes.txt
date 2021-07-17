@@ -3,6 +3,11 @@
 --------ToDo--------------------ToDo--------------------ToDo--------------------ToDo--------------------ToDo---------------
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
+SUGGESTIONS
+• scaling based on players on team, defending too easy
+• camera jumping on hero bind (IMPORTANT)
+• greevil not starting with all spells?
+
 Required before player Testing
 • Attack Boss AI
 	• Blue
@@ -10,6 +15,10 @@ Required before player Testing
 	• White
 	• Black
 • White Boss Summons AI
+
+Concept ideas
+• Buyback
+• Selection greevil
 
 QoL
 • White bossfight hp buggy (noticed on naix)

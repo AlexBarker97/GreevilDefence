@@ -4,11 +4,8 @@
     "\\game",
     "\\game\\greevil_defence",
     "\\game\\greevil_defence\\scripts",
-    "\\game\\greevil_defence\\scripts\\vscripts",
-    "\\game\\greevil_defence\\scripts\\vscripts\\ai",
-    "\\game\\greevil_defence\\scripts\\vscripts\\lua_abilities",
-    "\\game\\greevil_defence\\scripts\\vscripts\\lua_abilities\\lich_chain_frost_lua"
+    "\\game\\greevil_defence\\scripts\\vscripts"
   ],
-  "SelectedNode": "\\game\\greevil_defence\\scripts\\vscripts\\ai\\ai_greevil_purple.lua",
+  "SelectedNode": "\\game\\greevil_defence\\scripts\\vscripts\\barebones.lua",
   "PreviewInSolutionExplorer": false
 }

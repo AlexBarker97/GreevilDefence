@@ -8,7 +8,7 @@ function ToGreevil(keys)
 	local player = caster:GetPlayerID()
 	local origin = caster:GetAbsOrigin()
 	if origin[1] <= 0 then -- radiant
-		local origin = (Vector(-7872, -5440, 128)) + (Vector(RandomInt(0,2944),RandomInt(0,896), 0))
+		local origin = (Vector(-7040, -7424, 384)) + (Vector(RandomInt(0,1280),RandomInt(0,896), 0))
 		caster.greevil = CreateUnitByName("greevil_selection", origin, true, caster, caster, caster:GetTeamNumber())
 		caster.greevil.hero = 1
 		local greevil = caster.greevil
@@ -27,12 +27,12 @@ function ToGreevil(keys)
 		greevil:SetAbsOrigin(origin)
 		PlayerResource:NewSelection(player, greevil)
 		PlayerResource:SetCameraTarget(player, greevil)
-		Timers:CreateTimer({endTime = 0.1,
+		Timers:CreateTimer({endTime = 0.2,
 			callback = function()
 			PlayerResource:SetCameraTarget(player, nil)
 		end})
 	else -- dire
-		local origin = (Vector(4800, -5440, 128)) + (Vector(RandomInt(0,1600),RandomInt(0,896), 0))
+		local origin = (Vector(5632, -7424, 384)) + (Vector(RandomInt(0,1280),RandomInt(0,896), 0))
 		caster.greevil = CreateUnitByName("greevil_selection", origin, true, caster, caster, caster:GetTeamNumber())
 		caster.greevil.hero = 1
 		local greevil = caster.greevil

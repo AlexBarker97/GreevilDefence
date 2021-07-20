@@ -5678,3 +5678,4 @@
 }
 
 #base "../vscripts/lua_abilities/lich_chain_frost_lua/lich_chain_frost_lua.txt"
+#base "../vscripts/lua_abilities/crystal_maiden_arcane_aura_lua/crystal_maiden_arcane_aura_lua.txt"

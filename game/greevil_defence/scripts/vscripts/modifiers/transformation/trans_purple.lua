@@ -6,6 +6,11 @@ function CreateGreevil(keys)
 	local caster = keys.caster
 	local origin = caster:GetAbsOrigin()
 	local playerid = caster:GetOwner():GetPlayerID()
+	if origin[1] <= 0 then -- radiant
+		origin = (Vector(-7168, -5504, 128)) + (Vector(RandomInt(0,1536),RandomInt(0,896), 0))
+	else -- dire
+		origin = (Vector(5632, -5504, 128)) + (Vector(RandomInt(0,1536),RandomInt(0,896), 0))
+	end
 	caster:GetOwner().greevil = CreateUnitByName("greevil_purple_player", origin, true, caster:GetOwner(), caster:GetOwner(), caster:GetTeamNumber())
 	caster:GetOwner().greevil.hero = 1
 	local greevil = caster:GetOwner().greevil
@@ -20,6 +25,11 @@ function CreateGreevil(keys)
 	caster:GetOwner():AddItem(whistle)
 	caster:Destroy()
 	PlayerResource:NewSelection(playerid, greevil)
+	PlayerResource:SetCameraTarget(playerid, greevil)
+	Timers:CreateTimer({endTime = 0.2,
+		callback = function()
+		PlayerResource:SetCameraTarget(playerid, nil)
+	end})
 end
 
 function ToHero(keys)

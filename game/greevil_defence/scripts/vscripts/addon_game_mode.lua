@@ -78,6 +78,7 @@ function Activate()
 	EntitySpawn()		--Listener for entity spawns
 	EntityKilled()		--Listener for entities killed
 	GameStart()			--Listener for game start (timers)
+	SpawnInitialGreevils()
 end
 
 function EntitySpawn()
@@ -95,7 +96,7 @@ function EntitySpawn()
 				BossSpawn(colour, team)
 			end)
 			BossSpawn(colour, team)
-		elseif unit:GetUnitName() == "greevil_white_red" or unit:GetUnitName() == "greevil_red_rad_att" or unit:GetUnitName() == "greevil_red_dire_att" or unit:GetUnitName() == "greevil_red_rad_def" or unit:GetUnitName() == "greevil_red_dire_def" or unit:GetUnitName() == "greevil_red_player" or unit:GetUnitName() == "greevil_red_boss_att" then
+		elseif unit:GetUnitName() == "greevil_red_showcase" or unit:GetUnitName() == "greevil_white_red" or unit:GetUnitName() == "greevil_red_rad_att" or unit:GetUnitName() == "greevil_red_dire_att" or unit:GetUnitName() == "greevil_red_rad_def" or unit:GetUnitName() == "greevil_red_dire_def" or unit:GetUnitName() == "greevil_red_player" or unit:GetUnitName() == "greevil_red_boss_att" then
 			unit:AddNewModifier(nil, nil, "modifier_greevil_red", {})
 
 		--ORANGE NEUTRAL BOSS
@@ -108,7 +109,7 @@ function EntitySpawn()
 				local team = FindTeam(unit)
 				BossSpawn(colour, team)
 			end)
-		elseif unit:GetUnitName() == "greevil_white_orange" or unit:GetUnitName() == "greevil_orange_rad_att" or unit:GetUnitName() == "greevil_orange_dire_att" or unit:GetUnitName() == "greevil_orange_rad_def" or unit:GetUnitName() == "greevil_orange_dire_def" or unit:GetUnitName() == "greevil_orange_player" or unit:GetUnitName() == "greevil_orange_boss_att" then
+		elseif unit:GetUnitName() == "greevil_orange_showcase" or unit:GetUnitName() == "greevil_white_orange" or unit:GetUnitName() == "greevil_orange_rad_att" or unit:GetUnitName() == "greevil_orange_dire_att" or unit:GetUnitName() == "greevil_orange_rad_def" or unit:GetUnitName() == "greevil_orange_dire_def" or unit:GetUnitName() == "greevil_orange_player" or unit:GetUnitName() == "greevil_orange_boss_att" then
 			unit:AddNewModifier(nil, nil, "modifier_greevil_orange", {})
 
 		--YELLOW NEUTRAL BOSS
@@ -121,7 +122,7 @@ function EntitySpawn()
 				local team = FindTeam(unit)
 				BossSpawn(colour, team)
 			end)
-		elseif unit:GetUnitName() == "greevil_white_yellow" or unit:GetUnitName() == "greevil_yellow_rad_att" or unit:GetUnitName() == "greevil_yellow_dire_att" or unit:GetUnitName() == "greevil_yellow_rad_def" or unit:GetUnitName() == "greevil_yellow_dire_def" or unit:GetUnitName() == "greevil_yellow_player" or unit:GetUnitName() == "greevil_yellow_boss_att" then
+		elseif unit:GetUnitName() == "greevil_yellow_showcase" or unit:GetUnitName() == "greevil_white_yellow" or unit:GetUnitName() == "greevil_yellow_rad_att" or unit:GetUnitName() == "greevil_yellow_dire_att" or unit:GetUnitName() == "greevil_yellow_rad_def" or unit:GetUnitName() == "greevil_yellow_dire_def" or unit:GetUnitName() == "greevil_yellow_player" or unit:GetUnitName() == "greevil_yellow_boss_att" then
 			unit:AddNewModifier(nil, nil, "modifier_greevil_yellow", {})
 		elseif unit:GetUnitName() == "greevil_turret" then
 			unit:AddNewModifier(nil, nil, "modifier_greevil_yellow", {})
@@ -136,7 +137,7 @@ function EntitySpawn()
 				local team = FindTeam(unit)
 				BossSpawn(colour, team)
 			end)
-		elseif unit:GetUnitName() == "greevil_white_green" or unit:GetUnitName() == "greevil_green_rad_att" or unit:GetUnitName() == "greevil_green_dire_att" or unit:GetUnitName() == "greevil_green_rad_def" or unit:GetUnitName() == "greevil_green_dire_def" or unit:GetUnitName() == "greevil_green_player" or unit:GetUnitName() == "greevil_green_boss_att" then
+		elseif unit:GetUnitName() == "greevil_green_showcase" or unit:GetUnitName() == "greevil_white_green" or unit:GetUnitName() == "greevil_green_rad_att" or unit:GetUnitName() == "greevil_green_dire_att" or unit:GetUnitName() == "greevil_green_rad_def" or unit:GetUnitName() == "greevil_green_dire_def" or unit:GetUnitName() == "greevil_green_player" or unit:GetUnitName() == "greevil_green_boss_att" then
 			unit:AddNewModifier(nil, nil, "modifier_greevil_green", {})	
 		elseif unit:GetUnitName() == "greevil_green_boss_att_2" or unit:GetUnitName() == "greevil_green_boss_att_3" then
 			unit:AddNewModifier(nil, nil, "modifier_greevil_green", {})
@@ -151,7 +152,7 @@ function EntitySpawn()
 				local team = FindTeam(unit)
 				BossSpawn(colour, team)
 			end)
-		elseif unit:GetUnitName() == "greevil_white_blue" or unit:GetUnitName() == "greevil_blue_rad_att" or unit:GetUnitName() == "greevil_blue_dire_att" or unit:GetUnitName() == "greevil_blue_rad_def" or unit:GetUnitName() == "greevil_blue_dire_def" or unit:GetUnitName() == "greevil_blue_player" or unit:GetUnitName() == "greevil_blue_boss_att" then
+		elseif unit:GetUnitName() == "greevil_blue_showcase" or unit:GetUnitName() == "greevil_white_blue" or unit:GetUnitName() == "greevil_blue_rad_att" or unit:GetUnitName() == "greevil_blue_dire_att" or unit:GetUnitName() == "greevil_blue_rad_def" or unit:GetUnitName() == "greevil_blue_dire_def" or unit:GetUnitName() == "greevil_blue_player" or unit:GetUnitName() == "greevil_blue_boss_att" then
 			unit:AddNewModifier(nil, nil, "modifier_greevil_blue", {})
 
 		--PURPLE NEUTRAL BOSS
@@ -164,7 +165,7 @@ function EntitySpawn()
 				local team = FindTeam(unit)
 				BossSpawn(colour, team)
 			end)
-		elseif unit:GetUnitName() == "greevil_white_purple" or unit:GetUnitName() == "greevil_purple_rad_att" or unit:GetUnitName() == "greevil_purple_dire_att" or unit:GetUnitName() == "greevil_purple_rad_def" or unit:GetUnitName() == "greevil_purple_dire_def" or unit:GetUnitName() == "greevil_purple_player" or unit:GetUnitName() == "greevil_purple_boss_att" then
+		elseif unit:GetUnitName() == "greevil_purple_showcase" or unit:GetUnitName() == "greevil_white_purple" or unit:GetUnitName() == "greevil_purple_rad_att" or unit:GetUnitName() == "greevil_purple_dire_att" or unit:GetUnitName() == "greevil_purple_rad_def" or unit:GetUnitName() == "greevil_purple_dire_def" or unit:GetUnitName() == "greevil_purple_player" or unit:GetUnitName() == "greevil_purple_boss_att" then
 			unit:AddNewModifier(nil, nil, "modifier_greevil_purple", {})
 			
 		--WHITE	NEUTRAL BOSS
@@ -177,7 +178,7 @@ function EntitySpawn()
 				local team = FindTeam(unit)
 				BossSpawn(colour, team)
 			end)
-		elseif unit:GetUnitName() == "greevil_white_rad_att" or unit:GetUnitName() == "greevil_white_dire_att" or unit:GetUnitName() == "greevil_white_rad_def" or unit:GetUnitName() == "greevil_white_dire_def" or unit:GetUnitName() == "greevil_white_player" or unit:GetUnitName() == "greevil_white_boss_att" then
+		elseif unit:GetUnitName() == "greevil_white_showcase" or unit:GetUnitName() == "greevil_white_rad_att" or unit:GetUnitName() == "greevil_white_dire_att" or unit:GetUnitName() == "greevil_white_rad_def" or unit:GetUnitName() == "greevil_white_dire_def" or unit:GetUnitName() == "greevil_white_player" or unit:GetUnitName() == "greevil_white_boss_att" then
 			unit:AddNewModifier(nil, nil, "modifier_greevil_white", {})
 			
 		--BLACK NEUTRAL BOSS
@@ -190,7 +191,7 @@ function EntitySpawn()
 				local team = FindTeam(unit)
 				BossSpawn(colour, team)
 			end)
-		elseif unit:GetUnitName() == "greevil_black_rad_att" or unit:GetUnitName() == "greevil_black_dire_att" or unit:GetUnitName() == "greevil_black_rad_def" or unit:GetUnitName() == "greevil_black_dire_def" or unit:GetUnitName() == "greevil_black_player" or unit:GetUnitName() == "greevil_black_boss_att" then
+		elseif unit:GetUnitName() == "greevil_black_showcase" or unit:GetUnitName() == "greevil_black_rad_att" or unit:GetUnitName() == "greevil_black_dire_att" or unit:GetUnitName() == "greevil_black_rad_def" or unit:GetUnitName() == "greevil_black_dire_def" or unit:GetUnitName() == "greevil_black_player" or unit:GetUnitName() == "greevil_black_boss_att" then
 			unit:AddNewModifier(nil, nil, "modifier_greevil_black", {})		
 	
 		elseif unit:GetUnitName() == "greevil_naked_dire" then
@@ -507,6 +508,90 @@ function SpawnCreeps()
 		local locationd = vd:GetAbsOrigin()
 		local unit = CreateUnitByName("greevil_naked_dire", locationr, false, nil, nil, DOTA_TEAM_BADGUYS)
 		local unit = CreateUnitByName("greevil_naked_rad", locationd, false, nil, nil, DOTA_TEAM_GOODGUYS)
+	end
+end
+
+function SpawnInitialGreevils()
+	local pointred = Entities:FindAllByName("spawnexample_red_r")
+	for k,v in pairs(pointred) do
+		local location = v:GetAbsOrigin()
+		local unit = CreateUnitByName("greevil_red_showcase", location, false, nil, nil, DOTA_TEAM_GOODGUYS)
+	end
+	local pointorange = Entities:FindAllByName("spawnexample_orange_r")
+	for k,v in pairs(pointorange) do
+		local location = v:GetAbsOrigin()
+		local unit = CreateUnitByName("greevil_orange_showcase", location, false, nil, nil, DOTA_TEAM_GOODGUYS)
+	end
+	local pointyellow = Entities:FindAllByName("spawnexample_yellow_r")
+	for k,v in pairs(pointyellow) do
+		local location = v:GetAbsOrigin()
+		local unit = CreateUnitByName("greevil_yellow_showcase", location, false, nil, nil, DOTA_TEAM_GOODGUYS)
+	end
+	local pointgreen = Entities:FindAllByName("spawnexample_green_r")
+	for k,v in pairs(pointgreen) do
+		local location = v:GetAbsOrigin()
+		local unit = CreateUnitByName("greevil_green_showcase", location, false, nil, nil, DOTA_TEAM_GOODGUYS)
+	end
+	local pointblue = Entities:FindAllByName("spawnexample_blue_r")
+	for k,v in pairs(pointblue) do
+		local location = v:GetAbsOrigin()
+		local unit = CreateUnitByName("greevil_blue_showcase", location, false, nil, nil, DOTA_TEAM_GOODGUYS)
+	end
+	local pointpurple = Entities:FindAllByName("spawnexample_purple_r")
+	for k,v in pairs(pointpurple) do
+		local location = v:GetAbsOrigin()
+		local unit = CreateUnitByName("greevil_purple_showcase", location, false, nil, nil, DOTA_TEAM_GOODGUYS)
+	end
+	local pointwhite = Entities:FindAllByName("spawnexample_white_r")
+	for k,v in pairs(pointwhite) do
+		local location = v:GetAbsOrigin()
+		local unit = CreateUnitByName("greevil_white_showcase", location, false, nil, nil, DOTA_TEAM_GOODGUYS)
+	end
+	local pointblack = Entities:FindAllByName("spawnexample_black_r")
+	for k,v in pairs(pointblack) do
+		local location = v:GetAbsOrigin()
+		local unit = CreateUnitByName("greevil_black_showcase", location, false, nil, nil, DOTA_TEAM_GOODGUYS)
+	end
+
+	local pointred = Entities:FindAllByName("spawnexample_red_d")
+	for k,v in pairs(pointred) do
+		local location = v:GetAbsOrigin()
+		local unit = CreateUnitByName("greevil_red_showcase", location, false, nil, nil, DOTA_TEAM_BADGUYS)
+	end
+	local pointorange = Entities:FindAllByName("spawnexample_orange_d")
+	for k,v in pairs(pointorange) do
+		local location = v:GetAbsOrigin()
+		local unit = CreateUnitByName("greevil_orange_showcase", location, false, nil, nil, DOTA_TEAM_BADGUYS)
+	end
+	local pointyellow = Entities:FindAllByName("spawnexample_yellow_d")
+	for k,v in pairs(pointyellow) do
+		local location = v:GetAbsOrigin()
+		local unit = CreateUnitByName("greevil_yellow_showcase", location, false, nil, nil, DOTA_TEAM_BADGUYS)
+	end
+	local pointgreen = Entities:FindAllByName("spawnexample_green_d")
+	for k,v in pairs(pointgreen) do
+		local location = v:GetAbsOrigin()
+		local unit = CreateUnitByName("greevil_green_showcase", location, false, nil, nil, DOTA_TEAM_BADGUYS)
+	end
+	local pointblue = Entities:FindAllByName("spawnexample_blue_d")
+	for k,v in pairs(pointblue) do
+		local location = v:GetAbsOrigin()
+		local unit = CreateUnitByName("greevil_blue_showcase", location, false, nil, nil, DOTA_TEAM_BADGUYS)
+	end
+	local pointpurple = Entities:FindAllByName("spawnexample_purple_d")
+	for k,v in pairs(pointpurple) do
+		local location = v:GetAbsOrigin()
+		local unit = CreateUnitByName("greevil_purple_showcase", location, false, nil, nil, DOTA_TEAM_BADGUYS)
+	end
+	local pointwhite = Entities:FindAllByName("spawnexample_white_d")
+	for k,v in pairs(pointwhite) do
+		local location = v:GetAbsOrigin()
+		local unit = CreateUnitByName("greevil_white_showcase", location, false, nil, nil, DOTA_TEAM_BADGUYS)
+	end
+	local pointblack = Entities:FindAllByName("spawnexample_black_d")
+	for k,v in pairs(pointblack) do
+		local location = v:GetAbsOrigin()
+		local unit = CreateUnitByName("greevil_black_showcase", location, false, nil, nil, DOTA_TEAM_BADGUYS)
 	end
 end
 

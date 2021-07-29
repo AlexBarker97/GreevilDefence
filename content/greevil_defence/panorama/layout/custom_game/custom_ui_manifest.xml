@@ -2,6 +2,7 @@
 	<scripts>
 		<include src="file://{resources}/scripts/playertables/playertables_base.js"/>
 		<include src="file://{resources}/scripts/custom_game/huderrors.js" />
+		<include src="file://{resources}/scripts/custom_game/rebindTable.js" />
 	</scripts>
 
 	<script>

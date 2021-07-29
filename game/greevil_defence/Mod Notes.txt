@@ -20,12 +20,13 @@ Concept ideas
 • Buyback
 
 QoL
+• Greevil spawn facing direction
 • White bossfight hp buggy (noticed on naix)
 • Greevil attack ranges
 • Less spam on att/def greevils in shop (balance cost attack vs def, all $ -> $$$)
 	• Modifier tracker for subsiquent purchases
 • Boss greevil candy use
-• More "one time" shop 
+• More "one time" shop
 • Improve bossfights
 • Greevil items (greevil starts with pack)
 • Re-add removed heroes with ability overrides

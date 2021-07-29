@@ -135,7 +135,7 @@ function GameMode:InitGameMode()
 	ListenToGameEvent('dota_player_pick_hero', Dynamic_Wrap(GameMode, 'OnPlayerPickHero'), self)
 	ListenToGameEvent('dota_team_kill_credit', Dynamic_Wrap(GameMode, 'OnTeamKillCredit'), self)
 	ListenToGameEvent("player_reconnected", Dynamic_Wrap(GameMode, 'OnPlayerReconnect'), self)
-
+	ListenToGameEvent("dota_hud_error_message", Dynamic_Wrap(GameMode, 'On_dota_hud_error_message'), self)
 
 	local gamemode = GameRules:GetGameModeEntity()
 	gamemode:SetExecuteOrderFilter(Dynamic_Wrap(GameMode, "OrderFilter"), self)
@@ -570,7 +570,8 @@ function GameMode:OnItemPurchased(keys)
 				local unit = CreateUnitByName("greevil_blue_rad_def", location, true, nil, nil, DOTA_TEAM_GOODGUYS)
 				DefenceGreevil.Radiant.Blue = 1
 			elseif DefenceGreevil.Radiant.Blue == 1 then
-				print("Already exists")
+				keys.itemcost = 0
+				CustomGameEventManager:Send_ServerToPlayer(PlayerResource:GetPlayer(playerID), "custom_dota_hud_error_message", {reason=80 , message= "#error_max_blue_def"})
 			end
 		else
 			if DefenceGreevil.Dire.Blue == 0 then
@@ -578,7 +579,8 @@ function GameMode:OnItemPurchased(keys)
 				local unit = CreateUnitByName("greevil_blue_dire_def", location, true, nil, nil, DOTA_TEAM_BADGUYS)
 				DefenceGreevil.Dire.Blue = 1
 			elseif DefenceGreevil.Dire.Blue == 1 then
-				print("Already exists")
+				keys.itemcost = 0
+				CustomGameEventManager:Send_ServerToPlayer(PlayerResource:GetPlayer(playerID), "custom_dota_hud_error_message", {reason=80 , message= "#error_max_blue_def"})
 			end
 		end
 		for i=0,8 do
@@ -598,7 +600,8 @@ function GameMode:OnItemPurchased(keys)
 				local unit = CreateUnitByName("greevil_green_rad_def", location, true, nil, nil, DOTA_TEAM_GOODGUYS)
 			DefenceGreevil.Radiant.Green = 1
 			elseif DefenceGreevil.Radiant.Green == 1 then
-				print("Already exists")
+				keys.itemcost = 0
+				CustomGameEventManager:Send_ServerToPlayer(PlayerResource:GetPlayer(playerID), "custom_dota_hud_error_message", {reason=80 , message= "#error_max_green_def"})
 			end
 		else
 			if DefenceGreevil.Dire.Green == 0 then
@@ -606,7 +609,8 @@ function GameMode:OnItemPurchased(keys)
 				local unit = CreateUnitByName("greevil_green_dire_def", location, true, nil, nil, DOTA_TEAM_BADGUYS)
 			DefenceGreevil.Dire.Green = 1
 			elseif DefenceGreevil.Dire.Green == 1 then
-				print("Already exists")
+				keys.itemcost = 0
+				CustomGameEventManager:Send_ServerToPlayer(PlayerResource:GetPlayer(playerID), "custom_dota_hud_error_message", {reason=80 , message= "#error_max_green_def"})
 			end
 		end
 		for i=0,8 do
@@ -626,7 +630,8 @@ function GameMode:OnItemPurchased(keys)
 				local unit = CreateUnitByName("greevil_yellow_rad_def", location, true, nil, nil, DOTA_TEAM_GOODGUYS)
 			DefenceGreevil.Radiant.Yellow = 1
 			elseif DefenceGreevil.Radiant.Yellow == 1 then
-				print("Already exists")
+				keys.itemcost = 0
+				CustomGameEventManager:Send_ServerToPlayer(PlayerResource:GetPlayer(playerID), "custom_dota_hud_error_message", {reason=80 , message= "#error_max_yellow_def"})
 			end
 		else
 			if DefenceGreevil.Dire.Yellow == 0 then
@@ -634,7 +639,8 @@ function GameMode:OnItemPurchased(keys)
 				local unit = CreateUnitByName("greevil_yellow_dire_def", location, true, nil, nil, DOTA_TEAM_BADGUYS)
 			DefenceGreevil.Dire.Yellow = 1
 			elseif DefenceGreevil.Dire.Yellow == 1 then
-				print("Already exists")
+				keys.itemcost = 0
+				CustomGameEventManager:Send_ServerToPlayer(PlayerResource:GetPlayer(playerID), "custom_dota_hud_error_message", {reason=80 , message= "#error_max_yellow_def"})
 			end
 		end
 		for i=0,8 do
@@ -654,7 +660,8 @@ function GameMode:OnItemPurchased(keys)
 				local unit = CreateUnitByName("greevil_orange_rad_def", location, true, nil, nil, DOTA_TEAM_GOODGUYS)
 			DefenceGreevil.Radiant.Orange = 1
 			elseif DefenceGreevil.Radiant.Orange == 1 then
-				print("Already exists")
+				keys.itemcost = 0
+				CustomGameEventManager:Send_ServerToPlayer(PlayerResource:GetPlayer(playerID), "custom_dota_hud_error_message", {reason=80 , message= "#error_max_orange_def"})
 			end
 		else
 			if DefenceGreevil.Dire.Orange == 0 then
@@ -662,7 +669,8 @@ function GameMode:OnItemPurchased(keys)
 				local unit = CreateUnitByName("greevil_orange_dire_def", location, true, nil, nil, DOTA_TEAM_BADGUYS)
 			DefenceGreevil.Dire.Orange = 1
 			elseif DefenceGreevil.Dire.Orange == 1 then
-				print("Already exists")
+				keys.itemcost = 0
+				CustomGameEventManager:Send_ServerToPlayer(PlayerResource:GetPlayer(playerID), "custom_dota_hud_error_message", {reason=80 , message= "#error_max_orange_def"})
 			end
 		end
 		for i=0,8 do
@@ -682,7 +690,8 @@ function GameMode:OnItemPurchased(keys)
 				local unit = CreateUnitByName("greevil_red_rad_def", location, true, nil, nil, DOTA_TEAM_GOODGUYS)
 			DefenceGreevil.Radiant.Red = 1
 			elseif DefenceGreevil.Radiant.Red == 1 then
-				print("Already exists")
+				keys.itemcost = 0
+				CustomGameEventManager:Send_ServerToPlayer(PlayerResource:GetPlayer(playerID), "custom_dota_hud_error_message", {reason=80 , message= "#error_max_red_def"})
 			end
 		else
 			if DefenceGreevil.Dire.Red == 0 then
@@ -690,7 +699,8 @@ function GameMode:OnItemPurchased(keys)
 				local unit = CreateUnitByName("greevil_red_dire_def", location, true, nil, nil, DOTA_TEAM_BADGUYS)
 			DefenceGreevil.Dire.Red = 1
 			elseif DefenceGreevil.Dire.Red == 1 then
-				print("Already exists")
+				keys.itemcost = 0
+				CustomGameEventManager:Send_ServerToPlayer(PlayerResource:GetPlayer(playerID), "custom_dota_hud_error_message", {reason=80 , message= "#error_max_red_def"})
 			end
 		end
 		for i=0,8 do
@@ -710,7 +720,8 @@ function GameMode:OnItemPurchased(keys)
 				local unit = CreateUnitByName("greevil_purple_rad_def", location, true, nil, nil, DOTA_TEAM_GOODGUYS)
 			DefenceGreevil.Radiant.Purple = 1
 			elseif DefenceGreevil.Radiant.Purple == 1 then
-				print("Already exists")
+				keys.itemcost = 0
+				CustomGameEventManager:Send_ServerToPlayer(PlayerResource:GetPlayer(playerID), "custom_dota_hud_error_message", {reason=80 , message= "#error_max_purple_def"})
 			end
 		else
 			if DefenceGreevil.Dire.Purple == 0 then
@@ -718,7 +729,8 @@ function GameMode:OnItemPurchased(keys)
 				local unit = CreateUnitByName("greevil_purple_dire_def", location, true, nil, nil, DOTA_TEAM_BADGUYS)
 			DefenceGreevil.Dire.Purple = 1
 			elseif DefenceGreevil.Dire.Purple == 1 then
-				print("Already exists")
+				keys.itemcost = 0
+				CustomGameEventManager:Send_ServerToPlayer(PlayerResource:GetPlayer(playerID), "custom_dota_hud_error_message", {reason=80 , message= "#error_max_purple_def"})
 			end
 		end
 		for i=0,8 do
@@ -738,7 +750,8 @@ function GameMode:OnItemPurchased(keys)
 				local unit = CreateUnitByName("greevil_black_rad_def", location, true, nil, nil, DOTA_TEAM_GOODGUYS)
 			DefenceGreevil.Radiant.Black = 1
 			elseif DefenceGreevil.Radiant.Black == 1 then
-				print("Already exists")
+				keys.itemcost = 0
+				CustomGameEventManager:Send_ServerToPlayer(PlayerResource:GetPlayer(playerID), "custom_dota_hud_error_message", {reason=80 , message= "#error_max_black_def"})
 			end
 		else
 			if DefenceGreevil.Dire.Black == 0 then
@@ -746,7 +759,8 @@ function GameMode:OnItemPurchased(keys)
 				local unit = CreateUnitByName("greevil_black_dire_def", location, true, nil, nil, DOTA_TEAM_BADGUYS)
 			DefenceGreevil.Dire.Black = 1
 			elseif DefenceGreevil.Dire.Black == 1 then
-				print("Already exists")
+				keys.itemcost = 0
+				CustomGameEventManager:Send_ServerToPlayer(PlayerResource:GetPlayer(playerID), "custom_dota_hud_error_message", {reason=80 , message= "#error_max_black_def"})
 			end
 		end
 		for i=0,8 do
@@ -766,7 +780,8 @@ function GameMode:OnItemPurchased(keys)
 				local unit = CreateUnitByName("greevil_white_rad_def", location, true, nil, nil, DOTA_TEAM_GOODGUYS)
 			DefenceGreevil.Radiant.White = 1
 			elseif DefenceGreevil.Radiant.White == 1 then
-				print("Already exists")
+				keys.itemcost = 0
+				CustomGameEventManager:Send_ServerToPlayer(PlayerResource:GetPlayer(playerID), "custom_dota_hud_error_message", {reason=80 , message= "#error_max_white_def"})
 			end
 		else
 			if DefenceGreevil.Dire.White == 0 then
@@ -774,7 +789,8 @@ function GameMode:OnItemPurchased(keys)
 				local unit = CreateUnitByName("greevil_white_dire_def", location, true, nil, nil, DOTA_TEAM_BADGUYS)
 			DefenceGreevil.Dire.White = 1
 			elseif DefenceGreevil.Dire.White == 1 then
-				print("Already exists")
+				keys.itemcost = 0
+				CustomGameEventManager:Send_ServerToPlayer(PlayerResource:GetPlayer(playerID), "custom_dota_hud_error_message", {reason=80 , message= "#error_max_white_def"})
 			end
 		end
 		for i=0,8 do
@@ -788,6 +804,9 @@ function GameMode:OnItemPurchased(keys)
 			end
 		end
 	end
+
+	print(keys.itemcost)
+	return true
 end
 
 -- An ability was used by a player

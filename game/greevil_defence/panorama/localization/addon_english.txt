@@ -5,7 +5,7 @@
 	"Neutrals"        								"Neutral Team"
 	"NoTeam"          								"No Team"
 	
-	"addonname"										"Greevil SHOWDOWN"
+	"addonname"										"Greevil Defence"
 	"overthrow_game_info_header_objective"			"Objective:"
 	"overthrow_brief_description"					"• This is a team vs team wave defense game! Whichever team keeps their ancient alive the longest wins!
 • Greevils can be purchased in the shop to give your team the competitive edge.
@@ -14,11 +14,20 @@
 
 	"overthrow_game_info_header_how_to_play"		"How To Play:"
 	"overthrow_game_info_throne"					"• Start by choosing your greevil colour by blowing your <span class='midas_throne'>Selection Whistle</span> and using an ability colour.<br>
-													• Once you have slected your colour you will be teleported into the map to defend your ancient earning <span class='gold'>gold</span> and <span class='gold'>experience</span>.<br>
+													• Once you have selected your colour you will be teleported into the map to defend your ancient earning <span class='gold'>gold</span> and <span class='gold'>experience</span>.<br>
 													• Spend <span class='gold'>gold</span> on aggressive greevils which will run towards the enemy ancient or defensive greevils which will help protect your ancient."
 	"overthrow_game_info_tips_header"				"Notes:"
 	"overthrow_game_info_tip01"						"• Respawn teammates by channeling on their tombstone!"
 	"overthrow_game_info_tip02"						"• Kill bosses for more <span class='gold'>gold</span> and <span class='gold'>experience</span> and to get boss loot."
 	"overthrow_game_info_tip03"						"• Boss loot consists of greevil candy which will have a unique effect based on boss and a token to summon a greevil boss."
 	"overthrow_game_info_tip04"						"• Greevil bosses can be sent down the opponents lane by purchasing a 'Send Boss' in the shop whilst posessing a boss token."
+	
+	"error_max_blue_def"							"Can only have ONE blue defence greevil at a time!"
+	"error_max_green_def"							"Can only have ONE green defence greevil at a time!"
+	"error_max_yellow_def"							"Can only have ONE yellow defence greevil at a time!"
+	"error_max_orange_def"							"Can only have ONE orange defence greevil at a time!"
+	"error_max_red_def"								"Can only have ONE red defence greevil at a time!"
+	"error_max_purple_def"							"Can only have ONE purple defence greevil at a time!"
+	"error_max_black_def"							"Can only have ONE black defence greevil at a time!"
+	"error_max_white_def"							"Can only have ONE white defence greevil at a time!"
 }

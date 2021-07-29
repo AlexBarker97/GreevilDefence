@@ -77,7 +77,7 @@ function GameMode:OrderFilter(filter_table)
 						hero:SetAbsOrigin(gatepos+(Vector(0,-250,0)))
 					end
 				gate.disabled = 1
-				Timers:CreateTimer(1.2, function()
+				Timers:CreateTimer(1.0, function()
 					gate.disabled = 0
 				end)
 				end

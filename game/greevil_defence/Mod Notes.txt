@@ -3,11 +3,6 @@
 --------ToDo--------------------ToDo--------------------ToDo--------------------ToDo--------------------ToDo---------------
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-SUGGESTIONS
-• scaling based on players on team, defending too easy
-• camera jumping on hero bind (IMPORTANT)
-• greevil not starting with all spells?
-
 Required before further player Testing
 • Attack Boss AI
 	• Blue
@@ -16,8 +11,10 @@ Required before further player Testing
 	• Black
 • White Boss Summons AI
 
-Concept ideas
-• Buyback
+Suggestions / Concept Ideas
+• scaling based on players on team, defending too easy
+• camera jumping on hero bind (IMPORTANT)
+• greevil not starting with all spells?
 
 QoL
 • Greevil spawn facing direction

@@ -278,6 +278,7 @@ function SpawnBot()
 		Say(unit, "0 rad players", false)
 	elseif PlayerCountOnDire < 1 then
 		local unit = CreateUnitByName("npc_dota_hero_necrolyte", Vector(6400,-2944,256), true, nil, nil, DOTA_TEAM_BADGUYS)
+		unit:FaceTowards(unit:GetAbsOrigin()+Vector(0, 100, 0))
 		unit:AddExperience(90000,0,false,false)
 		local HStopper = unit:FindAbilityByName("necrolyte_heartstopper_aura")
 		unit:AddAbility("bot_ability")
@@ -304,6 +305,7 @@ function SpawnFrostWard()
             false)
 		if #findUnits == 0 then
 			unit = CreateUnitByName("frost_ward", location, false, nil, nil, DOTA_TEAM_NEUTRALS)
+			unit:FaceTowards(unit:GetAbsOrigin()+Vector(-100, 100, 0))
 			unit:StartGestureWithPlaybackRate(ACT_DOTA_FLAIL, 0.5)
 		end
 	end
@@ -324,6 +326,7 @@ function SpawnBosses()
 		end
 		if filtUnits == 0 then
 			unit = CreateUnitByName("greevil_red", location, false, nil, nil, DOTA_TEAM_NEUTRALS)
+			unit:FaceTowards(unit:GetAbsOrigin()+Vector(100, -70, 0))
 			unit.spawnPos = location
 		end
 	end
@@ -342,6 +345,7 @@ function SpawnBosses()
 		end
 		if filtUnits == 0 then
 			unit = CreateUnitByName("greevil_orange", location, false, nil, nil, DOTA_TEAM_NEUTRALS)
+			unit:FaceTowards(unit:GetAbsOrigin()+Vector(30, 100, 0))
 			unit.spawnPos = location
 		end
 	end
@@ -360,6 +364,7 @@ function SpawnBosses()
 		end
 		if filtUnits == 0 then
 			unit = CreateUnitByName("greevil_yellow", location, false, nil, nil, DOTA_TEAM_NEUTRALS)
+			unit:FaceTowards(unit:GetAbsOrigin()+Vector(100, 100, 0))
 			unit.spawnPos = location
 		end
 	end
@@ -378,6 +383,7 @@ function SpawnBosses()
 		end
 		if filtUnits == 0 then
 			unit = CreateUnitByName("greevil_green", location, false, nil, nil, DOTA_TEAM_NEUTRALS)
+			unit:FaceTowards(unit:GetAbsOrigin()+Vector(-100, 60, 0))
 			unit.spawnPos = location
 		end
 	end
@@ -396,6 +402,7 @@ function SpawnBosses()
 		end
 		if filtUnits == 0 then
 			unit = CreateUnitByName("greevil_blue", location, false, nil, nil, DOTA_TEAM_NEUTRALS)
+			unit:FaceTowards(unit:GetAbsOrigin()+Vector(-100, 60, 0))
 			unit.spawnPos = location
 		end
 	end
@@ -414,6 +421,7 @@ function SpawnBosses()
 		end
 		if filtUnits == 0 then
 			unit = CreateUnitByName("greevil_purple", location, false, nil, nil, DOTA_TEAM_NEUTRALS)
+			unit:FaceTowards(unit:GetAbsOrigin()+Vector(-100, 35, 0))
 			unit.spawnPos = location
 		end
 	end
@@ -432,6 +440,7 @@ function SpawnBosses()
 		end
 		if filtUnits == 0 then
 			unit = CreateUnitByName("greevil_white", location, false, nil, nil, DOTA_TEAM_NEUTRALS)
+			unit:FaceTowards(unit:GetAbsOrigin()+Vector(0, -100, 0))
 			unit.spawnPos = location
 		end
 	end
@@ -450,6 +459,7 @@ function SpawnBosses()
 		end
 		if filtUnits == 0 then
 			unit = CreateUnitByName("greevil_black", location, false, nil, nil, DOTA_TEAM_NEUTRALS)
+			unit:FaceTowards(unit:GetAbsOrigin()+Vector(0, -100, 0))
 			unit.spawnPos = location
 		end
 	end
@@ -507,7 +517,9 @@ function SpawnCreeps()
 		local locationr = vr:GetAbsOrigin()
 		local locationd = vd:GetAbsOrigin()
 		local unit = CreateUnitByName("greevil_naked_dire", locationr, false, nil, nil, DOTA_TEAM_BADGUYS)
+		unit:FaceTowards(unit:GetAbsOrigin()+Vector(0 + math.random(-30,40), -100, 0))
 		local unit = CreateUnitByName("greevil_naked_rad", locationd, false, nil, nil, DOTA_TEAM_GOODGUYS)
+		unit:FaceTowards(unit:GetAbsOrigin()+Vector(0 + math.random(-30,40), -100, 0))
 	end
 end
 
@@ -516,82 +528,98 @@ function SpawnInitialGreevils()
 	for k,v in pairs(pointred) do
 		local location = v:GetAbsOrigin()
 		local unit = CreateUnitByName("greevil_red_showcase", location, false, nil, nil, DOTA_TEAM_GOODGUYS)
+		unit:FaceTowards(unit:GetAbsOrigin()+Vector(0 + math.random(-30,40), -100, 0))
 	end
 	local pointorange = Entities:FindAllByName("spawnexample_orange_r")
 	for k,v in pairs(pointorange) do
 		local location = v:GetAbsOrigin()
 		local unit = CreateUnitByName("greevil_orange_showcase", location, false, nil, nil, DOTA_TEAM_GOODGUYS)
+		unit:FaceTowards(unit:GetAbsOrigin()+Vector(0 + math.random(-30,40), -100, 0))
 	end
 	local pointyellow = Entities:FindAllByName("spawnexample_yellow_r")
 	for k,v in pairs(pointyellow) do
 		local location = v:GetAbsOrigin()
 		local unit = CreateUnitByName("greevil_yellow_showcase", location, false, nil, nil, DOTA_TEAM_GOODGUYS)
+		unit:FaceTowards(unit:GetAbsOrigin()+Vector(0 + math.random(-30,40), -100, 0))
 	end
 	local pointgreen = Entities:FindAllByName("spawnexample_green_r")
 	for k,v in pairs(pointgreen) do
 		local location = v:GetAbsOrigin()
 		local unit = CreateUnitByName("greevil_green_showcase", location, false, nil, nil, DOTA_TEAM_GOODGUYS)
+		unit:FaceTowards(unit:GetAbsOrigin()+Vector(0 + math.random(-30,40), -100, 0))
 	end
 	local pointblue = Entities:FindAllByName("spawnexample_blue_r")
 	for k,v in pairs(pointblue) do
 		local location = v:GetAbsOrigin()
 		local unit = CreateUnitByName("greevil_blue_showcase", location, false, nil, nil, DOTA_TEAM_GOODGUYS)
+		unit:FaceTowards(unit:GetAbsOrigin()+Vector(0 + math.random(-30,40), -100, 0))
 	end
 	local pointpurple = Entities:FindAllByName("spawnexample_purple_r")
 	for k,v in pairs(pointpurple) do
 		local location = v:GetAbsOrigin()
 		local unit = CreateUnitByName("greevil_purple_showcase", location, false, nil, nil, DOTA_TEAM_GOODGUYS)
+		unit:FaceTowards(unit:GetAbsOrigin()+Vector(0 + math.random(-30,40), -100, 0))
 	end
 	local pointwhite = Entities:FindAllByName("spawnexample_white_r")
 	for k,v in pairs(pointwhite) do
 		local location = v:GetAbsOrigin()
 		local unit = CreateUnitByName("greevil_white_showcase", location, false, nil, nil, DOTA_TEAM_GOODGUYS)
+		unit:FaceTowards(unit:GetAbsOrigin()+Vector(0 + math.random(-30,40), -100, 0))
 	end
 	local pointblack = Entities:FindAllByName("spawnexample_black_r")
 	for k,v in pairs(pointblack) do
 		local location = v:GetAbsOrigin()
 		local unit = CreateUnitByName("greevil_black_showcase", location, false, nil, nil, DOTA_TEAM_GOODGUYS)
+		unit:FaceTowards(unit:GetAbsOrigin()+Vector(0 + math.random(-30,40), -100, 0))
 	end
 
 	local pointred = Entities:FindAllByName("spawnexample_red_d")
 	for k,v in pairs(pointred) do
 		local location = v:GetAbsOrigin()
 		local unit = CreateUnitByName("greevil_red_showcase", location, false, nil, nil, DOTA_TEAM_BADGUYS)
+		unit:FaceTowards(unit:GetAbsOrigin()+Vector(0 + math.random(-30,40), -100, 0))
 	end
 	local pointorange = Entities:FindAllByName("spawnexample_orange_d")
 	for k,v in pairs(pointorange) do
 		local location = v:GetAbsOrigin()
 		local unit = CreateUnitByName("greevil_orange_showcase", location, false, nil, nil, DOTA_TEAM_BADGUYS)
+		unit:FaceTowards(unit:GetAbsOrigin()+Vector(0 + math.random(-30,40), -100, 0))
 	end
 	local pointyellow = Entities:FindAllByName("spawnexample_yellow_d")
 	for k,v in pairs(pointyellow) do
 		local location = v:GetAbsOrigin()
 		local unit = CreateUnitByName("greevil_yellow_showcase", location, false, nil, nil, DOTA_TEAM_BADGUYS)
+		unit:FaceTowards(unit:GetAbsOrigin()+Vector(0 + math.random(-30,40), -100, 0))
 	end
 	local pointgreen = Entities:FindAllByName("spawnexample_green_d")
 	for k,v in pairs(pointgreen) do
 		local location = v:GetAbsOrigin()
 		local unit = CreateUnitByName("greevil_green_showcase", location, false, nil, nil, DOTA_TEAM_BADGUYS)
+		unit:FaceTowards(unit:GetAbsOrigin()+Vector(0 + math.random(-30,40), -100, 0))
 	end
 	local pointblue = Entities:FindAllByName("spawnexample_blue_d")
 	for k,v in pairs(pointblue) do
 		local location = v:GetAbsOrigin()
 		local unit = CreateUnitByName("greevil_blue_showcase", location, false, nil, nil, DOTA_TEAM_BADGUYS)
+		unit:FaceTowards(unit:GetAbsOrigin()+Vector(0 + math.random(-30,40), -100, 0))
 	end
 	local pointpurple = Entities:FindAllByName("spawnexample_purple_d")
 	for k,v in pairs(pointpurple) do
 		local location = v:GetAbsOrigin()
 		local unit = CreateUnitByName("greevil_purple_showcase", location, false, nil, nil, DOTA_TEAM_BADGUYS)
+		unit:FaceTowards(unit:GetAbsOrigin()+Vector(0 + math.random(-30,40), -100, 0))
 	end
 	local pointwhite = Entities:FindAllByName("spawnexample_white_d")
 	for k,v in pairs(pointwhite) do
 		local location = v:GetAbsOrigin()
 		local unit = CreateUnitByName("greevil_white_showcase", location, false, nil, nil, DOTA_TEAM_BADGUYS)
+		unit:FaceTowards(unit:GetAbsOrigin()+Vector(0 + math.random(-30,40), -100, 0))
 	end
 	local pointblack = Entities:FindAllByName("spawnexample_black_d")
 	for k,v in pairs(pointblack) do
 		local location = v:GetAbsOrigin()
 		local unit = CreateUnitByName("greevil_black_showcase", location, false, nil, nil, DOTA_TEAM_BADGUYS)
+		unit:FaceTowards(unit:GetAbsOrigin()+Vector(0 + math.random(-30,40), -100, 0))
 	end
 end
 

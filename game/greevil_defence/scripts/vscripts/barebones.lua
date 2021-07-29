@@ -23,10 +23,10 @@ MINIMAP_RUNE_ICON_SIZE = 1              -- What icon size should we use for rune
 
 RUNE_SPAWN_TIME = 120                   -- How long in seconds should we wait between rune spawns?
 CUSTOM_BUYBACK_COST_ENABLED = true      -- Should we use a custom buyback cost setting?
-BUYBACK_FIXED_GOLD_COST = 500
+BUYBACK_FIXED_GOLD_COST = 1000
 CUSTOM_BUYBACK_COOLDOWN_ENABLED = true  -- Should we use a custom buyback time?
-CUSTOM_BUYBACK_COOLDOWN_TIME = 90
-BUYBACK_ENABLED = false                 -- Should we allow people to buyback when they die?
+CUSTOM_BUYBACK_COOLDOWN_TIME = 60
+BUYBACK_ENABLED = true					-- Should we allow people to buyback when they die?
 
 DISABLE_FOG_OF_WAR_ENTIRELY = true      -- Should we disable fog of war entirely for both teams?
 USE_STANDARD_HERO_GOLD_BOUNTY = true    -- Should we give gold for hero kills the same as in Dota, or allow those values to be changed?

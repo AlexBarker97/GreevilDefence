@@ -296,6 +296,7 @@ end
 ]]
 function GameMode:OnHeroInGame(hero)
 
+	hero.greevil = nil
 	-- Store a reference to the player handle inside this hero handle.
 	hero.player = PlayerResource:GetPlayer(hero:GetPlayerID())
 	-- Store the player's name inside this hero handle.
@@ -427,16 +428,8 @@ function GameMode:OnItemPurchased(keys)
 			location = (Vector(-6928, 5200, 304)) + (Vector(RandomInt(0, 1056),RandomInt(0, 944), 0))
 			local unit = CreateUnitByName("greevil_blue_dire_att", location, true, nil, nil, DOTA_TEAM_BADGUYS)
 		end
-		for i=0,8 do
-			local itemHero = purchaseEntity:GetItemInSlot(i)
-			if itemHero ~= nil and itemHero:GetAbilityName() == "item_blue_egg_att" then
-				purchaseEntity:RemoveItem(itemHero)
-			end
-			local itemGreevil = purchaseEntity.greevil:GetItemInSlot(i)
-			if itemGreevil ~= nil and itemGreevil:GetAbilityName() == "item_blue_egg_att" then
-				purchaseEntity.greevil:RemoveItem(itemGreevil)
-			end
-		end
+		removeItem(purchaseEntity,"item_blue_egg_att")
+
 	elseif item_name == "item_green_egg_att" then
 		if PlayerResource:GetTeam(playerID) == 2 then
 			location = (Vector(5872, 5200, 304)) + (Vector(RandomInt(0, 1056),RandomInt(0, 944), 0))
@@ -445,16 +438,8 @@ function GameMode:OnItemPurchased(keys)
 			location = (Vector(-6928, 5200, 304)) + (Vector(RandomInt(0, 1056),RandomInt(0, 944), 0))
 			local unit = CreateUnitByName("greevil_green_dire_att", location, true, nil, nil, DOTA_TEAM_BADGUYS)
 		end
-		for i=0,8 do
-			local itemHero = purchaseEntity:GetItemInSlot(i)
-			if itemHero ~= nil and itemHero:GetAbilityName() == "item_green_egg_att" then
-				purchaseEntity:RemoveItem(itemHero)
-			end
-			local itemGreevil = purchaseEntity.greevil:GetItemInSlot(i)
-			if itemGreevil ~= nil and itemGreevil:GetAbilityName() == "item_green_egg_att" then
-				purchaseEntity.greevil:RemoveItem(itemGreevil)
-			end
-		end
+		removeItem(purchaseEntity,"item_green_egg_att")
+
 	elseif item_name == "item_yellow_egg_att" then
 		if PlayerResource:GetTeam(playerID) == 2 then
 			location = (Vector(5872, 5200, 304)) + (Vector(RandomInt(0, 1056),RandomInt(0, 944), 0))
@@ -463,16 +448,8 @@ function GameMode:OnItemPurchased(keys)
 			location = (Vector(-6928, 5200, 304)) + (Vector(RandomInt(0, 1056),RandomInt(0, 944), 0))
 			local unit = CreateUnitByName("greevil_yellow_dire_att", location, true, nil, nil, DOTA_TEAM_BADGUYS)
 		end
-		for i=0,8 do
-			local itemHero = purchaseEntity:GetItemInSlot(i)
-			if itemHero ~= nil and itemHero:GetAbilityName() == "item_yellow_egg_att" then
-				purchaseEntity:RemoveItem(itemHero)
-			end
-			local itemGreevil = purchaseEntity.greevil:GetItemInSlot(i)
-			if itemGreevil ~= nil and itemGreevil:GetAbilityName() == "item_yellow_egg_att" then
-				purchaseEntity.greevil:RemoveItem(itemGreevil)
-			end
-		end
+		removeItem(purchaseEntity,"item_yellow_egg_att")
+
 	elseif item_name == "item_orange_egg_att" then
 		if PlayerResource:GetTeam(playerID) == 2 then
 			location = (Vector(5872, 5200, 304)) + (Vector(RandomInt(0, 1056),RandomInt(0, 944), 0))
@@ -481,16 +458,8 @@ function GameMode:OnItemPurchased(keys)
 			location = (Vector(-6928, 5200, 304)) + (Vector(RandomInt(0, 1056),RandomInt(0, 944), 0))
 			local unit = CreateUnitByName("greevil_orange_dire_att", location, true, nil, nil, DOTA_TEAM_BADGUYS)
 		end
-		for i=0,8 do
-			local itemHero = purchaseEntity:GetItemInSlot(i)
-			if itemHero ~= nil and itemHero:GetAbilityName() == "item_orange_egg_att" then
-				purchaseEntity:RemoveItem(itemHero)
-			end
-			local itemGreevil = purchaseEntity.greevil:GetItemInSlot(i)
-			if itemGreevil ~= nil and itemGreevil:GetAbilityName() == "item_orange_egg_att" then
-				purchaseEntity.greevil:RemoveItem(itemGreevil)
-			end
-		end
+		removeItem(purchaseEntity,"item_orange_egg_att")
+
 	elseif item_name == "item_red_egg_att" then
 		if PlayerResource:GetTeam(playerID) == 2 then
 			location = (Vector(5872, 5200, 304)) + (Vector(RandomInt(0, 1056),RandomInt(0, 944), 0))
@@ -499,16 +468,8 @@ function GameMode:OnItemPurchased(keys)
 			location = (Vector(-6928, 5200, 304)) + (Vector(RandomInt(0, 1056),RandomInt(0, 944), 0))
 			local unit = CreateUnitByName("greevil_red_dire_att", location, true, nil, nil, DOTA_TEAM_BADGUYS)
 		end
-		for i=0,8 do
-			local itemHero = purchaseEntity:GetItemInSlot(i)
-			if itemHero ~= nil and itemHero:GetAbilityName() == "item_red_egg_att" then
-				purchaseEntity:RemoveItem(itemHero)
-			end
-			local itemGreevil = purchaseEntity.greevil:GetItemInSlot(i)
-			if itemGreevil ~= nil and itemGreevil:GetAbilityName() == "item_red_egg_att" then
-				purchaseEntity.greevil:RemoveItem(itemGreevil)
-			end
-		end
+		removeItem(purchaseEntity,"item_red_egg_att")
+
 	elseif item_name == "item_purple_egg_att" then
 		if PlayerResource:GetTeam(playerID) == 2 then
 			location = (Vector(5872, 5200, 304)) + (Vector(RandomInt(0, 1056),RandomInt(0, 944), 0))
@@ -517,16 +478,8 @@ function GameMode:OnItemPurchased(keys)
 			location = (Vector(-6928, 5200, 304)) + (Vector(RandomInt(0, 1056),RandomInt(0, 944), 0))
 			local unit = CreateUnitByName("greevil_purple_dire_att", location, true, nil, nil, DOTA_TEAM_BADGUYS)
 		end
-		for i=0,8 do
-			local itemHero = purchaseEntity:GetItemInSlot(i)
-			if itemHero ~= nil and itemHero:GetAbilityName() == "item_purple_egg_att" then
-				purchaseEntity:RemoveItem(itemHero)
-			end
-			local itemGreevil = purchaseEntity.greevil:GetItemInSlot(i)
-			if itemGreevil ~= nil and itemGreevil:GetAbilityName() == "item_purple_egg_att" then
-				purchaseEntity.greevil:RemoveItem(itemGreevil)
-			end
-		end
+		removeItem(purchaseEntity,"item_purple_egg_att")
+
 	elseif item_name == "item_black_egg_att" then
 		if PlayerResource:GetTeam(playerID) == 2 then
 			location = (Vector(5872, 5200, 304)) + (Vector(RandomInt(0, 1056),RandomInt(0, 944), 0))
@@ -535,16 +488,8 @@ function GameMode:OnItemPurchased(keys)
 			location = (Vector(-6928, 5200, 304)) + (Vector(RandomInt(0, 1056),RandomInt(0, 944), 0))
 			local unit = CreateUnitByName("greevil_black_dire_att", location, true, nil, nil, DOTA_TEAM_BADGUYS)
 		end
-		for i=0,8 do
-			local itemHero = purchaseEntity:GetItemInSlot(i)
-			if itemHero ~= nil and itemHero:GetAbilityName() == "item_black_egg_att" then
-				purchaseEntity:RemoveItem(itemHero)
-			end
-			local itemGreevil = purchaseEntity.greevil:GetItemInSlot(i)
-			if itemGreevil ~= nil and itemGreevil:GetAbilityName() == "item_black_egg_att" then
-				purchaseEntity.greevil:RemoveItem(itemGreevil)
-			end
-		end
+		removeItem(purchaseEntity,"item_black_egg_att")
+
 	elseif item_name == "item_white_egg_att" then
 		if PlayerResource:GetTeam(playerID) == 2 then
 			location = (Vector(5872, 5200, 304)) + (Vector(RandomInt(0, 1056),RandomInt(0, 944), 0))
@@ -553,16 +498,8 @@ function GameMode:OnItemPurchased(keys)
 			location = (Vector(-6928, 5200, 304)) + (Vector(RandomInt(0, 1056),RandomInt(0, 944), 0))
 			local unit = CreateUnitByName("greevil_white_dire_att", location, true, nil, nil, DOTA_TEAM_BADGUYS)
 		end
-		for i=0,8 do
-			local itemHero = purchaseEntity:GetItemInSlot(i)
-			if itemHero ~= nil and itemHero:GetAbilityName() == "item_white_egg_att" then
-				purchaseEntity:RemoveItem(itemHero)
-			end
-			local itemGreevil = purchaseEntity.greevil:GetItemInSlot(i)
-			if itemGreevil ~= nil and itemGreevil:GetAbilityName() == "item_white_egg_att" then
-				purchaseEntity.greevil:RemoveItem(itemGreevil)
-			end
-		end
+		removeItem(purchaseEntity,"item_white_egg_att")
+
 	elseif item_name == "item_blue_egg_def" then
 		if PlayerResource:GetTeam(playerID) == 2 then
 			if DefenceGreevil.Radiant.Blue == 0 then
@@ -583,16 +520,8 @@ function GameMode:OnItemPurchased(keys)
 				CustomGameEventManager:Send_ServerToPlayer(PlayerResource:GetPlayer(playerID), "custom_dota_hud_error_message", {reason=80 , message= "#error_max_blue_def"})
 			end
 		end
-		for i=0,8 do
-			local itemHero = purchaseEntity:GetItemInSlot(i)
-			if itemHero ~= nil and itemHero:GetAbilityName() == "item_blue_egg_def" then
-				purchaseEntity:RemoveItem(itemHero)
-			end
-			local itemGreevil = purchaseEntity.greevil:GetItemInSlot(i)
-			if itemGreevil ~= nil and itemGreevil:GetAbilityName() == "item_blue_egg_def" then
-				purchaseEntity.greevil:RemoveItem(itemGreevil)
-			end
-		end
+		removeItem(purchaseEntity,"item_blue_egg_def")
+
 	elseif item_name == "item_green_egg_def" then
 		if PlayerResource:GetTeam(playerID) == 2 then
 			if DefenceGreevil.Radiant.Green == 0 then
@@ -613,16 +542,8 @@ function GameMode:OnItemPurchased(keys)
 				CustomGameEventManager:Send_ServerToPlayer(PlayerResource:GetPlayer(playerID), "custom_dota_hud_error_message", {reason=80 , message= "#error_max_green_def"})
 			end
 		end
-		for i=0,8 do
-			local itemHero = purchaseEntity:GetItemInSlot(i)
-			if itemHero ~= nil and itemHero:GetAbilityName() == "item_green_egg_def" then
-				purchaseEntity:RemoveItem(itemHero)
-			end
-			local itemGreevil = purchaseEntity.greevil:GetItemInSlot(i)
-			if itemGreevil ~= nil and itemGreevil:GetAbilityName() == "item_green_egg_def" then
-				purchaseEntity.greevil:RemoveItem(itemGreevil)
-			end
-		end
+		removeItem(purchaseEntity,"item_green_egg_def")
+
 	elseif item_name == "item_yellow_egg_def" then
 		if PlayerResource:GetTeam(playerID) == 2 then
 			if DefenceGreevil.Radiant.Yellow == 0 then
@@ -643,16 +564,8 @@ function GameMode:OnItemPurchased(keys)
 				CustomGameEventManager:Send_ServerToPlayer(PlayerResource:GetPlayer(playerID), "custom_dota_hud_error_message", {reason=80 , message= "#error_max_yellow_def"})
 			end
 		end
-		for i=0,8 do
-			local itemHero = purchaseEntity:GetItemInSlot(i)
-			if itemHero ~= nil and itemHero:GetAbilityName() == "item_yellow_egg_def" then
-				purchaseEntity:RemoveItem(itemHero)
-			end
-			local itemGreevil = purchaseEntity.greevil:GetItemInSlot(i)
-			if itemGreevil ~= nil and itemGreevil:GetAbilityName() == "item_yellow_egg_def" then
-				purchaseEntity.greevil:RemoveItem(itemGreevil)
-			end
-		end
+		removeItem(purchaseEntity,"item_yellow_egg_def")
+
 	elseif item_name == "item_orange_egg_def" then
 		if PlayerResource:GetTeam(playerID) == 2 then
 			if DefenceGreevil.Radiant.Orange == 0 then
@@ -673,16 +586,8 @@ function GameMode:OnItemPurchased(keys)
 				CustomGameEventManager:Send_ServerToPlayer(PlayerResource:GetPlayer(playerID), "custom_dota_hud_error_message", {reason=80 , message= "#error_max_orange_def"})
 			end
 		end
-		for i=0,8 do
-			local itemHero = purchaseEntity:GetItemInSlot(i)
-			if itemHero ~= nil and itemHero:GetAbilityName() == "item_orange_egg_def" then
-				purchaseEntity:RemoveItem(itemHero)
-			end
-			local itemGreevil = purchaseEntity.greevil:GetItemInSlot(i)
-			if itemGreevil ~= nil and itemGreevil:GetAbilityName() == "item_orange_egg_def" then
-				purchaseEntity.greevil:RemoveItem(itemGreevil)
-			end
-		end
+		removeItem(purchaseEntity,"item_orange_egg_def")
+
 	elseif item_name == "item_red_egg_def" then
 		if PlayerResource:GetTeam(playerID) == 2 then
 			if DefenceGreevil.Radiant.Red == 0 then
@@ -703,16 +608,8 @@ function GameMode:OnItemPurchased(keys)
 				CustomGameEventManager:Send_ServerToPlayer(PlayerResource:GetPlayer(playerID), "custom_dota_hud_error_message", {reason=80 , message= "#error_max_red_def"})
 			end
 		end
-		for i=0,8 do
-			local itemHero = purchaseEntity:GetItemInSlot(i)
-			if itemHero ~= nil and itemHero:GetAbilityName() == "item_red_egg_def" then
-				purchaseEntity:RemoveItem(itemHero)
-			end
-			local itemGreevil = purchaseEntity.greevil:GetItemInSlot(i)
-			if itemGreevil ~= nil and itemGreevil:GetAbilityName() == "item_red_egg_def" then
-				purchaseEntity.greevil:RemoveItem(itemGreevil)
-			end
-		end
+		removeItem(purchaseEntity,"item_red_egg_def")
+
 	elseif item_name == "item_purple_egg_def" then
 		if PlayerResource:GetTeam(playerID) == 2 then
 			if DefenceGreevil.Radiant.Purple == 0 then
@@ -733,16 +630,8 @@ function GameMode:OnItemPurchased(keys)
 				CustomGameEventManager:Send_ServerToPlayer(PlayerResource:GetPlayer(playerID), "custom_dota_hud_error_message", {reason=80 , message= "#error_max_purple_def"})
 			end
 		end
-		for i=0,8 do
-			local itemHero = purchaseEntity:GetItemInSlot(i)
-			if itemHero ~= nil and itemHero:GetAbilityName() == "item_purple_egg_def" then
-				purchaseEntity:RemoveItem(itemHero)
-			end
-			local itemGreevil = purchaseEntity.greevil:GetItemInSlot(i)
-			if itemGreevil ~= nil and itemGreevil:GetAbilityName() == "item_purple_egg_def" then
-				purchaseEntity.greevil:RemoveItem(itemGreevil)
-			end
-		end
+		removeItem(purchaseEntity,"item_purple_egg_def")
+
 	elseif item_name == "item_black_egg_def" then
 		if PlayerResource:GetTeam(playerID) == 2 then
 			if DefenceGreevil.Radiant.Black == 0 then
@@ -763,16 +652,8 @@ function GameMode:OnItemPurchased(keys)
 				CustomGameEventManager:Send_ServerToPlayer(PlayerResource:GetPlayer(playerID), "custom_dota_hud_error_message", {reason=80 , message= "#error_max_black_def"})
 			end
 		end
-		for i=0,8 do
-			local itemHero = purchaseEntity:GetItemInSlot(i)
-			if itemHero ~= nil and itemHero:GetAbilityName() == "item_black_egg_def" then
-				purchaseEntity:RemoveItem(itemHero)
-			end
-			local itemGreevil = purchaseEntity.greevil:GetItemInSlot(i)
-			if itemGreevil ~= nil and itemGreevil:GetAbilityName() == "item_black_egg_def" then
-				purchaseEntity.greevil:RemoveItem(itemGreevil)
-			end
-		end
+		removeItem(purchaseEntity,"item_black_egg_def")
+
 	elseif item_name == "item_white_egg_def" then
 		if PlayerResource:GetTeam(playerID) == 2 then
 			if DefenceGreevil.Radiant.White == 0 then
@@ -793,18 +674,9 @@ function GameMode:OnItemPurchased(keys)
 				CustomGameEventManager:Send_ServerToPlayer(PlayerResource:GetPlayer(playerID), "custom_dota_hud_error_message", {reason=80 , message= "#error_max_white_def"})
 			end
 		end
-		for i=0,8 do
-			local itemHero = purchaseEntity:GetItemInSlot(i)
-			if itemHero ~= nil and itemHero:GetAbilityName() == "item_white_egg_def" then
-				purchaseEntity:RemoveItem(itemHero)
-			end
-			local itemGreevil = purchaseEntity.greevil:GetItemInSlot(i)
-			if itemGreevil ~= nil and itemGreevil:GetAbilityName() == "item_white_egg_def" then
-				purchaseEntity.greevil:RemoveItem(itemGreevil)
-			end
-		end
+		removeItem(purchaseEntity,"item_white_egg_def")
+
 	end
-	return true
 end
 
 -- An ability was used by a player
@@ -1357,6 +1229,21 @@ function GameMode:OnEntityKilled(keys)
 		if Selection then
 			-- Without Selection library this will return an error
 			PlayerResource:RemoveFromSelection(playerID, killed_unit)
+		end
+	end
+end
+
+function removeItem(purchaseEntity,itemName)
+	for i=0,8 do
+		local itemHero = purchaseEntity:GetItemInSlot(i)
+		if itemHero ~= nil and itemHero:GetAbilityName() == tostring(itemName) then
+			purchaseEntity:RemoveItem(itemHero)
+		end
+		if purchaseEntity.greevil ~= nil then
+			local itemGreevil = purchaseEntity.greevil:GetItemInSlot(i)
+			if itemGreevil ~= nil and itemGreevil:GetAbilityName() == tostring(itemName) then
+				purchaseEntity.greevil:RemoveItem(itemGreevil)
+			end
 		end
 	end
 end

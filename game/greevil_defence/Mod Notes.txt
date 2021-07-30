@@ -4,6 +4,7 @@
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 Required before further player Testing
+• White bossfight hp buggy (noticed on naix)
 • Attack Boss AI
 	• Blue
 	• Purple
@@ -12,73 +13,34 @@ Required before further player Testing
 • White Boss Summons AI
 
 Suggestions / Concept Ideas
-• scaling based on players on team, defending too easy
-• camera jumping on hero bind (IMPORTANT)
-• greevil not starting with all spells?
+• More "one time" shop
+• Difficulty scaling based on #players on team, defending too easy (can also make other things more attractive to do)
+• Camera jumping on hero bind (IMPORTANT)
+• Greevil not starting with all spells? (ultimate behind a level barrier?)
 
 QoL
-• Greevil spawn facing direction
-• White bossfight hp buggy (noticed on naix)
-• Greevil attack ranges
-• Less spam on att/def greevils in shop (balance cost attack vs def, all $ -> $$$)
-	• Modifier tracker for subsiquent purchases
-• Boss greevil candy use
-• More "one time" shop
-• Improve bossfights
-• Greevil items (greevil starts with pack)
+• Boss greevil candy drop use (targetted modifier buff)
+• Greevil spawn facing direction (when greevil is created with whistle)
+• Greevil items (greevil starts with pack? or greevil can buy a pack?)
 • Re-add removed heroes with ability overrides
+• Less spam on att greevils in shop
+• Greevil attack ranges
+• Improve bossfights
 
 Balance
+• Initial 6 bossfights easier (or scale with #players?)
 • Greevil Leveling (ln:459 addon_game_mode.lua)
 • XP/Gold from bosses
 • XP/Gold from lane greevils
 
 Luxury
-• att/def greevil improvements
+• Choose one greevil ability to upgrade
 • Custom animations
-• Red greevil spears x3 or replace with another ability
+• Red greevil fight rework
+• Yellow greevil fight rework
+• Green greevil fight rework
 • More general event game sounds
 	D:\Steam\steamapps\common\dota 2 beta\content\dota_addons\greevil_showdown\sounds
-
-///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
---------Abilities---------------Abilities---------------Abilities---------------Abilities---------------Abilities----------
-///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-greevil_miniboss_orange_dragon_slave
-greevil_miniboss_orange_light_strike_array
-greevil_miniboss_yellow_ion_shell
-greevil_miniboss_yellow_surge
-greevil_miniboss_green_living_armor
-greevil_miniboss_green_overgrowth
-greevil_miniboss_blue_cold_feet
-greevil_miniboss_blue_ice_vortex
-greevil_miniboss_purple_venomous_gale
-greevil_miniboss_purple_plague_ward
-greevil_miniboss_white_purification
-greevil_miniboss_white_degen_aura
-greevil_miniboss_black_brain_sap
-greevil_miniboss_black_nightmare
-
-Greevil Golem
-Greevice Wall
-Greevil Hole
-Greevil Missile
-Greevil Hook
-Greevil Wave
-Greevil's Attendants
-Leech Greevil
-Greevil Slam
-Greevil Bonds
-Greevil Fury
-Greevil Nova
-Greevildict
-Greevilaguna blade
-Greevil Rot
-Degreevilfy
-Greevilication
-Greevilust
-Greevil Lock
-Phantom Greevil
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 --------ITEMS--------------------ITEMS--------------------ITEMS--------------------ITEMS--------------------ITEMS----------

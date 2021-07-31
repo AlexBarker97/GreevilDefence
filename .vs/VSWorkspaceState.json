@@ -4,9 +4,10 @@
     "\\game",
     "\\game\\greevil_defence",
     "\\game\\greevil_defence\\scripts",
+    "\\game\\greevil_defence\\scripts\\npc",
     "\\game\\greevil_defence\\scripts\\vscripts",
     "\\game\\greevil_defence\\scripts\\vscripts\\ai"
   ],
-  "SelectedNode": "\\game\\greevil_defence\\scripts\\vscripts\\ai\\ai_naked_rad.lua",
+  "SelectedNode": "\\game\\greevil_defence\\scripts\\vscripts\\ai",
   "PreviewInSolutionExplorer": false
 }

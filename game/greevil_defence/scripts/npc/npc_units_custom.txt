@@ -53,7 +53,7 @@
 		"ModelScale"				"1"
 		"MinimapIcon"				"minimap_sword"
 		"MinimapIconSize" 			"180"
-		"vscripts"					"ai/ai_naked_rad.lua"
+		"vscripts"					"ai/lane/ai_naked_rad.lua"
 		
 		// Abilities
 		//----------------------------------------------------------------
@@ -115,7 +115,7 @@
 		"ModelScale"				"1"
 		"MinimapIcon"				"minimap_sword"
 		"MinimapIconSize" 			"180"
-		"vscripts"					"ai/ai_naked_dire.lua"
+		"vscripts"					"ai/lane/ai_naked_dire.lua"
 		
 		// Abilities
 		//----------------------------------------------------------------
@@ -1077,7 +1077,7 @@
 		// General
 		//----------------------------------------------------------------
 		"BaseClass"					"npc_dota_creature"
-		"vscripts"					"ai/ai_greevil_red.lua"
+		"vscripts"					"ai/neutralboss/ai_greevil_red_boss.lua"
 		"AutoAttacksByDefault"      "0"
 		"Model"						"models/courier/greevil/greevil.vmdl"
 		"SoundSet"					"Greevil"
@@ -1154,7 +1154,7 @@
 		// General
 		//----------------------------------------------------------------
 		"BaseClass"					"npc_dota_creature"
-		"vscripts"					"ai/ai_greevil_orange.lua"
+		"vscripts"					"ai/neutralboss/ai_greevil_orange_boss.lua"
 		"AutoAttacksByDefault"      "0"
 		"Model"						"models/courier/greevil/greevil.vmdl"
 		"SoundSet"					"Greevil"
@@ -1234,7 +1234,7 @@
 		// General
 		//----------------------------------------------------------------
 		"BaseClass"					"npc_dota_creature"
-		"vscripts"					"ai/ai_greevil_yellow.lua"
+		"vscripts"					"ai/neutralboss/ai_greevil_yellow_boss.lua"
 		"AutoAttacksByDefault"      "0"
 		"Model"						"models/courier/greevil/greevil.vmdl"
 		"SoundSet"					"Greevil"
@@ -1333,7 +1333,7 @@
 		// General
 		//----------------------------------------------------------------
 		"BaseClass"					"npc_dota_creature"
-		"vscripts"					"ai/ai_greevil_green.lua"
+		"vscripts"					"ai/neutralboss/ai_greevil_green_boss.lua"
 		"AutoAttacksByDefault"      "0"
 		"Model"						"models/courier/greevil/greevil.vmdl"
 		"SoundSet"					"Greevil"
@@ -1411,7 +1411,7 @@
 		// General
 		//----------------------------------------------------------------
 		"BaseClass"					"npc_dota_creature"
-		"vscripts"					"ai/ai_greevil_blue.lua"
+		"vscripts"					"ai/neutralboss/ai_greevil_blue_boss.lua"
 		"AutoAttacksByDefault"      "0"
 		"Model"						"models/courier/greevil/greevil.vmdl"
 		"SoundSet"					"Greevil"
@@ -1509,7 +1509,7 @@
 		// General
 		//----------------------------------------------------------------
 		"BaseClass"					"npc_dota_creature"
-		"vscripts"					"ai/ai_greevil_purple.lua"
+		"vscripts"					"ai/neutralboss/ai_greevil_purple_boss.lua"
 		"AutoAttacksByDefault"      "0"
 		"Model"						"models/courier/greevil/greevil.vmdl"
 		"SoundSet"					"Greevil"
@@ -1589,7 +1589,7 @@
 		// General
 		//----------------------------------------------------------------
 		"BaseClass"					"npc_dota_creature"
-		"vscripts"					"ai/ai_greevil_black.lua"
+		"vscripts"					"ai/neutralboss/ai_greevil_black_boss.lua"
 		"AutoAttacksByDefault"      "0"
 		"Model"						"models/courier/greevil/greevil.vmdl"
 		"SoundSet"					"Greevil"
@@ -1606,7 +1606,7 @@
 		// Abilities
 		//----------------------------------------------------------------
 		"Ability1"					"greevil_rage"
-		//"Ability2"					"greevil_tombstone"
+		//"Ability2"				"greevil_tombstone"
 		"Ability2"					"detonate"
 		"Ability3"					"greevil_essence_shift"
 		"Ability4"					"greevil_exorcism"
@@ -1673,7 +1673,7 @@
 		// General
 		//----------------------------------------------------------------
 		"BaseClass"					"npc_dota_creature"
-		"vscripts"					"ai/ai_greevil_white.lua"
+		"vscripts"					"ai/neutralboss/ai_greevil_white_boss.lua"
 		"AutoAttacksByDefault"      "0"
 		"Model"						"models/courier/greevil/greevil.vmdl"
 		"SoundSet"					"Greevil"
@@ -1763,7 +1763,7 @@
 		"ModelScale"				"2.1"
 		"vscripts"					""
 		"MinimapIcon" 				"minimap_plaincircle"
-		"MinimapIconSize" 			"300"
+		"MinimapIconSize" 			"40"
 				
 		// Abilities
 		//----------------------------------------------------------------
@@ -1838,7 +1838,7 @@
 		"ModelScale"				"2.1"
 		"vscripts"					""
 		"MinimapIcon" 				"minimap_plaincircle"
-		"MinimapIconSize" 			"300"
+		"MinimapIconSize" 			"40"
 				
 		// Abilities
 		//----------------------------------------------------------------
@@ -1913,7 +1913,7 @@
 		"ModelScale"				"2.1"
 		"vscripts"					""
 		"MinimapIcon" 				"minimap_plaincircle"
-		"MinimapIconSize" 			"300"
+		"MinimapIconSize" 			"40"
 				
 		// Abilities
 		//----------------------------------------------------------------
@@ -1983,7 +1983,7 @@
 		"ModelScale"				"2.1"
 		"vscripts"					""
 		"MinimapIcon" 				"minimap_plaincircle"
-		"MinimapIconSize" 			"300"
+		"MinimapIconSize" 			"40"
 		
 		// Abilities
 		//----------------------------------------------------------------
@@ -2053,7 +2053,7 @@
 		"ModelScale"				"2.1"
 		"vscripts"					""
 		"MinimapIcon" 				"minimap_plaincircle"
-		"MinimapIconSize" 			"300"
+		"MinimapIconSize" 			"40"
 				
 		// Abilities
 		//----------------------------------------------------------------
@@ -2123,7 +2123,7 @@
 		"ModelScale"				"2.1"
 		"vscripts"					""
 		"MinimapIcon" 				"minimap_plaincircle"
-		"MinimapIconSize" 			"300"
+		"MinimapIconSize" 			"40"
 				
 		// Abilities
 		//----------------------------------------------------------------
@@ -2200,7 +2200,7 @@
 		// General
 		//----------------------------------------------------------------
 		"BaseClass"					"npc_dota_creature"
-		"vscripts"					"ai/ai_greevil_red_boss_att.lua"
+		"vscripts"					"ai/attackboss/ai_greevil_red_boss_att.lua"
 		"AutoAttacksByDefault"      "0"
 		"Model"						"models/courier/greevil/greevil.vmdl"
 		"SoundSet"					"Greevil"
@@ -2256,7 +2256,7 @@
 		// General
 		//----------------------------------------------------------------
 		"BaseClass"					"npc_dota_creature"
-		"vscripts"					"ai/ai_greevil_orange_boss_att.lua"
+		"vscripts"					"ai/attackboss/ai_greevil_orange_boss_att.lua"
 		"AutoAttacksByDefault"      "0"
 		"Model"						"models/courier/greevil/greevil.vmdl"
 		"SoundSet"					"Greevil"
@@ -2313,7 +2313,7 @@
 		// General
 		//----------------------------------------------------------------
 		"BaseClass"					"npc_dota_creature"
-		"vscripts"					"ai/ai_greevil_yellow_boss_att.lua"
+		"vscripts"					"ai/attackboss/ai_greevil_yellow_boss_att.lua"
 		"AutoAttacksByDefault"      "0"
 		"Model"						"models/courier/greevil/greevil.vmdl"
 		"SoundSet"					"Greevil"
@@ -2369,7 +2369,7 @@
 	"greevil_green_boss_att"
 	{
 		"BaseClass"					"npc_dota_creature"
-		"vscripts"					"ai/ai_greevil_green_boss_att.lua"
+		"vscripts"					"ai/attackboss/ai_greevil_green_boss_att.lua"
 		"AutoAttacksByDefault"      "0"
 		"Model"						"models/courier/greevil/greevil.vmdl"
 		"SoundSet"					"Greevil"
@@ -2429,7 +2429,7 @@
 	"greevil_green_boss_att_2"
 	{
 		"BaseClass"					"npc_dota_creature"
-		"vscripts"					"ai/ai_greevil_green_boss_att.lua"
+		"vscripts"					"ai/attackboss/ai_greevil_green_boss_att.lua"
 		"AutoAttacksByDefault"      "0"
 		"Model"						"models/courier/greevil/greevil.vmdl"
 		"SoundSet"					"Greevil"
@@ -2501,7 +2501,7 @@
 	"greevil_green_boss_att_3"
 	{
 		"BaseClass"					"npc_dota_creature"
-		"vscripts"					"ai/ai_greevil_green_boss_att.lua"
+		"vscripts"					"ai/attackboss/ai_greevil_green_boss_att.lua"
 		"AutoAttacksByDefault"      "0"
 		"Model"						"models/courier/greevil/greevil.vmdl"
 		"SoundSet"					"Greevil"
@@ -2576,7 +2576,7 @@
 		// General
 		//----------------------------------------------------------------
 		"BaseClass"					"npc_dota_creature"
-		"vscripts"					"ai/ai_greevil_red_boss_att.lua"
+		"vscripts"					"ai/attackboss/ai_greevil_red_boss_att.lua"
 		"AutoAttacksByDefault"      "0"
 		"Model"						"models/courier/greevil/greevil.vmdl"
 		"SoundSet"					"Greevil"
@@ -2634,7 +2634,7 @@
 		// General
 		//----------------------------------------------------------------
 		"BaseClass"					"npc_dota_creature"
-		"vscripts"					"ai/ai_greevil_red_boss_att.lua"
+		"vscripts"					"ai/attackboss/ai_greevil_red_boss_att.lua"
 		"AutoAttacksByDefault"      "0"
 		"Model"						"models/courier/greevil/greevil.vmdl"
 		"SoundSet"					"Greevil"
@@ -2692,7 +2692,7 @@
 		// General
 		//----------------------------------------------------------------
 		"BaseClass"					"npc_dota_creature"
-		"vscripts"					"ai/ai_greevil_red_boss_att.lua"
+		"vscripts"					"ai/attackboss/ai_greevil_red_boss_att.lua"
 		"AutoAttacksByDefault"      "0"
 		"Model"						"models/courier/greevil/greevil.vmdl"
 		"SoundSet"					"Greevil"
@@ -2749,7 +2749,7 @@
 		// General
 		//----------------------------------------------------------------
 		"BaseClass"					"npc_dota_creature"
-		"vscripts"					"ai/ai_greevil_red_boss_att.lua"
+		"vscripts"					"ai/attackboss/ai_greevil_red_boss_att.lua"
 		"AutoAttacksByDefault"      "0"
 		"Model"						"models/courier/greevil/greevil.vmdl"
 		"SoundSet"					"Greevil"
@@ -2765,10 +2765,10 @@
 		
 		// Abilities
 		//----------------------------------------------------------------
-		"Ability1"					"life_stealer_rage"
-		"Ability2"					"undying_tombstone"
-		"Ability3"					"slark_essence_shift"
-		"Ability4"					"death_prophet_exorcism"
+		"Ability1"					"greevil_rage"
+		"Ability2"					"greevil_tombstone"
+		"Ability3"					"greevil_essence_shift"
+		"Ability4"					"greevil_exorcism"
 		"Ability5"					"greevil_miniboss_sight"
 
 		// Bounty
@@ -2815,7 +2815,7 @@
 		"Model"						"models/courier/greevil/greevil.vmdl"	// Model.
 		"SoundSet"					"Greevil"								// Name of sound set.
 		"ModelScale"				"1.3"
-		"vscripts"					"ai/ai_greevil_rad_red.lua"
+		"vscripts"					"ai/lane/ai_greevil_rad_colour_att.lua"
 		"MinimapIcon" 				"minimap_sword"
 		"MinimapIconSize" 			"300"
 				
@@ -2890,7 +2890,7 @@
 		"Model"						"models/courier/greevil/greevil.vmdl"			// Model.
 		"SoundSet"					"Greevil"										// Name of sound set.
 		"ModelScale"				"1.3"
-		"vscripts"					"ai/ai_greevil_rad_orange.lua"
+		"vscripts"					"ai/lane/ai_greevil_rad_colour_att.lua"
 		"MinimapIcon" 				"minimap_sword"
 		"MinimapIconSize" 			"300"
 
@@ -2965,7 +2965,7 @@
 		"Model"						"models/courier/greevil/greevil.vmdl"	// Model.
 		"SoundSet"					"Greevil"										// Name of sound set.
 		"ModelScale"				"1.3"
-		"vscripts"					"ai/ai_greevil_rad_yellow.lua"
+		"vscripts"					"ai/lane/ai_greevil_rad_colour_att.lua"
 		"MinimapIcon" 				"minimap_sword"
 		"MinimapIconSize" 			"300"
 				
@@ -3040,7 +3040,7 @@
 		"Model"						"models/courier/greevil/greevil.vmdl"
 		"SoundSet"					"Greevil"
 		"ModelScale"				"1.3"
-		"vscripts"					"ai/ai_greevil_rad_green.lua"
+		"vscripts"					"ai/lane/ai_greevil_rad_colour_att.lua"
 		"MinimapIcon" 				"minimap_sword"
 		"MinimapIconSize" 			"300"
 
@@ -3115,7 +3115,7 @@
 		"BaseClass"					"npc_dota_creature"						// Class of entity of link to.
 		"SoundSet"					"Greevil"								// Name of sound set.
 		"ModelScale"				"1.3"
-		"vscripts"					"ai/ai_greevil_rad_blue.lua"
+		"vscripts"					"ai/lane/ai_greevil_rad_colour_att.lua"
 		"MinimapIcon" 				"minimap_sword"
 		"MinimapIconSize" 			"300"
 
@@ -3185,7 +3185,7 @@
 		"Model"						"models/courier/greevil/greevil.vmdl"			// Model.
 		"SoundSet"					"Greevil"										// Name of sound set.
 		"ModelScale"				"1.3"
-		"vscripts"					"ai/ai_greevil_rad_purple.lua"
+		"vscripts"					"ai/lane/ai_greevil_rad_colour_att.lua"
 		"MinimapIcon" 				"minimap_sword"
 		"MinimapIconSize" 			"300"
 
@@ -3263,7 +3263,7 @@
 		"Model"						"models/courier/greevil/greevil.vmdl"	// Model.
 		"SoundSet"					"Greevil"										// Name of sound set.
 		"ModelScale"				"1.4"
-		"vscripts"					"ai/ai_greevil_rad_white.lua"
+		"vscripts"					"ai/lane/ai_greevil_rad_colour_att.lua"
 		"MinimapIcon" 				"minimap_sword"
 		"MinimapIconSize" 			"300"
 				
@@ -3336,7 +3336,7 @@
 		"Model"						"models/courier/greevil/greevil.vmdl"	// Model.
 		"SoundSet"					"Greevil"										// Name of sound set.
 		"ModelScale"				"1.4"
-		"vscripts"					"ai/ai_greevil_rad_black.lua"
+		"vscripts"					"ai/lane/ai_greevil_rad_colour_att.lua"
 		"MinimapIcon" 				"minimap_sword"
 		"MinimapIconSize" 			"300"
 				
@@ -3421,7 +3421,7 @@
 		"Model"						"models/courier/greevil/greevil.vmdl"	// Model.
 		"SoundSet"					"Greevil"								// Name of sound set.
 		"ModelScale"				"1.3"
-		"vscripts"					"ai/ai_greevil_dire_red.lua"
+		"vscripts"					"ai/lane/ai_greevil_dire_colour_att.lua"
 		"MinimapIcon" 				"minimap_sword"
 		"MinimapIconSize" 			"300"
 				
@@ -3496,7 +3496,7 @@
 		"Model"						"models/courier/greevil/greevil.vmdl"			// Model.
 		"SoundSet"					"Greevil"										// Name of sound set.
 		"ModelScale"				"1.3"
-		"vscripts"					"ai/ai_greevil_dire_orange.lua"
+		"vscripts"					"ai/lane/ai_greevil_dire_colour_att.lua"
 		"MinimapIcon" 				"minimap_sword"
 		"MinimapIconSize" 			"300"
 
@@ -3571,7 +3571,7 @@
 		"Model"						"models/courier/greevil/greevil.vmdl"	// Model.
 		"SoundSet"					"Greevil"										// Name of sound set.
 		"ModelScale"				"1.3"
-		"vscripts"					"ai/ai_greevil_dire_yellow.lua"
+		"vscripts"					"ai/lane/ai_greevil_dire_colour_att.lua"
 		"MinimapIcon" 				"minimap_sword"
 		"MinimapIconSize" 			"300"
 				
@@ -3646,7 +3646,7 @@
 		"Model"						"models/courier/greevil/greevil.vmdl"	// Model.
 		"SoundSet"					"Greevil"										// Name of sound set.
 		"ModelScale"				"1.3"
-		"vscripts"					"ai/ai_greevil_dire_green.lua"
+		"vscripts"					"ai/lane/ai_greevil_dire_colour_att.lua"
 		"MinimapIcon" 				"minimap_sword"
 		"MinimapIconSize" 			"300"
 				
@@ -3721,7 +3721,7 @@
 		"BaseClass"					"npc_dota_creature"						// Class of entity of link to.
 		"SoundSet"					"Greevil"								// Name of sound set.
 		"ModelScale"				"1.3"
-		"vscripts"					"ai/ai_greevil_dire_blue.lua"
+		"vscripts"					"ai/lane/ai_greevil_dire_colour_att.lua"
 		"MinimapIcon" 				"minimap_sword"
 		"MinimapIconSize" 			"300"
 
@@ -3791,7 +3791,7 @@
 		"Model"						"models/courier/greevil/greevil.vmdl"			// Model.
 		"SoundSet"					"Greevil"										// Name of sound set.
 		"ModelScale"				"1.3"
-		"vscripts"					"ai/ai_greevil_dire_purple.lua"
+		"vscripts"					"ai/lane/ai_greevil_dire_colour_att.lua"
 		"MinimapIcon" 				"minimap_sword"
 		"MinimapIconSize" 			"300"
 
@@ -3866,7 +3866,7 @@
 		"Model"						"models/courier/greevil/greevil.vmdl"	// Model.
 		"SoundSet"					"Greevil"										// Name of sound set.
 		"ModelScale"				"1.4"
-		"vscripts"					"ai/ai_greevil_dire_white.lua"
+		"vscripts"					"ai/lane/ai_greevil_dire_colour_att.lua"
 		"MinimapIcon" 				"minimap_sword"
 		"MinimapIconSize" 			"300"
 				
@@ -3939,7 +3939,7 @@
 		"Model"						"models/courier/greevil/greevil.vmdl"	// Model.
 		"SoundSet"					"Greevil"										// Name of sound set.
 		"ModelScale"				"1.4"
-		"vscripts"					"ai/ai_greevil_dire_black.lua"
+		"vscripts"					"ai/lane/ai_greevil_dire_colour_att.lua"
 		"MinimapIcon" 				"minimap_sword"
 		"MinimapIconSize" 			"300"
 				
@@ -4030,7 +4030,7 @@
 		"Model"						"models/courier/greevil/greevil.vmdl"	// Model.
 		"SoundSet"					"Greevil"								// Name of sound set.
 		"ModelScale"				"1.2"
-		"vscripts"					"ai/ai_greevil_rad_red_def.lua"
+		"vscripts"					"ai/lane/ai_greevil_rad_colour_def.lua"
 		"MinimapIcon" 				"minimap_shield"
 		"MinimapIconSize" 			"300"
 				
@@ -4104,7 +4104,7 @@
 		"Model"						"models/courier/greevil/greevil.vmdl"			// Model.
 		"SoundSet"					"Greevil"										// Name of sound set.
 		"ModelScale"				"1.2"
-		"vscripts"					"ai/ai_greevil_rad_orange_def.lua"
+		"vscripts"					"ai/lane/ai_greevil_rad_colour_def.lua"
 		"MinimapIcon" 				"minimap_shield"
 		"MinimapIconSize" 			"300"
 
@@ -4178,7 +4178,7 @@
 		"Model"						"models/courier/greevil/greevil.vmdl"	// Model.
 		"SoundSet"					"Greevil"										// Name of sound set.
 		"ModelScale"				"1.2"
-		"vscripts"					"ai/ai_greevil_rad_yellow_def.lua"
+		"vscripts"					"ai/lane/ai_greevil_rad_colour_def.lua"
 		"MinimapIcon" 				"minimap_shield"
 		"MinimapIconSize" 			"300"
 				
@@ -4252,7 +4252,7 @@
 		"Model"						"models/courier/greevil/greevil.vmdl"	// Model.
 		"SoundSet"					"Greevil"										// Name of sound set.
 		"ModelScale"				"1.2"
-		"vscripts"					"ai/ai_greevil_rad_green_def.lua"
+		"vscripts"					"ai/lane/ai_greevil_rad_colour_def.lua"
 		"MinimapIcon" 				"minimap_shield"
 		"MinimapIconSize" 			"300"
 				
@@ -4324,7 +4324,7 @@
 		"BaseClass"					"npc_dota_creature"						// Class of entity of link to.
 		"SoundSet"					"Greevil"								// Name of sound set.
 		"ModelScale"				"1.2"
-		"vscripts"					"ai/ai_greevil_rad_blue_def.lua"
+		"vscripts"					"ai/lane/ai_greevil_rad_colour_def.lua"
 		"MinimapIcon" 				"minimap_shield"
 		"MinimapIconSize" 			"300"
 
@@ -4396,7 +4396,7 @@
 		"Model"						"models/courier/greevil/greevil.vmdl"			// Model.
 		"SoundSet"					"Greevil"										// Name of sound set.
 		"ModelScale"				"1.2"
-		"vscripts"					"ai/ai_greevil_rad_purple_def.lua"
+		"vscripts"					"ai/lane/ai_greevil_rad_colour_def.lua"
 		"MinimapIcon" 				"minimap_shield"
 		"MinimapIconSize" 			"300"
 
@@ -4465,7 +4465,7 @@
 		"Model"						"models/courier/greevil/greevil.vmdl"	// Model.
 		"SoundSet"					"Greevil"										// Name of sound set.
 		"ModelScale"				"1.3"
-		"vscripts"					"ai/ai_greevil_rad_white_def.lua"
+		"vscripts"					"ai/lane/ai_greevil_rad_colour_def.lua"
 		"MinimapIcon" 				"minimap_shield"
 		"MinimapIconSize" 			"300"
 				
@@ -4536,7 +4536,7 @@
 		"Model"						"models/courier/greevil/greevil.vmdl"	// Model.
 		"SoundSet"					"Greevil"										// Name of sound set.
 		"ModelScale"				"1.3"
-		"vscripts"					"ai/ai_greevil_rad_black_def.lua"
+		"vscripts"					"ai/lane/ai_greevil_rad_colour_def.lua"
 		"MinimapIcon" 				"minimap_shield"
 		"MinimapIconSize" 			"300"
 				
@@ -4620,7 +4620,7 @@
 		"Model"						"models/courier/greevil/greevil.vmdl"	// Model.
 		"SoundSet"					"Greevil"								// Name of sound set.
 		"ModelScale"				"1.2"
-		"vscripts"					"ai/ai_greevil_dire_red_def.lua"
+		"vscripts"					"ai/lane/ai_greevil_dire_colour_def.lua"
 		"MinimapIcon" 				"minimap_shield"
 		"MinimapIconSize" 			"300"
 				
@@ -4694,7 +4694,7 @@
 		"Model"						"models/courier/greevil/greevil.vmdl"			// Model.
 		"SoundSet"					"Greevil"										// Name of sound set.
 		"ModelScale"				"1.2"
-		"vscripts"					"ai/ai_greevil_dire_orange_def.lua"
+		"vscripts"					"ai/lane/ai_greevil_dire_colour_def.lua"
 		"MinimapIcon" 				"minimap_shield"
 		"MinimapIconSize" 			"300"
 
@@ -4768,7 +4768,7 @@
 		"Model"						"models/courier/greevil/greevil.vmdl"	// Model.
 		"SoundSet"					"Greevil"										// Name of sound set.
 		"ModelScale"				"1.2"
-		"vscripts"					"ai/ai_greevil_dire_yellow_def.lua"
+		"vscripts"					"ai/lane/ai_greevil_dire_colour_def.lua"
 		"MinimapIcon" 				"minimap_shield"
 		"MinimapIconSize" 			"300"
 				
@@ -4842,7 +4842,7 @@
 		"Model"						"models/courier/greevil/greevil.vmdl"	// Model.
 		"SoundSet"					"Greevil"										// Name of sound set.
 		"ModelScale"				"1.2"
-		"vscripts"					"ai/ai_greevil_dire_green_def.lua"
+		"vscripts"					"ai/lane/ai_greevil_dire_colour_def.lua"
 		"MinimapIcon" 				"minimap_shield"
 		"MinimapIconSize" 			"300"
 				
@@ -4914,7 +4914,7 @@
 		"BaseClass"					"npc_dota_creature"						// Class of entity of link to.
 		"SoundSet"					"Greevil"								// Name of sound set.
 		"ModelScale"				"1.2"
-		"vscripts"					"ai/ai_greevil_dire_blue_def.lua"
+		"vscripts"					"ai/lane/ai_greevil_dire_colour_def.lua"
 		"MinimapIcon" 				"minimap_shield"
 		"MinimapIconSize" 			"300"
 
@@ -4986,7 +4986,7 @@
 		"Model"						"models/courier/greevil/greevil.vmdl"			// Model.
 		"SoundSet"					"Greevil"										// Name of sound set.
 		"ModelScale"				"1.2"
-		"vscripts"					"ai/ai_greevil_dire_purple_def.lua"
+		"vscripts"					"ai/lane/ai_greevil_dire_colour_def.lua"
 		"MinimapIcon" 				"minimap_shield"
 		"MinimapIconSize" 			"300"
 
@@ -5064,7 +5064,7 @@
 		"Model"						"models/courier/greevil/greevil.vmdl"	// Model.
 		"SoundSet"					"Greevil"										// Name of sound set.
 		"ModelScale"				"1.3"
-		"vscripts"					"ai/ai_greevil_dire_white_def.lua"
+		"vscripts"					"ai/lane/ai_greevil_dire_colour_def.lua"
 		"MinimapIcon" 				"minimap_shield"
 		"MinimapIconSize" 			"300"
 				
@@ -5135,7 +5135,7 @@
 		"Model"						"models/courier/greevil/greevil.vmdl"	// Model.
 		"SoundSet"					"Greevil"										// Name of sound set.
 		"ModelScale"				"1.3"
-		"vscripts"					"ai/ai_greevil_dire_black_def.lua"
+		"vscripts"					"ai/lane/ai_greevil_dire_colour_def.lua"
 		"MinimapIcon" 				"minimap_shield"
 		"MinimapIconSize" 			"300"
 				

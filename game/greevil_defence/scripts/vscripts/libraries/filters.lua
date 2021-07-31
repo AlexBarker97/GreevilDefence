@@ -56,30 +56,43 @@ function GameMode:OrderFilter(filter_table)
 
 	if order == DOTA_UNIT_ORDER_ATTACK_TARGET then
 		if EntIndexToHScript(filter_table.entindex_target):GetModelName() == "models/props_structures/gate_entrance002.vmdl" then
+			filter_table.order_type = DOTA_UNIT_ORDER_MOVE_TO_TARGET
 			local gate = EntIndexToHScript(filter_table.entindex_target)
 			local hero = PlayerResource:GetSelectedHeroEntity(filter_table.issuer_player_id_const)
-			filter_table.order_type = DOTA_UNIT_ORDER_MOVE_TO_TARGET
-			
 			local gatepos = gate:GetAbsOrigin()
 			local heropos = hero:GetAbsOrigin()
 			local distvector = gatepos - heropos
 			if distvector:Length() < 175 then
 				if ((hero:GetTeam() == DOTA_TEAM_GOODGUYS and heropos[1] < 0) or (hero:GetTeam() == DOTA_TEAM_BADGUYS and heropos[1] > 0)) and gate.disabled == 0 then
-					
-					--gate:CastAbility()
-					--DoEntFireByInstanceHandle( gate, "SetAnimation", "gate_entrance002_open", 0.1, self, self )
-					--FireEntityIOInputString(gate:GetEntityHandle(), "DoEntFire", "gate_entrance002_open")
-					--gate:SetAnimation("gate_entrance002_open")
-					
 					if heropos[2] < gatepos[2] then
 						hero:SetAbsOrigin(gatepos+(Vector(0,250,0)))
 					else
 						hero:SetAbsOrigin(gatepos+(Vector(0,-250,0)))
 					end
-				gate.disabled = 1
-				Timers:CreateTimer(1.0, function()
+					gate.disabled = 1
+					Timers:CreateTimer(1.0, function()
 					gate.disabled = 0
-				end)
+					end)
+				end
+			end
+		elseif EntIndexToHScript(filter_table.entindex_target):GetModelName() == "models/props_structures/good_barracks001_destruction.vmdl" then
+			filter_table.order_type = DOTA_UNIT_ORDER_MOVE_TO_TARGET
+			local jump = EntIndexToHScript(filter_table.entindex_target)
+			local hero = PlayerResource:GetSelectedHeroEntity(filter_table.issuer_player_id_const)
+			local jumppos = jump:GetAbsOrigin()
+			local heropos = hero:GetAbsOrigin()
+			local distvector = jumppos - heropos
+			if distvector:Length() < 175 then
+				if jump.disabled == 0 then
+					if heropos[1] < jumppos[1] then
+						hero:SetAbsOrigin(jumppos+(Vector(300,0,0)))
+					else
+						hero:SetAbsOrigin(jumppos+(Vector(-300,0,0)))
+					end
+					jump.disabled = 1
+					Timers:CreateTimer(1.0, function()
+						jump.disabled = 0
+					end)
 				end
 			end
 		end
@@ -216,6 +229,14 @@ function GameMode:DamageFilter(keys)
 	
 	if victim:GetModelName() == "models/props_structures/gate_entrance002.vmdl" then
 		keys.damage = 0
+	elseif victim:GetModelName() == "models/props_structures/good_barracks001_destruction.vmdl" then
+		keys.damage = 0
+	elseif victim:GetUnitName() == "greevil_white" then
+		if damage_type == 8 then
+			keys.damage = 1
+		else
+			keys.damage = 0
+		end
 	end
 
 	if victim:GetUnitName() == "greevil_white" then

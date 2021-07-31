@@ -4,7 +4,7 @@
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 Required before further player Testing
-• White bossfight hp buggy (noticed on naix)
+• Better thinking on bosses (see "AI Thinking" in links)
 • Attack Boss AI
 	• Blue
 	• Purple
@@ -13,12 +13,13 @@ Required before further player Testing
 • White Boss Summons AI
 
 Suggestions / Concept Ideas
-• More "one time" shop
+• More "one time" shop items
 • Difficulty scaling based on #players on team, defending too easy (can also make other things more attractive to do)
 • Camera jumping on hero bind (IMPORTANT)
 • Greevil not starting with all spells? (ultimate behind a level barrier?)
 
 QoL
+• White bossfight hp buggy (noticed on naix)
 • Boss greevil candy drop use (targetted modifier buff)
 • Greevil spawn facing direction (when greevil is created with whistle)
 • Greevil items (greevil starts with pack? or greevil can buy a pack?)
@@ -60,6 +61,9 @@ These boots will allow the wearer to walk more easily on the frozen river.
 ----------LINKS---------------------------LINKS---------------------------LINKS---------------------------LINKS------------
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
+AI Thinking
+https://developer.valvesoftware.com/wiki/Thinking
+
 New ModDota Website
 https://moddota.com/
 
@@ -95,3 +99,12 @@ https://github.com/SteamDatabase/GameTracking-Dota2/tree/master/game/dota/pak01_
 
 Frostivus_2017:
 https://github.com/SteamDatabase/GameTracking-Dota2/blob/master/game/dota_addons/frostivus_2017
+
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+----------ASSETS----------------------ASSETS----------------------ASSETS----------------------ASSETS-----------------------
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+particles/units/heroes/hero_keeper_of_the_light/keeper_dazzling_debuff_magic.vpcf
+particles/units/heroes/hero_omniknight/omniknight_guardian_angel_ally.vpcf
+particles/units/heroes/hero_omniknight/omniknight_heavenly_grace_buff.vpcf
+particles/units/heroes/hero_demonartist/demonartist_engulf_disarm/items2_fx/heavens_halberd_debuff.vpcf

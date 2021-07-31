@@ -116,7 +116,7 @@ function AggressiveThink()
 		end
 	end
 
-	if #units > 0 and pctHP < 0.51 and pctHP > 0.49 then
+	if #units > 0 and pctHP < 0.51 then
 		if thisEntity.WoW:IsFullyCastable() then
 			CastWoW()
 			return true

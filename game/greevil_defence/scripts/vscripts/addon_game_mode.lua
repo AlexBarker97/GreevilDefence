@@ -255,11 +255,23 @@ function GameStart()
 			end)
 		elseif GameRules:State_Get() == DOTA_GAMERULES_STATE_PRE_GAME then
 			local radgate = CreateUnitByName("door", Vector(-3712, 1920, 128), false, nil, nil, DOTA_TEAM_NEUTRALS)
-			local particle1 = ParticleManager:CreateParticle("particles/units/heroes/hero_arc_warden/arc_warden_flux_tgt.vpcf", PATTACH_ABSORIGIN_FOLLOW, radgate)
 			local diregate = CreateUnitByName("door", Vector(3712, 1920, 128), false, nil, nil, DOTA_TEAM_NEUTRALS)
-			local particle2 = ParticleManager:CreateParticle("particles/units/heroes/hero_arc_warden/arc_warden_flux_tgt.vpcf", PATTACH_ABSORIGIN_FOLLOW, diregate)
 			radgate.disabled = 0
 			diregate.disabled = 0
+			local particle1 = ParticleManager:CreateParticle("particles/units/heroes/hero_arc_warden/arc_warden_flux_tgt.vpcf", PATTACH_ABSORIGIN_FOLLOW, radgate)
+			local particle2 = ParticleManager:CreateParticle("particles/units/heroes/hero_arc_warden/arc_warden_flux_tgt.vpcf", PATTACH_ABSORIGIN_FOLLOW, diregate)
+			local jump1 = CreateUnitByName("jump", Vector(-6950, 60, 280), false, nil, nil, DOTA_TEAM_NEUTRALS)
+			local jump2 = CreateUnitByName("jump", Vector(-5852, 60, 280), false, nil, nil, DOTA_TEAM_NEUTRALS)
+			local jump3 = CreateUnitByName("jump", Vector(5846, 60, 280), false, nil, nil, DOTA_TEAM_NEUTRALS)
+			local jump4 = CreateUnitByName("jump", Vector(6944, 60, 280), false, nil, nil, DOTA_TEAM_NEUTRALS)
+			jump1.disabled = 0
+			jump2.disabled = 0
+			jump3.disabled = 0
+			jump4.disabled = 0
+			local particle3 = ParticleManager:CreateParticle("particles/units/heroes/hero_brewmaster/brewmaster_earth_ambient_glow_b.vpcf", PATTACH_ABSORIGIN_FOLLOW, jump1)
+			local particle4 = ParticleManager:CreateParticle("particles/units/heroes/hero_brewmaster/brewmaster_earth_ambient_glow_b.vpcf", PATTACH_ABSORIGIN_FOLLOW, jump2)
+			local particle5 = ParticleManager:CreateParticle("particles/units/heroes/hero_brewmaster/brewmaster_earth_ambient_glow_b.vpcf", PATTACH_ABSORIGIN_FOLLOW, jump3)
+			local particle6 = ParticleManager:CreateParticle("particles/units/heroes/hero_brewmaster/brewmaster_earth_ambient_glow_b.vpcf", PATTACH_ABSORIGIN_FOLLOW, jump4)
 		end
 	end, self)
 end
@@ -383,6 +395,7 @@ function SpawnBosses()
 		end
 		if filtUnits == 0 then
 			unit = CreateUnitByName("greevil_green", location, false, nil, nil, DOTA_TEAM_NEUTRALS)
+			local particle = ParticleManager:CreateParticle("particles/units/heroes/hero_oracle/oracle_purifyingflames_heal_flame.vpcf", PATTACH_ABSORIGIN_FOLLOW, unit)
 			unit:FaceTowards(unit:GetAbsOrigin()+Vector(-100, 60, 0))
 			unit.spawnPos = location
 		end
@@ -440,6 +453,9 @@ function SpawnBosses()
 		end
 		if filtUnits == 0 then
 			unit = CreateUnitByName("greevil_white", location, false, nil, nil, DOTA_TEAM_NEUTRALS)
+			local particle = ParticleManager:CreateParticle("particles/units/heroes/hero_fairy/fairy_flight_buff.vpcf", PATTACH_ABSORIGIN_FOLLOW, unit)
+			local particle = ParticleManager:CreateParticle("particles/units/heroes/hero_keeper_of_the_light/keeper_dazzling_debuff.vpcf", PATTACH_ABSORIGIN_FOLLOW, unit)
+			
 			unit:FaceTowards(unit:GetAbsOrigin()+Vector(0, -100, 0))
 			unit.spawnPos = location
 		end
@@ -459,6 +475,7 @@ function SpawnBosses()
 		end
 		if filtUnits == 0 then
 			unit = CreateUnitByName("greevil_black", location, false, nil, nil, DOTA_TEAM_NEUTRALS)
+			local particle = ParticleManager:CreateParticle("particles/units/heroes/hero_abaddon/abaddon_borrowed_time.vpcf", PATTACH_ABSORIGIN_FOLLOW, unit)
 			unit:FaceTowards(unit:GetAbsOrigin()+Vector(0, -100, 0))
 			unit.spawnPos = location
 		end

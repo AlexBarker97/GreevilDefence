@@ -1,16 +1,10 @@
-
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 --------ToDo--------------------ToDo--------------------ToDo--------------------ToDo--------------------ToDo---------------
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 Required before further player Testing
-• Better thinking on bosses (see "AI Thinking" in links)
 • Attack Boss AI
-	• Blue
-	• Purple
 	• White
-	• Black
-• White Boss Summons AI
 
 Suggestions / Concept Ideas
 • More "one time" shop items
@@ -19,14 +13,15 @@ Suggestions / Concept Ideas
 • Greevil not starting with all spells? (ultimate behind a level barrier?)
 
 QoL
-• White bossfight hp buggy (noticed on naix)
+• White bossfight hp buggy (magic immune targets)
 • Boss greevil candy drop use (targetted modifier buff)
 • Greevil spawn facing direction (when greevil is created with whistle)
 • Greevil items (greevil starts with pack? or greevil can buy a pack?)
 • Re-add removed heroes with ability overrides
-• Less spam on att greevils in shop
 • Greevil attack ranges
 • Improve bossfights
+• White Boss Summons AI
+• Orange attack boss won't hit ancient if infernal blade off cd
 
 Balance
 • Initial 6 bossfights easier (or scale with #players?)

@@ -64,32 +64,34 @@ function AggressiveThink()
 	local units = FindUnitsInRadius(thisEntity:GetTeam(), thisEntity:GetAbsOrigin(), nil,
 		aggroRange, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_NONE, 
 		FIND_ANY_ORDER, false)
+	local pctHP = thisEntity:GetHealth()/thisEntity:GetMaxHealth()
 	
+	if #units > 0 then
+		
+		if pctHP < 0.5 and thisEntity.Rage:IsFullyCastable() then
+			CastRage()
+			return true
+		end
+
+		if thisEntity.Exorcism:IsFullyCastable() then
+			CastExorcism()
+			return true
+		end
 	
-	--------------------------------------------------------------------------------------
-	--					Ability Logic													--
-	--------------------------------------------------------------------------------------
+		if thisEntity.Exorcism:IsFullyCastable() then
+			CastExorcism()
+			return true
+		end
 	
-	if #units > 0 and thisEntity.Exorcism:IsFullyCastable() == true then
-		CastExorcism()
-		return true
+		if thisEntity.Detonate:IsFullyCastable() then
+			CastDetonate()
+			return true
+		end
+
+		thisEntity:MoveToTargetToAttack(units[1])
 	end
 	
-	if #units > 0 and thisEntity.Detonate:IsFullyCastable() == true and (AI_THINK_INTERVAL == thisEntity.Detonate:GetChannelTime() + 0.5) then
-		CastDetonate()
-		return true
-	end
 	
-	if thisEntity.Detonate:IsFullyCastable() == true then
-		AI_THINK_INTERVAL = thisEntity.Detonate:GetChannelTime() + 0.5
-	else
-		AI_THINK_INTERVAL = 0.5
-	end
-	--------------------------------------------------------------------------------------
-	--				End Ability Logic													--
-	--------------------------------------------------------------------------------------
-	
-	thisEntity:MoveToTargetToAttack(units[1])
 end
 
 function ReturningThink()
@@ -101,6 +103,10 @@ function ReturningThink()
 end
 
 ----------------- Abilities -----------------
+
+function CastRage()
+	thisEntity:CastAbilityNoTarget(thisEntity.Rage, -1)
+end
 
 function CastExorcism()
 	thisEntity:CastAbilityNoTarget(thisEntity.Exorcism, -1)

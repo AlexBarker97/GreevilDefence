@@ -1,20 +1,23 @@
+GreevilThink = 1.0
+
 function Spawn( entityKeyValues )
 	thisEntity:SetContextThink("GreevilThink", GreevilThink, 0.1)
-
-thisEntity.SGaze = thisEntity:FindAbilityByName("greevil_yellow_boss_stone_gaze")
+	thisEntity.SGaze = thisEntity:FindAbilityByName("greevil_yellow_boss_stone_gaze")
 end
---------------------------------------------------------------------------------
+
 function GreevilThink()
 	if not IsServer() then
 		return
 	end
 
 	if ( not thisEntity:IsAlive() ) then
-		return -1
+		GreevilThink = -1
+		return GreevilThink
 	end
 
 	if GameRules:IsGamePaused() == true then
-		return 0.5
+		GreevilThink = 0.5
+		return GreevilThink
 	end
 
 	local team = thisEntity:GetTeam()
@@ -28,7 +31,8 @@ function GreevilThink()
 	
 	if thisEntity.SGaze:IsFullyCastable() then
 		CastSGaze()
-		return AI_THINK_INTERVAL
+		GreevilThink = 0.5
+		return GreevilThink
 	end
 
   	if units ~= nil then
@@ -44,19 +48,14 @@ function GreevilThink()
 			end
 			target = units[key]
   			thisEntity:MoveToTargetToAttack(target)
+			GreevilThink = 2.0
+			return GreevilThink
   		end
   	end
-	
-	if ( thisEntity:GetAggroTarget() ) then
-		return 2.0
-	end
-	
-	return 0.5
 end
 
 ----------------- Abilities -----------------
 
 function CastSGaze()
-	AI_THINK_INTERVAL = 0.5
 	thisEntity:CastAbilityNoTarget(thisEntity.SGaze, -1)
 end

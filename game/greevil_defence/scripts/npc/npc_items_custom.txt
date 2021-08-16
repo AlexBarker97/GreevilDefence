@@ -2518,7 +2518,7 @@
 
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"50"
+		"ItemCost"						"75"
 		"ItemStackable"					"0"
 		"ItemShareability"				"ITEM_NOT_SHAREABLE"
 		"ItemPermanent"					"1"
@@ -2552,7 +2552,7 @@
 
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"50"
+		"ItemCost"						"75"
 		"ItemStackable"					"0"
 		"ItemShareability"				"ITEM_NOT_SHAREABLE"
 		"ItemPermanent"					"1"
@@ -2586,7 +2586,7 @@
 
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"50"
+		"ItemCost"						"75"
 		"ItemStackable"					"0"
 		"ItemShareability"				"ITEM_NOT_SHAREABLE"
 		"ItemPermanent"					"1"
@@ -2620,7 +2620,7 @@
 
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"50"
+		"ItemCost"						"75"
 		"ItemStackable"					"0"
 		"ItemShareability"				"ITEM_NOT_SHAREABLE"
 		"ItemPermanent"					"1"
@@ -2654,7 +2654,7 @@
 
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"50"
+		"ItemCost"						"75"
 		"ItemStackable"					"0"
 		"ItemShareability"				"ITEM_NOT_SHAREABLE"
 		"ItemPermanent"					"1"
@@ -2688,7 +2688,7 @@
 
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"50"
+		"ItemCost"						"75"
 		"ItemStackable"					"0"
 		"ItemShareability"				"ITEM_NOT_SHAREABLE"
 		"ItemPermanent"					"1"
@@ -2722,7 +2722,7 @@
 
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"50"
+		"ItemCost"						"75"
 		"ItemStackable"					"0"
 		"ItemShareability"				"ITEM_NOT_SHAREABLE"
 		"ItemPermanent"					"1"
@@ -2756,7 +2756,7 @@
 
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"50"
+		"ItemCost"						"75"
 		"ItemStackable"					"0"
 		"ItemShareability"				"ITEM_NOT_SHAREABLE"
 		"ItemPermanent"					"1"

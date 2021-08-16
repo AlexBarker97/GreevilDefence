@@ -1,32 +1,35 @@
-AI_THINK_INTERVAL = 1
+GreevilThink = 1.0
 
 function Spawn( entityKeyValues )
-	thisEntity:SetContextThink("GreevilThink", GreevilThink, AI_THINK_INTERVAL)
+	thisEntity:SetContextThink("GreevilThink", GreevilThink, 0.1)
 	thisEntity.BTrance = thisEntity:FindAbilityByName("greevil_red_boss_battle_trance")
 end
---------------------------------------------------------------------------------
+
 function GreevilThink()
+	local pctHP = thisEntity:GetHealth()/thisEntity:GetMaxHealth()
+
 	if not IsServer() then
 		return
 	end
 
 	if ( not thisEntity:IsAlive() ) then
-		return -1
+		GreevilThink = -1
+		return GreevilThink
 	end
 
 	if GameRules:IsGamePaused() == true then
-		return 0.5
+		GreevilThink = 0.5
+		return GreevilThink
 	end
 
 	local team = thisEntity:GetTeam()
-	
 	if team == DOTA_TEAM_GOODGUYS then
 		units = FindUnitsInLine(DOTA_TEAM_BADGUYS, (Vector(6400, 5760, 256)), (Vector(6400, -3584, 256)), nil, 1400.0, DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_NONE)
 	elseif team == DOTA_TEAM_BADGUYS then
 		units = FindUnitsInLine(DOTA_TEAM_GOODGUYS, (Vector(6400, 5760, 256)), (Vector(6400, -3584, 256)), nil, 1400.0, DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_NONE)
 	end
+
 	local unitsdist = {}
-	
   	if units ~= nil then
   		if #units >= 1 then
 			for i=1,#units do
@@ -39,20 +42,18 @@ function GreevilThink()
 				end
 			end
 			target = units[key]
-  			thisEntity:MoveToTargetToAttack(target)
+			
+			if pctHP < 0.3 and thisEntity.BTrance:IsFullyCastable() then
+				CastBTrance()
+				GreevilThink = 0.2
+				return GreevilThink
+			else
+				thisEntity:MoveToTargetToAttack(target)
+				GreevilThink = 2.0
+				return GreevilThink
+			end
   		end
   	end
-
-	local pctHP = thisEntity:GetHealth()/thisEntity:GetMaxHealth()
-	if pctHP < 0.3 and thisEntity.BTrance:IsFullyCastable() then
-		CastBTrance()
-	end
-	
-	if thisEntity:GetAggroTarget() then
-		return 2.0
-	end
-	
-	return 0.5
 end
 
 ----------------- Abilities -----------------

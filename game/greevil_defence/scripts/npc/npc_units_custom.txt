@@ -25,7 +25,7 @@
 		"BaseClass"					"npc_dota_creature"
 		"Model"						"models/props_structures/good_barracks001_destruction.vmdl"
 		"MinimapIcon"				"minimap_herocircle"
-		"MinimapIconSize" 			"1"
+		"MinimapIconSize" 			"2"
 		"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_NONE"			
 		"MovementSpeed"				"0"
 		"MagicalResistance"			"100"
@@ -993,19 +993,20 @@
 		// Abilities
 		//----------------------------------------------------------------
 		
-		"Ability1"					"greevil_shadowraze1_custom"
-		"Ability2"					"greevil_shadowraze2_custom"
-		"Ability3"					"greevil_shadowraze3_custom"
-		"Ability4"					"greevil_equilibrium_custom"
+		"Ability1"					"greevil_brain_sap_custom"
+		"Ability2"					"greevil_devour"
+		"Ability3"					"greevil_possession"
+		"Ability4"					"generic_hidden"
 		"Ability5"					"generic_hidden"
 		"Ability6"					"greevil_pact_custom"
 		
 		"precache"
 		{
-			"soundfile"		"soundevents/game_sounds_heroes/game_sounds_nevermore.vsndevts"
-			"soundfile"		"soundevents/game_sounds_heroes/game_sounds_obsidian_destroyer.vsndevts"
+			"soundfile"		"soundevents/game_sounds_heroes/game_sounds_bane.vsndevts"
+			"soundfile"		"soundevents/game_sounds_heroes/game_sounds_doombringer.vsndevts"
+			"soundfile"		"soundevents/game_sounds_heroes/game_sounds_enchantress.vsndevts"
 			"soundfile"		"soundevents/game_sounds_heroes/game_sounds_slark.vsndevts"
-		}		
+		}
 		
 		// Armor
 		//----------------------------------------------------------------
@@ -1042,9 +1043,9 @@
 		// Status
 		//----------------------------------------------------------------
 		"StatusHealth"				"950"			// Base health.
-		"StatusMana"				"250"				// Base mana.
+		"StatusMana"				"1000"				// Base mana.
 		"StatusHealthRegen"			"10"			// Health regeneration rate.
-		"StatusManaRegen"			"5"				// Mana regeneration rate.
+		"StatusManaRegen"			"0"				// Mana regeneration rate.
 		
 		// Vision
 		//----------------------------------------------------------------
@@ -1602,7 +1603,7 @@
 		"AttackAnimationPoint"		"0.5"
 		"ConsideredHero"			"1"
 		"HasInventory"				"1"
-				
+		
 		// Abilities
 		//----------------------------------------------------------------
 		"Ability1"					"greevil_rage"
@@ -5196,7 +5197,7 @@
 		"BaseClass"					"npc_dota_creature"						// Class of entity of link to.
 		"Model"						"models/courier/greevil/greevil.vmdl"	// Model.
 		"SoundSet"					"Greevil"								// Name of sound set.
-		"ModelScale"				"1.5"
+		"ModelScale"				"2.5"
 		"ConsideredHero"			"1"
 		"HasInventory"				"1"
 		"MinimapIconSize" 			"50"
@@ -5234,7 +5235,7 @@
 		// Bounds
 		//----------------------------------------------------------------
 		"RingRadius"				"50"
-		"HealthBarOffset"			"120"
+		"HealthBarOffset"			"350"
 		"BoundsHullName"			"DOTA_HULL_SIZE_REGULAR"	
 
 		// Movement
@@ -5275,7 +5276,7 @@
 		"BaseClass"					"npc_dota_creature"						// Class of entity of link to.
 		"Model"						"models/courier/greevil/greevil.vmdl"	// Model.
 		"SoundSet"					"Greevil"								// Name of sound set.
-		"ModelScale"				"1.5"
+		"ModelScale"				"2.5"
 		"ConsideredHero"			"1"
 		"HasInventory"				"1"
 		"MinimapIconSize" 			"50"
@@ -5312,7 +5313,7 @@
 		// Bounds
 		//----------------------------------------------------------------
 		"RingRadius"				"50"
-		"HealthBarOffset"			"120"
+		"HealthBarOffset"			"350"
 		"BoundsHullName"			"DOTA_HULL_SIZE_REGULAR"	
 
 		// Movement
@@ -5353,7 +5354,7 @@
 		"BaseClass"					"npc_dota_creature"						// Class of entity of link to.
 		"Model"						"models/courier/greevil/greevil.vmdl"	// Model.
 		"SoundSet"					"Greevil"								// Name of sound set.
-		"ModelScale"				"1.5"
+		"ModelScale"				"2.5"
 		"ConsideredHero"			"1"
 		"HasInventory"				"1"
 		"MinimapIconSize" 			"50"
@@ -5391,7 +5392,7 @@
 		// Bounds
 		//----------------------------------------------------------------
 		"RingRadius"				"50"
-		"HealthBarOffset"			"120"
+		"HealthBarOffset"			"350"
 		"BoundsHullName"			"DOTA_HULL_SIZE_REGULAR"	
 
 		// Movement
@@ -5432,7 +5433,7 @@
 		"BaseClass"					"npc_dota_creature"						// Class of entity of link to.
 		"Model"						"models/courier/greevil/greevil.vmdl"	// Model.
 		"SoundSet"					"Greevil"								// Name of sound set.
-		"ModelScale"				"1.5"
+		"ModelScale"				"2.5"
 		"ConsideredHero"			"1"
 		"HasInventory"				"1"
 		"MinimapIconSize" 			"50"
@@ -5470,7 +5471,7 @@
 		// Bounds
 		//----------------------------------------------------------------
 		"RingRadius"				"50"
-		"HealthBarOffset"			"120"
+		"HealthBarOffset"			"350"
 		"BoundsHullName"			"DOTA_HULL_SIZE_REGULAR"	
 
 		// Movement
@@ -5511,7 +5512,7 @@
 		"BaseClass"					"npc_dota_creature"						// Class of entity of link to.
 		"Model"						"models/courier/greevil/greevil.vmdl"	// Model.
 		"SoundSet"					"Greevil"								// Name of sound set.
-		"ModelScale"				"1.5"
+		"ModelScale"				"2.5"
 		"ConsideredHero"			"1"
 		"HasInventory"				"1"
 		"MinimapIconSize" 			"50"
@@ -5550,7 +5551,7 @@
 		// Bounds
 		//----------------------------------------------------------------
 		"RingRadius"				"50"
-		"HealthBarOffset"			"120"
+		"HealthBarOffset"			"350"
 		"BoundsHullName"			"DOTA_HULL_SIZE_REGULAR"	
 
 		// Movement
@@ -5591,7 +5592,7 @@
 		"BaseClass"					"npc_dota_creature"						// Class of entity of link to.
 		"Model"						"models/courier/greevil/greevil.vmdl"	// Model.
 		"SoundSet"					"Greevil"								// Name of sound set.
-		"ModelScale"				"1.5"
+		"ModelScale"				"2.5"
 		"ConsideredHero"			"1"
 		"HasInventory"				"1"
 		"MinimapIconSize" 			"50"
@@ -5629,7 +5630,7 @@
 		// Bounds
 		//----------------------------------------------------------------
 		"RingRadius"				"50"
-		"HealthBarOffset"			"120"
+		"HealthBarOffset"			"350"
 		"BoundsHullName"			"DOTA_HULL_SIZE_REGULAR"	
 
 		// Movement
@@ -5670,7 +5671,7 @@
 		"BaseClass"					"npc_dota_creature"						// Class of entity of link to.
 		"Model"						"models/courier/greevil/greevil.vmdl"	// Model.
 		"SoundSet"					"Greevil"								// Name of sound set.
-		"ModelScale"				"1.5"
+		"ModelScale"				"2.5"
 		"ConsideredHero"			"1"
 		"HasInventory"				"1"
 		"MinimapIconSize" 			"50"
@@ -5708,7 +5709,7 @@
 		// Bounds
 		//----------------------------------------------------------------
 		"RingRadius"				"50"
-		"HealthBarOffset"			"120"
+		"HealthBarOffset"			"350"
 		"BoundsHullName"			"DOTA_HULL_SIZE_REGULAR"	
 
 		// Movement
@@ -5749,17 +5750,17 @@
 		"BaseClass"					"npc_dota_creature"						// Class of entity of link to.
 		"Model"						"models/courier/greevil/greevil.vmdl"	// Model.
 		"SoundSet"					"Greevil"
-		"ModelScale"				"1.5"
+		"ModelScale"				"2.5"
 		"ConsideredHero"			"1"
 		"HasInventory"				"1"
 		"MinimapIconSize" 			"50"
 				
 		// Abilities
 		//----------------------------------------------------------------
-		"Ability1"					"greevil_shadowraze1_custom"
-		"Ability2"					"greevil_shadowraze2_custom"
-		"Ability3"					"greevil_shadowraze3_custom"
-		"Ability4"					"greevil_equilibrium_custom"
+		"Ability1"					"greevil_brain_sap_custom"
+		"Ability2"					"greevil_devour"
+		"Ability3"					"greevil_possession"
+		"Ability4"					"generic_hidden"
 		"Ability5"					"generic_hidden"
 		"Ability6"					"greevil_pact_custom"
 		
@@ -5786,7 +5787,7 @@
 		// Bounds
 		//----------------------------------------------------------------
 		"RingRadius"				"60"
-		"HealthBarOffset"			"130"
+		"HealthBarOffset"			"350"
 		"BoundsHullName"			"DOTA_HULL_SIZE_REGULAR"	
 
 		// Movement
@@ -5798,9 +5799,9 @@
 		// Status
 		//----------------------------------------------------------------
 		"StatusHealth"				"950"			// Base health.
-		"StatusMana"				"250"				// Base mana.
+		"StatusMana"				"1000"			// Base mana.
 		"StatusHealthRegen"			"10"			// Health regeneration rate.
-		"StatusManaRegen"			"5"				// Mana regeneration rate.
+		"StatusManaRegen"			"0"				// Mana regeneration rate.
 		
 		// Vision
 		//----------------------------------------------------------------

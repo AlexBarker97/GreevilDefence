@@ -5,7 +5,6 @@ if whiteboss == nil then
 end
 
 function whiteboss:OOds(caster)
-	local caster = EntIndexToHScript(caster)
 	
 	nearEnemies = FindUnitsInRadius(caster:GetTeam(), caster:GetAbsOrigin(), nil,
 		1500, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_NONE, 
@@ -23,7 +22,6 @@ function whiteboss:OOds(caster)
 end
 
 function whiteboss:LSA(caster)
-	local caster = EntIndexToHScript(caster)
 	
 	nearEnemies = FindUnitsInRadius(caster:GetTeam(), caster:GetAbsOrigin(), nil,
 		1500, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_NONE, 
@@ -41,7 +39,6 @@ function whiteboss:LSA(caster)
 end
 
 function whiteboss:ESlam(caster)
-	local caster = EntIndexToHScript(caster)
 	
 	nearEnemies = FindUnitsInRadius(caster:GetTeam(), caster:GetAbsOrigin(), nil,
 		1500, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_NONE, 
@@ -59,7 +56,6 @@ function whiteboss:ESlam(caster)
 end
 
 function whiteboss:Rav(caster)
-	local caster = EntIndexToHScript(caster)
 	
 	nearEnemies = FindUnitsInRadius(caster:GetTeam(), caster:GetAbsOrigin(), nil,
 		1500, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_NONE, 
@@ -77,7 +73,6 @@ function whiteboss:Rav(caster)
 end
 
 function whiteboss:FBite(caster)
-	local caster = EntIndexToHScript(caster)
 	
 	nearEnemies = FindUnitsInRadius(caster:GetTeam(), caster:GetAbsOrigin(), nil,
 		1500, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_NONE, 
@@ -95,7 +90,6 @@ function whiteboss:FBite(caster)
 end
 
 function whiteboss:Vac(caster)
-	local caster = EntIndexToHScript(caster)
 	
 	nearEnemies = FindUnitsInRadius(caster:GetTeam(), caster:GetAbsOrigin(), nil,
 		1500, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_NONE, 
@@ -113,7 +107,6 @@ function whiteboss:Vac(caster)
 end
 
 function whiteboss:WoW(caster)
-	local caster = EntIndexToHScript(caster)
 	
 	nearEnemies = FindUnitsInRadius(caster:GetTeam(), caster:GetAbsOrigin(), nil,
 		2000, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_NONE, 

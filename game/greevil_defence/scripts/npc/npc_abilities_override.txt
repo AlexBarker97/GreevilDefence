@@ -284,5 +284,4 @@
 	"item_ultimate_scepter_roshan"				"REMOVE"
 	"item_aghanims_shard_roshan"				"REMOVE"
 	"item_vambrace"								"REMOVE"
-	
 }

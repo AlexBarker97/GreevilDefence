@@ -2748,6 +2748,163 @@
 			}
 		}
 	}
+
+	"greevil_brain_sap_custom"
+	{
+		"BaseClass"						"bane_brain_sap"
+		
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_PURE"		
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
+		"FightRecapLevel"				"0"
+		"AbilitySound"					"Hero_Bane.BrainSap"
+        "HasShardUpgrade"               "0"
+
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastPoint"				"0.2"
+		"AbilityCastRange"				"200"
+
+		// Time		
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"5"
+
+
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"0"
+
+		
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"						"FIELD_INTEGER"
+				"brain_sap_damage"				"225"
+				"LinkedSpecialBonus"			"special_bonus_unique_bane_2"
+			}
+			"02"
+			{
+				"var_type"						"FIELD_FLOAT"
+				"cooldown_scepter"				"1.5"
+				"RequiresScepter"				"1"
+			}
+		}
+		"AbilityCastAnimation"		"ACT_DOTA_ATTACK"
+	}
+
+	"greevil_devour"
+	{
+		"BaseClass"						"doom_bringer_devour"
+		
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_CUSTOM"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_CUSTOM"
+		"AbilityUnitTargetFlags"		"DOTA_UNIT_TARGET_FLAG_NOT_CREEP_HERO"
+		"SpellDispellableType"			"SPELL_DISPELLABLE_NO"
+		"AbilitySound"					"Hero_DoomBringer.Devour"
+
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastPoint"				"0.3"
+
+		// Time		
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastRange"				"300"
+		"AbilityCooldown"				"0"
+
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"250"
+
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"bonus_gold"			"5"
+				"LinkedSpecialBonus"	"special_bonus_unique_doom_3"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"regen"					"0"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"creep_level"			"1"
+			}
+			"04"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"hero_ability_steal_time"	"99999"
+			}
+		}
+		"AbilityCastAnimation"		"ACT_DOTA_ATTACK"
+	}
+
+	"greevil_possession"
+	{
+		"BaseClass"						"enchantress_enchant"
+		
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+		"SpellDispellableType"			"SPELL_DISPELLABLE_YES"
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
+		"AbilitySound"					"Hero_Enchantress.EnchantCreep"
+
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastRange"				"700"
+		"AbilityCastPoint"				"0.3"
+		
+		// Time		
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"30"
+		"AbilityDuration"				"6"
+		
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"500"
+			
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"dominate_duration"		"30"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"enchant_health"		"0"
+			}	
+			"03"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"enchant_armor"			"2"
+			}	
+			"04"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"enchant_damage"		"30"
+			}			
+			"05"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"slow_movement_speed"	"-75"
+			}	
+		}
+		"AbilityCastAnimation"		"ACT_DOTA_CAPTURE"
+	}
 	
 	"greevil_pact_custom"
 	{
@@ -2764,16 +2921,16 @@
 		// Casting
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityCastAnimation"			"ACT_INVALID"
-		"AbilityCastPoint"				"0.001 0.001 0.001 0.001"
+		"AbilityCastPoint"				"0.001"
 		"AbilityCastRange"				"800"
 
 		// Time		
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"30"
+		"AbilityCooldown"				"0"
 
 		// Cost
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"				"250"
+		"AbilityManaCost"				"1000"
 		
 		// Special
 		//-------------------------------------------------------------------------------------------------------------
@@ -2797,7 +2954,7 @@
 			"04"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"total_damage"			"800"
+				"total_damage"			"1000"
 				"LinkedSpecialBonus"	"special_bonus_unique_slark_2"
 			}
 			"05"
@@ -2811,6 +2968,7 @@
 				"pulse_interval"		"0.05"
 			}			
 		}
+		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_4"
 	}
 	
 	//////

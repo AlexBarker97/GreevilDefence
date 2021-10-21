@@ -13,6 +13,7 @@ Suggestions / Concept Ideas
 • Greevil not starting with all spells? (ultimate behind a level barrier?)
 
 QoL
+• Black player greevil ability icons
 • White bossfight hp buggy (magic immune targets)
 • Boss greevil candy drop use (targetted modifier buff)
 • Greevil spawn facing direction (when greevil is created with whistle)

@@ -60,4 +60,3 @@ function ToGreevil(keys)
 	greevil:SetAbsOrigin(origin)
 	PlayerResource:NewSelection(playerid, greevil)
 end
-

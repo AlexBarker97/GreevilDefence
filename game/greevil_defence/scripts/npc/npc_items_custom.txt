@@ -108,6 +108,28 @@
 		"ItemPurchasable"				"0"
 		"ItemCost"						"0"
 	}
+
+	"item_acorn"
+	{
+		"BaseClass"						"item_lua"
+		"AbilityTextureName"			"item_acorn"
+		"ScriptFile" 					"customitem/item_acorn.lua"
+		"AbilityName"					"acorn"
+
+		"AbilityCastRange"              "500"
+		"AbilityCastPoint"              "0.0"
+		"AbilityCooldown"               "1.0"
+		"AbilityManaCost"               "0"
+		"Model"							""
+		"PingOverrideText"				""
+		"ItemPermanent"					"1"
+		"ItemStackable"					"0"
+		"ItemDroppable"					"0"
+		"ItemSellable"					"0"
+		"ItemShareability"				"ITEM_NOT_SHAREABLE"
+		"ItemPurchasable"				"0"
+		"ItemCost"						"0"
+	}
 	
 ///////////////
 // BOSSDROPS //

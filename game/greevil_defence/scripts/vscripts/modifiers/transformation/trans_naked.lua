@@ -8,14 +8,14 @@ function ToGreevil(keys)
 	local player = caster:GetPlayerID()
 	local origin = caster:GetAbsOrigin()
 	if origin[1] <= 0 then -- radiant
-		local origin = (Vector(-7040, -7424, 384)) + (Vector(RandomInt(0,1280),RandomInt(0,896), 0))
+		local origin = (Vector(-6644, -7196, 384)) + (Vector(RandomInt(0,150),RandomInt(0,150), 0))
 		caster.greevil = CreateUnitByName("greevil_selection", origin, true, caster, caster, caster:GetTeamNumber())
 		caster.greevil.hero = 1
 		local greevil = caster.greevil
 		greevil:SetControllableByPlayer(player, true)
 		for i=0,10 do
 			local item = caster:GetItemInSlot(i)
-			if item ~= nil then
+			if item ~= nil and item:GetName() ~= "item_acorn" then
 				caster:RemoveItem(item)
 			end
 		end
@@ -32,14 +32,14 @@ function ToGreevil(keys)
 			PlayerResource:SetCameraTarget(player, nil)
 		end})
 	else -- dire
-		local origin = (Vector(5632, -7424, 384)) + (Vector(RandomInt(0,1280),RandomInt(0,896), 0))
+		local origin = (Vector(6132, -7196, 384)) + (Vector(RandomInt(0,150),RandomInt(0,150), 0))
 		caster.greevil = CreateUnitByName("greevil_selection", origin, true, caster, caster, caster:GetTeamNumber())
 		caster.greevil.hero = 1
 		local greevil = caster.greevil
 		greevil:SetControllableByPlayer(player, true)
 		for i=0,10 do
 			local item = caster:GetItemInSlot(i)
-			if item ~= nil then
+			if item ~= nil and item:GetName() ~= "item_acorn" then
 				caster:RemoveItem(item)
 			end
 		end

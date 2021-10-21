@@ -311,6 +311,8 @@ function GameMode:OnHeroInGame(hero)
 	if hero:IsRealHero() and hero.greevil == nil then
 		local item = CreateItem("item_selection_whistle", hero, hero)
 		hero:AddItem(item)
+		local item = CreateItem("item_acorn", hero, hero)
+		hero:AddItem(item)
 	end
 	
 end
@@ -692,7 +694,7 @@ end
 function GameMode:OnNonPlayerUsedAbility(keys)
 	--DeepPrintTable(keys)
 
-	local caster = keys.caster_entindex
+	local caster = EntIndexToHScript(keys.caster_entindex)
 	local abilityname = keys.abilityname
 
 	if abilityname == "greevil_white_overwhelming_odds" then
@@ -709,6 +711,9 @@ function GameMode:OnNonPlayerUsedAbility(keys)
 		whiteboss:Vac(caster)
 	elseif abilityname == "greevil_white_will_o_wisp" then
 		whiteboss:WoW(caster)
+	elseif abilityname == "greevil_brain_sap_custom" then
+		local currMana = caster:GetMana()
+		caster:SetMana(currMana + 50)
 	end
 end
 

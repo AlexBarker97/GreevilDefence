@@ -112,23 +112,24 @@
 	"item_acorn"
 	{
 		"BaseClass"						"item_lua"
+		"HomeShop"						"1"
 		"AbilityTextureName"			"item_acorn"
 		"ScriptFile" 					"customitem/item_acorn.lua"
 		"AbilityName"					"acorn"
 
 		"AbilityCastRange"              "500"
 		"AbilityCastPoint"              "0.0"
-		"AbilityCooldown"               "1.0"
+		"AbilityCooldown"               "5.0"
 		"AbilityManaCost"               "0"
-		"Model"							""
+		"Model"							"models/props_gameplay/red_box.vmdl"
 		"PingOverrideText"				""
 		"ItemPermanent"					"1"
 		"ItemStackable"					"0"
 		"ItemDroppable"					"0"
 		"ItemSellable"					"0"
 		"ItemShareability"				"ITEM_NOT_SHAREABLE"
-		"ItemPurchasable"				"0"
-		"ItemCost"						"0"
+		"ItemPurchasable"				"1"
+		"ItemCost"						"250"
 	}
 	
 ///////////////
@@ -2530,7 +2531,7 @@
 		"AbilityTextureName"      	"WhiteGreevilEggAtt"
 		"AbilityBehavior"			"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"ItemQuality"				"secret_shop"
-		"SecretShop"				"1"
+		"HomeShop"				"1"
 
 		// Sound
 		//-------------------------------------------------------------------------------------------------------------			
@@ -2564,7 +2565,7 @@
 		"AbilityTextureName"      	"BlackGreevilEggAtt"
 		"AbilityBehavior"			"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"ItemQuality"				"secret_shop"
-		"SecretShop"				"1"
+		"HomeShop"				"1"
 
 		// Sound
 		//-------------------------------------------------------------------------------------------------------------			
@@ -2598,7 +2599,7 @@
 		"AbilityTextureName"      	"BlueGreevilEggAtt"
 		"AbilityBehavior"			"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"ItemQuality"				"secret_shop"
-		"SecretShop"				"1"
+		"HomeShop"				"1"
 
 		// Sound
 		//-------------------------------------------------------------------------------------------------------------			
@@ -2632,7 +2633,7 @@
 		"AbilityTextureName"      	"GreenGreevilEggAtt"
 		"AbilityBehavior"			"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"ItemQuality"				"secret_shop"
-		"SecretShop"				"1"
+		"HomeShop"				"1"
 
 		// Sound
 		//-------------------------------------------------------------------------------------------------------------			
@@ -2666,7 +2667,7 @@
 		"AbilityTextureName"      	"YellowGreevilEggAtt"
 		"AbilityBehavior"			"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"ItemQuality"				"secret_shop"
-		"SecretShop"				"1"
+		"HomeShop"				"1"
 
 		// Sound
 		//-------------------------------------------------------------------------------------------------------------			
@@ -2700,7 +2701,7 @@
 		"AbilityTextureName"      	"OrangeGreevilEggAtt"
 		"AbilityBehavior"			"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"ItemQuality"				"secret_shop"
-		"SecretShop"				"1"
+		"HomeShop"				"1"
 
 		// Sound
 		//-------------------------------------------------------------------------------------------------------------			
@@ -2734,7 +2735,7 @@
 		"AbilityTextureName"      	"RedGreevilEggAtt"
 		"AbilityBehavior"			"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"ItemQuality"				"secret_shop"
-		"SecretShop"				"1"
+		"HomeShop"				"1"
 
 		// Sound
 		//-------------------------------------------------------------------------------------------------------------			
@@ -2768,7 +2769,7 @@
 		"AbilityTextureName"      	"PurpleGreevilEggAtt"
 		"AbilityBehavior"			"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"ItemQuality"				"secret_shop"
-		"SecretShop"				"1"
+		"HomeShop"				"1"
 
 		// Sound
 		//-------------------------------------------------------------------------------------------------------------			
@@ -2802,7 +2803,7 @@
 		"AbilityTextureName"      	"WhiteGreevilEggDef"
 		"AbilityBehavior"			"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"ItemQuality"				"secret_shop"
-		"SecretShop"				"1"
+		"HomeShop"				"1"
 
 		// Sound
 		//-------------------------------------------------------------------------------------------------------------			
@@ -2836,7 +2837,7 @@
 		"AbilityTextureName"      	"BlackGreevilEggDef"
 		"AbilityBehavior"			"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"ItemQuality"				"secret_shop"
-		"SecretShop"				"1"
+		"HomeShop"				"1"
 
 		// Sound
 		//-------------------------------------------------------------------------------------------------------------			
@@ -2870,7 +2871,7 @@
 		"AbilityTextureName"      	"BlueGreevilEggDef"
 		"AbilityBehavior"			"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"ItemQuality"				"secret_shop"
-		"SecretShop"				"1"
+		"HomeShop"				"1"
 
 		// Sound
 		//-------------------------------------------------------------------------------------------------------------			
@@ -2904,7 +2905,7 @@
 		"AbilityTextureName"      	"GreenGreevilEggDef"
 		"AbilityBehavior"			"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"ItemQuality"				"secret_shop"
-		"SecretShop"				"1"
+		"HomeShop"				"1"
 
 		// Sound
 		//-------------------------------------------------------------------------------------------------------------			
@@ -2938,7 +2939,7 @@
 		"AbilityTextureName"      	"YellowGreevilEggDef"
 		"AbilityBehavior"			"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"ItemQuality"				"secret_shop"
-		"SecretShop"				"1"
+		"HomeShop"				"1"
 
 		// Sound
 		//-------------------------------------------------------------------------------------------------------------			
@@ -2972,7 +2973,7 @@
 		"AbilityTextureName"      	"OrangeGreevilEggDef"
 		"AbilityBehavior"			"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"ItemQuality"				"secret_shop"
-		"SecretShop"				"1"
+		"HomeShop"				"1"
 
 		// Sound
 		//-------------------------------------------------------------------------------------------------------------			
@@ -3006,7 +3007,7 @@
 		"AbilityTextureName"      	"RedGreevilEggDef"
 		"AbilityBehavior"			"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"ItemQuality"				"secret_shop"
-		"SecretShop"				"1"
+		"HomeShop"				"1"
 
 		// Sound
 		//-------------------------------------------------------------------------------------------------------------			
@@ -3040,7 +3041,7 @@
 		"AbilityTextureName"      	"PurpleGreevilEggDef"
 		"AbilityBehavior"			"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"ItemQuality"				"secret_shop"
-		"SecretShop"				"1"
+		"HomeShop"				"1"
 
 		// Sound
 		//-------------------------------------------------------------------------------------------------------------			

@@ -46,6 +46,10 @@ USE_CUSTOM_HERO_LEVELS = true           -- Should we allow heroes to have custom
 MAX_LEVEL = 30                          -- What level should we let heroes get to?
 USE_CUSTOM_XP_VALUES = true             -- Should we use custom XP values to level up heroes, or the default Dota numbers?
 
+DISABLE_STASH_PURCHASING = true
+ENABLE_STASH = false
+ENABLE_SEND_TO_STASH = false
+
 -- Fill this table up with the required XP per level if you want to change it
 XP_PER_LEVEL_TABLE = {}
 XP_PER_LEVEL_TABLE = {
@@ -310,8 +314,6 @@ function GameMode:OnHeroInGame(hero)
 	-- These lines will create an item and add it to the player, effectively ensuring they start with the item
 	if hero:IsRealHero() and hero.greevil == nil then
 		local item = CreateItem("item_selection_whistle", hero, hero)
-		hero:AddItem(item)
-		local item = CreateItem("item_acorn", hero, hero)
 		hero:AddItem(item)
 	end
 	

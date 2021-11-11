@@ -332,6 +332,8 @@ function barebones:CaptureGameMode()
 	gamemode:SetMaximumAttackSpeed(MAXIMUM_ATTACK_SPEED)
 	gamemode:SetMinimumAttackSpeed(MINIMUM_ATTACK_SPEED)
 	gamemode:SetStashPurchasingDisabled(DISABLE_STASH_PURCHASING)
+	gamemode:SetStashEnabled(ENABLE_STASH)
+	gamemode:SetSendToStashEnabled(ENABLE_SEND_TO_STASH)
 
 	if USE_DEFAULT_RUNE_SYSTEM then
 		gamemode:SetUseDefaultDOTARuneSpawnLogic(USE_DEFAULT_RUNE_SYSTEM)

@@ -74,12 +74,10 @@ if IsServer() then
         return options[self.stance]
     end
 	
-	
     function modifier_greevil_naked:OnDestroy()
         if self.particle then
             ParticleManager:DestroyParticle(self.particle, false)
             ParticleManager:ReleaseParticleIndex(self.particle)
         end
     end
-	
 end

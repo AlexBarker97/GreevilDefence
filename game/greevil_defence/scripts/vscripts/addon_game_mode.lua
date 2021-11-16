@@ -85,8 +85,28 @@ function EntitySpawn()
 	ListenToGameEvent("npc_spawned", function(params)
 		local unit = EntIndexToHScript(params.entindex)
 		
+		if unit:GetUnitName() == "npc_dota_hero_beastmaster" then
+			unit:AddNewModifier(nil, nil, "modifier_greevil_naked", {})
+			ability1 = unit:GetAbilityByIndex(0)
+			ability2 = unit:GetAbilityByIndex(1)
+			ability3 = unit:GetAbilityByIndex(2)
+			ability4 = unit:GetAbilityByIndex(3)
+			ability5 = unit:GetAbilityByIndex(4)
+			ability6 = unit:GetAbilityByIndex(5)
+			ability7 = unit:GetAbilityByIndex(6)
+			ability8 = unit:GetAbilityByIndex(7)
+			unit:UpgradeAbility(ability1)
+			unit:UpgradeAbility(ability2)
+			unit:UpgradeAbility(ability3)
+			unit:UpgradeAbility(ability4)
+			unit:UpgradeAbility(ability5)
+			unit:UpgradeAbility(ability6)
+			unit:UpgradeAbility(ability7)
+			unit:UpgradeAbility(ability8)
+			unit:SetAbilityPoints(1)
+
 		--RED NEUTRAL BOSS
-		if unit:GetUnitName() == "greevil_red" then
+		elseif unit:GetUnitName() == "greevil_red" then
 			unit:AddNewModifier(nil, nil, "modifier_greevil_red", {})
 			unit:AddNewModifier(nil, nil, "modifier_greevil_boss_sres", {})
 			unit:AddItemByName("item_boss_drop_red")
@@ -194,9 +214,7 @@ function EntitySpawn()
 		elseif unit:GetUnitName() == "greevil_black_showcase" or unit:GetUnitName() == "greevil_black_rad_att" or unit:GetUnitName() == "greevil_black_dire_att" or unit:GetUnitName() == "greevil_black_rad_def" or unit:GetUnitName() == "greevil_black_dire_def" or unit:GetUnitName() == "greevil_black_player" or unit:GetUnitName() == "greevil_black_boss_att" then
 			unit:AddNewModifier(nil, nil, "modifier_greevil_black", {})		
 	
-		elseif unit:GetUnitName() == "greevil_naked_dire" then
-			unit:AddNewModifier(nil, nil, "modifier_greevil_naked", {})
-		elseif unit:GetUnitName() == "greevil_naked_rad" then
+		elseif unit:GetUnitName() == "greevil_naked_dire" or unit:GetUnitName() == "greevil_naked_rad" then
 			unit:AddNewModifier(nil, nil, "modifier_greevil_naked", {})
 		end
 	end, self)
@@ -242,9 +260,6 @@ function GameStart()
 				end
 				if math.fmod(count,60) == 0 then
 					SpawnBosses()
-				end
-				if math.fmod(count,120) == 0 and count ~= 0 then
-					LevelGreevils()
 				end
 				if math.fmod(count,30) == 0 then
 					SpawnCreeps()
@@ -480,36 +495,6 @@ function SpawnBosses()
 			unit.spawnPos = location
 		end
 	end
-end
-
-function LevelGreevils()
-	playerGreevils = FindUnitsInRadius(DOTA_TEAM_BADGUYS,
-		Vector(0, 0, 0),
-		nil,
-		FIND_UNITS_EVERYWHERE,
-		DOTA_UNIT_TARGET_TEAM_BOTH,
-		DOTA_UNIT_TARGET_ALL,
-		DOTA_UNIT_TARGET_FLAG_NONE,
-		FIND_ANY_ORDER,
-		false)
-	for k,v in pairs(playerGreevils) do
-		if v:GetUnitName() == "greevil_red_player" or
-		v:GetUnitName() == "greevil_orange_player" or
-		v:GetUnitName() == "greevil_yellow_player" or
-		v:GetUnitName() == "greevil_green_player" or
-		v:GetUnitName() == "greevil_blue_player" or
-		v:GetUnitName() == "greevil_purple_player" or
-		v:GetUnitName() == "greevil_white_player" or
-		v:GetUnitName() == "greevil_black_player" then
-			local currLvl = v:GetLevel()
-			if currLvl < 6 then
-				v:CreatureLevelUp(1)
-			end
-		end
-	end
-	--PrintTable(playerGreevils)
-	--print(playerGreevils)
-	--print(playerGreevils[0])
 end
 
 function SpawnCreeps()

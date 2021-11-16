@@ -5,9 +5,11 @@
     "\\game\\greevil_defence",
     "\\game\\greevil_defence\\resource",
     "\\game\\greevil_defence\\scripts",
+    "\\game\\greevil_defence\\scripts\\npc",
     "\\game\\greevil_defence\\scripts\\vscripts",
-    "\\game\\greevil_defence\\scripts\\vscripts\\libraries"
+    "\\game\\greevil_defence\\scripts\\vscripts\\libraries",
+    "\\game\\greevil_defence\\scripts\\vscripts\\modifiers"
   ],
-  "SelectedNode": "\\game\\greevil_defence\\scripts\\shops.txt",
+  "SelectedNode": "\\game\\greevil_defence\\scripts\\vscripts\\barebones.lua",
   "PreviewInSolutionExplorer": false
 }

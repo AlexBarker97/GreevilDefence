@@ -9,8 +9,6 @@ Required before further player Testing
 Suggestions / Concept Ideas
 • More "one time" shop items
 • Difficulty scaling based on #players on team, defending too easy (can also make other things more attractive to do)
-• Camera jumping on hero bind (IMPORTANT)
-• Greevil not starting with all spells? (ultimate behind a level barrier?)
 
 QoL
 • Black player greevil ability icons
@@ -18,7 +16,6 @@ QoL
 • Boss greevil candy drop use (targetted modifier buff)
 • Greevil spawn facing direction (when greevil is created with whistle)
 • Greevil items (greevil starts with pack? or greevil can buy a pack?)
-• Re-add removed heroes with ability overrides
 • Greevil attack ranges
 • Improve bossfights
 • White Boss Summons AI
@@ -26,7 +23,6 @@ QoL
 
 Balance
 • Initial 6 bossfights easier (or scale with #players?)
-• Greevil Leveling (ln:459 addon_game_mode.lua)
 • XP/Gold from bosses
 • XP/Gold from lane greevils
 

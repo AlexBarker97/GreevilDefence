@@ -313,8 +313,8 @@ function GameMode:OnHeroInGame(hero)
 
 	-- These lines will create an item and add it to the player, effectively ensuring they start with the item
 	if hero:IsRealHero() and hero.greevil == nil then
-		local item = CreateItem("item_selection_whistle", hero, hero)
-		hero:AddItem(item)
+		--local item = CreateItem("item_selection_whistle", hero, hero)
+		--hero:AddItem(item)
 	end
 	
 end
@@ -690,6 +690,11 @@ function GameMode:OnAbilityUsed(keys)
 	local player = EntIndexToHScript(keys.PlayerID)
 	local caster = EntIndexToHScript(keys.caster_entindex)
 	local abilityname = keys.abilityname
+
+	if abilityname == "greevil_brain_sap_custom" then
+		local currMana = caster:GetMana()
+		caster:SetMana(currMana + 50)
+	end
 end
 
 -- A non-player entity (necro-book, chen creep, etc) used an ability
@@ -713,9 +718,6 @@ function GameMode:OnNonPlayerUsedAbility(keys)
 		whiteboss:Vac(caster)
 	elseif abilityname == "greevil_white_will_o_wisp" then
 		whiteboss:WoW(caster)
-	elseif abilityname == "greevil_brain_sap_custom" then
-		local currMana = caster:GetMana()
-		caster:SetMana(currMana + 50)
 	end
 end
 

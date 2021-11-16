@@ -3,5 +3,108 @@
 // the specified key-value combinations.  Use override_hero <hero_to_override> for this.
 "DOTAHeroes"
 {
-	
+	"npc_dota_hero_beastmaster_custom"
+	{
+		"override_hero"				"npc_dota_hero_beastmaster"
+
+		"Model"						"models/courier/greevil/greevil.vmdl"
+		"SoundSet"					"Greevil"
+		"ModelScale"				"0.9"
+		"DisableWearables"			"1"
+
+		"MinimapIconSize" 			"100"
+		"MinimapIcon" 				"minimap_herocircle_self"
+
+		"precache"
+		{
+			"soundfile"		"soundevents/game_sounds_heroes/game_sounds_juggernaut.vsndevts"
+			"soundfile"		"soundevents/game_sounds_heroes/game_sounds_tusk.vsndevts"
+			"soundfile"		"soundevents/game_sounds_heroes/game_sounds_life_stealer.vsndevts"
+			"soundfile"		"soundevents/game_sounds_heroes/game_sounds_legion_commander.vsndevts"
+			"soundfile"		"soundevents/game_sounds_heroes/game_sounds_ogre_magi.vsndevts"
+			"soundfile"		"soundevents/game_sounds_heroes/game_sounds_mars.vsndevts"
+			"soundfile"		"soundevents/game_sounds_heroes/game_sounds_earthshaker.vsndevts"
+			"soundfile"		"soundevents/game_sounds_heroes/game_sounds_pudge.vsndevts"
+			"soundfile"		"soundevents/game_sounds_heroes/game_sounds_dazzle.vsndevts"
+			"soundfile"		"soundevents/game_sounds_heroes/game_sounds_venomancer.vsndevts"
+			"soundfile"		"soundevents/game_sounds_heroes/game_sounds_windrunner.vsndevts"
+			"soundfile"		"soundevents/game_sounds_heroes/game_sounds_treant.vsndevts"
+			"soundfile"		"soundevents/game_sounds_heroes/game_sounds_enchantress.vsndevts"
+			"soundfile"		"soundevents/game_sounds_heroes/game_sounds_elder_titan.vsndevts"
+			"soundfile"		"soundevents/game_sounds_heroes/game_sounds_vengefulspirit.vsndevts"
+			"soundfile"		"soundevents/game_sounds_heroes/game_sounds_lich.vsndevts"
+			"soundfile"		"soundevents/game_sounds_heroes/game_sounds_crystalmaiden.vsndevts"
+			"soundfile"		"soundevents/game_sounds_heroes/game_sounds_leshrac.vsndevts"
+			"soundfile"		"soundevents/game_sounds_heroes/game_sounds_shadow_demon.vsndevts"
+			"soundfile"		"soundevents/game_sounds_heroes/game_sounds_void_spirit.vsndevts"
+			"soundfile"		"soundevents/game_sounds_heroes/game_sounds_dark_willow.vsndevts"
+			"soundfile"		"soundevents/game_sounds_heroes/game_sounds_omniknight.vsndevts"
+			"soundfile"		"soundevents/game_sounds_heroes/game_sounds_puck.vsndevts"
+			"soundfile"		"soundevents/game_sounds_heroes/game_sounds_wisp.vsndevts"
+			"soundfile"		"soundevents/game_sounds_heroes/game_sounds_bane.vsndevts"
+			"soundfile"		"soundevents/game_sounds_heroes/game_sounds_doombringer.vsndevts"
+			"soundfile"		"soundevents/game_sounds_heroes/game_sounds_enchantress.vsndevts"
+			"soundfile"		"soundevents/game_sounds_heroes/game_sounds_slark.vsndevts"
+		}
+
+		"Ability1"					"red"
+		"Ability2"					"orange"
+		"Ability3"					"yellow"
+		"Ability4"					"green"
+		"Ability5"					"blue"
+		"Ability6"					"purple"
+		"Ability7"					"white"
+		"Ability8"					"black"
+		"Ability10"					"special_bonus_hp_regen_5"
+		"Ability11"					"special_bonus_mp_regen_250"
+		"Ability12"					"special_bonus_cleave_35"
+		"Ability13"					"special_bonus_attack_speed_45"
+		"Ability14"					"ad_special_bonus_gold_lvl20_r"
+		"Ability15"					"special_bonus_hp_500"
+		"Ability16"					"special_bonus_lifesteal_20"
+		"Ability17"					"special_bonus_spell_lifesteal_25"
+
+		// Armor
+		//----------------------------------------------------------------
+		"ArmorPhysical"				"8"				// Physical protection.
+		"MagicalResistance"			"25"			// Magical protection.
+
+		// Attack
+		//----------------------------------------------------------------
+		"AttackCapabilities"		"DOTA_UNIT_CAP_MELEE_ATTACK"
+		"AttackDamageMin"			"75"			// Damage range min.
+		"AttackDamageMax"			"95"			// Damage range max.	
+		"AttackRate"				"0.8"			// Speed of attack.
+		"AttackAnimationPoint"		"0.5"			// Normalized time in animation cycle to attack.
+		"AttackRange"				"130"			// Range within a target can be attacked.
+
+		// Bounds
+		//----------------------------------------------------------------
+		"RingRadius"				"50"
+		"HealthBarOffset"			"120"
+		"BoundsHullName"			"DOTA_HULL_SIZE_REGULAR"	
+
+		// Movement
+		//----------------------------------------------------------------
+		"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_GROUND"
+		"MovementSpeed"				"310"
+		"MovementTurnRate"			"0.5"
+
+		// Status
+		//----------------------------------------------------------------
+		"StatusHealth"				"1000"			// Base health.
+		"StatusMana"				"850"			// Base mana.
+		"StatusHealthRegen"			"6"				// Health regeneration rate.
+		"StatusManaRegen"			"4"				// Mana regeneration rate.
+		
+		"AttributePrimary"			"DOTA_ATTRIBUTE_STRENGTH"
+        "AttributeBaseStrength"		"10"     // Base strength
+        "AttributeStrengthGain"		"1"     // Strength bonus per level.
+
+        "AttributeBaseIntelligence" "10"     // Base intelligence
+        "AttributeIntelligenceGain" "1"     // Intelligence bonus per level.
+
+        "AttributeBaseAgility"		"10"     // Base agility
+        "AttributeAgilityGain"		"1"     // Agility bonus per level.
+	}
 }

@@ -36,7 +36,7 @@ function OnUsed(keys)
 	caster:AddAbility("greevil_berserkers_blood_custom")
 	caster:AddAbility("greeil_feast_custom")
 	caster:AddAbility("generic_hidden")
-	caster:AddAbility("greevil_duel_custom")
+	caster:AddAbility("greevil_unleash_custom")
 
 	local particle1 = ParticleManager:CreateParticle("particles/econ/courier/courier_greevil_red/courier_greevil_red_ambient_1.vpcf", PATTACH_ABSORIGIN_FOLLOW, caster)
 	local particle1 = ParticleManager:CreateParticle("particles/econ/courier/courier_greevil_red/courier_greevil_red_ambient_b.vpcf", PATTACH_ABSORIGIN_FOLLOW, caster)

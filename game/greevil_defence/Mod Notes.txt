@@ -4,9 +4,8 @@
 
 Session Notes:
 yellow boss chases you (ai)
-dual damage
-fiery soul
-crash on respawn (likely due to npc spawned script running for a 2nd time on same unit)
+greevil parts colour (hero)
+special waves
 
 Required before further player Testing
 • Attack Boss AI

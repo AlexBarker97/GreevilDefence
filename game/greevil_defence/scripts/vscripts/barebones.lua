@@ -1,12 +1,16 @@
 print ('barebones.lua' )
 require('customability/whiteboss')
+require('libraries/util')
 
 -- GameRules Variables
-ENABLE_HERO_RESPAWN = false             -- Should the heroes automatically respawn on a timer or stay dead until manually respawned
-UNIVERSAL_SHOP_MODE = false             -- Should the main shop contain Secret Shop items as well as regular items
+ENABLE_HERO_RESPAWN = true             -- Should the heroes automatically respawn on a timer or stay dead until manually respawned
+MAX_RESPAWN_TIME = 300
+USE_CUSTOM_RESPAWN_TIME = true
+CUSTOM_RESPAWN_TIME = 180
+UNIVERSAL_SHOP_MODE = true             -- Should the main shop contain Secret Shop items as well as regular items
 ALLOW_SAME_HERO_SELECTION = true        -- Should we let people select the same hero as each other
 
-HERO_SELECTION_TIME = 15.0				-- How long should we let people select their hero?
+HERO_SELECTION_TIME = 0				-- How long should we let people select their hero?
 PRE_GAME_TIME = 20.0					-- How long after people select their heroes should the horn blow and the game start?
 POST_GAME_TIME = 30.0                   -- How long should we let people look at the scoreboard before closing the server automatically?
 TREE_REGROW_TIME = 1.0					-- How long should it take individual trees to respawn after being cut down/destroyed?
@@ -15,7 +19,7 @@ GOLD_PER_TICK = 0						-- How much gold should players get per tick?
 GOLD_TICK_TIME = 5                      -- How long should we wait in seconds between gold ticks?
 
 RECOMMENDED_BUILDS_DISABLED = true		-- Should we disable the recommened builds for heroes (Note: this is not working currently I believe)
-CAMERA_DISTANCE_OVERRIDE = 1600.0       -- How far out should we allow the camera to go?  1134 is the default in Dota
+CAMERA_DISTANCE_OVERRIDE = 1500.0       -- How far out should we allow the camera to go?  1134 is the default in Dota
 
 MINIMAP_ICON_SIZE = 1                   -- What icon size should we use for our heroes?
 MINIMAP_CREEP_ICON_SIZE = 2             -- What icon size should we use for creeps?
@@ -23,7 +27,7 @@ MINIMAP_RUNE_ICON_SIZE = 1              -- What icon size should we use for rune
 
 RUNE_SPAWN_TIME = 120                   -- How long in seconds should we wait between rune spawns?
 CUSTOM_BUYBACK_COST_ENABLED = true      -- Should we use a custom buyback cost setting?
-BUYBACK_FIXED_GOLD_COST = 1000
+BUYBACK_FIXED_GOLD_COST = 750
 CUSTOM_BUYBACK_COOLDOWN_ENABLED = true  -- Should we use a custom buyback time?
 CUSTOM_BUYBACK_COOLDOWN_TIME = 60
 BUYBACK_ENABLED = true					-- Should we allow people to buyback when they die?
@@ -31,7 +35,7 @@ BUYBACK_ENABLED = true					-- Should we allow people to buyback when they die?
 DISABLE_FOG_OF_WAR_ENTIRELY = true      -- Should we disable fog of war entirely for both teams?
 USE_STANDARD_HERO_GOLD_BOUNTY = true    -- Should we give gold for hero kills the same as in Dota, or allow those values to be changed?
 
-USE_CUSTOM_TOP_BAR_VALUES = true        -- Should we do customized top bar values or use the default kill count per team?
+USE_CUSTOM_TOP_BAR_VALUES = false       -- Should we do customized top bar values or use the default kill count per team?
 TOP_BAR_VISIBLE = true                  -- Should we display the top bar score/count at all?
 SHOW_KILLS_ON_TOPBAR = true             -- Should we display kills only on the top bar? (No denies, suicides, kills by neutrals)  Requires USE_CUSTOM_TOP_BAR_VALUES
 
@@ -57,7 +61,7 @@ XP_PER_LEVEL_TABLE = {
 		1200,	1600,	2000,	2400,	2800,	3200,
 		3800,	4500,	5300,	6100,	6900,	7700,
 		8700,	10000,
-		12000,	12000,	12000,	12000,	12000,	12000,	12000,	12000,	12000,	12000,	12000
+		12000,	14000,	16000,	18000,	20000,	22000,	24000,	26000,	28000,	30000,	32000
 		}
 --for i=1,MAX_LEVEL do
 --	XP_PER_LEVEL_TABLE[i] = i * 250
@@ -685,9 +689,7 @@ end
 
 -- An ability was used by a player
 function GameMode:OnAbilityUsed(keys)
-	--DeepPrintTable(keys)
-
-	local player = EntIndexToHScript(keys.PlayerID)
+	local ply = PlayerResource:GetPlayer(keys.PlayerID or keys.player)
 	local caster = EntIndexToHScript(keys.caster_entindex)
 	local abilityname = keys.abilityname
 
@@ -695,6 +697,150 @@ function GameMode:OnAbilityUsed(keys)
 		local currMana = caster:GetMana()
 		caster:SetMana(currMana + 50)
 	end
+
+    if ply then
+        local hero = ply:GetAssignedHero()
+        if hero then
+            -- Check if they have multicast
+            local mab = hero:FindAbilityByName('greevil_multicast_custom')
+
+            if mab then
+                -- Grab the level of the ability
+                local lvl = mab:GetLevel()
+
+                -- If they have no level in it, stop
+                if lvl > 0 then
+                    -- How many times we will cast the spell
+                    local mult = 0
+
+                    -- Grab a random number
+                    local r = RandomFloat(0, 1)
+
+                    if lvl == 1 then
+                        if r > 0.5 then
+                            mult = 2
+                        end
+                    elseif lvl == 2 then
+                        if r > 0.6 then
+                            mult = 3
+                        elseif r < 0.4 then
+                            mult = 2
+                        end
+                    elseif lvl == 3 then
+                        if r > 0.8 then
+                            mult = 4
+                        elseif r > 0.5 then
+                            mult = 3
+                        elseif r > 0.2 then
+                            mult = 2
+                        end
+                    end
+
+                    -- Are we doing any multicasting?
+                    if mult > 0 then
+                        local ab = hero:FindAbilityByName(keys.abilityname)
+
+                        if ab then
+                            -- How long to delay each cast
+                            local delay = 0.4
+
+                            -- Grab playerID
+                            local playerID = hero:GetPlayerID()
+
+                            -- Grab the position
+                            local pos = hero:GetCursorPosition()
+                            local target = hero:GetCursorCastTarget()
+                            local isaTargetSpell = false
+
+                            -- Table to store multi units
+                            local multUnits
+
+                            local targets
+                            if target and util:isTargetSpell(keys.abilityname) then
+                                isaTargetSpell = true
+
+                                targets = FindUnitsInRadius(target:GetTeam(),
+                                    target:GetOrigin(),
+                                    nil,
+                                    256,
+                                    DOTA_UNIT_TARGET_TEAM_FRIENDLY,
+                                    DOTA_UNIT_TARGET_ALL,
+                                    DOTA_UNIT_TARGET_FLAG_NONE,
+                                    FIND_ANY_ORDER,
+                                    false
+                                )
+                            end
+
+                            Timers:CreateTimer(function()
+                                -- Ensure it still exists
+                                if IsValidEntity(ab) then
+                                    -- Position cursor
+                                    hero:SetCursorPosition(pos)
+
+                                    local ourTarget = target
+
+                                    -- If we have any targets to pick from, pick one
+                                    local doneTarget = false
+                                    if targets then
+                                        -- While there is still possible targets
+                                        while #targets > 0 do
+                                            -- Pick a random target
+                                            local index = math.random(#targets)
+                                            local t = targets[index]
+
+                                            -- Ensure it is valid and still alive
+                                            if IsValidEntity(t) and t:GetHealth() > 0 and t ~= ourTarget and isValidTargetEntity(t) then
+                                                -- Target is valid and alive, target it
+                                                ourTarget = t
+                                                doneTarget = true
+                                                break
+                                            else
+                                                -- Invalid target, remove it and find another
+                                                table.remove(targets, index)
+                                            end
+                                        end
+                                    end
+
+                                    if isaTargetSpell then
+                                        if IsValidEntity(ourTarget) and ourTarget:GetHealth() > 0 then
+                                            hero:SetCursorCastTarget(ourTarget)
+                                        else
+                                            return
+                                        end
+                                    end
+
+                                    ab:OnSpellStart()
+
+                                    mult = mult-1
+                                    if mult > 0 then
+                                        return delay
+                                    end
+                                end
+                            end, DoUniqueString('multicast'), delay)
+
+                            -- Create sexy particles
+                            local prt = ParticleManager:CreateParticle('particles/units/heroes/hero_ogre_magi/ogre_magi_multicast.vpcf', PATTACH_OVERHEAD_FOLLOW, hero)
+                            ParticleManager:SetParticleControl(prt, 1, Vector(mult, 0, 0))
+                            ParticleManager:ReleaseParticleIndex(prt)
+
+                            prt = ParticleManager:CreateParticle('particles/units/heroes/hero_ogre_magi/ogre_magi_multicast_b.vpcf', PATTACH_OVERHEAD_FOLLOW, hero:GetCursorCastTarget() or hero)
+                            prt = ParticleManager:CreateParticle('particles/units/heroes/hero_ogre_magi/ogre_magi_multicast_b.vpcf', PATTACH_OVERHEAD_FOLLOW, hero)
+                            ParticleManager:ReleaseParticleIndex(prt)
+
+                            prt = ParticleManager:CreateParticle('particles/units/heroes/hero_ogre_magi/ogre_magi_multicast_c.vpcf', PATTACH_OVERHEAD_FOLLOW, hero:GetCursorCastTarget() or hero)
+                            ParticleManager:SetParticleControl(prt, 1, Vector(mult, 0, 0))
+                            ParticleManager:ReleaseParticleIndex(prt)
+
+                            -- Play the sound
+                            hero:EmitSound('Hero_OgreMagi.Fireblast.x'..(mult-1))
+                        end
+                    end
+                end
+            end
+            
+        end
+    end
+
 end
 
 -- A non-player entity (necro-book, chen creep, etc) used an ability
@@ -1142,44 +1288,17 @@ function GameMode:OnEntityKilled(keys)
 
 			-- Respawn time without buyback penalty (+25 sec)
 			local respawn_time = 1
-			if USE_CUSTOM_RESPAWN_TIMES then
+			if USE_CUSTOM_RESPAWN_TIME then
 				-- Get respawn time from the table that we defined
-				respawn_time = CUSTOM_RESPAWN_TIME[killed_unit_level]
+				respawn_time = CUSTOM_RESPAWN_TIME
 			else
 				-- Get dota default respawn time
 				respawn_time = killed_unit:GetRespawnTime()
 			end
 
-			-- Fixing respawn time after level 25, this is usually bugged in custom games
-			local respawn_time_after_25 = 100 + (killed_unit_level-25)*5
-			if killed_unit_level > 25 and respawn_time < respawn_time_after_25	then
-				respawn_time = respawn_time_after_25
-			end
-
-			-- Bloodstone reduction (bloodstone can't be in backpack)
-			-- for i=DOTA_ITEM_SLOT_1, DOTA_ITEM_SLOT_6 do
-				-- local item = killed_unit:GetItemInSlot(i)
-				-- if item then
-					-- if item:GetName() == "item_bloodstone" then
-						-- local current_charges = item:GetCurrentCharges()
-						-- local charges_before_death = math.ceil(current_charges*1.5)
-						-- local reduction_per_charge = item:GetLevelSpecialValueFor("respawn_time_reduction", item:GetLevel() - 1)
-						-- local respawn_reduction = charges_before_death*reduction_per_charge
-						-- respawn_time = math.max(1, respawn_time-respawn_reduction)
-						-- break -- break the for loop, to prevent multiple bloodstones granting respawn reduction
-					-- end
-				-- end
-			-- end
-
 			-- Killer is a neutral creep
 			if killer_unit:IsNeutralUnitType() then
 				-- If a hero is killed by a neutral creep, respawn time can be modified here
-			end
-
-			-- Maximum Respawn Time
-			if respawn_time > MAX_RESPAWN_TIME then
-				print("Reducing respawn time of "..killed_unit:GetUnitName().." because it was too long.")
-				respawn_time = MAX_RESPAWN_TIME
 			end
 
 			if not killed_unit:IsReincarnating() then

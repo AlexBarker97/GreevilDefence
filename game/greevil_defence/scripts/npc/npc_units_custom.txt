@@ -5210,7 +5210,7 @@
 		"Ability3"					"greevil_berserkers_blood_custom"
 		"Ability4"					"greeil_feast_custom"
 		"Ability5"					"generic_hidden"
-		"Ability6"					"greevil_duel_custom"
+		"Ability6"					"greevil_unleash_custom"
 
 		// Armor
 		//----------------------------------------------------------------
@@ -5283,10 +5283,10 @@
 				
 		// Abilities
 		//----------------------------------------------------------------
-		"Ability1"					"greevil_ignite_custom"
-		"Ability2"					"greevil_gods_rebuke_custom"
-		"Ability3"					"greevil_fiery_soul_custom"
-		"Ability4"					"generic_hidden"
+		"Ability1"					"greevil_gods_rebuke_custom"
+		"Ability2"					"greevil_mass_serpent_ward_custom"
+		"Ability3"					"greevil_shield_crash_custom"
+		"Ability4"					"greevil_multicast_custom"
 		"Ability5"					"generic_hidden"
 		"Ability6"					"greevil_echo_slam_custom"
 

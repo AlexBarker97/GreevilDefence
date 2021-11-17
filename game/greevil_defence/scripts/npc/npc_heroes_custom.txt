@@ -19,8 +19,8 @@
 		{
 			"soundfile"		"soundevents/game_sounds_heroes/game_sounds_juggernaut.vsndevts"
 			"soundfile"		"soundevents/game_sounds_heroes/game_sounds_tusk.vsndevts"
-			"soundfile"		"soundevents/game_sounds_heroes/game_sounds_life_stealer.vsndevts"
-			"soundfile"		"soundevents/game_sounds_heroes/game_sounds_legion_commander.vsndevts"
+			"soundfile"		"soundevents/game_sounds_heroes/game_sounds_broodmother.vsndevts"
+			"soundfile"		"soundevents/game_sounds_heroes/game_sounds_marci.vsndevts"
 			"soundfile"		"soundevents/game_sounds_heroes/game_sounds_ogre_magi.vsndevts"
 			"soundfile"		"soundevents/game_sounds_heroes/game_sounds_mars.vsndevts"
 			"soundfile"		"soundevents/game_sounds_heroes/game_sounds_earthshaker.vsndevts"

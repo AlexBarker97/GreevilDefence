@@ -17,6 +17,7 @@ LinkLuaModifier("modifier_greevil_boss_sres", "scripts/vscripts/modifiers/modifi
 require('barebones')
 require('libraries/player_resource')
 require('libraries/timers')
+require ("libraries/selection")
 
 function Precache( context )
 	-- NOTE: IT IS RECOMMENDED TO USE A MINIMAL AMOUNT OF LUA PRECACHING, AND A MAXIMAL AMOUNT OF DATADRIVEN PRECACHING.
@@ -84,8 +85,12 @@ end
 function EntitySpawn()
 	ListenToGameEvent("npc_spawned", function(params)
 		local unit = EntIndexToHScript(params.entindex)
-		
-		if unit:GetUnitName() == "npc_dota_hero_beastmaster" then
+
+		if unit:GetUnitName() == "npc_dota_hero_beastmaster" and unit:FindAbilityByName("red") ~= nil then
+
+			local playerid = unit:GetPlayerID()
+			local origin = unit:GetAbsOrigin()
+
 			unit:AddNewModifier(nil, nil, "modifier_greevil_naked", {})
 			ability1 = unit:GetAbilityByIndex(0)
 			ability2 = unit:GetAbilityByIndex(1)
@@ -104,6 +109,22 @@ function EntitySpawn()
 			unit:UpgradeAbility(ability7)
 			unit:UpgradeAbility(ability8)
 			unit:SetAbilityPoints(1)
+			
+			Timers:CreateTimer({endTime = 0.5,
+				callback = function()
+				if origin[1] <= 0 then -- radiant
+					origin = (Vector(-6900, -7480, 384)) + (Vector(RandomInt(0,800),RandomInt(0,400), 0))
+				else -- dire
+					origin = (Vector(5788, -7480, 384)) + (Vector(RandomInt(0,800),RandomInt(0,400), 0))
+				end
+				unit:SetAbsOrigin(origin)
+				
+				PlayerResource:SetCameraTarget(playerid, unit)
+				Timers:CreateTimer({endTime = 0.3,
+					callback = function()
+					PlayerResource:SetCameraTarget(playerid, nil)
+				end})
+			end})
 
 		--RED NEUTRAL BOSS
 		elseif unit:GetUnitName() == "greevil_red" then

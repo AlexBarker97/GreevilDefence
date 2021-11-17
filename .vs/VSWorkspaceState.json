@@ -7,9 +7,8 @@
     "\\game\\greevil_defence\\scripts",
     "\\game\\greevil_defence\\scripts\\npc",
     "\\game\\greevil_defence\\scripts\\vscripts",
-    "\\game\\greevil_defence\\scripts\\vscripts\\libraries",
-    "\\game\\greevil_defence\\scripts\\vscripts\\modifiers"
+    "\\game\\greevil_defence\\scripts\\vscripts\\ai"
   ],
-  "SelectedNode": "\\game\\greevil_defence\\scripts\\vscripts\\modifiers\\modifier_black.lua",
+  "SelectedNode": "\\game\\greevil_defence\\scripts\\vscripts\\ai\\neutralboss",
   "PreviewInSolutionExplorer": false
 }

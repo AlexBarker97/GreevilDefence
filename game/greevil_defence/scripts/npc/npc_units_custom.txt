@@ -1130,10 +1130,10 @@
 		"MovementSpeed"				"300"
 		"MovementTurnRate"			"0.5"
 		
-		"ArmorPhysical"				"25"
-		"MagicalResistance"			"40"
-		"StatusHealth"				"5000"
-		"StatusHealthRegen"			"10"
+		"ArmorPhysical"				"20"
+		"MagicalResistance"			"35"
+		"StatusHealth"				"3500"
+		"StatusHealthRegen"			"7.5"
 		"StatusMana"				"0"
 		"StatusManaRegen"			"0"
 
@@ -1210,10 +1210,10 @@
 		"MovementSpeed"				"300"
 		"MovementTurnRate"			"0.5"
 		
-		"ArmorPhysical"				"25"
-		"MagicalResistance"			"40"
-		"StatusHealth"				"5000"
-		"StatusHealthRegen"			"10"
+		"ArmorPhysical"				"20"
+		"MagicalResistance"			"25"
+		"StatusHealth"				"3500"
+		"StatusHealthRegen"			"7.5"
 		"StatusMana"				"0"
 		"StatusManaRegen"			"0"
 
@@ -1309,10 +1309,10 @@
 		"MovementSpeed"				"300"
 		"MovementTurnRate"			"0.5"
 		
-		"ArmorPhysical"				"25"
-		"MagicalResistance"			"40"
-		"StatusHealth"				"5000"
-		"StatusHealthRegen"			"10"
+		"ArmorPhysical"				"20"
+		"MagicalResistance"			"35"
+		"StatusHealth"				"3500"
+		"StatusHealthRegen"			"7.5"
 		"StatusMana"				"0"
 		"StatusManaRegen"			"0"
 
@@ -1387,10 +1387,10 @@
 		"MovementSpeed"				"300"
 		"MovementTurnRate"			"0.5"
 		
-		"ArmorPhysical"				"25"
-		"MagicalResistance"			"40"
-		"StatusHealth"				"5000"
-		"StatusHealthRegen"			"10"
+		"ArmorPhysical"				"20"
+		"MagicalResistance"			"35"
+		"StatusHealth"				"3500"
+		"StatusHealthRegen"			"7.5"
 		"StatusMana"				"0"
 		"StatusManaRegen"			"0"
 
@@ -1466,10 +1466,10 @@
 		"MovementSpeed"				"300"
 		"MovementTurnRate"			"0.5"
 		
-		"ArmorPhysical"				"25"
-		"MagicalResistance"			"40"
-		"StatusHealth"				"5000"
-		"StatusHealthRegen"			"10"
+		"ArmorPhysical"				"20"
+		"MagicalResistance"			"35"
+		"StatusHealth"				"3500"
+		"StatusHealthRegen"			"7.5"
 		"StatusMana"				"0"
 		"StatusManaRegen"			"0"
 
@@ -1565,10 +1565,10 @@
 		"MovementSpeed"				"360"
 		"MovementTurnRate"			"0.5"
 		
-		"ArmorPhysical"				"16"
-		"MagicalResistance"			"40"
-		"StatusHealth"				"5000"
-		"StatusHealthRegen"			"10"
+		"ArmorPhysical"				"15"
+		"MagicalResistance"			"25"
+		"StatusHealth"				"3500"
+		"StatusHealthRegen"			"7.5"
 		"StatusMana"				"0"
 		"StatusManaRegen"			"0"
 
@@ -1735,7 +1735,7 @@
 		"MovementSpeed"				"300"
 		"MovementTurnRate"			"0.5"
 		
-		"ArmorPhysical"				"1000"
+		"ArmorPhysical"				"10000"
 		"MagicalResistance"			"100"
 		"StatusHealth"				"12"
 		"StatusHealthRegen"			"0"
@@ -4079,9 +4079,9 @@
 
 		// Status
 		//----------------------------------------------------------------
-		"StatusHealth"				"1800"
+		"StatusHealth"				"2200"
 		"StatusMana"				"0"
-		"StatusHealthRegen"			"2"
+		"StatusHealthRegen"			"5"
 		"StatusManaRegen"			"0"
 		
 		// Team
@@ -4153,9 +4153,9 @@
 
 		// Status
 		//----------------------------------------------------------------
-		"StatusHealth"				"1800"
+		"StatusHealth"				"2200"
 		"StatusMana"				"0"
-		"StatusHealthRegen"			"2"
+		"StatusHealthRegen"			"5"
 		"StatusManaRegen"			"0"
 
 		// Team
@@ -4227,9 +4227,9 @@
 
 		// Status
 		//----------------------------------------------------------------
-		"StatusHealth"				"1800"
+		"StatusHealth"				"2200"
 		"StatusMana"				"0"
-		"StatusHealthRegen"			"2"
+		"StatusHealthRegen"			"5"
 		"StatusManaRegen"			"0"
 
 		// Team
@@ -4299,9 +4299,9 @@
 
 		// Status
 		//----------------------------------------------------------------
-		"StatusHealth"				"1800"
+		"StatusHealth"				"2200"
 		"StatusMana"				"0"
-		"StatusHealthRegen"			"2"
+		"StatusHealthRegen"			"5"
 		"StatusManaRegen"			"0"
 
 		// Team
@@ -4371,9 +4371,9 @@
 
 		// Status
 		//----------------------------------------------------------------
-		"StatusHealth"				"1800"
+		"StatusHealth"				"2200"
 		"StatusMana"				"0"
-		"StatusHealthRegen"			"2"
+		"StatusHealthRegen"			"5"
 		"StatusManaRegen"			"0"
 
 		// Team
@@ -4440,9 +4440,9 @@
 
 		// Status
 		//----------------------------------------------------------------
-		"StatusHealth"				"1800"
+		"StatusHealth"				"2200"
 		"StatusMana"				"0"
-		"StatusHealthRegen"			"2"
+		"StatusHealthRegen"			"5"
 		"StatusManaRegen"			"0"
 
 		// Team
@@ -4511,9 +4511,9 @@
 
 		// Status
 		//----------------------------------------------------------------
-		"StatusHealth"				"1800"
+		"StatusHealth"				"2200"
 		"StatusMana"				"0"
-		"StatusHealthRegen"			"2"
+		"StatusHealthRegen"			"5"
 		"StatusManaRegen"			"0"
 
 		// Team
@@ -4583,9 +4583,9 @@
 
 		// Status
 		//----------------------------------------------------------------
-		"StatusHealth"				"1800"
+		"StatusHealth"				"2200"
 		"StatusMana"				"0"
-		"StatusHealthRegen"			"2"
+		"StatusHealthRegen"			"5"
 		"StatusManaRegen"			"0"
 
 		// Team
@@ -4657,9 +4657,9 @@
 
 		// Status
 		//----------------------------------------------------------------
-		"StatusHealth"				"1800"
+		"StatusHealth"				"2200"
 		"StatusMana"				"0"
-		"StatusHealthRegen"			"2"
+		"StatusHealthRegen"			"5"
 		"StatusManaRegen"			"0"
 		
 		// Team
@@ -4731,9 +4731,9 @@
 
 		// Status
 		//----------------------------------------------------------------
-		"StatusHealth"				"1800"
+		"StatusHealth"				"2200"
 		"StatusMana"				"0"
-		"StatusHealthRegen"			"2"
+		"StatusHealthRegen"			"5"
 		"StatusManaRegen"			"0"
 
 		// Team
@@ -4805,9 +4805,9 @@
 
 		// Status
 		//----------------------------------------------------------------
-		"StatusHealth"				"1800"
+		"StatusHealth"				"2200"
 		"StatusMana"				"0"
-		"StatusHealthRegen"			"2"
+		"StatusHealthRegen"			"5"
 		"StatusManaRegen"			"0"
 
 		// Team
@@ -4877,9 +4877,9 @@
 
 		// Status
 		//----------------------------------------------------------------
-		"StatusHealth"				"1800"
+		"StatusHealth"				"2200"
 		"StatusMana"				"0"
-		"StatusHealthRegen"			"2"
+		"StatusHealthRegen"			"5"
 		"StatusManaRegen"			"0"
 
 		// Team
@@ -4949,9 +4949,9 @@
 
 		// Status
 		//----------------------------------------------------------------
-		"StatusHealth"				"1800"
+		"StatusHealth"				"2200"
 		"StatusMana"				"0"
-		"StatusHealthRegen"			"2"
+		"StatusHealthRegen"			"5"
 		"StatusManaRegen"			"0"
 
 		// Team
@@ -5027,9 +5027,9 @@
 
 		// Status
 		//----------------------------------------------------------------
-		"StatusHealth"				"1800"
+		"StatusHealth"				"2200"
 		"StatusMana"				"0"
-		"StatusHealthRegen"			"2"
+		"StatusHealthRegen"			"5"
 		"StatusManaRegen"			"0"
 
 		// Team
@@ -5098,9 +5098,9 @@
 
 		// Status
 		//----------------------------------------------------------------
-		"StatusHealth"				"1800"
+		"StatusHealth"				"2200"
 		"StatusMana"				"0"
-		"StatusHealthRegen"			"2"
+		"StatusHealthRegen"			"5"
 		"StatusManaRegen"			"0"
 
 		// Team
@@ -5170,9 +5170,9 @@
 
 		// Status
 		//----------------------------------------------------------------
-		"StatusHealth"				"1800"
+		"StatusHealth"				"2200"
 		"StatusMana"				"0"
-		"StatusHealthRegen"			"2"
+		"StatusHealthRegen"			"5"
 		"StatusManaRegen"			"0"
 
 		// Team

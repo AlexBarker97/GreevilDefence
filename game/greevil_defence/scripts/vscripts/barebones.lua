@@ -693,6 +693,12 @@ function GameMode:OnAbilityUsed(keys)
 	local caster = EntIndexToHScript(keys.caster_entindex)
 	local abilityname = keys.abilityname
 
+	--if abilityname == "greevil_surge_custom" then
+	--	local ab = caster:FindAbilityByName('greevil_surge_custom')
+	--	local charges = ab:GetCurrentCharges()
+	--	ab:SetCurrentCharges(charges-1)
+	--end
+
 	if abilityname == "greevil_brain_sap_custom" then
 		local currMana = caster:GetMana()
 		caster:SetMana(currMana + 50)
@@ -771,31 +777,24 @@ function GameMode:OnAbilityUsed(keys)
                                 )
                             end
 
-                            Timers:CreateTimer(function()
-                                -- Ensure it still exists
+                            Timers:CreateTimer({endTime = 0.4,
+								callback = function()
                                 if IsValidEntity(ab) then
-                                    -- Position cursor
                                     hero:SetCursorPosition(pos)
 
                                     local ourTarget = target
 
-                                    -- If we have any targets to pick from, pick one
                                     local doneTarget = false
                                     if targets then
-                                        -- While there is still possible targets
                                         while #targets > 0 do
-                                            -- Pick a random target
                                             local index = math.random(#targets)
                                             local t = targets[index]
 
-                                            -- Ensure it is valid and still alive
                                             if IsValidEntity(t) and t:GetHealth() > 0 and t ~= ourTarget and isValidTargetEntity(t) then
-                                                -- Target is valid and alive, target it
                                                 ourTarget = t
                                                 doneTarget = true
                                                 break
                                             else
-                                                -- Invalid target, remove it and find another
                                                 table.remove(targets, index)
                                             end
                                         end
@@ -812,11 +811,12 @@ function GameMode:OnAbilityUsed(keys)
                                     ab:OnSpellStart()
 
                                     mult = mult-1
-                                    if mult > 0 then
+                                    if mult > 1 then
+											
                                         return delay
                                     end
                                 end
-                            end, DoUniqueString('multicast'), delay)
+                            end}, DoUniqueString('multicast'), delay)
 
                             -- Create sexy particles
                             local prt = ParticleManager:CreateParticle('particles/units/heroes/hero_ogre_magi/ogre_magi_multicast.vpcf', PATTACH_OVERHEAD_FOLLOW, hero)

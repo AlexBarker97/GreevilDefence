@@ -22,6 +22,13 @@ function OnUsed(keys)
 
     caster.material = tostring(6)
     caster:SetMaterialGroup(caster.material)
+	caster.eyes:SetMaterialGroup(caster.material)
+	caster.ears:SetMaterialGroup(caster.material)
+	caster.horns:SetMaterialGroup(caster.material)
+	caster.hair:SetMaterialGroup(caster.material)
+	caster.nose:SetMaterialGroup(caster.material)
+	caster.tail:SetMaterialGroup(caster.material)
+	caster.teeth:SetMaterialGroup(caster.material)
 
 	caster:RemoveAbility("red")
 	caster:RemoveAbility("orange")

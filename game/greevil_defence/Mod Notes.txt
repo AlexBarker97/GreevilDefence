@@ -2,20 +2,21 @@
 --------ToDo--------------------ToDo--------------------ToDo--------------------ToDo--------------------ToDo---------------
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-Session Notes:
-yellow boss chases you (ai)
-greevil parts colour (hero)
-special waves
+Required before play testing
+• yellow player rework
+• jump walls/gate broken (multiplayer only)
+• White Boss blue summon??
 
-Required before further player Testing
-• Attack Boss AI
-	• White
-
-Suggestions / Concept Ideas
+Suggestions
+• Tooltips
 • More "one time" shop items
 • Difficulty scaling based on #players on team, defending too easy (can also make other things more attractive to do)
+• special waves
+• yellow boss chases you (ai)?
 
 QoL
+• red boss ult shield summon count
+• mana/hp potions should despawn
 • Black player greevil ability icons
 • White bossfight hp buggy (magic immune targets)
 • Boss greevil candy drop use (targetted modifier buff)
@@ -24,10 +25,15 @@ QoL
 • Greevil attack ranges
 • Improve bossfights
 • White Boss Summons AI
-• Orange attack boss won't hit ancient if infernal blade off cd
+• blue attack boss won't hit ancient
+• white boss against magic immunity
+• White Attack Boss AI
+• White Boss summon AI (can all be done on one script)
+• If inventory full greevil eggs fill up stash
+• Sendboss effect volume
 
 Balance
-• Initial 6 bossfights easier (or scale with #players?)
+• Make bosses more interesting, instead of tanky
 • XP/Gold from bosses
 • XP/Gold from lane greevils
 
@@ -98,7 +104,7 @@ Frostivus_2017:
 https://github.com/SteamDatabase/GameTracking-Dota2/blob/master/game/dota_addons/frostivus_2017
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-----------ASSETS----------------------ASSETS----------------------ASSETS----------------------ASSETS-----------------------
+------------SIK-ASSETS-----------------SIK-ASSETS-----------------SIK-ASSETS-----------------SIK-ASSETS--------------------
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 particles/units/heroes/hero_keeper_of_the_light/keeper_dazzling_debuff_magic.vpcf

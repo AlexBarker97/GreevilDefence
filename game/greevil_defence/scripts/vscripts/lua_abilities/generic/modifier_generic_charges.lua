@@ -22,23 +22,22 @@ function modifier_generic_charges:GetAttributes()
 	return MODIFIER_ATTRIBUTE_MULTIPLE
 end
 
---------------------------------------------------------------------------------
+-------------------------------------------------------------------------------- Lua Modifier Registration not found in string table, aborting modifier creation
 -- Initializations
 function modifier_generic_charges:OnCreated( kv )
 	-- references
-	self.max_charges = self:GetAbility():GetSpecialValueFor( "max_charges" ) -- special value
-	self.charge_time = self:GetAbility():GetSpecialValueFor( "charge_restore_time" ) -- special value
+	self.max_charges = 3
+	self.charge_time = 16
 	self.active = true
 
-	if not IsServer() then return end
 	self:SetStackCount( self.max_charges )
 	self:CalculateCharge()
 end
 
 function modifier_generic_charges:OnRefresh( kv )
 	-- references
-	self.max_charges = self:GetAbility():GetSpecialValueFor( "max_charges" ) -- special value
-	self.charge_time = self:GetAbility():GetSpecialValueFor( "charge_restore_time" ) -- special value
+	self.max_charges = 3
+	self.charge_time = 10
 
 	if not IsServer() then return end
 	self:CalculateCharge()
@@ -108,6 +107,4 @@ end
 function modifier_generic_charges:SetActive( active )
 	-- for server
 	self.active = active
-
-	-- todo: self.active should be known to client
 end

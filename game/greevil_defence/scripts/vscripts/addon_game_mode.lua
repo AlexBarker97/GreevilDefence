@@ -89,7 +89,6 @@ function EntitySpawn()
 		if unit:GetUnitName() == "npc_dota_hero_beastmaster" and unit:FindAbilityByName("red") ~= nil then
 
 			local playerid = unit:GetPlayerID()
-			local origin = unit:GetAbsOrigin()
 
 			unit:AddNewModifier(nil, nil, "modifier_greevil_naked", {})
 			ability1 = unit:GetAbilityByIndex(0)
@@ -112,6 +111,8 @@ function EntitySpawn()
 			
 			Timers:CreateTimer({endTime = 0.5,
 				callback = function()
+
+				local origin = unit:GetAbsOrigin()
 				if origin[1] <= 0 then -- radiant
 					origin = (Vector(-6900, -7480, 384)) + (Vector(RandomInt(0,800),RandomInt(0,400), 0))
 				else -- dire

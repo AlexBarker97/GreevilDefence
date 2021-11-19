@@ -726,7 +726,7 @@
 			"01"
 			{
 				"var_type"						"FIELD_INTEGER"
-				"maximum_attack_speed"			"220 260 300"
+				"maximum_attack_speed"			"180 240 300"
 			}
 			"02"
 			{
@@ -769,7 +769,7 @@
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"lifesteal_pct"			"30 35 40"
+				"lifesteal_pct"			"30 32 35"
 			}
 			"03"
 			{
@@ -886,7 +886,7 @@
 		// Casting
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityCastRange"				"500"
-		"AbilityCastPoint"				"0.1"
+		"AbilityCastPoint"				"0.05"
 
 		// Time		
 		//-------------------------------------------------------------------------------------------------------------
@@ -903,7 +903,7 @@
 			"01"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"crit_mult"					"100 125 150"
+				"crit_mult"					"120 135 150"
 			}
 			"02"
 			{
@@ -923,7 +923,7 @@
 			"05"
 			{
 				"var_type"					"FIELD_FLOAT"
-				"knockback_distance"		"400 450 500"
+				"knockback_distance"		"350"
 			}
 			"06"
 			{
@@ -976,7 +976,7 @@
 		// Casting
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityCastRange"				"550"
-		"AbilityCastPoint"				"0.3"
+		"AbilityCastPoint"				"0.05"
 		"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_4"
 		
 		// Time		
@@ -1168,7 +1168,7 @@
 
 		// Casting
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCastPoint"				"0"
+		"AbilityCastPoint"				"0.05"
 
 		// Time		
 		//-------------------------------------------------------------------------------------------------------------
@@ -1211,34 +1211,30 @@
 		}
 	}
 	
-	"greevil_meat_hook_custom"
+	"greevil_penitence_custom"
 	{
-		"BaseClass"						"pudge_meat_hook"
+		"BaseClass"						"chen_penitence"
 		
-		"AbilityTextureName"			"greevil_hook"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
-		"AbilityUnitDamageType"			"DAMAGE_TYPE_PURE"	
-		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
-		"FightRecapLevel"				"1"
-		"AbilitySound"					"Hero_Pudge.AttackHookExtend"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
+		"SpellDispellableType"			"SPELL_DISPELLABLE_YES"
+		"AbilitySound"					"Hero_Chen.PenitenceCast"
 		"MaxLevel"						"3"
 
 		// Casting
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCastRange"				"1300"
-		"AbilityCastPoint"				"0.3"
+		"AbilityCastPoint"				"0.2"
 
 		// Time		
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"12 9 6"
-
-		// Damage.
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityDamage"					"120 240 360"
+		"AbilityCastRange"				"800"
+		"AbilityCooldown"				"14.0 13.0 12.0"
 
 		// Cost
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"				"125"
+		"AbilityManaCost"				"70 75 80"
 
 		// Special
 		//-------------------------------------------------------------------------------------------------------------
@@ -1247,29 +1243,27 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"hook_speed"			"1450.0"
+				"duration"				"8 10 12"
 			}
 			"02"
 			{
-				"var_type"			"FIELD_INTEGER"
-				"hook_width"		"70"
+				"var_type"				"FIELD_INTEGER"
+				"speed"					"1400"
 			}
 			"03"
 			{
-				"var_type"			"FIELD_INTEGER"
-				"hook_distance"		"1300"
+				"var_type"				"FIELD_INTEGER"
+				"bonus_movement_speed"	"-18 -24 -30"
+				"LinkedSpecialBonus"	"special_bonus_unique_chen_8"
+				"LinkedSpecialBonusOperation"	"SPECIAL_BONUS_SUBTRACT"
 			}
 			"04"
 			{
-				"var_type"			"FIELD_INTEGER"
-				"vision_radius"		"500"
-			}
-			"05"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"vision_duration"	"4.0"
+				"var_type"				"FIELD_INTEGER"
+				"bonus_attack_speed"	"50 80 110"
 			}
 		}
+		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_1"
 	}
 	
 	"greevil_shadow_wave_custom"
@@ -1372,6 +1366,63 @@
 				"Function"		"Summon"
 			}
 		}
+	}
+
+	"greevil_surge_custom"
+	{
+		"BaseClass"						"dark_seer_surge"
+		
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"  
+		"SpellImmunityType"				"SPELL_IMMUNITY_ALLIES_YES"
+		"SpellDispellableType"			"SPELL_DISPELLABLE_YES"
+		"AbilitySound"					"Hero_Dark_Seer.Surge"
+		"MaxLevel"						"3"
+
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastRange"				"600"
+		"AbilityCastPoint"				"0.4"
+		
+		// Time		
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"16"
+		
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"50 40 30"
+
+		// Stats
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityModifierSupportValue"	"2.5"	// Value much higher than manacost
+
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"duration"				"6 8 10"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"speed_boost"			"550"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"max_charges"			"3"
+			}
+			"04"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"charge_restore_time"	"16"
+			}
+		}
+		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_3"
 	}
 	
 	"greevil_poison_nova_custom"
@@ -2555,7 +2606,75 @@
 				"duration"					"10 15 20"
 			}
 		}
-	}	
+	}
+
+	"greevil_silence_custom"
+	{
+		"BaseClass"						"drow_ranger_wave_of_silence"
+		
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT"
+		"AbilityType"					"DOTA_ABILITY_TYPE_ULTIMATE"
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
+		"SpellDispellableType"			"SPELL_DISPELLABLE_YES"
+		"MaxLevel"						"2"
+		"AbilitySound"					"Hero_DrowRanger.Silence"
+
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastRange"				"900"
+		"AbilityCastPoint"				"0.25"
+
+		// Time		
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"20"
+
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"150 180"
+
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"wave_speed"		"1000.0"
+			}
+			"02"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"wave_width"		"550"
+				"LinkedSpecialBonus"	"special_bonus_unique_drow_ranger_4"
+			}
+			"03"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"silence_duration"	"10.0 15.0"
+			}
+			"04"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"knockback_distance_max"	"1000"
+			}
+			"05"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"knockback_duration"		"0.7"
+			}
+			"06"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"knockback_height"		"0"
+			}
+			"07"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"wave_length"		"1200"
+			}
+		}
+		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_2"
+	}
 	
 	"greevil_guardian_angel_custom"
 	{
@@ -2641,7 +2760,7 @@
 			"01"
 			{
 				"var_type"						"FIELD_INTEGER"
-				"brain_sap_damage"				"200 225 250"
+				"brain_sap_damage"				"150 175 200"
 				"LinkedSpecialBonus"			"special_bonus_unique_bane_2"
 			}
 			"02"
@@ -2668,7 +2787,7 @@
 
 		// Casting
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCastPoint"				"0.3"
+		"AbilityCastPoint"				"0.2"
 
 		// Time		
 		//-------------------------------------------------------------------------------------------------------------
@@ -2677,7 +2796,7 @@
 
 		// Cost
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"				"250"
+		"AbilityManaCost"				"250 235 220"
 
 		// Special
 		//-------------------------------------------------------------------------------------------------------------
@@ -2692,7 +2811,7 @@
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"regen"					"10 15 20"
+				"regen"					"0"
 			}
 			"03"
 			{
@@ -2830,6 +2949,96 @@
 			}			
 		}
 		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_4"
+	}
+
+	"greevil_consume_custom"
+	{
+		"BaseClass"						"alchemist_chemical_rage"
+		
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+		"AbilityType"					"DOTA_ABILITY_TYPE_ULTIMATE"
+		"SpellDispellableType"			"SPELL_DISPELLABLE_NO"
+		"MaxLevel"						"2"
+		"AbilitySound"					"Hero_Alchemist.ChemicalRage.Cast"
+
+		"HasScepterUpgrade"				"1"
+		"AbilityDraftUltShardAbility"  "alchemist_berserk_potion"
+
+
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastPoint"				"0.0"
+		"AbilityCastAnimation"			"ACT_INVALID"
+
+		// Time		
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"180.0"
+
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"1000"
+
+		// Special	
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"duration"				"20.0"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"transformation_time"	"1.5"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"base_attack_time"		"0.9 0.8"
+				"LinkedSpecialBonus"		"special_bonus_unique_alchemist_3"
+			}
+			"04"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"bonus_health"			"500 750"
+			}
+			"05"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"bonus_health_regen"	"60 90"
+				"LinkedSpecialBonus"		"special_bonus_unique_alchemist_4"
+			}
+			"06"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"bonus_mana_regen"		"80 120"
+			}
+			"07"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"bonus_movespeed"		"30 40"
+				"LinkedSpecialBonus"		"special_bonus_unique_alchemist_6"
+			}
+			"08"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"scepter_gold_damage"		"2"
+				"RequiresScepter"			"1"
+			}
+			"09"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"scepter_bonus_damage"		"20"
+				"RequiresScepter"			"1"
+			}
+			"10"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"scepter_spell_amp"		"5"
+				"RequiresScepter"			"1"
+			}
+		}
 	}
 	
 	//////

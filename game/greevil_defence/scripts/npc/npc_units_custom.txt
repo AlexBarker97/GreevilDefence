@@ -2246,8 +2246,8 @@
 		
 		"ArmorPhysical"				"15"
 		"MagicalResistance"			"41"
-		"StatusHealth"				"10000"
-		"StatusHealthRegen"			"20"
+		"StatusHealth"				"5000"
+		"StatusHealthRegen"			"10"
 		"StatusMana"				"0"
 		"StatusManaRegen"			"0"
 	}
@@ -2303,8 +2303,8 @@
 		
 		"ArmorPhysical"				"15"
 		"MagicalResistance"			"41"
-		"StatusHealth"				"10000"
-		"StatusHealthRegen"			"20"
+		"StatusHealth"				"5000"
+		"StatusHealthRegen"			"10"
 		"StatusMana"				"0"
 		"StatusManaRegen"			"0"
 	}
@@ -2361,8 +2361,8 @@
 		
 		"ArmorPhysical"				"15"
 		"MagicalResistance"			"41"
-		"StatusHealth"				"10000"
-		"StatusHealthRegen"			"20"
+		"StatusHealth"				"5000"
+		"StatusHealthRegen"			"10"
 		"StatusMana"				"0"
 		"StatusManaRegen"			"0"
 	}
@@ -2421,8 +2421,8 @@
 		
 		"ArmorPhysical"				"15"
 		"MagicalResistance"			"41"
-		"StatusHealth"				"5000"
-		"StatusHealthRegen"			"20"
+		"StatusHealth"				"3000"
+		"StatusHealthRegen"			"10"
 		"StatusMana"				"0"
 		"StatusManaRegen"			"0"
 	}
@@ -2481,8 +2481,8 @@
 		
 		"ArmorPhysical"				"25"
 		"MagicalResistance"			"40"
-		"StatusHealth"				"2000"
-		"StatusHealthRegen"			"10"
+		"StatusHealth"				"1500"
+		"StatusHealthRegen"			"8"
 		"StatusMana"				"0"
 		"StatusManaRegen"			"0"
 
@@ -2554,8 +2554,8 @@
 		
 		"ArmorPhysical"				"25"
 		"MagicalResistance"			"40"
-		"StatusHealth"				"1000"
-		"StatusHealthRegen"			"10"
+		"StatusHealth"				"750"
+		"StatusHealthRegen"			"6"
 		"StatusMana"				"0"
 		"StatusManaRegen"			"0"
 
@@ -2622,8 +2622,8 @@
 		
 		"ArmorPhysical"				"15"
 		"MagicalResistance"			"41"
-		"StatusHealth"				"10000"
-		"StatusHealthRegen"			"20"
+		"StatusHealth"				"5000"
+		"StatusHealthRegen"			"10"
 		"StatusMana"				"0"
 		"StatusManaRegen"			"0"
 	}
@@ -2680,8 +2680,8 @@
 		
 		"ArmorPhysical"				"15"
 		"MagicalResistance"			"41"
-		"StatusHealth"				"10000"
-		"StatusHealthRegen"			"20"
+		"StatusHealth"				"5000"
+		"StatusHealthRegen"			"10"
 		"StatusMana"				"0"
 		"StatusManaRegen"			"0"
 	}
@@ -2738,8 +2738,8 @@
 		
 		"ArmorPhysical"				"15"
 		"MagicalResistance"			"41"
-		"StatusHealth"				"10000"
-		"StatusHealthRegen"			"20"
+		"StatusHealth"				"7000"
+		"StatusHealthRegen"			"15"
 		"StatusMana"				"0"
 		"StatusManaRegen"			"0"
 	}
@@ -5362,10 +5362,10 @@
 		// Abilities
 		//----------------------------------------------------------------
 		
-		"Ability1"					"greevil_meat_hook_custom"	
+		"Ability1"					"greevil_penitence_custom"	
 		"Ability2"					"greevil_shadow_wave_custom"
-		"Ability3"					"greevil_summon_turret_custom"
-		"Ability4"					"generic_hidden"
+		"Ability3"					"greevil_surge_custom"
+		"Ability4"					"greevil_summon_turret_custom"
 		"Ability5"					"generic_hidden"
 		"Ability6"					"greevil_poison_nova_custom"
 
@@ -5682,7 +5682,7 @@
 		"Ability1"					"greevil_purification_custom"
 		"Ability2"					"greevil_dream_coil_custom"
 		"Ability3"					"greevil_overcharge_custom"
-		"Ability4"					"generic_hidden"
+		"Ability4"					"greevil_silence_custom"
 		"Ability5"					"generic_hidden"
 		"Ability6"					"greevil_guardian_angel_custom"
 
@@ -5760,9 +5760,9 @@
 		"Ability1"					"greevil_brain_sap_custom"
 		"Ability2"					"greevil_devour"
 		"Ability3"					"greevil_possession"
-		"Ability4"					"generic_hidden"
+		"Ability4"					"greevil_pact_custom"
 		"Ability5"					"generic_hidden"
-		"Ability6"					"greevil_pact_custom"
+		"Ability6"					"greevil_consume_custom"
 		
 		// Armor
 		//----------------------------------------------------------------

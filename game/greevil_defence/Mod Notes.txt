@@ -6,6 +6,7 @@ Required before play testing
 • yellow player rework
 • jump walls/gate broken (multiplayer only)
 • White Boss blue summon??
+• Re-buy def greevils (multiplayer only)
 
 Suggestions
 • Tooltips

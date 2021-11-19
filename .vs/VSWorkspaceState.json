@@ -7,10 +7,9 @@
     "\\game\\greevil_defence\\scripts\\vscripts",
     "\\game\\greevil_defence\\scripts\\vscripts\\ai",
     "\\game\\greevil_defence\\scripts\\vscripts\\ai\\attackboss",
-    "\\game\\greevil_defence\\scripts\\vscripts\\lua_abilities",
-    "\\game\\greevil_defence\\scripts\\vscripts\\lua_abilities\\generic",
+    "\\game\\greevil_defence\\scripts\\vscripts\\libraries",
     "\\game\\greevil_defence\\scripts\\vscripts\\modifiers"
   ],
-  "SelectedNode": "\\game\\greevil_defence\\scripts\\npc\\npc_units_custom.txt",
+  "SelectedNode": "\\game\\greevil_defence\\scripts\\vscripts\\libraries\\filters.lua",
   "PreviewInSolutionExplorer": false
 }

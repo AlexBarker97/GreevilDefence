@@ -3,47 +3,39 @@
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 Required before play testing
-• yellow player rework
-• jump walls/gate broken (multiplayer only)
-• White Boss blue summon??
-• Re-buy def greevils (multiplayer only)
 
-Suggestions
-• Tooltips
-• More "one time" shop items
+Concepts
+• Implement "one time" shop items
+• Variation between games
+	• special waves
+	• random abilities
+	• random start item bundle
+• Greevil items (greevil starts with pack? or greevil can buy a pack?)
 • Difficulty scaling based on #players on team, defending too easy (can also make other things more attractive to do)
-• special waves
-• yellow boss chases you (ai)?
+• yellow boss chases you out of pit (ai breaks)
+• Bosses dont spawn on 0, first 6 at 4 mins, white at 8 mins, black at 10 mins with global sound effects
 
 QoL
-• red boss ult shield summon count
+• info sidebar gives wrong info
 • mana/hp potions should despawn
-• Black player greevil ability icons
-• White bossfight hp buggy (magic immune targets)
+• Tooltips + ability icons
 • Boss greevil candy drop use (targetted modifier buff)
-• Greevil spawn facing direction (when greevil is created with whistle)
-• Greevil items (greevil starts with pack? or greevil can buy a pack?)
-• Greevil attack ranges
-• Improve bossfights
+• Greevil attack range (tweak for unit size)
 • White Boss Summons AI
 • blue attack boss won't hit ancient
-• white boss against magic immunity
 • White Attack Boss AI
 • White Boss summon AI (can all be done on one script)
-• If inventory full greevil eggs fill up stash
 • Sendboss effect volume
 
 Balance
-• Make bosses more interesting, instead of tanky
 • XP/Gold from bosses
 • XP/Gold from lane greevils
 
 Luxury
+• Improve bossfights (more interesting, better AI)
 • Choose one greevil ability to upgrade
 • Custom animations
-• Red greevil fight rework
-• Yellow greevil fight rework
-• Green greevil fight rework
+
 • More general event game sounds
 	D:\Steam\steamapps\common\dota 2 beta\content\dota_addons\greevil_showdown\sounds
 

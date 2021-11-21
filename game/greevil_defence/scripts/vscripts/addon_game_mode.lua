@@ -17,7 +17,8 @@ LinkLuaModifier("modifier_greevil_boss_sres", "scripts/vscripts/modifiers/modifi
 require('barebones')
 require('libraries/player_resource')
 require('libraries/timers')
-require ("libraries/selection")
+require('libraries/selection')
+require('libraries/filters')
 
 function Precache( context )
 	-- NOTE: IT IS RECOMMENDED TO USE A MINIMAL AMOUNT OF LUA PRECACHING, AND A MAXIMAL AMOUNT OF DATADRIVEN PRECACHING.
@@ -75,7 +76,6 @@ end
 function Activate()
 	GameMode = GameMode()
 	GameMode:InitGameMode()
-	require('libraries/filters')
 	EntitySpawn()		--Listener for entity spawns
 	EntityKilled()		--Listener for entities killed
 	GameStart()			--Listener for game start (timers)

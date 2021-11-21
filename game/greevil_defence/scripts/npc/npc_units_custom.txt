@@ -168,416 +168,6 @@
 		"VisionNighttimeRange"		"1100"			// Range of vision at night time.
 	}
 	
-	"greevil_ranged_test"
-	{
-		"BaseClass"					"npc_dota_creature"
-		"Model"						"models/courier/greevil/greevil.vmdl"
-		"SoundSet"					"Greevil"
-		"ModelScale"				"1"
-		"Level"						"1"
-
-		// Abilities
-		//----------------------------------------------------------------
-		
-		"Ability1"					""
-
-		// Armor
-		//----------------------------------------------------------------
-		"ArmorPhysical"				"1"
-		"MagicalResistance"			"0"
-
-		// Attack
-		//----------------------------------------------------------------
-		"AttackCapabilities"		"DOTA_UNIT_CAP_RANGED_ATTACK"
-		"AttackDamageMin"			"41"
-		"AttackDamageMax"			"46"
-		"AttackDamageType"			"DAMAGE_TYPE_ArmorPhysical"
-		"AttackRate"				"1"
-		"AttackAnimationPoint"		"0.5"
-		"AttackAcquisitionRange"	"600"
-		"AttackRange"				"500"
-		"ProjectileModel"			"particles/base_attacks/ranged_badguy.vpcf"
-		"ProjectileSpeed"			"900"
-
-		// Attributes
-		//----------------------------------------------------------------
-		"AttributePrimary"			"DOTA_ATTRIBUTE_STRENGTH"
-		"AttributeBaseStrength"		"0"
-		"AttributeStrengthGain"		"0"
-		"AttributeBaseIntelligence"	"0"
-		"AttributeIntelligenceGain"	"0"
-		"AttributeBaseAgility"		"0"
-		"AttributeAgilityGain"		"0"
-
-		// Bounty
-		//----------------------------------------------------------------
-		"BountyXP"					"0"
-		"BountyGoldMin"				"0"
-		"BountyGoldMax"				"0"
-
-		// Bounds
-		//----------------------------------------------------------------
-		"BoundsHullName"			"DOTA_HULL_SIZE_SMALL"			// Hull type used for navigation/locomotion.
-		"RingRadius"				"45"
-		"HealthBarOffset"			"140"
-
-		// Movement
-		//----------------------------------------------------------------
-		"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_GROUND"			// Type of locomotion - ground, air
-		"MovementSpeed"				"325"		// Speed
-		"MovementTurnRate"			"0.5"		// Turning rate.
-
-		// Status
-		//----------------------------------------------------------------
-		"StatusHealth"				"475"		// Base health.
-		"StatusHealthRegen"			"2"			// Health regeneration rate.
-		"StatusMana"				"500"		// Base mana.
-		"StatusManaRegen"			"0.75"		// Mana regeneration rate.
-
-		// Team
-		//----------------------------------------------------------------
-		"CombatClassAttack"			"DOTA_COMBAT_CLASS_ATTACK_PIERCE"
-		"CombatClassDefend"			"DOTA_COMBAT_CLASS_DEFEND_BASIC"
-		"UnitRelationshipClass"		"DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
-		
-		// Vision
-		//----------------------------------------------------------------
-		"VisionDaytimeRange"		"750"		// Range of vision during day light.
-		"VisionNighttimeRange"		"750"		// Range of vision at night time.
-	}
-	
-	
-	////////////////////////////////////////////////////////////////////////////
-	////////////////////////////////////////////////////////////////////////////
-	//// 						Player Greevils 							////
-	////////////////////////////////////////////////////////////////////////////
-	////////////////////////////////////////////////////////////////////////////
-	
-	"greevil_selection"
-	{
-		// General
-		"BaseClass"					"npc_dota_creature"						// Class of entity of link to.
-		"Model"						"models/courier/greevil/greevil.vmdl"	// Model.
-		"SoundSet"					"Greevil"								// Name of sound set.
-		"ModelScale"				"0.9"
-		"MinimapIconSize" 			"250"
-		
-		// Abilities
-		//----------------------------------------------------------------
-		
-		"Ability1"					"red"
-		"Ability2"					"orange"
-		"Ability3"					"yellow"
-		"Ability4"					"green"
-		"Ability5"					"blue"
-		"Ability6"					"purple"
-		"Ability7"					"white"
-		"Ability8"					"black"
-
-		// Armor
-		//----------------------------------------------------------------
-		"ArmorPhysical"				"20"
-		"MagicalResistance"			"25"
-
-		// Attack
-		//----------------------------------------------------------------
-		"AttackCapabilities"		"DOTA_UNIT_CAP_MELEE_ATTACK"
-		"AttackDamageMin"			"0"			// Damage range min.
-		"AttackDamageMax"			"0"			// Damage range max.	
-		"AttackRate"				"0.3"			// Speed of attack.
-		"AttackAnimationPoint"		"0.5"			// Normalized time in animation cycle to attack.
-		"AttackRange"				"50"			// Range within a target can be attacked.
-		
-		// Bounty
-		//----------------------------------------------------------------
-		"BountyXP"                  "0"
-		"BountyGoldMin"             "0"
-		"BountyGoldMax"             "0"
-
-		// Bounds
-		//----------------------------------------------------------------
-		"RingRadius"				"40"
-		"HealthBarOffset"			"110"
-		"BoundsHullName"			"DOTA_HULL_SIZE_REGULAR"	
-
-		// Movement
-		//----------------------------------------------------------------
-		"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_GROUND"			
-		"MovementSpeed"				"180"								
-		"MovementTurnRate"			"0.5"								
-
-		// Status
-		//----------------------------------------------------------------
-		"StatusHealth"				"400"			// Base health.
-		"StatusMana"				"0"				// Base mana.
-		"StatusHealthRegen"			"0"				// Health regeneration rate.
-		"StatusManaRegen"			"0"				// Mana regeneration rate.
-		
-		// Vision
-		//----------------------------------------------------------------
-		"VisionDaytimeRange"		"2000"			// Range of vision during day light.
-		"VisionNighttimeRange"		"2000"			// Range of vision at night time.
-	}
-	
-	"greevil_red_player"
-	{
-		// General
-		"BaseClass"					"npc_dota_creature"						// Class of entity of link to.
-		"Model"						"models/courier/greevil/greevil.vmdl"	// Model.
-		"SoundSet"					"Greevil"								// Name of sound set.
-		"ModelScale"				"1"
-		"ConsideredHero"			"1"
-		"HasInventory"				"1"
-		"MinimapIconSize" 			"250"
-				
-		// Abilities
-		//----------------------------------------------------------------
-		
-		"Ability1"					"greevil_blade_fury_custom"
-		"Ability2"					"greevil_tag_team_custom"
-		"Ability3"					"greevil_berserkers_blood_custom"
-		"Ability4"					"greeil_feast_custom"
-		"Ability5"					"generic_hidden"
-		"Ability6"					"greevil_duel_custom"
-		
-		"precache"
-		{
-			"soundfile"		"soundevents/game_sounds_heroes/game_sounds_juggernaut.vsndevts"
-			"soundfile"		"soundevents/game_sounds_heroes/game_sounds_tusk.vsndevts"
-			"soundfile"		"soundevents/game_sounds_heroes/game_sounds_life_stealer.vsndevts"
-			"soundfile"		"soundevents/game_sounds_heroes/game_sounds_legion_commander.vsndevts"
-		}
-
-		// Armor
-		//----------------------------------------------------------------
-		"ArmorPhysical"				"5"				// Physical protection.
-		"MagicalResistance"			"25"			// Magical protection.
-
-		// Attack
-		//----------------------------------------------------------------
-		"AttackCapabilities"		"DOTA_UNIT_CAP_MELEE_ATTACK"
-		"AttackDamageMin"			"75"			// Damage range min.
-		"AttackDamageMax"			"95"			// Damage range max.	
-		"AttackRate"				"0.8"			// Speed of attack.
-		"AttackAnimationPoint"		"0.5"			// Normalized time in animation cycle to attack.
-		"AttackRange"				"130"			// Range within a target can be attacked.
-
-		// Bounty
-		//----------------------------------------------------------------
-		"BountyXP"                  "200"
-		"BountyGoldMin"             "0"
-		"BountyGoldMax"             "0"
-
-		// Bounds
-		//----------------------------------------------------------------
-		"RingRadius"				"50"
-		"HealthBarOffset"			"120"
-		"BoundsHullName"			"DOTA_HULL_SIZE_REGULAR"	
-
-		// Movement
-		//----------------------------------------------------------------
-		"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_GROUND"
-		"MovementSpeed"				"300"
-		"MovementTurnRate"			"0.5"
-
-		// Status
-		//----------------------------------------------------------------
-		"StatusHealth"				"1200"			// Base health.
-		"StatusMana"				"950"			// Base mana.
-		"StatusHealthRegen"			"8"				// Health regeneration rate.
-		"StatusManaRegen"			"5"				// Mana regeneration rate.
-		
-		// Vision
-		//----------------------------------------------------------------
-		"VisionDaytimeRange"		"1800"			// Range of vision during day light.
-		"VisionNighttimeRange"		"1100"			// Range of vision at night time.
-		
-		// LevelUp
-		//----------------------------------------------------------------
-		"Creature"
-		{
-			"HPGain"					"100"
-			"DamageGain"				"10"
-			"ArmorGain"					"0.4"
-			"MagicResistGain"			"5"
-			"MoveSpeedGain"				"0"
-			"BountyGain"				"10"
-			"XPGain"					"10"
-		}
-		
-	}
-	
-	"greevil_orange_player"
-	{
-		// General
-		"BaseClass"					"npc_dota_creature"						// Class of entity of link to.
-		"Model"						"models/courier/greevil/greevil.vmdl"	// Model.
-		"SoundSet"					"Greevil"								// Name of sound set.
-		"ModelScale"				"1"
-		"ConsideredHero"			"1"
-		"HasInventory"				"1"
-		"MinimapIconSize" 			"250"
-				
-		// Abilities
-		//----------------------------------------------------------------
-		"Ability1"					"greevil_ignite_custom"
-		"Ability2"					"greevil_gods_rebuke_custom"
-		"Ability3"					"greevil_fiery_soul_custom"
-		"Ability4"					"generic_hidden"
-		"Ability5"					"generic_hidden"
-		"Ability6"					"greevil_echo_slam_custom"
-		
-		"precache"
-		{
-			"soundfile"		"soundevents/game_sounds_heroes/game_sounds_ogre_magi.vsndevts"
-			"soundfile"		"soundevents/game_sounds_heroes/game_sounds_mars.vsndevts"
-			"soundfile"		"soundevents/game_sounds_heroes/game_sounds_earthshaker.vsndevts"
-		}
-
-		// Armor
-		//----------------------------------------------------------------
-		"ArmorPhysical"				"5"
-		"MagicalResistance"			"25"
-
-		// Attack
-		//----------------------------------------------------------------
-		"AttackCapabilities"		"DOTA_UNIT_CAP_MELEE_ATTACK"
-		"AttackDamageMin"			"68"			// Damage range min.
-		"AttackDamageMax"			"88"			// Damage range max.	
-		"AttackRate"				"0.8"
-		"AttackAnimationPoint"		"0.5"
-		"AttackRange"				"130"
-
-		// Bounty
-		//----------------------------------------------------------------
-		"BountyXP"                  "200"
-		"BountyGoldMin"             "0"
-		"BountyGoldMax"             "0"
-
-		// Bounds
-		//----------------------------------------------------------------
-		"RingRadius"				"50"
-		"HealthBarOffset"			"120"
-		"BoundsHullName"			"DOTA_HULL_SIZE_REGULAR"	
-
-		// Movement
-		//----------------------------------------------------------------
-		"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_GROUND"
-		"MovementSpeed"				"300"
-		"MovementTurnRate"			"0.5"
-
-		// Status
-		//----------------------------------------------------------------
-		"StatusHealth"				"650"			// Base health.
-		"StatusMana"				"875"			// Base mana.
-		"StatusHealthRegen"			"8"				// Health regeneration rate.
-		"StatusManaRegen"			"10"			// Mana regeneration rate.
-		
-		// Vision
-		//----------------------------------------------------------------
-		"VisionDaytimeRange"		"1800"			// Range of vision during day light.
-		"VisionNighttimeRange"		"1100"			// Range of vision at night time.
-		
-		// LevelUp
-		//----------------------------------------------------------------
-		"Creature"
-		{
-			"HPGain"					"100"
-			"DamageGain"				"10"
-			"ArmorGain"					"0.4"
-			"MagicResistGain"			"5"
-			"MoveSpeedGain"				"0"
-			"BountyGain"				"10"
-			"XPGain"					"10"
-		}
-	}
-	
-	"greevil_yellow_player"
-	{
-		// General
-		"BaseClass"					"npc_dota_creature"						// Class of entity of link to.
-		"Model"						"models/courier/greevil/greevil.vmdl"	// Model.
-		"SoundSet"					"Greevil"								// Name of sound set.
-		"ModelScale"				"1"
-		"ConsideredHero"			"1"
-		"HasInventory"				"1"
-		"MinimapIconSize" 			"250"
-				
-		// Abilities
-		//----------------------------------------------------------------
-		
-		"Ability1"					"greevil_meat_hook_custom"	
-		"Ability2"					"greevil_shadow_wave_custom"
-		"Ability3"					"greevil_summon_turret_custom"
-		"Ability4"					"generic_hidden"
-		"Ability5"					"generic_hidden"
-		"Ability6"					"greevil_poison_nova_custom"
-		
-		"precache"
-		{
-			"soundfile"		"soundevents/game_sounds_heroes/game_sounds_pudge.vsndevts"
-			"soundfile"		"soundevents/game_sounds_heroes/game_sounds_dazzle.vsndevts"
-			"soundfile"		"soundevents/game_sounds_heroes/game_sounds_venomancer.vsndevts"
-		}
-
-		// Armor
-		//----------------------------------------------------------------
-		"ArmorPhysical"				"5"				// Physical protection.
-		"MagicalResistance"			"25"			// Magical protection.
-
-		// Attack
-		//----------------------------------------------------------------
-		"AttackCapabilities"		"DOTA_UNIT_CAP_MELEE_ATTACK"
-		"AttackDamageMin"			"60"			// Damage range min.
-		"AttackDamageMax"			"80"			// Damage range max.	
-		"AttackRate"				"0.8"			// Speed of attack.
-		"AttackAnimationPoint"		"0.5"			// Normalized time in animation cycle to attack.
-		"AttackRange"				"130"			// Range within a target can be attacked.
-
-		// Bounty
-		//----------------------------------------------------------------
-		"BountyXP"                  "200"
-		"BountyGoldMin"             "0"
-		"BountyGoldMax"             "0"
-
-		// Bounds
-		//----------------------------------------------------------------
-		"RingRadius"				"50"
-		"HealthBarOffset"			"120"
-		"BoundsHullName"			"DOTA_HULL_SIZE_REGULAR"	
-
-		// Movement
-		//----------------------------------------------------------------
-		"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_GROUND"
-		"MovementSpeed"				"345"
-		"MovementTurnRate"			"0.5"
-
-		// Status
-		//----------------------------------------------------------------
-		"StatusHealth"				"650"			// Base health.
-		"StatusMana"				"800"			// Base mana.
-		"StatusHealthRegen"			"8"				// Health regeneration rate.
-		"StatusManaRegen"			"5"				// Mana regeneration rate.
-		
-		// Vision
-		//----------------------------------------------------------------
-		"VisionDaytimeRange"		"1800"			// Range of vision during day light.
-		"VisionNighttimeRange"		"1100"			// Range of vision at night time.
-		
-		// LevelUp
-		//----------------------------------------------------------------
-		"Creature"
-		{
-			"HPGain"					"100"
-			"DamageGain"				"10"
-			"ArmorGain"					"0.4"
-			"MagicResistGain"			"5"
-			"MoveSpeedGain"				"0"
-			"BountyGain"				"10"
-			"XPGain"					"10"
-		}
-	}
-	
 	"greevil_turret"
 	{
 		"BaseClass"					"npc_dota_creature"
@@ -631,441 +221,7 @@
 		"StatusHealthRegen"			"0"			// Health regeneration rate.
 		"StatusMana"				"0"		// Base mana.
 		"StatusManaRegen"			"0"		// Mana regeneration rate.
-	}
-	
-	"greevil_green_player"
-	{
-		// General
-		"BaseClass"					"npc_dota_creature"						// Class of entity of link to.
-		"Model"						"models/courier/greevil/greevil.vmdl"	// Model.
-		"SoundSet"					"Greevil"								// Name of sound set.
-		"ModelScale"				"1"
-		"ConsideredHero"			"1"
-		"HasInventory"				"1"
-		"MinimapIconSize" 			"250"
-				
-		// Abilities
-		//----------------------------------------------------------------
-		
-		"Ability1"					"greevil_shackleshot_custom"
-		"Ability2"					"greevil_overgrowth_custom"
-		"Ability3"					"greevil_natures_attendants_custom"
-		"Ability4"					"generic_hidden"
-		"Ability5"					"generic_hidden"
-		"Ability6"					"greevil_earth_splitter"
-		
-		"precache"
-		{
-			"soundfile"		"soundevents/game_sounds_heroes/game_sounds_windrunner.vsndevts"
-			"soundfile"		"soundevents/game_sounds_heroes/game_sounds_treant.vsndevts"
-			"soundfile"		"soundevents/game_sounds_heroes/game_sounds_enchantress.vsndevts"
-			"soundfile"		"soundevents/game_sounds_heroes/game_sounds_elder_titan.vsndevts"
-		}
-
-		// Armor
-		//----------------------------------------------------------------
-		"ArmorPhysical"				"5"				// Physical protection.
-		"MagicalResistance"			"25"			// Magical protection.
-
-		// Attack
-		//----------------------------------------------------------------
-		"AttackCapabilities"		"DOTA_UNIT_CAP_MELEE_ATTACK"
-		"AttackDamageMin"			"60"			// Damage range min.
-		"AttackDamageMax"			"80"			// Damage range max.	
-		"AttackRate"				"0.8"			// Speed of attack.
-		"AttackAnimationPoint"		"0.5"			// Normalized time in animation cycle to attack.
-		"AttackRange"				"130"			// Range within a target can be attacked.
-
-		// Bounty
-		//----------------------------------------------------------------
-		"BountyXP"                  "200"
-		"BountyGoldMin"             "0"
-		"BountyGoldMax"             "0"
-
-		// Bounds
-		//----------------------------------------------------------------
-		"RingRadius"				"50"
-		"HealthBarOffset"			"120"
-		"BoundsHullName"			"DOTA_HULL_SIZE_REGULAR"	
-
-		// Movement
-		//----------------------------------------------------------------
-		"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_GROUND"
-		"MovementSpeed"				"323"
-		"MovementTurnRate"			"0.5"
-
-		// Status
-		//----------------------------------------------------------------
-		"StatusHealth"				"650"			// Base health.
-		"StatusMana"				"600"			// Base mana.
-		"StatusHealthRegen"			"8"				// Health regeneration rate.
-		"StatusManaRegen"			"6"			// Mana regeneration rate.
-		
-		// Vision
-		//----------------------------------------------------------------
-		"VisionDaytimeRange"		"1800"			// Range of vision during day light.
-		"VisionNighttimeRange"		"1100"			// Range of vision at night time.
-		
-		// LevelUp
-		//----------------------------------------------------------------
-		"Creature"
-		{
-			"HPGain"					"100"
-			"DamageGain"				"10"
-			"ArmorGain"					"0.4"
-			"MagicResistGain"			"5"
-			"MoveSpeedGain"				"0"
-			"BountyGain"				"10"
-			"XPGain"					"10"
-		}
-	}
-	
-	"greevil_blue_player"
-	{
-		// General
-		"BaseClass"					"npc_dota_creature"						// Class of entity of link to.
-		"Model"						"models/courier/greevil/greevil.vmdl"	// Model.
-		"SoundSet"					"Greevil"								// Name of sound set.
-		"ModelScale"				"1"
-		"ConsideredHero"			"1"
-		"HasInventory"				"1"
-		"MinimapIconSize" 			"250"
-				
-		// Abilities
-		//----------------------------------------------------------------
-		
-		"Ability1"                  "greevil_magic_missile_custom"
-		"Ability2"					"greevil_frost_armor_custom"
-		"Ability3"					"greevil_chain_frost_player_custom"
-		//"Ability4"				"shivas_ability_custom"
-		"Ability4"					"greevil_brilliance_aura_custom"
-		"Ability5"					"generic_hidden"
-		"Ability6"					"greevil_freezing_field_custom"
-		
-		"precache"
-		{
-			"soundfile"		"soundevents/game_sounds_heroes/game_sounds_vengefulspirit.vsndevts"
-			"soundfile"		"soundevents/game_sounds_heroes/game_sounds_lich.vsndevts"
-			"soundfile"		"soundevents/game_sounds_heroes/game_sounds_crystalmaiden.vsndevts"
-		}
-
-		// Armor
-		//----------------------------------------------------------------
-		"ArmorPhysical"				"0"				// Physical protection.
-		"MagicalResistance"			"25"			// Magical protection.
-
-		// Attack
-		//----------------------------------------------------------------
-		"AttackCapabilities"		"DOTA_UNIT_CAP_MELEE_ATTACK"
-		"AttackDamageMin"			"60"			// Damage range min.
-		"AttackDamageMax"			"80"			// Damage range max.	
-		"AttackRate"				"0.8"			// Speed of attack.
-		"AttackAnimationPoint"		"0.5"			// Normalized time in animation cycle to attack.
-		"AttackRange"				"130"			// Range within a target can be attacked.
-
-		// Bounty
-		//----------------------------------------------------------------
-		"BountyXP"                  "200"
-		"BountyGoldMin"             "0"
-		"BountyGoldMax"             "0"
-
-		// Bounds
-		//----------------------------------------------------------------
-		"RingRadius"				"50"
-		"HealthBarOffset"			"120"
-		"BoundsHullName"			"DOTA_HULL_SIZE_REGULAR"	
-
-		// Movement
-		//----------------------------------------------------------------
-		"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_GROUND"
-		"MovementSpeed"				"300"
-		"MovementTurnRate"			"0.5"
-
-		// Status
-		//----------------------------------------------------------------
-		"StatusHealth"				"800"			// Base health.
-		"StatusMana"				"800"			// Base mana.
-		"StatusHealthRegen"			"8"				// Health regeneration rate.
-		"StatusManaRegen"			"15"			// Mana regeneration rate.
-		
-		// Vision
-		//----------------------------------------------------------------
-		"VisionDaytimeRange"		"1800"			// Range of vision during day light.
-		"VisionNighttimeRange"		"1100"			// Range of vision at night time.
-		
-		// LevelUp
-		//----------------------------------------------------------------
-		"Creature"
-		{
-			"HPGain"					"100"
-			"DamageGain"				"10"
-			"ArmorGain"					"0.4"
-			"MagicResistGain"			"5"
-			"MoveSpeedGain"				"0"
-			"BountyGain"				"10"
-			"XPGain"					"10"
-		}
-	}
-	
-	"greevil_purple_player"
-	{
-		// General
-		"BaseClass"					"npc_dota_creature"						// Class of entity of link to.
-		"Model"						"models/courier/greevil/greevil.vmdl"	// Model.
-		"SoundSet"					"Greevil"								// Name of sound set.
-		"ModelScale"				"1"
-		"ConsideredHero"			"1"
-		"HasInventory"				"1"
-		"MinimapIconSize" 			"250"
-				
-		// Abilities
-		//----------------------------------------------------------------
-		
-		"Ability1"					"greevil_split_earth_custom"
-		"Ability2"					"greevil_demonic_purge_custom"
-		"Ability3"					"greevil_pulse_nova_custom"
-		"Ability4"					"greevil_astral_step_custom"
-		"Ability5"					"generic_hidden"
-		"Ability6"					"greevil_bramble_maze_custom"
-		
-		"precache"
-		{
-			"soundfile"		"soundevents/game_sounds_heroes/game_sounds_leshrac.vsndevts"
-			"soundfile"		"soundevents/game_sounds_heroes/game_sounds_shadow_demon.vsndevts"
-			"soundfile"		"soundevents/game_sounds_heroes/game_sounds_void_spirit.vsndevts"
-			"soundfile"		"soundevents/game_sounds_heroes/game_sounds_dark_willow.vsndevts"
-		}
-
-		// Armor
-		//----------------------------------------------------------------
-		"ArmorPhysical"				"5"				// Physical protection.
-		"MagicalResistance"			"25"			// Magical protection.
-
-		// Attack
-		//----------------------------------------------------------------
-		"AttackCapabilities"		"DOTA_UNIT_CAP_MELEE_ATTACK"
-		"AttackDamageMin"			"68"			// Damage range min.
-		"AttackDamageMax"			"88"			// Damage range max.	
-		"AttackRate"				"0.8"			// Speed of attack.
-		"AttackAnimationPoint"		"0.5"			// Normalized time in animation cycle to attack.
-		"AttackRange"				"130"			// Range within a target can be attacked.
-
-		// Bounty
-		//----------------------------------------------------------------
-		"BountyXP"                  "200"
-		"BountyGoldMin"             "0"
-		"BountyGoldMax"             "0"
-
-		// Bounds
-		//----------------------------------------------------------------
-		"RingRadius"				"50"
-		"HealthBarOffset"			"120"
-		"BoundsHullName"			"DOTA_HULL_SIZE_REGULAR"	
-
-		// Movement
-		//----------------------------------------------------------------
-		"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_GROUND"
-		"MovementSpeed"				"300"
-		"MovementTurnRate"			"0.5"
-
-		// Status
-		//----------------------------------------------------------------
-		"StatusHealth"				"720"			// Base health.
-		"StatusMana"				"875"			// Base mana.
-		"StatusHealthRegen"			"8"				// Health regeneration rate.
-		"StatusManaRegen"			"9.5"			// Mana regeneration rate.
-		
-		// Vision
-		//----------------------------------------------------------------
-		"VisionDaytimeRange"		"1800"			// Range of vision during day light.
-		"VisionNighttimeRange"		"1100"			// Range of vision at night time.
-		
-		// LevelUp
-		//----------------------------------------------------------------
-		"Creature"
-		{
-			"HPGain"					"100"
-			"DamageGain"				"10"
-			"ArmorGain"					"0.4"
-			"MagicResistGain"			"5"
-			"MoveSpeedGain"				"0"
-			"BountyGain"				"10"
-			"XPGain"					"10"
-		}
-	}
-	
-	"greevil_white_player"
-	{
-		// General
-		"BaseClass"					"npc_dota_creature"						// Class of entity of link to.
-		"Model"						"models/courier/greevil/greevil.vmdl"	// Model.
-		"SoundSet"					"Greevil"								// Name of sound set.
-		"ModelScale"				"1"
-		"ConsideredHero"			"1"
-		"HasInventory"				"1"
-		"MinimapIconSize" 			"250"
-				
-		// Abilities
-		//----------------------------------------------------------------
-		
-		"Ability1"					"greevil_purification_custom"
-		"Ability2"					"greevil_dream_coil_custom"
-		"Ability3"					"greevil_overcharge_custom"
-		"Ability4"					"generic_hidden"
-		"Ability5"					"generic_hidden"
-		"Ability6"					"greevil_guardian_angel_custom"
-		
-		"precache"
-		{
-			"soundfile"		"soundevents/game_sounds_heroes/game_sounds_omniknight.vsndevts"
-			"soundfile"		"soundevents/game_sounds_heroes/game_sounds_puck.vsndevts"
-			"soundfile"		"soundevents/game_sounds_heroes/game_sounds_wisp.vsndevts"
-		}
-
-		// Armor
-		//----------------------------------------------------------------
-		"ArmorPhysical"				"10"			// Physical protection.
-		"MagicalResistance"			"35"			// Magical protection.
-
-		// Attack
-		//----------------------------------------------------------------
-		"AttackCapabilities"		"DOTA_UNIT_CAP_MELEE_ATTACK"
-		"AttackDamageMin"			"75"			// Damage range min.
-		"AttackDamageMax"			"85"			// Damage range max.	
-		"AttackRate"				"4.0"			// Speed of attack.
-		"AttackAnimationPoint"		"0.5"			// Normalized time in animation cycle to attack.
-		"AttackRange"				"130"			// Range within a target can be attacked.
-
-		// Bounty
-		//----------------------------------------------------------------
-		"BountyXP"                  "200"
-		"BountyGoldMin"             "0"
-		"BountyGoldMax"             "0"
-
-		// Bounds
-		//----------------------------------------------------------------
-		"RingRadius"				"50"
-		"HealthBarOffset"			"120"
-		"BoundsHullName"			"DOTA_HULL_SIZE_REGULAR"	
-
-		// Movement
-		//----------------------------------------------------------------
-		"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_GROUND"			// Type of locomotion - ground, air
-		"MovementSpeed"				"315"								// Speed
-		"MovementTurnRate"			"0.5"								// Turning rate.
-
-		// Status
-		//----------------------------------------------------------------
-		"StatusHealth"				"700"			// Base health.
-		"StatusMana"				"850"			// Base mana.
-		"StatusHealthRegen"			"0"			// Health regeneration rate.
-		"StatusManaRegen"			"4"				// Mana regeneration rate.
-		
-		// Vision
-		//----------------------------------------------------------------
-		"VisionDaytimeRange"		"1800"			// Range of vision during day light.
-		"VisionNighttimeRange"		"1100"			// Range of vision at night time.
-		
-		// LevelUp
-		//----------------------------------------------------------------
-		"Creature"
-		{
-			"HPGain"					"100"
-			"DamageGain"				"10"
-			"ArmorGain"					"0.4"
-			"MagicResistGain"			"5"
-			"MoveSpeedGain"				"0"
-			"BountyGain"				"10"
-			"XPGain"					"10"
-		}
-	}
-	
-	"greevil_black_player"
-	{
-		// General
-		"BaseClass"					"npc_dota_creature"						// Class of entity of link to.
-		"Model"						"models/courier/greevil/greevil.vmdl"	// Model.
-		"SoundSet"					"Greevil"
-		"ConsideredHero"			"1"
-		"HasInventory"				"1"
-		"MinimapIconSize" 			"250"
-				
-		// Abilities
-		//----------------------------------------------------------------
-		
-		"Ability1"					"greevil_brain_sap_custom"
-		"Ability2"					"greevil_devour"
-		"Ability3"					"greevil_possession"
-		"Ability4"					"generic_hidden"
-		"Ability5"					"generic_hidden"
-		"Ability6"					"greevil_pact_custom"
-		
-		"precache"
-		{
-			"soundfile"		"soundevents/game_sounds_heroes/game_sounds_bane.vsndevts"
-			"soundfile"		"soundevents/game_sounds_heroes/game_sounds_doombringer.vsndevts"
-			"soundfile"		"soundevents/game_sounds_heroes/game_sounds_enchantress.vsndevts"
-			"soundfile"		"soundevents/game_sounds_heroes/game_sounds_slark.vsndevts"
-		}
-		
-		// Armor
-		//----------------------------------------------------------------
-		"ArmorPhysical"				"10"			// Physical protection.
-		"MagicalResistance"			"15"			// Magical protection.
-
-		// Attack
-		//----------------------------------------------------------------
-		"AttackCapabilities"		"DOTA_UNIT_CAP_MELEE_ATTACK"
-		"AttackDamageMin"			"90"			// Damage range min.
-		"AttackDamageMax"			"110"			// Damage range max.	
-		"AttackRate"				"1.8"			// Speed of attack.
-		"AttackAnimationPoint"		"0.5"			// Normalized time in animation cycle to attack.
-		"AttackRange"				"130"			// Range within a target can be attacked.
-
-		// Bounty
-		//----------------------------------------------------------------
-		"BountyXP"                  "200"
-		"BountyGoldMin"             "0"
-		"BountyGoldMax"             "0"
-
-		// Bounds
-		//----------------------------------------------------------------
-		"RingRadius"				"60"
-		"HealthBarOffset"			"130"
-		"BoundsHullName"			"DOTA_HULL_SIZE_REGULAR"	
-
-		// Movement
-		//----------------------------------------------------------------
-		"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_GROUND"
-		"MovementSpeed"				"315"
-		"MovementTurnRate"			"0.5"
-
-		// Status
-		//----------------------------------------------------------------
-		"StatusHealth"				"950"			// Base health.
-		"StatusMana"				"1000"				// Base mana.
-		"StatusHealthRegen"			"10"			// Health regeneration rate.
-		"StatusManaRegen"			"0"				// Mana regeneration rate.
-		
-		// Vision
-		//----------------------------------------------------------------
-		"VisionDaytimeRange"		"1500"			// Range of vision during day light.
-		"VisionNighttimeRange"		"1800"			// Range of vision at night time.
-		
-		// LevelUp
-		//----------------------------------------------------------------
-		"Creature"
-		{
-			"HPGain"					"100"
-			"DamageGain"				"10"
-			"ArmorGain"					"0.4"
-			"MagicResistGain"			"5"
-			"MoveSpeedGain"				"0"
-			"BountyGain"				"10"
-			"XPGain"					"10"
-		}
-	}
-	
+	}	
 	
 	////////////////////////////////////////////////////////////////////////////
 	////////////////////////////////////////////////////////////////////////////
@@ -5205,7 +4361,7 @@
 		// Abilities
 		//----------------------------------------------------------------
 		
-		"Ability1"					"greevil_blade_fury_custom"
+		"Ability1"					"greevil_mines_custom"
 		"Ability2"					"greevil_tag_team_custom"
 		"Ability3"					"greevil_berserkers_blood_custom"
 		"Ability4"					"greeil_feast_custom"
@@ -5228,7 +4384,7 @@
 
 		// Bounty
 		//----------------------------------------------------------------
-		"BountyXP"                  "200"
+		"BountyXP"                  "0"
 		"BountyGoldMin"             "0"
 		"BountyGoldMax"             "0"
 
@@ -5306,7 +4462,7 @@
 
 		// Bounty
 		//----------------------------------------------------------------
-		"BountyXP"                  "200"
+		"BountyXP"                  "0"
 		"BountyGoldMin"             "0"
 		"BountyGoldMax"             "0"
 
@@ -5385,7 +4541,7 @@
 
 		// Bounty
 		//----------------------------------------------------------------
-		"BountyXP"                  "200"
+		"BountyXP"                  "0"
 		"BountyGoldMin"             "0"
 		"BountyGoldMax"             "0"
 
@@ -5444,7 +4600,7 @@
 		"Ability1"					"greevil_shackleshot_custom"
 		"Ability2"					"greevil_overgrowth_custom"
 		"Ability3"					"greevil_natures_attendants_custom"
-		"Ability4"					"generic_hidden"
+		"Ability4"					"greevil_natural_order_custom"
 		"Ability5"					"generic_hidden"
 		"Ability6"					"greevil_earth_splitter"
 
@@ -5464,7 +4620,7 @@
 
 		// Bounty
 		//----------------------------------------------------------------
-		"BountyXP"                  "200"
+		"BountyXP"                  "0"
 		"BountyGoldMin"             "0"
 		"BountyGoldMax"             "0"
 
@@ -5544,7 +4700,7 @@
 
 		// Bounty
 		//----------------------------------------------------------------
-		"BountyXP"                  "200"
+		"BountyXP"                  "0"
 		"BountyGoldMin"             "0"
 		"BountyGoldMax"             "0"
 
@@ -5623,7 +4779,7 @@
 
 		// Bounty
 		//----------------------------------------------------------------
-		"BountyXP"                  "200"
+		"BountyXP"                  "0"
 		"BountyGoldMin"             "0"
 		"BountyGoldMax"             "0"
 
@@ -5702,7 +4858,7 @@
 
 		// Bounty
 		//----------------------------------------------------------------
-		"BountyXP"                  "200"
+		"BountyXP"                  "0"
 		"BountyGoldMin"             "0"
 		"BountyGoldMax"             "0"
 
@@ -5780,7 +4936,7 @@
 
 		// Bounty
 		//----------------------------------------------------------------
-		"BountyXP"                  "200"
+		"BountyXP"                  "0"
 		"BountyGoldMin"             "0"
 		"BountyGoldMax"             "0"
 

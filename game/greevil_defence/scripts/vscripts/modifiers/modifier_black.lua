@@ -47,6 +47,9 @@ function OnUsed(keys)
 
 	local particle1 = ParticleManager:CreateParticle("particles/econ/courier/courier_greevil_black/courier_greevil_black_ambient_1.vpcf", PATTACH_ABSORIGIN_FOLLOW, caster)
 	local particle2 = ParticleManager:CreateParticle("particles/econ/courier/courier_greevil_black/courier_greevil_black_ambient_3_a.vpcf", PATTACH_ABSORIGIN_FOLLOW, caster)
+	local particle3 = ParticleManager:CreateParticle("particles/econ/courier/courier_babyroshan_ti10/courier_babyroshan_ti10_dire_ambient_smoke_c.vpcf", PATTACH_ABSORIGIN_FOLLOW, caster)
+	local particle3 = ParticleManager:CreateParticle("particles/econ/courier/courier_babyroshan_ti10/courier_babyroshan_ti10_dire_ambient_smoke_a.vpcf", PATTACH_ABSORIGIN_FOLLOW, caster)
+	local particle4 = ParticleManager:CreateParticle("particles/econ/courier/courier_babyroshan_ti10/courier_babyroshan_ti10_dire_ambient_hallucination.vpcf", PATTACH_ABSORIGIN_FOLLOW, caster)
 
     EmitSoundOn("DOTA_Item.Sheepstick.Activate", caster)
 end

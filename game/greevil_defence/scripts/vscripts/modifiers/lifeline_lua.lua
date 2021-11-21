@@ -4,7 +4,7 @@ function lifeline_lua:OnDestroy()
 	ApplyDamage({
 	victim = self:GetParent(),
 	attacker = self:GetCaster(),
-	damage = self:GetParent():GetHealth(),
+	damage = 99999,
 	damage_type = DAMAGE_TYPE_PURE,
 	})
 end

@@ -54,6 +54,22 @@ function GameMode:OrderFilter(filter_table)
 		local caster = EntIndexToHScript(units["0"])
 	end
 
+	--[[
+	if order == DOTA_UNIT_ORDER_PURCHASE_ITEM then
+		print("purchased")
+		for k,v in pairs(filter_table) do
+			print(k,v)
+			if type(v) == "table" then
+				print("table")
+				for k2,v2 in pairs(v) do
+					print(k2,v2)
+				end
+				print("done with table")
+			end
+        end
+	end
+	--]]
+
 	if order == DOTA_UNIT_ORDER_ATTACK_TARGET then
 		if EntIndexToHScript(filter_table.entindex_target):GetModelName() == "models/props_structures/gate_entrance002.vmdl" then
 			filter_table.order_type = DOTA_UNIT_ORDER_MOVE_TO_TARGET
@@ -77,6 +93,7 @@ function GameMode:OrderFilter(filter_table)
 			end
 		elseif EntIndexToHScript(filter_table.entindex_target):GetModelName() == "models/props_structures/good_barracks001_destruction.vmdl" then
 			filter_table.order_type = DOTA_UNIT_ORDER_MOVE_TO_TARGET
+			print(filter_table.order_type)
 			local jump = EntIndexToHScript(filter_table.entindex_target)
 			local hero = PlayerResource:GetSelectedHeroEntity(filter_table.issuer_player_id_const)
 			local jumppos = jump:GetAbsOrigin()

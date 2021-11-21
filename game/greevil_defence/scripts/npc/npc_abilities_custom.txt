@@ -601,28 +601,30 @@
 	///Player Greevil Abilities
 	//////
 	
-	"greevil_blade_fury_custom"
+	"greevil_mines_custom"
 	{
-		"BaseClass"						"juggernaut_blade_fury"
+		"BaseClass"						"techies_land_mines"
 		
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
-		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"	
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
 		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
-		"SpellDispellableType"			"SPELL_DISPELLABLE_NO"
+		"HasScepterUpgrade"				"1"
 		"MaxLevel"						"3"
-	
+
 		// Casting
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCastRange"				"0"
-		"AbilityCastPoint"				"0"
-
+		"AbilityCastRange"				"100"
+		"AbilityCastPoint"				"0.0"
+		
 		// Time		
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"18 16 14"
-
+		"AbilityCooldown"				"0"
+		"AbilityCharges"				"3"
+		"AbilityChargeRestoreTime"		"18"
+	
 		// Cost
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"				"120 140 160"		
+		"AbilityManaCost"				"150 170 190"
 
 		// Special
 		//-------------------------------------------------------------------------------------------------------------
@@ -630,26 +632,48 @@
 		{
 			"01"
 			{
-				"var_type"					"FIELD_FLOAT"
-				"blade_fury_damage_tick"	"0.2"
+				"var_type"					"FIELD_INTEGER"
+				"radius"					"450"
 			}
 			"02"
 			{
-				"var_type"					"FIELD_INTEGER"
-				"blade_fury_radius"			"250"
+				"var_type"					"FIELD_FLOAT"
+				"proximity_threshold"		"1.6"
 			}
 			"03"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"blade_fury_damage"			"120 150 180"
-				"LinkedSpecialBonus"        "special_bonus_unique_juggernaut_3"
+				"damage"					"250 375 500"
 			}
 			"04"
 			{
 				"var_type"					"FIELD_FLOAT"
-				"duration"					"5.0"
+				"burn_duration"				"3"
+			}	
+			"05"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"building_damage_pct"		"30"
+			}	
+			"06"
+			{
+				"var_type"					"FIELD_FLOAT"
+				"activation_delay"			"0.3"
+			}
+			"07"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"cast_range_scepter_bonus"	"300"
+				"RequiresScepter"			"1"
+			}
+			"08"
+			{
+				"var_type"					"FIELD_FLOAT"
+				"AbilityChargeRestoreTime"	""
+				"LinkedSpecialBonus"		"special_bonus_unique_techies_3"
 			}
 		}
+		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_1"
 	}
 	
 	"greevil_tag_team_custom"
@@ -814,17 +838,17 @@
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"charges_per_flurry"	"2 1"
+				"charges_per_flurry"	"3 2"
 			}
 			"03"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"flurry_bonus_attack_speed"	"80"
+				"flurry_bonus_attack_speed"	"0"
 			}
 			"04"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"time_between_flurries"	"0.8 0.7"
+				"time_between_flurries"	"0.0"
 			}
 			"05"
 			{
@@ -834,12 +858,12 @@
 			"06"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"pulse_debuff_duration"	"1.0"
+				"pulse_debuff_duration"	"0.5"
 			}
 			"07"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"pulse_damage"			"200"
+				"pulse_damage"			"60"
 			}
 			"08"
 			{
@@ -864,7 +888,7 @@
 			"12"
 			{
 				"var_type"						"FIELD_FLOAT"
-				"recovery_fixed_attack_rate"	"2.0"
+				"recovery_fixed_attack_rate"	"0.1"
 			}
 		}
 		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_4"
@@ -1620,7 +1644,7 @@
 			"04"
 			{
 				"var_type"						"FIELD_INTEGER"
-				"damage"						"130 140 150"
+				"damage"						"120 130 140"
 				"LinkedSpecialBonus"			"special_bonus_unique_treant_11"
 			}
 		}
@@ -1642,7 +1666,7 @@
 		
 		// Time		
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"25"
+		"AbilityCooldown"				"22 20 18"
 		"AbilityDuration"				"10"
 
 		
@@ -1673,6 +1697,39 @@
 			{
 				"var_type"				"FIELD_INTEGER"
 				"wisp_count"			"6"
+			}
+		}
+	}
+
+	"greevil_natural_order_custom"
+	{
+		"BaseClass"						"elder_titan_natural_order"
+		
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_AURA"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
+ 		"AbilityCastAnimation"			"ACT_INVALID"
+		"MaxLevel"						"3"
+		
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"radius"					"400"
+			}
+			"02"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"armor_reduction_pct"	    "33 66 100"
+			}
+			"03"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"magic_resistance_pct"		"0"
 			}
 		}
 	}
@@ -1880,7 +1937,7 @@
 			}		
 		}
 	}
-	
+
 	"greevil_chain_frost_player_custom"
 	{
 		"BaseClass"						"lich_chain_frost"
@@ -1895,6 +1952,8 @@
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
 		"MaxLevel"						"3"
 		"AbilitySound"					"Hero_Lich.ChainFrost"
+
+		"AbilityDraftUltShardAbility"		"lich_ice_spire"
 
 		
 		// Casting
@@ -1923,6 +1982,7 @@
 			{
 				"var_type"				"FIELD_INTEGER"
 				"damage"				"20"
+				"LinkedSpecialBonus"		"special_bonus_unique_lich_7"
 			}
 			"02"
 			{
@@ -1932,7 +1992,7 @@
 			"03"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"jump_range"			"800"
+				"jump_range"			"600"
 			}			
 			"04"
 			{
@@ -1952,7 +2012,7 @@
 			"07"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"projectile_speed"		"1200"
+				"projectile_speed"		"850"
 			}
 			"08"
 			{	
@@ -1963,6 +2023,11 @@
 			{
 				"var_type"				"FIELD_INTEGER"
 				"bonus_jump_damage"		"2 3 4"
+			}
+			"10"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"initial_projectile_speed"		"1050"
 			}
 		}			
 	}
@@ -2985,17 +3050,17 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"duration"				"20.0"
+				"duration"				"25.0"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"transformation_time"	"1.5"
+				"transformation_time"	"0.8"
 			}
 			"03"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"base_attack_time"		"0.9 0.8"
+				"base_attack_time"		"0.8 0.7"
 				"LinkedSpecialBonus"		"special_bonus_unique_alchemist_3"
 			}
 			"04"
@@ -3006,18 +3071,18 @@
 			"05"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"bonus_health_regen"	"60 90"
+				"bonus_health_regen"	"75 100"
 				"LinkedSpecialBonus"		"special_bonus_unique_alchemist_4"
 			}
 			"06"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"bonus_mana_regen"		"80 120"
+				"bonus_mana_regen"		"100 120"
 			}
 			"07"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"bonus_movespeed"		"30 40"
+				"bonus_movespeed"		"40 60"
 				"LinkedSpecialBonus"		"special_bonus_unique_alchemist_6"
 			}
 			"08"

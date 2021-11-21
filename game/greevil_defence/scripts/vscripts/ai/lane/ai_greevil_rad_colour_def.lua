@@ -17,7 +17,7 @@ function GreevilThink()
 		return GreevilThink
 	end
 	
-	local position = Vector(-6928, -2896, 304) + (Vector(RandomInt(0,1056), RandomInt(0,944), 0))
+	local position = Vector(-6928, -2896, 304) + (Vector(RandomInt(0,1056), RandomInt(0,300), 0))
 	thisEntity:MoveToPositionAggressive(position)
 	GreevilThink = RandomInt(5,10)
 	return GreevilThink

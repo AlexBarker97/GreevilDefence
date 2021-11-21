@@ -41,7 +41,7 @@ function OnUsed(keys)
 	caster:AddAbility("greevil_shackleshot_custom")
 	caster:AddAbility("greevil_overgrowth_custom")
 	caster:AddAbility("greevil_natures_attendants_custom")
-	caster:AddAbility("generic_hidden")
+	caster:AddAbility("greevil_natural_order_custom")
 	caster:AddAbility("generic_hidden")
 	caster:AddAbility("greevil_earth_splitter")
 

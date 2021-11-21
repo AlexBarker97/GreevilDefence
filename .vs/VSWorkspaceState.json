@@ -4,12 +4,12 @@
     "\\game",
     "\\game\\greevil_defence",
     "\\game\\greevil_defence\\scripts",
+    "\\game\\greevil_defence\\scripts\\npc",
     "\\game\\greevil_defence\\scripts\\vscripts",
-    "\\game\\greevil_defence\\scripts\\vscripts\\ai",
-    "\\game\\greevil_defence\\scripts\\vscripts\\ai\\attackboss",
-    "\\game\\greevil_defence\\scripts\\vscripts\\libraries",
+    "\\game\\greevil_defence\\scripts\\vscripts\\customability",
+    "\\game\\greevil_defence\\scripts\\vscripts\\events",
     "\\game\\greevil_defence\\scripts\\vscripts\\modifiers"
   ],
-  "SelectedNode": "\\game\\greevil_defence\\scripts\\vscripts\\libraries\\filters.lua",
+  "SelectedNode": "\\game\\greevil_defence\\scripts\\vscripts\\events\\trigger_shrine.lua",
   "PreviewInSolutionExplorer": false
 }

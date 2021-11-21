@@ -1,5 +1,5 @@
+--When the whiteboss casts an ability this script is called with the corresponding functions to the ability cast
 if whiteboss == nil then
-	print ( '[WhiteBoss] creating whiteboss lua' )
 	whiteboss = {}
 	whiteboss.__index = whiteboss
 end

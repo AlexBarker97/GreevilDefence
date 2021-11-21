@@ -116,6 +116,7 @@ function GameMode:InitGameMode()
 	GameRules:SetHeroMinimapIconScale( MINIMAP_ICON_SIZE )
 	GameRules:SetCreepMinimapIconScale( MINIMAP_CREEP_ICON_SIZE )
 	GameRules:SetRuneMinimapIconScale( MINIMAP_RUNE_ICON_SIZE )
+	GameRules:GetGameModeEntity():SetCustomGameForceHero("npc_dota_hero_beastmaster")
 	print('GameRules set')
 
 	-- Listeners - Event Hooks
@@ -304,7 +305,6 @@ end
 ]]
 function GameMode:OnHeroInGame(hero)
 
-	hero.greevil = nil
 	-- Store a reference to the player handle inside this hero handle.
 	hero.player = PlayerResource:GetPlayer(hero:GetPlayerID())
 	-- Store the player's name inside this hero handle.
@@ -314,12 +314,6 @@ function GameMode:OnHeroInGame(hero)
 
 	-- This line for example will set the starting gold of every hero to 500 unreliable gold
 	hero:SetGold(0, false)
-
-	-- These lines will create an item and add it to the player, effectively ensuring they start with the item
-	if hero:IsRealHero() and hero.greevil == nil then
-		--local item = CreateItem("item_selection_whistle", hero, hero)
-		--hero:AddItem(item)
-	end
 	
 end
 
@@ -511,7 +505,7 @@ function GameMode:OnItemPurchased(keys)
 	elseif item_name == "item_blue_egg_def" then
 		if PlayerResource:GetTeam(playerID) == 2 then
 			if DefenceGreevil.Radiant.Blue == 0 then
-				location = (Vector(-6928, -2896, 304)) + (Vector(RandomInt(0,1056),RandomInt(0,944), 0))
+				location = (Vector(-6928, -4000, 304)) + (Vector(RandomInt(0,1056),RandomInt(0,944), 0))
 				local unit = CreateUnitByName("greevil_blue_rad_def", location, true, nil, nil, DOTA_TEAM_GOODGUYS)
 				DefenceGreevil.Radiant.Blue = 1
 			elseif DefenceGreevil.Radiant.Blue == 1 then
@@ -520,7 +514,7 @@ function GameMode:OnItemPurchased(keys)
 			end
 		else
 			if DefenceGreevil.Dire.Blue == 0 then
-				location = (Vector(5872, -2896, 304)) + (Vector(RandomInt(0,1056),RandomInt(0,944), 0))
+				location = (Vector(5872, -4000, 304)) + (Vector(RandomInt(0,1056),RandomInt(0,944), 0))
 				local unit = CreateUnitByName("greevil_blue_dire_def", location, true, nil, nil, DOTA_TEAM_BADGUYS)
 				DefenceGreevil.Dire.Blue = 1
 			elseif DefenceGreevil.Dire.Blue == 1 then
@@ -533,7 +527,7 @@ function GameMode:OnItemPurchased(keys)
 	elseif item_name == "item_green_egg_def" then
 		if PlayerResource:GetTeam(playerID) == 2 then
 			if DefenceGreevil.Radiant.Green == 0 then
-				location = (Vector(-6928, -2896, 304)) + (Vector(RandomInt(0, 1056),RandomInt(0, 944), 0))
+				location = (Vector(-6928, -4000, 304)) + (Vector(RandomInt(0, 1056),RandomInt(0, 944), 0))
 				local unit = CreateUnitByName("greevil_green_rad_def", location, true, nil, nil, DOTA_TEAM_GOODGUYS)
 			DefenceGreevil.Radiant.Green = 1
 			elseif DefenceGreevil.Radiant.Green == 1 then
@@ -542,7 +536,7 @@ function GameMode:OnItemPurchased(keys)
 			end
 		else
 			if DefenceGreevil.Dire.Green == 0 then
-				location = (Vector(5872, -2896, 304)) + (Vector(RandomInt(0, 1056),RandomInt(0, 944), 0))
+				location = (Vector(5872, -4000, 304)) + (Vector(RandomInt(0, 1056),RandomInt(0, 944), 0))
 				local unit = CreateUnitByName("greevil_green_dire_def", location, true, nil, nil, DOTA_TEAM_BADGUYS)
 			DefenceGreevil.Dire.Green = 1
 			elseif DefenceGreevil.Dire.Green == 1 then
@@ -555,7 +549,7 @@ function GameMode:OnItemPurchased(keys)
 	elseif item_name == "item_yellow_egg_def" then
 		if PlayerResource:GetTeam(playerID) == 2 then
 			if DefenceGreevil.Radiant.Yellow == 0 then
-				location = (Vector(-6928, -2896, 304)) + (Vector(RandomInt(0, 1056),RandomInt(0, 944), 0))
+				location = (Vector(-6928, -4000, 304)) + (Vector(RandomInt(0, 1056),RandomInt(0, 944), 0))
 				local unit = CreateUnitByName("greevil_yellow_rad_def", location, true, nil, nil, DOTA_TEAM_GOODGUYS)
 			DefenceGreevil.Radiant.Yellow = 1
 			elseif DefenceGreevil.Radiant.Yellow == 1 then
@@ -564,7 +558,7 @@ function GameMode:OnItemPurchased(keys)
 			end
 		else
 			if DefenceGreevil.Dire.Yellow == 0 then
-				location = (Vector(5872, -2896, 304)) + (Vector(RandomInt(0, 1056),RandomInt(0, 944), 0))
+				location = (Vector(5872, -4000, 304)) + (Vector(RandomInt(0, 1056),RandomInt(0, 944), 0))
 				local unit = CreateUnitByName("greevil_yellow_dire_def", location, true, nil, nil, DOTA_TEAM_BADGUYS)
 			DefenceGreevil.Dire.Yellow = 1
 			elseif DefenceGreevil.Dire.Yellow == 1 then
@@ -577,7 +571,7 @@ function GameMode:OnItemPurchased(keys)
 	elseif item_name == "item_orange_egg_def" then
 		if PlayerResource:GetTeam(playerID) == 2 then
 			if DefenceGreevil.Radiant.Orange == 0 then
-				location = (Vector(-6928, -2896, 304)) + (Vector(RandomInt(0, 1056),RandomInt(0, 944), 0))
+				location = (Vector(-6928, -4000, 304)) + (Vector(RandomInt(0, 1056),RandomInt(0, 944), 0))
 				local unit = CreateUnitByName("greevil_orange_rad_def", location, true, nil, nil, DOTA_TEAM_GOODGUYS)
 			DefenceGreevil.Radiant.Orange = 1
 			elseif DefenceGreevil.Radiant.Orange == 1 then
@@ -586,7 +580,7 @@ function GameMode:OnItemPurchased(keys)
 			end
 		else
 			if DefenceGreevil.Dire.Orange == 0 then
-				location = (Vector(5872, -2896, 304)) + (Vector(RandomInt(0, 1056),RandomInt(0, 944), 0))
+				location = (Vector(5872, -4000, 304)) + (Vector(RandomInt(0, 1056),RandomInt(0, 944), 0))
 				local unit = CreateUnitByName("greevil_orange_dire_def", location, true, nil, nil, DOTA_TEAM_BADGUYS)
 			DefenceGreevil.Dire.Orange = 1
 			elseif DefenceGreevil.Dire.Orange == 1 then
@@ -599,7 +593,7 @@ function GameMode:OnItemPurchased(keys)
 	elseif item_name == "item_red_egg_def" then
 		if PlayerResource:GetTeam(playerID) == 2 then
 			if DefenceGreevil.Radiant.Red == 0 then
-				location = (Vector(-6928, -2896, 304)) + (Vector(RandomInt(0, 1056),RandomInt(0, 944), 0))
+				location = (Vector(-6928, -4000, 304)) + (Vector(RandomInt(0, 1056),RandomInt(0, 944), 0))
 				local unit = CreateUnitByName("greevil_red_rad_def", location, true, nil, nil, DOTA_TEAM_GOODGUYS)
 			DefenceGreevil.Radiant.Red = 1
 			elseif DefenceGreevil.Radiant.Red == 1 then
@@ -608,7 +602,7 @@ function GameMode:OnItemPurchased(keys)
 			end
 		else
 			if DefenceGreevil.Dire.Red == 0 then
-				location = (Vector(5872, -2896, 304)) + (Vector(RandomInt(0, 1056),RandomInt(0, 944), 0))
+				location = (Vector(5872, -4000, 304)) + (Vector(RandomInt(0, 1056),RandomInt(0, 944), 0))
 				local unit = CreateUnitByName("greevil_red_dire_def", location, true, nil, nil, DOTA_TEAM_BADGUYS)
 			DefenceGreevil.Dire.Red = 1
 			elseif DefenceGreevil.Dire.Red == 1 then
@@ -621,7 +615,7 @@ function GameMode:OnItemPurchased(keys)
 	elseif item_name == "item_purple_egg_def" then
 		if PlayerResource:GetTeam(playerID) == 2 then
 			if DefenceGreevil.Radiant.Purple == 0 then
-				location = (Vector(-6928, -2896, 304)) + (Vector(RandomInt(0, 1056),RandomInt(0, 944), 0))
+				location = (Vector(-6928, -4000, 304)) + (Vector(RandomInt(0, 1056),RandomInt(0, 944), 0))
 				local unit = CreateUnitByName("greevil_purple_rad_def", location, true, nil, nil, DOTA_TEAM_GOODGUYS)
 			DefenceGreevil.Radiant.Purple = 1
 			elseif DefenceGreevil.Radiant.Purple == 1 then
@@ -630,7 +624,7 @@ function GameMode:OnItemPurchased(keys)
 			end
 		else
 			if DefenceGreevil.Dire.Purple == 0 then
-				location = (Vector(5872, -2896, 304)) + (Vector(RandomInt(0, 1056),RandomInt(0, 944), 0))
+				location = (Vector(5872, -4000, 304)) + (Vector(RandomInt(0, 1056),RandomInt(0, 944), 0))
 				local unit = CreateUnitByName("greevil_purple_dire_def", location, true, nil, nil, DOTA_TEAM_BADGUYS)
 			DefenceGreevil.Dire.Purple = 1
 			elseif DefenceGreevil.Dire.Purple == 1 then
@@ -643,7 +637,7 @@ function GameMode:OnItemPurchased(keys)
 	elseif item_name == "item_black_egg_def" then
 		if PlayerResource:GetTeam(playerID) == 2 then
 			if DefenceGreevil.Radiant.Black == 0 then
-				location = (Vector(-6928, -2896, 304)) + (Vector(RandomInt(0, 1056),RandomInt(0, 944), 0))
+				location = (Vector(-6928, -4000, 304)) + (Vector(RandomInt(0, 1056),RandomInt(0, 944), 0))
 				local unit = CreateUnitByName("greevil_black_rad_def", location, true, nil, nil, DOTA_TEAM_GOODGUYS)
 			DefenceGreevil.Radiant.Black = 1
 			elseif DefenceGreevil.Radiant.Black == 1 then
@@ -652,7 +646,7 @@ function GameMode:OnItemPurchased(keys)
 			end
 		else
 			if DefenceGreevil.Dire.Black == 0 then
-				location = (Vector(5872, -2896, 304)) + (Vector(RandomInt(0, 1056),RandomInt(0, 944), 0))
+				location = (Vector(5872, -4000, 304)) + (Vector(RandomInt(0, 1056),RandomInt(0, 944), 0))
 				local unit = CreateUnitByName("greevil_black_dire_def", location, true, nil, nil, DOTA_TEAM_BADGUYS)
 			DefenceGreevil.Dire.Black = 1
 			elseif DefenceGreevil.Dire.Black == 1 then
@@ -665,7 +659,7 @@ function GameMode:OnItemPurchased(keys)
 	elseif item_name == "item_white_egg_def" then
 		if PlayerResource:GetTeam(playerID) == 2 then
 			if DefenceGreevil.Radiant.White == 0 then
-				location = (Vector(-6928, -2896, 304)) + (Vector(RandomInt(0, 1056),RandomInt(0, 944), 0))
+				location = (Vector(-6928, -4000, 304)) + (Vector(RandomInt(0, 1056),RandomInt(0, 944), 0))
 				local unit = CreateUnitByName("greevil_white_rad_def", location, true, nil, nil, DOTA_TEAM_GOODGUYS)
 			DefenceGreevil.Radiant.White = 1
 			elseif DefenceGreevil.Radiant.White == 1 then
@@ -674,7 +668,7 @@ function GameMode:OnItemPurchased(keys)
 			end
 		else
 			if DefenceGreevil.Dire.White == 0 then
-				location = (Vector(5872, -2896, 304)) + (Vector(RandomInt(0, 1056),RandomInt(0, 944), 0))
+				location = (Vector(5872, -4000, 304)) + (Vector(RandomInt(0, 1056),RandomInt(0, 944), 0))
 				local unit = CreateUnitByName("greevil_white_dire_def", location, true, nil, nil, DOTA_TEAM_BADGUYS)
 			DefenceGreevil.Dire.White = 1
 			elseif DefenceGreevil.Dire.White == 1 then
@@ -1087,7 +1081,7 @@ function GameMode:OnEntityKilled(keys)
 			for i=1,PlayerCountOnTeam do
 				local playerId = PlayerResource:GetNthPlayerIDOnTeam(killerTeam, i)
 				local hero = PlayerResource:GetSelectedHeroEntity(playerId)
-				hero:AddExperience(600,0,false,false)
+				hero:AddExperience(400,0,false,false)	--neutral boss xp to whole team
 			end
 		elseif killed_unit:GetUnitName() == "greevil_naked_rad"
 		or killed_unit:GetUnitName() == "greevil_naked_dire" then
@@ -1096,7 +1090,7 @@ function GameMode:OnEntityKilled(keys)
 			for i=1,PlayerCountOnTeam do
 				local playerId = PlayerResource:GetNthPlayerIDOnTeam(killerTeam, i)
 				local hero = PlayerResource:GetSelectedHeroEntity(playerId)
-				hero:AddExperience(40,0,false,false)
+				hero:AddExperience(40,0,false,false)	--naked lane greevil xp
 				hero:ModifyGold(15/PlayerCountOnTeam,false,0)
 				local particle = ParticleManager:CreateParticleForTeam("particles/generic_gameplay/lasthit_coins.vpcf", PATTACH_ABSORIGIN_FOLLOW, hero, killerTeam)
 				ParticleManager:SetParticleControl(particle, 1, hero:GetAbsOrigin())
@@ -1362,16 +1356,10 @@ function GameMode:OnEntityKilled(keys)
 end
 
 function removeItem(purchaseEntity,itemName)
-	for i=0,8 do
+	for i=0,14 do
 		local itemHero = purchaseEntity:GetItemInSlot(i)
 		if itemHero ~= nil and itemHero:GetAbilityName() == tostring(itemName) then
 			purchaseEntity:RemoveItem(itemHero)
-		end
-		if purchaseEntity.greevil ~= nil then
-			local itemGreevil = purchaseEntity.greevil:GetItemInSlot(i)
-			if itemGreevil ~= nil and itemGreevil:GetAbilityName() == tostring(itemName) then
-				purchaseEntity.greevil:RemoveItem(itemGreevil)
-			end
 		end
 	end
 end

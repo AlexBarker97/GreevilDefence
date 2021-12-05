@@ -16,6 +16,7 @@ Concepts
 • Bosses dont spawn on 0, first 6 at 4 mins, white at 8 mins, black at 10 mins with global sound effects
 
 QoL
+• Smaller respawn times less respawn hp
 • info sidebar gives wrong info
 • mana/hp potions should despawn
 • Tooltips + ability icons

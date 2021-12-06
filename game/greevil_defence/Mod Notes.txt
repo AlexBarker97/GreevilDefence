@@ -2,22 +2,15 @@
 --------ToDo--------------------ToDo--------------------ToDo--------------------ToDo--------------------ToDo---------------
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-Required before play testing
-
-Concepts
+Suggestions
 • Implement "one time" shop items
 • Variation between games
-	• special waves
 	• random abilities
-	• random start item bundle
-• Greevil items (greevil starts with pack? or greevil can buy a pack?)
-• Difficulty scaling based on #players on team, defending too easy (can also make other things more attractive to do)
-• yellow boss chases you out of pit (ai breaks)
+	• random start item bundle (greevil starts with pack? or greevil can buy a pack?)
 • Bosses dont spawn on 0, first 6 at 4 mins, white at 8 mins, black at 10 mins with global sound effects
+• Less respawn hp
 
 QoL
-• Smaller respawn times less respawn hp
-• info sidebar gives wrong info
 • mana/hp potions should despawn
 • Tooltips + ability icons
 • Boss greevil candy drop use (targetted modifier buff)
@@ -30,11 +23,10 @@ QoL
 
 Balance
 • XP/Gold from bosses
-• XP/Gold from lane greevils
 
 Luxury
 • Improve bossfights (more interesting, better AI)
-• Choose one greevil ability to upgrade
+• Choose one greevil ability to upgrade (5th skill point level 30 requirement?)
 • Custom animations
 
 • More general event game sounds
@@ -46,13 +38,8 @@ Luxury
 
 stocking:
 Upon use, the user is granted the following items:
-A Greeviling Greevil Whistle icon.png Greevil Whistle
-One of these boots: Power Treads, Phase Boots, Arcane Boots, Tranquil Boots, Speed Skates
-One of these Consumables: Fruit-bit Cake, Wizard Cookie, Cocoa with Marshmallows, Kringle, Clove Studded Ham
-
-Speed Skates:
-The Speed Skates are an item only obtainable from the Xmas Stocking during the Greeviling event.
-These boots will allow the wearer to walk more easily on the frozen river.
+A pair of boots
+Two of these Consumables: Fruit-bit Cake, Wizard Cookie, Cocoa with Marshmallows, Kringle, Clove Studded Ham
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 ----------LINKS---------------------------LINKS---------------------------LINKS---------------------------LINKS------------

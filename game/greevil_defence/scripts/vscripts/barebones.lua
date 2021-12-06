@@ -6,17 +6,17 @@ require('libraries/util')
 ENABLE_HERO_RESPAWN = true             -- Should the heroes automatically respawn on a timer or stay dead until manually respawned
 MAX_RESPAWN_TIME = 300
 USE_CUSTOM_RESPAWN_TIME = true
-CUSTOM_RESPAWN_TIME = 180
-UNIVERSAL_SHOP_MODE = true             -- Should the main shop contain Secret Shop items as well as regular items
+CUSTOM_RESPAWN_TIME = 90
+UNIVERSAL_SHOP_MODE = true				-- Should the main shop contain Secret Shop items as well as regular items
 ALLOW_SAME_HERO_SELECTION = true        -- Should we let people select the same hero as each other
 
-HERO_SELECTION_TIME = 0				-- How long should we let people select their hero?
-PRE_GAME_TIME = 20.0					-- How long after people select their heroes should the horn blow and the game start?
-POST_GAME_TIME = 30.0                   -- How long should we let people look at the scoreboard before closing the server automatically?
+HERO_SELECTION_TIME = 0					-- How long should we let people select their hero?
+PRE_GAME_TIME = 25.0					-- How long after people select their heroes should the horn blow and the game start?
+POST_GAME_TIME = 25.0                   -- How long should we let people look at the scoreboard before closing the server automatically?
 TREE_REGROW_TIME = 1.0					-- How long should it take individual trees to respawn after being cut down/destroyed?
 
 GOLD_PER_TICK = 0						-- How much gold should players get per tick?
-GOLD_TICK_TIME = 5                      -- How long should we wait in seconds between gold ticks?
+GOLD_TICK_TIME = 1                      -- How long should we wait in seconds between gold ticks?
 
 RECOMMENDED_BUILDS_DISABLED = true		-- Should we disable the recommened builds for heroes (Note: this is not working currently I believe)
 CAMERA_DISTANCE_OVERRIDE = 1500.0       -- How far out should we allow the camera to go?  1134 is the default in Dota
@@ -27,7 +27,7 @@ MINIMAP_RUNE_ICON_SIZE = 1              -- What icon size should we use for rune
 
 RUNE_SPAWN_TIME = 120                   -- How long in seconds should we wait between rune spawns?
 CUSTOM_BUYBACK_COST_ENABLED = true      -- Should we use a custom buyback cost setting?
-BUYBACK_FIXED_GOLD_COST = 750
+BUYBACK_FIXED_GOLD_COST = 500
 CUSTOM_BUYBACK_COOLDOWN_ENABLED = true  -- Should we use a custom buyback time?
 CUSTOM_BUYBACK_COOLDOWN_TIME = 60
 BUYBACK_ENABLED = true					-- Should we allow people to buyback when they die?
@@ -436,9 +436,11 @@ function GameMode:OnItemPurchased(keys)
 		if PlayerResource:GetTeam(playerID) == 2 then
 			location = (Vector(5872, 5200, 304)) + (Vector(RandomInt(0, 1056),RandomInt(0, 944), 0))
 			local unit = CreateUnitByName("greevil_green_rad_att", location, true, nil, nil, DOTA_TEAM_GOODGUYS)
+			unit.lane = 0
 		else
 			location = (Vector(-6928, 5200, 304)) + (Vector(RandomInt(0, 1056),RandomInt(0, 944), 0))
 			local unit = CreateUnitByName("greevil_green_dire_att", location, true, nil, nil, DOTA_TEAM_BADGUYS)
+			unit.lane = 0
 		end
 		removeItem(purchaseEntity,"item_green_egg_att")
 
@@ -446,9 +448,11 @@ function GameMode:OnItemPurchased(keys)
 		if PlayerResource:GetTeam(playerID) == 2 then
 			location = (Vector(5872, 5200, 304)) + (Vector(RandomInt(0, 1056),RandomInt(0, 944), 0))
 			local unit = CreateUnitByName("greevil_yellow_rad_att", location, true, nil, nil, DOTA_TEAM_GOODGUYS)
+			unit.lane = 0
 		else
 			location = (Vector(-6928, 5200, 304)) + (Vector(RandomInt(0, 1056),RandomInt(0, 944), 0))
 			local unit = CreateUnitByName("greevil_yellow_dire_att", location, true, nil, nil, DOTA_TEAM_BADGUYS)
+			unit.lane = 0
 		end
 		removeItem(purchaseEntity,"item_yellow_egg_att")
 
@@ -456,9 +460,11 @@ function GameMode:OnItemPurchased(keys)
 		if PlayerResource:GetTeam(playerID) == 2 then
 			location = (Vector(5872, 5200, 304)) + (Vector(RandomInt(0, 1056),RandomInt(0, 944), 0))
 			local unit = CreateUnitByName("greevil_orange_rad_att", location, true, nil, nil, DOTA_TEAM_GOODGUYS)
+			unit.lane = 0
 		else
 			location = (Vector(-6928, 5200, 304)) + (Vector(RandomInt(0, 1056),RandomInt(0, 944), 0))
 			local unit = CreateUnitByName("greevil_orange_dire_att", location, true, nil, nil, DOTA_TEAM_BADGUYS)
+			unit.lane = 0
 		end
 		removeItem(purchaseEntity,"item_orange_egg_att")
 
@@ -466,9 +472,11 @@ function GameMode:OnItemPurchased(keys)
 		if PlayerResource:GetTeam(playerID) == 2 then
 			location = (Vector(5872, 5200, 304)) + (Vector(RandomInt(0, 1056),RandomInt(0, 944), 0))
 			local unit = CreateUnitByName("greevil_red_rad_att", location, true, nil, nil, DOTA_TEAM_GOODGUYS)
+			unit.lane = 0
 		else
 			location = (Vector(-6928, 5200, 304)) + (Vector(RandomInt(0, 1056),RandomInt(0, 944), 0))
 			local unit = CreateUnitByName("greevil_red_dire_att", location, true, nil, nil, DOTA_TEAM_BADGUYS)
+			unit.lane = 0
 		end
 		removeItem(purchaseEntity,"item_red_egg_att")
 
@@ -476,9 +484,11 @@ function GameMode:OnItemPurchased(keys)
 		if PlayerResource:GetTeam(playerID) == 2 then
 			location = (Vector(5872, 5200, 304)) + (Vector(RandomInt(0, 1056),RandomInt(0, 944), 0))
 			local unit = CreateUnitByName("greevil_purple_rad_att", location, true, nil, nil, DOTA_TEAM_GOODGUYS)
+			unit.lane = 0
 		else
 			location = (Vector(-6928, 5200, 304)) + (Vector(RandomInt(0, 1056),RandomInt(0, 944), 0))
 			local unit = CreateUnitByName("greevil_purple_dire_att", location, true, nil, nil, DOTA_TEAM_BADGUYS)
+			unit.lane = 0
 		end
 		removeItem(purchaseEntity,"item_purple_egg_att")
 
@@ -486,9 +496,11 @@ function GameMode:OnItemPurchased(keys)
 		if PlayerResource:GetTeam(playerID) == 2 then
 			location = (Vector(5872, 5200, 304)) + (Vector(RandomInt(0, 1056),RandomInt(0, 944), 0))
 			local unit = CreateUnitByName("greevil_black_rad_att", location, true, nil, nil, DOTA_TEAM_GOODGUYS)
+			unit.lane = 0
 		else
 			location = (Vector(-6928, 5200, 304)) + (Vector(RandomInt(0, 1056),RandomInt(0, 944), 0))
 			local unit = CreateUnitByName("greevil_black_dire_att", location, true, nil, nil, DOTA_TEAM_BADGUYS)
+			unit.lane = 0
 		end
 		removeItem(purchaseEntity,"item_black_egg_att")
 
@@ -496,9 +508,11 @@ function GameMode:OnItemPurchased(keys)
 		if PlayerResource:GetTeam(playerID) == 2 then
 			location = (Vector(5872, 5200, 304)) + (Vector(RandomInt(0, 1056),RandomInt(0, 944), 0))
 			local unit = CreateUnitByName("greevil_white_rad_att", location, true, nil, nil, DOTA_TEAM_GOODGUYS)
+			unit.lane = 0
 		else
 			location = (Vector(-6928, 5200, 304)) + (Vector(RandomInt(0, 1056),RandomInt(0, 944), 0))
 			local unit = CreateUnitByName("greevil_white_dire_att", location, true, nil, nil, DOTA_TEAM_BADGUYS)
+			unit.lane = 0
 		end
 		removeItem(purchaseEntity,"item_white_egg_att")
 
@@ -1095,6 +1109,27 @@ function GameMode:OnEntityKilled(keys)
 				local particle = ParticleManager:CreateParticleForTeam("particles/generic_gameplay/lasthit_coins.vpcf", PATTACH_ABSORIGIN_FOLLOW, hero, killerTeam)
 				ParticleManager:SetParticleControl(particle, 1, hero:GetAbsOrigin())
 				ParticleManager:ReleaseParticleIndex(1)				
+			end
+		elseif killed_unit:GetUnitName() == "greevil_red_rad_att" or killed_unit:GetUnitName() == "greevil_red_dire_att"
+		or killed_unit:GetUnitName() == "greevil_orange_rad_att" or killed_unit:GetUnitName() == "greevil_orange_dire_att"		
+		or killed_unit:GetUnitName() == "greevil_yellow_rad_att" or killed_unit:GetUnitName() == "greevil_yellow_dire_att"		
+		or killed_unit:GetUnitName() == "greevil_green_rad_att" or killed_unit:GetUnitName() == "greevil_green_dire_att"
+		or killed_unit:GetUnitName() == "greevil_blue_rad_att" or killed_unit:GetUnitName() == "greevil_blue_dire_att"
+		or killed_unit:GetUnitName() == "greevil_purple_rad_att" or killed_unit:GetUnitName() == "greevil_purple_dire_att"
+		or killed_unit:GetUnitName() == "greevil_white_rad_att" or killed_unit:GetUnitName() == "greevil_white_dire_att"
+		or killed_unit:GetUnitName() == "greevil_black_rad_att" or killed_unit:GetUnitName() == "greevil_black_dire_att" then
+			if killed_unit.lane == 1 then
+				local killerTeam = killer_unit:GetTeam()
+				local PlayerCountOnTeam = PlayerResource:GetPlayerCountForTeam(killerTeam)
+				for i=1,PlayerCountOnTeam do
+					local playerId = PlayerResource:GetNthPlayerIDOnTeam(killerTeam, i)
+					local hero = PlayerResource:GetSelectedHeroEntity(playerId)
+					hero:AddExperience(120,0,false,false)	--naked lane greevil xp
+					hero:ModifyGold(80/PlayerCountOnTeam,false,0)
+					local particle = ParticleManager:CreateParticleForTeam("particles/generic_gameplay/lasthit_coins.vpcf", PATTACH_ABSORIGIN_FOLLOW, hero, killerTeam)
+					ParticleManager:SetParticleControl(particle, 1, hero:GetAbsOrigin())
+					ParticleManager:ReleaseParticleIndex(1)				
+				end
 			end
 		end
 		

@@ -123,7 +123,7 @@
 
 		"AbilityCastRange"              "500"
 		"AbilityCastPoint"              "0.0"
-		"AbilityCooldown"               "5.0"
+		"AbilityCooldown"               "90"
 		"AbilityManaCost"               "0"
 		"Model"							"models/props_gameplay/red_box.vmdl"
 		"PingOverrideText"				""
@@ -134,6 +134,8 @@
 		"ItemShareability"				"ITEM_FULLY_SHAREABLE"
 		"ItemPurchasable"				"1"
 		"ItemCost"						"250"
+		"ItemStockMax"					"1"
+		"ItemStockTime"					"-1.0"
 	}
 
 	///////////////
@@ -992,6 +994,8 @@
 		"ItemDeclarations"        		"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
 		"MaxUpgradeLevel"       		"1"
 		"ItemBaseLevel"         		"1"
+		"ItemStockMax"					"20"
+		"ItemStockTime"					"1"
 	}
 	
 	"item_black_egg_att"
@@ -1026,6 +1030,8 @@
 		"ItemDeclarations"        		"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
 		"MaxUpgradeLevel"       		"1"
 		"ItemBaseLevel"         		"1"
+		"ItemStockMax"					"20"
+		"ItemStockTime"					"1"
 	}
 	
 	"item_blue_egg_att"
@@ -1060,6 +1066,8 @@
 		"ItemDeclarations"        		"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
 		"MaxUpgradeLevel"       		"1"
 		"ItemBaseLevel"         		"1"
+		"ItemStockMax"					"20"
+		"ItemStockTime"					"1"
 	}
 	
 	"item_green_egg_att"
@@ -1094,6 +1102,8 @@
 		"ItemDeclarations"        		"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
 		"MaxUpgradeLevel"       		"1"
 		"ItemBaseLevel"         		"1"
+		"ItemStockMax"					"20"
+		"ItemStockTime"					"1"
 	}
 	
 	"item_yellow_egg_att"
@@ -1128,6 +1138,8 @@
 		"ItemDeclarations"        		"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
 		"MaxUpgradeLevel"       		"1"
 		"ItemBaseLevel"         		"1"
+		"ItemStockMax"					"20"
+		"ItemStockTime"					"1"
 	}
 	
 	"item_orange_egg_att"
@@ -1162,6 +1174,8 @@
 		"ItemDeclarations"        		"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
 		"MaxUpgradeLevel"       		"1"
 		"ItemBaseLevel"         		"1"
+		"ItemStockMax"					"20"
+		"ItemStockTime"					"1"
 	}
 	
 	"item_red_egg_att"
@@ -1196,6 +1210,8 @@
 		"ItemDeclarations"        		"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
 		"MaxUpgradeLevel"       		"1"
 		"ItemBaseLevel"         		"1"
+		"ItemStockMax"					"20"
+		"ItemStockTime"					"1"
 	}
 	
 	"item_purple_egg_att"
@@ -1230,6 +1246,8 @@
 		"ItemDeclarations"        		"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
 		"MaxUpgradeLevel"       		"1"
 		"ItemBaseLevel"         		"1"
+		"ItemStockMax"					"20"
+		"ItemStockTime"					"1"
 	}
 	
 	"item_white_egg_def"
@@ -1264,6 +1282,8 @@
 		"ItemDeclarations"        		"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
 		"MaxUpgradeLevel"       		"1"
 		"ItemBaseLevel"         		"1"
+		"ItemStockMax"					"1"
+		"ItemStockTime"					"5"
 	}
 	
 	"item_black_egg_def"
@@ -1298,6 +1318,8 @@
 		"ItemDeclarations"        		"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
 		"MaxUpgradeLevel"       		"1"
 		"ItemBaseLevel"         		"1"
+		"ItemStockMax"					"1"
+		"ItemStockTime"					"5"
 	}
 	
 	"item_blue_egg_def"
@@ -1332,6 +1354,8 @@
 		"ItemDeclarations"        		"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
 		"MaxUpgradeLevel"       		"1"
 		"ItemBaseLevel"         		"1"
+		"ItemStockMax"					"1"
+		"ItemStockTime"					"5"
 	}
 	
 	"item_green_egg_def"
@@ -1366,6 +1390,8 @@
 		"ItemDeclarations"        		"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
 		"MaxUpgradeLevel"       		"1"
 		"ItemBaseLevel"         		"1"
+		"ItemStockMax"					"1"
+		"ItemStockTime"					"5"
 	}
 	
 	"item_yellow_egg_def"
@@ -1400,6 +1426,8 @@
 		"ItemDeclarations"        		"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
 		"MaxUpgradeLevel"       		"1"
 		"ItemBaseLevel"         		"1"
+		"ItemStockMax"					"1"
+		"ItemStockTime"					"5"
 	}
 	
 	"item_orange_egg_def"
@@ -1434,6 +1462,8 @@
 		"ItemDeclarations"        		"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
 		"MaxUpgradeLevel"       		"1"
 		"ItemBaseLevel"         		"1"
+		"ItemStockMax"					"1"
+		"ItemStockTime"					"5"
 	}
 	
 	"item_red_egg_def"
@@ -1468,6 +1498,8 @@
 		"ItemDeclarations"        		"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
 		"MaxUpgradeLevel"       		"1"
 		"ItemBaseLevel"         		"1"
+		"ItemStockMax"					"1"
+		"ItemStockTime"					"5"
 	}
 	
 	"item_purple_egg_def"
@@ -1502,5 +1534,7 @@
 		"ItemDeclarations"        		"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
 		"MaxUpgradeLevel"       		"1"
 		"ItemBaseLevel"         		"1"
+		"ItemStockMax"					"1"
+		"ItemStockTime"					"5"
 	}
 }

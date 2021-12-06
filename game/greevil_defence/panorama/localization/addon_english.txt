@@ -7,20 +7,20 @@
 	
 	"addonname"										"Greevil Defence"
 	"overthrow_game_info_header_objective"			"Objective:"
-	"overthrow_brief_description"					"• This is a team vs team wave defense game! Whichever team keeps their ancient alive the longest wins!
-• Greevils can be purchased in the shop to give your team the competitive edge.
-• Each colour greevil has unique abilities, make sure to choose wisely.
-• Greevil bosses are spread around the map, kill them to earn unique rewards!"
+	"overthrow_brief_description"					"• This is a team vs team wave defence game!
+• Make your opponent's game harder by purchasing offensive greevils in the shop.
+• Make your game easier by purchasing defensive greevils in the shop.
+• Each colour greevil has unique abilities, make sure to choose wisely."
 
 	"overthrow_game_info_header_how_to_play"		"How To Play:"
-	"overthrow_game_info_throne"					"• Start by choosing your greevil colour by blowing your <span class='midas_throne'>Selection Whistle</span> and using an ability colour.<br>
+	"overthrow_game_info_throne"					"• Start by choosing your colour, <span class='midas_throne'>each colour has different abilities</span>. There are showcase greevils in spawn demonstrating these abilities.<br>
 													• Once you have selected your colour you will be teleported into the map to defend your ancient earning <span class='gold'>gold</span> and <span class='gold'>experience</span>.<br>
-													• Spend <span class='gold'>gold</span> on aggressive greevils which will run towards the enemy ancient or defensive greevils which will help protect your ancient."
+													• There are bosses to kill around the map! <span class='midas_throne'>WARNING</span>, these greevils are much stronger than the lane ones so consider bringing a friend!"
 	"overthrow_game_info_tips_header"				"Notes:"
-	"overthrow_game_info_tip01"						"• Respawn teammates by channeling on their tombstone!"
+	"overthrow_game_info_tip01"						"• <span class='midas_throne'>Respawn teammates by channeling on their tombstone.</span> Saving them 90 seconds to respawn or 500gold to buyback!"
 	"overthrow_game_info_tip02"						"• Kill bosses for more <span class='gold'>gold</span> and <span class='gold'>experience</span> and to get boss loot."
-	"overthrow_game_info_tip03"						"• Boss loot consists of greevil candy which will have a unique effect based on boss and a token to summon a greevil boss."
-	"overthrow_game_info_tip04"						"• Greevil bosses can be sent down the opponents lane by purchasing a 'Send Boss' in the shop whilst posessing a boss token."
+	"overthrow_game_info_tip03"						"• Boss loot consists of greevil candy which will have a unique effect based on boss and a token to summon a greevil boss down the opponent's lane whenever you choose."
+	"overthrow_game_info_tip04"						"• There are also <span class='midas_throne'>re-usable items</span> in the shop such as the 'brief barrier' and <span class='midas_throne'>instant cast items</span> such as the 'meteor shower'."
 	
 	"error_max_blue_def"							"Can only have ONE blue defence greevil at a time!"
 	"error_max_green_def"							"Can only have ONE green defence greevil at a time!"

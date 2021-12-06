@@ -957,7 +957,7 @@
 			"07"
 			{
 				"var_type"					"FIELD_FLOAT"
-				"knockback_slow_duration"	"3 4 5"
+				"knockback_slow_duration"	"2.5"
 			}
 			"08"
 			{
@@ -2838,60 +2838,6 @@
 		"AbilityCastAnimation"		"ACT_DOTA_ATTACK"
 	}
 
-	"greevil_devour"
-	{
-		"BaseClass"						"doom_bringer_devour"
-		
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK"
-		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_CUSTOM"
-		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_CUSTOM"
-		"AbilityUnitTargetFlags"		"DOTA_UNIT_TARGET_FLAG_NOT_CREEP_HERO"
-		"SpellDispellableType"			"SPELL_DISPELLABLE_NO"
-		"AbilitySound"					"Hero_DoomBringer.Devour"
-		"MaxLevel"						"3"
-
-		// Casting
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCastPoint"				"0.2"
-
-		// Time		
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCastRange"				"300"
-		"AbilityCooldown"				"0"
-
-		// Cost
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"				"250 235 220"
-
-		// Special
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"bonus_gold"			"0"
-				"LinkedSpecialBonus"	"special_bonus_unique_doom_3"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"regen"					"0"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"creep_level"			"1"
-			}
-			"04"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"hero_ability_steal_time"	"99999"
-			}
-		}
-		"AbilityCastAnimation"		"ACT_DOTA_ATTACK"
-	}
-
 	"greevil_possession"
 	{
 		"BaseClass"						"enchantress_enchant"
@@ -2916,7 +2862,7 @@
 		
 		// Cost
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"				"500"
+		"AbilityManaCost"				"250 300 350"
 			
 		// Special
 		//-------------------------------------------------------------------------------------------------------------
@@ -2949,6 +2895,60 @@
 			}	
 		}
 		"AbilityCastAnimation"		"ACT_DOTA_CAPTURE"
+	}
+
+	"greevil_devour"
+	{
+		"BaseClass"						"doom_bringer_devour"
+		
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_CUSTOM"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_CUSTOM"
+		"AbilityUnitTargetFlags"		"DOTA_UNIT_TARGET_FLAG_NOT_CREEP_HERO"
+		"SpellDispellableType"			"SPELL_DISPELLABLE_NO"
+		"AbilitySound"					"Hero_DoomBringer.Devour"
+		"MaxLevel"						"3"
+
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastPoint"				"0.2"
+
+		// Time		
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastRange"				"300"
+		"AbilityCooldown"				"0"
+
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"500 425 350"
+
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"bonus_gold"			"0"
+				"LinkedSpecialBonus"	"special_bonus_unique_doom_3"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"regen"					"0"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"creep_level"			"1"
+			}
+			"04"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"hero_ability_steal_time"	"99999"
+			}
+		}
+		"AbilityCastAnimation"		"ACT_DOTA_ATTACK"
 	}
 	
 	"greevil_pact_custom"
@@ -3280,7 +3280,7 @@
 			"07"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"unit_distance"			"600"
+				"unit_distance"			"450"
 			}
 		}
 	}
@@ -4568,7 +4568,7 @@
 
 		// Time		
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"50.0"
+		"AbilityCooldown"				"75.0"
 
 		// Cost
 		//-------------------------------------------------------------------------------------------------------------
@@ -4581,17 +4581,17 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"damage"				"100"
+				"damage"				"75"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"radius"				"600"
+				"radius"				"550"
 			}
 			"03"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"pull_speed"			"45"
+				"pull_speed"			"40"
 			}			
 			"04"
 			{
@@ -4601,7 +4601,7 @@
 			"05"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"duration"				"5.0"
+				"duration"				"4.0"
 			}
 			"06"
 			{
@@ -4616,7 +4616,7 @@
 			"08"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"animation_rate"		"0.15"
+				"animation_rate"		"0.25"
 			}
 			"09"
 			{
@@ -6039,7 +6039,7 @@
 			"04"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"damage"				"15"
+				"damage"				"20"
 			}
 			"05"
 			{
@@ -6058,7 +6058,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"bonus_building_damage"	"90"
+				"bonus_building_damage"	"100"
 			}
 		}
 	}
@@ -6071,7 +6071,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"health_regen"			"8"
+				"health_regen"			"10"
 			}
 			"02"
 			{
@@ -6099,7 +6099,7 @@
 			"03"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"duration"				"2.0"
+				"duration"				"1.5"
 			}
 		}
 	}
@@ -6112,7 +6112,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"mana_regen"			"4"
+				"mana_regen"			"6"
 			}
 			"02"
 			{
@@ -6132,7 +6132,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"dodge_chance_pct"		"20"
+				"dodge_chance_pct"		"30"
 			}
 		}
 	}
@@ -6176,7 +6176,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"speed_bonus"			"-20"
+				"speed_bonus"			"-25"
 			}
 			"02"
 			{

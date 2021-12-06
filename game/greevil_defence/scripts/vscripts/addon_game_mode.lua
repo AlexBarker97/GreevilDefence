@@ -19,6 +19,7 @@ require('libraries/player_resource')
 require('libraries/timers')
 require('libraries/selection')
 require('libraries/filters')
+require "math"
 
 function Precache( context )
 	-- NOTE: IT IS RECOMMENDED TO USE A MINIMAL AMOUNT OF LUA PRECACHING, AND A MAXIMAL AMOUNT OF DATADRIVEN PRECACHING.
@@ -280,7 +281,7 @@ function GameStart()
 				if math.fmod(count,5) == 0 then
 					SpawnFrostWard()
 				end
-				if math.fmod(count,60) == 0 then
+				if (math.fmod(count,60) == 0) and (count >= 120) then
 					SpawnBosses()
 				end
 				if math.fmod(count,30) == 0 then
@@ -297,10 +298,10 @@ function GameStart()
 			diregate.disabled = 0
 			local particle1 = ParticleManager:CreateParticle("particles/units/heroes/hero_arc_warden/arc_warden_flux_tgt.vpcf", PATTACH_ABSORIGIN_FOLLOW, radgate)
 			local particle2 = ParticleManager:CreateParticle("particles/units/heroes/hero_arc_warden/arc_warden_flux_tgt.vpcf", PATTACH_ABSORIGIN_FOLLOW, diregate)
-			local jump1 = CreateUnitByName("jump", Vector(-6950, 60, 280), false, nil, nil, DOTA_TEAM_NEUTRALS)
-			local jump2 = CreateUnitByName("jump", Vector(-5852, 60, 280), false, nil, nil, DOTA_TEAM_NEUTRALS)
-			local jump3 = CreateUnitByName("jump", Vector(5846, 60, 280), false, nil, nil, DOTA_TEAM_NEUTRALS)
-			local jump4 = CreateUnitByName("jump", Vector(6944, 60, 280), false, nil, nil, DOTA_TEAM_NEUTRALS)
+			local jump1 = CreateUnitByName("jump", Vector(-6950, 60, 280), false, nil, nil, DOTA_TEAM_GOODGUYS)
+			local jump2 = CreateUnitByName("jump", Vector(-5852, 60, 280), false, nil, nil, DOTA_TEAM_GOODGUYS)
+			local jump3 = CreateUnitByName("jump", Vector(5846, 60, 280), false, nil, nil, DOTA_TEAM_BADGUYS)
+			local jump4 = CreateUnitByName("jump", Vector(6944, 60, 280), false, nil, nil, DOTA_TEAM_BADGUYS)
 			jump1.disabled = 0
 			jump2.disabled = 0
 			jump3.disabled = 0
@@ -309,6 +310,10 @@ function GameStart()
 			local particle4 = ParticleManager:CreateParticle("particles/units/heroes/hero_brewmaster/brewmaster_earth_ambient_glow_b.vpcf", PATTACH_ABSORIGIN_FOLLOW, jump2)
 			local particle5 = ParticleManager:CreateParticle("particles/units/heroes/hero_brewmaster/brewmaster_earth_ambient_glow_b.vpcf", PATTACH_ABSORIGIN_FOLLOW, jump3)
 			local particle6 = ParticleManager:CreateParticle("particles/units/heroes/hero_brewmaster/brewmaster_earth_ambient_glow_b.vpcf", PATTACH_ABSORIGIN_FOLLOW, jump4)
+			jump1:AddNewModifier(nil, nil,"modifier_invulnerable", {})
+			jump2:AddNewModifier(nil, nil,"modifier_invulnerable", {})
+			jump3:AddNewModifier(nil, nil,"modifier_invulnerable", {})
+			jump4:AddNewModifier(nil, nil,"modifier_invulnerable", {})
 		end
 	end, self)
 end
@@ -520,30 +525,176 @@ function SpawnBosses()
 end
 
 function SpawnCreeps()
-	local pointr = Entities:FindAllByName("spawnerino_naked_dire")
-	local pointd = Entities:FindAllByName("spawnerino_naked_rad")
-	
-	if count < 240 then		-- 0-4 mins
-		x = 5
-	elseif count < 480 then	-- 4-8 mins
-		x = 6
-	elseif count < 720 then	-- 8-12 mins
-		x = 7
-	elseif count < 960 then	-- 12-16 mins
-		x = 8
-	else					-- 16+ mins
-		x = 10
+	local PlayerCountOnRad = PlayerResource:GetPlayerCountForTeam(DOTA_TEAM_GOODGUYS)
+	local PlayerCountOnDire = PlayerResource:GetPlayerCountForTeam(DOTA_TEAM_BADGUYS)
+	local totalPlayerCount = PlayerCountOnRad + PlayerCountOnDire
+
+	if math.fmod(totalPlayerCount,2) ~= 0 then
+		adjPlayerCount = totalPlayerCount + 1
 	end
 
-	for i=1,x do
-		vr = pointr[i]
-		vd = pointd[i]
-		local locationr = vr:GetAbsOrigin()
-		local locationd = vd:GetAbsOrigin()
-		local unit = CreateUnitByName("greevil_naked_dire", locationr, false, nil, nil, DOTA_TEAM_BADGUYS)
-		unit:FaceTowards(unit:GetAbsOrigin()+Vector(0 + math.random(-30,40), -100, 0))
-		local unit = CreateUnitByName("greevil_naked_rad", locationd, false, nil, nil, DOTA_TEAM_GOODGUYS)
-		unit:FaceTowards(unit:GetAbsOrigin()+Vector(0 + math.random(-30,40), -100, 0))
+	local waveType = RandomInt(1, 14)
+	local waveType2 = RandomInt(1, 8)
+
+	if count < 120 then		-- 0-1.5 mins 120
+		x = adjPlayerCount + 2
+		xC = adjPlayerCount - 1
+		xC2 = 0
+	elseif count < 240 then	-- 2-3.5 mins 240
+		x = adjPlayerCount + 2
+		xC = adjPlayerCount
+		xC2 = 0
+	elseif count < 480 then	-- 4-7.5 mins 480
+		x = adjPlayerCount + 3
+		xC = adjPlayerCount
+		xC2 = 0
+	elseif count < 720 then	-- 8-11.5 mins 720
+		x = adjPlayerCount + 4
+		xC = adjPlayerCount - 1
+		xC2 = adjPlayerCount - 1
+	elseif count < 960 then	-- 12-15.5 mins 960
+		x = adjPlayerCount + 5
+		xC = adjPlayerCount
+		xC2 = adjPlayerCount - 1
+	else					-- 16+ mins
+		x = adjPlayerCount + 6
+		xC = adjPlayerCount
+		xC2 = adjPlayerCount
+	end
+
+	if waveType <= 6 then
+		for i=1,x do
+			location = (Vector(-6828, 5400, 304)) + (Vector(RandomInt(0, 1000),RandomInt(0, 400), 0))
+			local unit = CreateUnitByName("greevil_naked_dire", location, true, nil, nil, DOTA_TEAM_BADGUYS)
+			unit:FaceTowards(unit:GetAbsOrigin()+Vector(0 + math.random(-30,40), -100, 0))
+
+			location = (Vector(5972, 5400, 304)) + (Vector(RandomInt(0, 1000),RandomInt(0, 400), 0))
+			local unit = CreateUnitByName("greevil_naked_rad", location, true, nil, nil, DOTA_TEAM_GOODGUYS)
+			unit:FaceTowards(unit:GetAbsOrigin()+Vector(0 + math.random(-30,40), -100, 0))
+		end
+	else
+		for i=1,xC do
+			locationBAD = (Vector(-6828, 5400, 304)) + (Vector(RandomInt(0, 1000),RandomInt(0, 400), 0))
+			locationGOOD = (Vector(5972, 5400, 304)) + (Vector(RandomInt(0, 1000),RandomInt(0, 400), 0))
+			if waveType == 7 then
+				local unitBAD = CreateUnitByName("greevil_red_dire_att", locationBAD, true, nil, nil, DOTA_TEAM_BADGUYS)
+				local unitGOOD = CreateUnitByName("greevil_red_rad_att", locationGOOD, true, nil, nil, DOTA_TEAM_GOODGUYS)
+				unitBAD:FaceTowards(unitBAD:GetAbsOrigin()+Vector(0 + math.random(-30,40), -100, 0))
+				unitGOOD:FaceTowards(unitGOOD:GetAbsOrigin()+Vector(0 + math.random(-30,40), -100, 0))
+				unitBAD.lane = 1
+				unitGOOD.lane = 1
+			elseif waveType == 8 then
+				local unitBAD = CreateUnitByName("greevil_orange_dire_att", locationBAD, true, nil, nil, DOTA_TEAM_BADGUYS)
+				local unitGOOD = CreateUnitByName("greevil_orange_rad_att", locationGOOD, true, nil, nil, DOTA_TEAM_GOODGUYS)
+				unitBAD:FaceTowards(unitBAD:GetAbsOrigin()+Vector(0 + math.random(-30,40), -100, 0))
+				unitGOOD:FaceTowards(unitGOOD:GetAbsOrigin()+Vector(0 + math.random(-30,40), -100, 0))
+				unitBAD.lane = 1
+				unitGOOD.lane = 1
+			elseif waveType == 9 then
+				local unitBAD = CreateUnitByName("greevil_yellow_dire_att", locationBAD, true, nil, nil, DOTA_TEAM_BADGUYS)
+				local unitGOOD = CreateUnitByName("greevil_yellow_rad_att", locationGOOD, true, nil, nil, DOTA_TEAM_GOODGUYS)
+				unitBAD:FaceTowards(unitBAD:GetAbsOrigin()+Vector(0 + math.random(-30,40), -100, 0))
+				unitGOOD:FaceTowards(unitGOOD:GetAbsOrigin()+Vector(0 + math.random(-30,40), -100, 0))
+				unitBAD.lane = 1
+				unitGOOD.lane = 1
+			elseif waveType == 10 then
+				local unitBAD = CreateUnitByName("greevil_green_dire_att", locationBAD, true, nil, nil, DOTA_TEAM_BADGUYS)
+				local unitGOOD = CreateUnitByName("greevil_green_rad_att", locationGOOD, true, nil, nil, DOTA_TEAM_GOODGUYS)
+				unitBAD:FaceTowards(unitBAD:GetAbsOrigin()+Vector(0 + math.random(-30,40), -100, 0))
+				unitGOOD:FaceTowards(unitGOOD:GetAbsOrigin()+Vector(0 + math.random(-30,40), -100, 0))
+				unitBAD.lane = 1
+				unitGOOD.lane = 1
+			elseif waveType == 11 then
+				local unitBAD = CreateUnitByName("greevil_blue_dire_att", locationBAD, true, nil, nil, DOTA_TEAM_BADGUYS)
+				local unitGOOD = CreateUnitByName("greevil_blue_rad_att", locationGOOD, true, nil, nil, DOTA_TEAM_GOODGUYS)
+				unitBAD:FaceTowards(unitBAD:GetAbsOrigin()+Vector(0 + math.random(-30,40), -100, 0))
+				unitGOOD:FaceTowards(unitGOOD:GetAbsOrigin()+Vector(0 + math.random(-30,40), -100, 0))
+				unitBAD.lane = 1
+				unitGOOD.lane = 1
+			elseif waveType == 12 then
+				local unitBAD = CreateUnitByName("greevil_purple_dire_att", locationBAD, true, nil, nil, DOTA_TEAM_BADGUYS)
+				local unitGOOD = CreateUnitByName("greevil_purple_rad_att", locationGOOD, true, nil, nil, DOTA_TEAM_GOODGUYS)
+				unitBAD:FaceTowards(unitBAD:GetAbsOrigin()+Vector(0 + math.random(-30,40), -100, 0))
+				unitGOOD:FaceTowards(unitGOOD:GetAbsOrigin()+Vector(0 + math.random(-30,40), -100, 0))
+				unitBAD.lane = 1
+				unitGOOD.lane = 1
+			elseif waveType == 13 then
+				local unitBAD = CreateUnitByName("greevil_white_dire_att", locationBAD, true, nil, nil, DOTA_TEAM_BADGUYS)
+				local unitGOOD = CreateUnitByName("greevil_white_rad_att", locationGOOD, true, nil, nil, DOTA_TEAM_GOODGUYS)
+				unitBAD:FaceTowards(unitBAD:GetAbsOrigin()+Vector(0 + math.random(-30,40), -100, 0))
+				unitGOOD:FaceTowards(unitGOOD:GetAbsOrigin()+Vector(0 + math.random(-30,40), -100, 0))
+				unitBAD.lane = 1
+				unitGOOD.lane = 1
+			elseif waveType == 14 then
+				local unitBAD = CreateUnitByName("greevil_black_dire_att", locationBAD, true, nil, nil, DOTA_TEAM_BADGUYS)
+				local unitGOOD = CreateUnitByName("greevil_black_rad_att", locationGOOD, true, nil, nil, DOTA_TEAM_GOODGUYS)
+				unitBAD:FaceTowards(unitBAD:GetAbsOrigin()+Vector(0 + math.random(-30,40), -100, 0))
+				unitGOOD:FaceTowards(unitGOOD:GetAbsOrigin()+Vector(0 + math.random(-30,40), -100, 0))
+				unitBAD.lane = 1
+				unitGOOD.lane = 1
+			end
+		end
+		for i=1,xC2 do
+			locationBAD = (Vector(-6828, 5400, 304)) + (Vector(RandomInt(0, 1000),RandomInt(0, 400), 0))
+			locationGOOD = (Vector(5972, 5400, 304)) + (Vector(RandomInt(0, 1000),RandomInt(0, 400), 0))
+			if waveType2 == 1 then
+				local unitBAD = CreateUnitByName("greevil_red_dire_att", locationBAD, true, nil, nil, DOTA_TEAM_BADGUYS)
+				local unitGOOD = CreateUnitByName("greevil_red_rad_att", locationGOOD, true, nil, nil, DOTA_TEAM_GOODGUYS)
+				unitBAD:FaceTowards(unitBAD:GetAbsOrigin()+Vector(0 + math.random(-30,40), -100, 0))
+				unitGOOD:FaceTowards(unitGOOD:GetAbsOrigin()+Vector(0 + math.random(-30,40), -100, 0))
+				unitBAD.lane = 1
+				unitGOOD.lane = 1
+			elseif waveType2 == 2 then
+				local unitBAD = CreateUnitByName("greevil_orange_dire_att", locationBAD, true, nil, nil, DOTA_TEAM_BADGUYS)
+				local unitGOOD = CreateUnitByName("greevil_orange_rad_att", locationGOOD, true, nil, nil, DOTA_TEAM_GOODGUYS)
+				unitBAD:FaceTowards(unitBAD:GetAbsOrigin()+Vector(0 + math.random(-30,40), -100, 0))
+				unitGOOD:FaceTowards(unitGOOD:GetAbsOrigin()+Vector(0 + math.random(-30,40), -100, 0))
+				unitBAD.lane = 1
+				unitGOOD.lane = 1
+			elseif waveType2 == 3 then
+				local unitBAD = CreateUnitByName("greevil_yellow_dire_att", locationBAD, true, nil, nil, DOTA_TEAM_BADGUYS)
+				local unitGOOD = CreateUnitByName("greevil_yellow_rad_att", locationGOOD, true, nil, nil, DOTA_TEAM_GOODGUYS)
+				unitBAD:FaceTowards(unitBAD:GetAbsOrigin()+Vector(0 + math.random(-30,40), -100, 0))
+				unitGOOD:FaceTowards(unitGOOD:GetAbsOrigin()+Vector(0 + math.random(-30,40), -100, 0))
+				unitBAD.lane = 1
+				unitGOOD.lane = 1
+			elseif waveType2 == 4 then
+				local unitBAD = CreateUnitByName("greevil_green_dire_att", locationBAD, true, nil, nil, DOTA_TEAM_BADGUYS)
+				local unitGOOD = CreateUnitByName("greevil_green_rad_att", locationGOOD, true, nil, nil, DOTA_TEAM_GOODGUYS)
+				unitBAD:FaceTowards(unitBAD:GetAbsOrigin()+Vector(0 + math.random(-30,40), -100, 0))
+				unitGOOD:FaceTowards(unitGOOD:GetAbsOrigin()+Vector(0 + math.random(-30,40), -100, 0))
+				unitBAD.lane = 1
+				unitGOOD.lane = 1
+			elseif waveType2 == 5 then
+				local unitBAD = CreateUnitByName("greevil_blue_dire_att", locationBAD, true, nil, nil, DOTA_TEAM_BADGUYS)
+				local unitGOOD = CreateUnitByName("greevil_blue_rad_att", locationGOOD, true, nil, nil, DOTA_TEAM_GOODGUYS)
+				unitBAD:FaceTowards(unitBAD:GetAbsOrigin()+Vector(0 + math.random(-30,40), -100, 0))
+				unitGOOD:FaceTowards(unitGOOD:GetAbsOrigin()+Vector(0 + math.random(-30,40), -100, 0))
+				unitBAD.lane = 1
+				unitGOOD.lane = 1
+			elseif waveType2 == 6 then
+				local unitBAD = CreateUnitByName("greevil_purple_dire_att", locationBAD, true, nil, nil, DOTA_TEAM_BADGUYS)
+				local unitGOOD = CreateUnitByName("greevil_purple_rad_att", locationGOOD, true, nil, nil, DOTA_TEAM_GOODGUYS)
+				unitBAD:FaceTowards(unitBAD:GetAbsOrigin()+Vector(0 + math.random(-30,40), -100, 0))
+				unitGOOD:FaceTowards(unitGOOD:GetAbsOrigin()+Vector(0 + math.random(-30,40), -100, 0))
+				unitBAD.lane = 1
+				unitGOOD.lane = 1
+			elseif waveType2 == 7 then
+				local unitBAD = CreateUnitByName("greevil_white_dire_att", locationBAD, true, nil, nil, DOTA_TEAM_BADGUYS)
+				local unitGOOD = CreateUnitByName("greevil_white_rad_att", locationGOOD, true, nil, nil, DOTA_TEAM_GOODGUYS)
+				unitBAD:FaceTowards(unitBAD:GetAbsOrigin()+Vector(0 + math.random(-30,40), -100, 0))
+				unitGOOD:FaceTowards(unitGOOD:GetAbsOrigin()+Vector(0 + math.random(-30,40), -100, 0))
+				unitBAD.lane = 1
+				unitGOOD.lane = 1
+			elseif waveType2 == 8 then
+				local unitBAD = CreateUnitByName("greevil_black_dire_att", locationBAD, true, nil, nil, DOTA_TEAM_BADGUYS)
+				local unitGOOD = CreateUnitByName("greevil_black_rad_att", locationGOOD, true, nil, nil, DOTA_TEAM_GOODGUYS)
+				unitBAD:FaceTowards(unitBAD:GetAbsOrigin()+Vector(0 + math.random(-30,40), -100, 0))
+				unitGOOD:FaceTowards(unitGOOD:GetAbsOrigin()+Vector(0 + math.random(-30,40), -100, 0))
+				unitBAD.lane = 1
+				unitGOOD.lane = 1
+			end
+		end
 	end
 end
 

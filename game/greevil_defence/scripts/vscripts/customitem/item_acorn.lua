@@ -1,5 +1,3 @@
-require "math"
-
 if item_acorn == nil then
     item_acorn = class({})
 end
@@ -13,28 +11,28 @@ function item_acorn:GetManaCost()
     return 0
 end
 
-function item_acorn:GetCooldown(nLevel)
-    return 2
-end
-
 function item_acorn:OnSpellStart()
-    local gridSnap = 192
-    local duration = 60.0
-
+    local duration = 45.0
     local vPoint = self:GetCursorPosition()
-    local x = ((math.floor((vPoint[1]) / gridSnap) * gridSnap) + 64)
-    local y = (math.floor((vPoint[2]+64) / gridSnap) * gridSnap)
-    local vPointCentre = Vector(x, y, vPoint[3])
+    if vPoint[1] < 0 then
+        vPoint1 = Vector(-6960, vPoint[2], 256)
+        vPoint2 = Vector(-6778, vPoint[2], 256)
+        vPoint3 = Vector(-6596, vPoint[2], 256)
+        vPoint4 = Vector(-6414, vPoint[2], 256)
+        vPoint5 = Vector(-6232, vPoint[2], 256)
+        vPoint6 = Vector(-6050, vPoint[2], 256)
+        vPoint7 = Vector(-5868, vPoint[2], 256)
+    else
+        vPoint1 = Vector(6956, vPoint[2], 256)
+        vPoint2 = Vector(6774, vPoint[2], 256)
+        vPoint3 = Vector(6592, vPoint[2], 256)
+        vPoint4 = Vector(6410, vPoint[2], 256)
+        vPoint5 = Vector(6228, vPoint[2], 256)
+        vPoint6 = Vector(6046, vPoint[2], 256)
+        vPoint7 = Vector(5864, vPoint[2], 256)
+    end
 
-    local vPoint1 = (vPointCentre + Vector(-32,32,0))
-    local vPoint2 = (vPointCentre + Vector(0,32,0))
-    local vPoint3 = (vPointCentre + Vector(32,32,0))
-    local vPoint4 = (vPointCentre + Vector(-32,0,0))
-    local vPoint6 = (vPointCentre + Vector(32,0,0))
-    local vPoint7 = (vPointCentre + Vector(-32,-32,0))
-    local vPoint8 = (vPointCentre + Vector(0,-32,0))
-    local vPoint9 = (vPointCentre + Vector(32,-32,0))
-
+    --[[
     local ent1 = SpawnEntityFromTableSynchronous("point_simple_obstruction", {origin = vPoint1})
     local ent2 = SpawnEntityFromTableSynchronous("point_simple_obstruction", {origin = vPoint2})
     local ent3 = SpawnEntityFromTableSynchronous("point_simple_obstruction", {origin = vPoint3})
@@ -44,7 +42,7 @@ function item_acorn:OnSpellStart()
     local ent7 = SpawnEntityFromTableSynchronous("point_simple_obstruction", {origin = vPoint7})
     local ent8 = SpawnEntityFromTableSynchronous("point_simple_obstruction", {origin = vPoint8})
     local ent9 = SpawnEntityFromTableSynchronous("point_simple_obstruction", {origin = vPoint9})
-
+    
     Timers:CreateTimer(duration, function()
 				ent1:RemoveSelf()
 				ent2:RemoveSelf()
@@ -56,7 +54,20 @@ function item_acorn:OnSpellStart()
 				ent8:RemoveSelf()
 				ent9:RemoveSelf()
 			end)
+    --]]
 
-    barrier = CreateTempTreeWithModel(vPointCentre + Vector(32,32,0), duration, "models/buildings/building_plain_reference.vmdl")
-    barrier:SetForwardVector(Vector(100, 100, 0))
+    barrier1 = CreateTempTreeWithModel(vPoint1, duration, "models/buildings/building_plain_reference.vmdl")
+    barrier2 = CreateTempTreeWithModel(vPoint2, duration, "models/buildings/building_plain_reference.vmdl")
+    barrier3 = CreateTempTreeWithModel(vPoint3, duration, "models/buildings/building_plain_reference.vmdl")
+    barrier4 = CreateTempTreeWithModel(vPoint4, duration, "models/buildings/building_plain_reference.vmdl")
+    barrier5 = CreateTempTreeWithModel(vPoint5, duration, "models/buildings/building_plain_reference.vmdl")
+    barrier6 = CreateTempTreeWithModel(vPoint6, duration, "models/buildings/building_plain_reference.vmdl")
+    barrier7 = CreateTempTreeWithModel(vPoint7, duration, "models/buildings/building_plain_reference.vmdl")
+    barrier1:SetForwardVector(Vector(100, 100, 0))
+    barrier2:SetForwardVector(Vector(100, 100, 0))
+    barrier3:SetForwardVector(Vector(100, 100, 0))
+    barrier4:SetForwardVector(Vector(100, 100, 0))
+    barrier5:SetForwardVector(Vector(100, 100, 0))
+    barrier6:SetForwardVector(Vector(100, 100, 0))
+    barrier7:SetForwardVector(Vector(100, 100, 0))
 end

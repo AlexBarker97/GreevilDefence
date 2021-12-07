@@ -292,6 +292,7 @@
 		"StatusHealthRegen"			"7.5"
 		"StatusMana"				"0"
 		"StatusManaRegen"			"0"
+		"DisableResistance"			"100"
 
 		// Team
 		//----------------------------------------------------------------

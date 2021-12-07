@@ -1879,7 +1879,7 @@
 			"03"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"magic_missile_damage"	"150 200 250"
+				"magic_missile_damage"	"150 175 200"
 			}
 		}
 	}
@@ -1987,7 +1987,7 @@
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"jumps"					"40"
+				"jumps"					"45 47 49"
 			}
 			"03"
 			{
@@ -2012,7 +2012,7 @@
 			"07"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"projectile_speed"		"850"
+				"projectile_speed"		"1200 1400 1600"
 			}
 			"08"
 			{	
@@ -6071,7 +6071,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"health_regen"			"10"
+				"health_regen"			"8"
 			}
 			"02"
 			{

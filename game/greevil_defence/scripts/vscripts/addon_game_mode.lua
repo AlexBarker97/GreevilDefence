@@ -131,7 +131,7 @@ function EntitySpawn()
 		--RED NEUTRAL BOSS
 		elseif unit:GetUnitName() == "greevil_red" then
 			unit:AddNewModifier(nil, nil, "modifier_greevil_red", {})
-			unit:AddNewModifier(nil, nil, "modifier_greevil_boss_sres", {})
+			unit:AddNewModifier(unit, nil, "modifier_greevil_boss_sres", {})
 			unit:AddItemByName("item_boss_drop_red")
 			local colour = "red"
 			Timers:CreateTimer(0.01, function()
@@ -145,7 +145,7 @@ function EntitySpawn()
 		--ORANGE NEUTRAL BOSS
 		elseif unit:GetUnitName() == "greevil_orange" then
 			unit:AddNewModifier(nil, nil, "modifier_greevil_orange", {})
-			unit:AddNewModifier(nil, nil, "modifier_greevil_boss_sres", {})
+			unit:AddNewModifier(unit, nil, "modifier_greevil_boss_sres", {})
 			unit:AddItemByName("item_boss_drop_orange")
 			local colour = "orange"
 			Timers:CreateTimer(0.02, function()
@@ -158,7 +158,7 @@ function EntitySpawn()
 		--YELLOW NEUTRAL BOSS
 		elseif unit:GetUnitName() == "greevil_yellow" then
 			unit:AddNewModifier(nil, nil, "modifier_greevil_yellow", {})
-			unit:AddNewModifier(nil, nil, "modifier_greevil_boss_sres", {})
+			unit:AddNewModifier(unit, nil, "modifier_greevil_boss_sres", {})
 			unit:AddItemByName("item_boss_drop_yellow")
 			local colour = "yellow"
 			Timers:CreateTimer(0.03, function()
@@ -173,7 +173,7 @@ function EntitySpawn()
 		--GREEN NEUTRAL BOSS
 		elseif unit:GetUnitName() == "greevil_green" then
 			unit:AddNewModifier(nil, nil, "modifier_greevil_green", {})
-			unit:AddNewModifier(nil, nil, "modifier_greevil_boss_sres", {})
+			unit:AddNewModifier(unit, nil, "modifier_greevil_boss_sres", {})
 			unit:AddItemByName("item_boss_drop_green")
 			local colour = "green"
 			Timers:CreateTimer(0.04, function()
@@ -188,7 +188,7 @@ function EntitySpawn()
 		--BLUE NEUTRAL BOSS
 		elseif unit:GetUnitName() == "greevil_blue" then
 			unit:AddNewModifier(nil, nil, "modifier_greevil_blue", {})
-			unit:AddNewModifier(nil, nil, "modifier_greevil_boss_sres", {})
+			unit:AddNewModifier(unit, nil, "modifier_greevil_boss_sres", {})
 			unit:AddItemByName("item_boss_drop_blue")
 			local colour = "blue"
 			Timers:CreateTimer(0.05, function()
@@ -201,7 +201,7 @@ function EntitySpawn()
 		--PURPLE NEUTRAL BOSS
 		elseif unit:GetUnitName() == "greevil_purple" then
 			unit:AddNewModifier(nil, nil, "modifier_greevil_purple", {})
-			unit:AddNewModifier(nil, nil, "modifier_greevil_boss_sres", {})
+			unit:AddNewModifier(unit, nil, "modifier_greevil_boss_sres", {})
 			unit:AddItemByName("item_boss_drop_purple")
 			local colour = "purple"
 			Timers:CreateTimer(0.06, function()
@@ -214,7 +214,7 @@ function EntitySpawn()
 		--WHITE	NEUTRAL BOSS
 		elseif unit:GetUnitName() == "greevil_white" then
 			unit:AddNewModifier(nil, nil, "modifier_greevil_white", {})
-			unit:AddNewModifier(nil, nil, "modifier_greevil_boss_sres", {})
+			unit:AddNewModifier(unit, nil, "modifier_greevil_boss_sres", {})
 			unit:AddItemByName("item_boss_drop_white")
 			local colour = "white"
 			Timers:CreateTimer(0.07, function()
@@ -227,7 +227,7 @@ function EntitySpawn()
 		--BLACK NEUTRAL BOSS
 		elseif unit:GetUnitName() == "greevil_black" then
 			unit:AddNewModifier(nil, nil, "modifier_greevil_black", {})
-			unit:AddNewModifier(nil, nil, "modifier_greevil_boss_sres", {})
+			unit:AddNewModifier(unit, nil, "modifier_greevil_boss_sres", {})
 			unit:AddItemByName("item_boss_drop_black")
 			local colour = "black"
 			Timers:CreateTimer(0.08, function()
@@ -281,7 +281,7 @@ function GameStart()
 				if math.fmod(count,5) == 0 then
 					SpawnFrostWard()
 				end
-				if (math.fmod(count,60) == 0) and (count >= 120) then
+				if (math.fmod(count,60) == 0) and (count >= 240) then
 					SpawnBosses()
 				end
 				if math.fmod(count,30) == 0 then
@@ -531,35 +531,38 @@ function SpawnCreeps()
 
 	if math.fmod(totalPlayerCount,2) ~= 0 then
 		adjPlayerCount = totalPlayerCount + 1
+		MTPC = adjPlayerCount/2		--Max Team Player Count
+	else
+		MTPC = totalPlayerCount/2	--Max Team Player Count
 	end
 
 	local waveType = RandomInt(1, 14)
 	local waveType2 = RandomInt(1, 8)
 
 	if count < 120 then		-- 0-1.5 mins 120
-		x = adjPlayerCount + 2
-		xC = adjPlayerCount - 1
+		x = MTPC + 3
+		xC = MTPC
 		xC2 = 0
 	elseif count < 240 then	-- 2-3.5 mins 240
-		x = adjPlayerCount + 2
-		xC = adjPlayerCount
+		x = MTPC + 4
+		xC = MTPC + 1
 		xC2 = 0
 	elseif count < 480 then	-- 4-7.5 mins 480
-		x = adjPlayerCount + 3
-		xC = adjPlayerCount
-		xC2 = 0
+		x = (MTPC*2) + 4
+		xC = MTPC
+		xC2 = MTPC
 	elseif count < 720 then	-- 8-11.5 mins 720
-		x = adjPlayerCount + 4
-		xC = adjPlayerCount - 1
-		xC2 = adjPlayerCount - 1
+		x = (MTPC*2) + 5
+		xC = MTPC + 1
+		xC2 = MTPC
 	elseif count < 960 then	-- 12-15.5 mins 960
-		x = adjPlayerCount + 5
-		xC = adjPlayerCount
-		xC2 = adjPlayerCount - 1
+		x = (MTPC*3) + 5
+		xC = MTPC + 1
+		xC2 = MTPC
 	else					-- 16+ mins
-		x = adjPlayerCount + 6
-		xC = adjPlayerCount
-		xC2 = adjPlayerCount
+		x = (MTPC*4) + 4
+		xC = MTPC + 1
+		xC2 = MTPC + 1
 	end
 
 	if waveType <= 6 then

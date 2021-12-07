@@ -2,14 +2,8 @@
   "ExpandedNodes": [
     "",
     "\\game",
-    "\\game\\greevil_defence",
-    "\\game\\greevil_defence\\scripts",
-    "\\game\\greevil_defence\\scripts\\npc",
-    "\\game\\greevil_defence\\scripts\\vscripts",
-    "\\game\\greevil_defence\\scripts\\vscripts\\customability",
-    "\\game\\greevil_defence\\scripts\\vscripts\\events",
-    "\\game\\greevil_defence\\scripts\\vscripts\\modifiers"
+    "\\game\\greevil_defence"
   ],
-  "SelectedNode": "\\game\\greevil_defence\\Mod Notes.txt",
+  "SelectedNode": "\\game\\greevil_defence",
   "PreviewInSolutionExplorer": false
 }

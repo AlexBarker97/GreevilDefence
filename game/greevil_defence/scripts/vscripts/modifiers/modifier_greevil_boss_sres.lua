@@ -1,19 +1,19 @@
 modifier_greevil_boss_sres = class({})
 
-function modifier_greevil_boss_sres:IsHidden() return false end
+function modifier_greevil_boss_sres:IsHidden() return true end
 function modifier_greevil_boss_sres:IsPurgable() return false end
 function modifier_greevil_boss_sres:RemoveOnDeath() return true end
 function modifier_greevil_boss_sres:IsPermanent() return true end
 
 function modifier_greevil_boss_sres:DeclareFunctions()
 	local funcs = {
-		MODIFIER_PROPERTY_STATUS_RESISTANCE
+		MODIFIER_PROPERTY_STATUS_RESISTANCE_STACKING
 	}
-return funcs
+	return funcs
 end
 
-function modifier_greevil_boss_sres:GetModifierStatusResistance()
-	return 40
+function modifier_greevil_boss_sres:GetModifierStatusResistanceStacking()
+	return 50
 end
 
 

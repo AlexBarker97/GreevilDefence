@@ -7,12 +7,13 @@ Suggestions
 • Variation between games
 	• random abilities
 	• random start item bundle (greevil starts with pack? or greevil can buy a pack?)
-• Bosses dont spawn on 0, first 6 at 4 mins, white at 8 mins, black at 10 mins with global sound effects
+• Bosses dont spawn on 4, first 6 at 2 mins, white at 8 mins, black at 10 mins with global sound effects
 • Less respawn hp
 
 QoL
 • mana/hp potions should despawn
-• Tooltips + ability icons
+• Ability icons
+• Ability leveling/scaling info
 • Boss greevil candy drop use (targetted modifier buff)
 • Greevil attack range (tweak for unit size)
 • White Boss Summons AI

@@ -281,7 +281,7 @@ function GameStart()
 				if math.fmod(count,5) == 0 then
 					SpawnFrostWard()
 				end
-				if (math.fmod(count,60) == 0) and (count >= 240) then
+				if (math.fmod(count,60) == 0) and (count >= 120) then
 					SpawnBosses()
 				end
 				if math.fmod(count,30) == 0 then

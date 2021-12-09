@@ -2,8 +2,10 @@
   "ExpandedNodes": [
     "",
     "\\game",
-    "\\game\\greevil_defence"
+    "\\game\\greevil_defence",
+    "\\game\\greevil_defence\\scripts",
+    "\\game\\greevil_defence\\scripts\\vscripts"
   ],
-  "SelectedNode": "\\game\\greevil_defence",
+  "SelectedNode": "\\game\\greevil_defence\\Creep Spawn Counts.xlsx",
   "PreviewInSolutionExplorer": false
 }

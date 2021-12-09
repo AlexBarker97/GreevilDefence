@@ -1066,6 +1066,10 @@ function GameMode:OnEntityKilled(keys)
 			Heal:SetPurchaseTime(0)
 			CreateItemOnPositionSync(pos, Heal)
 			Heal:LaunchLoot(false, 300, 0.75, pos + RandomVector(RandomFloat(50, 350)))
+			Timers:CreateTimer({endTime = 60.0,
+				callback = function()
+				Heal:GetContainer():Destroy()
+			end})
 		end
 		if dropRoll == 10 then
 			local pos = killed_unit:GetAbsOrigin()
@@ -1073,6 +1077,10 @@ function GameMode:OnEntityKilled(keys)
 			Mana:SetPurchaseTime(0)
 			CreateItemOnPositionSync(pos, Mana)
 			Mana:LaunchLoot(false, 300, 0.75, pos + RandomVector(RandomFloat(50, 350)))
+			Timers:CreateTimer({endTime = 60.0,
+				callback = function()
+				Mana:GetContainer():Destroy()
+			end})
 		end
 	end
 	
@@ -1134,59 +1142,87 @@ function GameMode:OnEntityKilled(keys)
 		end
 		
 		-- Hero gets lasthit on boss
-		if killed_unit:GetUnitName() == "greevil_red" and killer_unit:IsRealHero() == true then
-			killer_unit:AddItemByName("item_boss_drop_red")
-		elseif killed_unit:GetUnitName() == "greevil_orange" and killer_unit:IsRealHero() == true then
-			killer_unit:AddItemByName("item_boss_drop_orange")
-		elseif killed_unit:GetUnitName() == "greevil_yellow" and killer_unit:IsRealHero() == true then
-			killer_unit:AddItemByName("item_boss_drop_yellow")
-		elseif killed_unit:GetUnitName() == "greevil_green" and killer_unit:IsRealHero() == true then
-			killer_unit:AddItemByName("item_boss_drop_green")
-		elseif killed_unit:GetUnitName() == "greevil_blue" and killer_unit:IsRealHero() == true then
-			killer_unit:AddItemByName("item_boss_drop_blue")
-		elseif killed_unit:GetUnitName() == "greevil_purple" and killer_unit:IsRealHero() == true then
-			killer_unit:AddItemByName("item_boss_drop_purple")
-		elseif killed_unit:GetUnitName() == "greevil_white" and killer_unit:IsRealHero() == true then
-			killer_unit:AddItemByName("item_boss_drop_white")
-		elseif killed_unit:GetUnitName() == "greevil_black" and killer_unit:IsRealHero() == true then
-			killer_unit:AddItemByName("item_boss_drop_black")
-		
-		-- Illusion gets lasthit on boss
-		elseif killed_unit:GetUnitName() == "greevil_red" and killer_unit:GetOwner() ~= nil then
-			killer_unit:GetOwner():AddItemByName("item_boss_drop_red")		
-		elseif killed_unit:GetUnitName() == "greevil_orange" and killer_unit:GetOwner() ~= nil then
-			killer_unit:GetOwner():AddItemByName("item_boss_drop_orange")
-		elseif killed_unit:GetUnitName() == "greevil_yellow" and killer_unit:GetOwner() ~= nil then
-			killer_unit:GetOwner():AddItemByName("item_boss_drop_yellow")
-		elseif killed_unit:GetUnitName() == "greevil_green" and killer_unit:GetOwner() ~= nil then
-			killer_unit:GetOwner():AddItemByName("item_boss_drop_green")
-		elseif killed_unit:GetUnitName() == "greevil_blue" and killer_unit:GetOwner() ~= nil then
-			killer_unit:GetOwner():AddItemByName("item_boss_drop_blue")
-		elseif killed_unit:GetUnitName() == "greevil_purple" and killer_unit:GetOwner() ~= nil then
-			killer_unit:GetOwner():AddItemByName("item_boss_drop_purple")
-		elseif killed_unit:GetUnitName() == "greevil_white" and killer_unit:GetOwner() ~= nil then
-			killer_unit:GetOwner():AddItemByName("item_boss_drop_white")
-		elseif killed_unit:GetUnitName() == "greevil_black" and killer_unit:GetOwner() ~= nil then
-			killer_unit:GetOwner():AddItemByName("item_boss_drop_black")
-		
-		-- Summon gets lasthit on boss
-		elseif killed_unit:GetUnitName() == "greevil_red" then
-			killer_unit:GetOwner():AddItemByName("item_boss_drop_red")		
+		if killed_unit:GetUnitName() == "greevil_red" then
+			local pos = killed_unit:GetAbsOrigin()
+			local bossLoot = CreateItem("item_boss_drop_red", nil, nil)
+			bossLoot:SetPurchaseTime(0)
+			CreateItemOnPositionSync(pos, bossLoot)
+			bossLoot:LaunchLoot(false, 300, RandomFloat(0, 1), pos + RandomVector(RandomFloat(0, 150)))
+			Timers:CreateTimer({endTime = 300.0,
+				callback = function()
+				bossLoot:GetContainer():Destroy()
+			end})
 		elseif killed_unit:GetUnitName() == "greevil_orange" then
-			killer_unit:GetOwner():AddItemByName("item_boss_drop_orange")
+			local pos = killed_unit:GetAbsOrigin()
+			local bossLoot = CreateItem("item_boss_drop_orange", nil, nil)
+			bossLoot:SetPurchaseTime(0)
+			CreateItemOnPositionSync(pos, bossLoot)
+			bossLoot:LaunchLoot(false, 300, RandomFloat(0, 1), pos + RandomVector(RandomFloat(0, 150)))
+			Timers:CreateTimer({endTime = 300.0,
+				callback = function()
+				bossLoot:GetContainer():Destroy()
+			end})
 		elseif killed_unit:GetUnitName() == "greevil_yellow" then
-			killer_unit:GetOwner():AddItemByName("item_boss_drop_yellow")
+			local pos = killed_unit:GetAbsOrigin()
+			local bossLoot = CreateItem("item_boss_drop_yellow", nil, nil)
+			bossLoot:SetPurchaseTime(0)
+			CreateItemOnPositionSync(pos, bossLoot)
+			bossLoot:LaunchLoot(false, 300, RandomFloat(0, 1), pos + RandomVector(RandomFloat(0, 150)))
+			Timers:CreateTimer({endTime = 300.0,
+				callback = function()
+				bossLoot:GetContainer():Destroy()
+			end})
 		elseif killed_unit:GetUnitName() == "greevil_green" then
-			killer_unit:GetOwner():AddItemByName("item_boss_drop_green")
+			local pos = killed_unit:GetAbsOrigin()
+			local bossLoot = CreateItem("item_boss_drop_green", nil, nil)
+			bossLoot:SetPurchaseTime(0)
+			CreateItemOnPositionSync(pos, bossLoot)
+			bossLoot:LaunchLoot(false, 300, RandomFloat(0, 1), pos + RandomVector(RandomFloat(0, 150)))
+			Timers:CreateTimer({endTime = 300.0,
+				callback = function()
+				bossLoot:GetContainer():Destroy()
+			end})
 		elseif killed_unit:GetUnitName() == "greevil_blue" then
-			killer_unit:GetOwner():AddItemByName("item_boss_drop_blue")
+			local pos = killed_unit:GetAbsOrigin()
+			local bossLoot = CreateItem("item_boss_drop_blue", nil, nil)
+			bossLoot:SetPurchaseTime(0)
+			CreateItemOnPositionSync(pos, bossLoot)
+			bossLoot:LaunchLoot(false, 300, RandomFloat(0, 1), pos + RandomVector(RandomFloat(0, 150)))
+			Timers:CreateTimer({endTime = 300.0,
+				callback = function()
+				bossLoot:GetContainer():Destroy()
+			end})
 		elseif killed_unit:GetUnitName() == "greevil_purple" then
-			killer_unit:GetOwner():AddItemByName("item_boss_drop_purple")
+			local pos = killed_unit:GetAbsOrigin()
+			local bossLoot = CreateItem("item_boss_drop_purple", nil, nil)
+			bossLoot:SetPurchaseTime(0)
+			CreateItemOnPositionSync(pos, bossLoot)
+			bossLoot:LaunchLoot(false, 300, RandomFloat(0, 1), pos + RandomVector(RandomFloat(0, 150)))
+			Timers:CreateTimer({endTime = 300.0,
+				callback = function()
+				bossLoot:GetContainer():Destroy()
+			end})
 		elseif killed_unit:GetUnitName() == "greevil_white" then
-			killer_unit:GetOwner():AddItemByName("item_boss_drop_white")
+			local pos = killed_unit:GetAbsOrigin()
+			local bossLoot = CreateItem("item_boss_drop_white", nil, nil)
+			bossLoot:SetPurchaseTime(0)
+			CreateItemOnPositionSync(pos, bossLoot)
+			bossLoot:LaunchLoot(false, 300, RandomFloat(0, 1), pos + RandomVector(RandomFloat(0, 150)))
+			Timers:CreateTimer({endTime = 300.0,
+				callback = function()
+				bossLoot:GetContainer():Destroy()
+			end})
 		elseif killed_unit:GetUnitName() == "greevil_black" then
-			killer_unit:GetOwner():AddItemByName("item_boss_drop_black")
-
+			local pos = killed_unit:GetAbsOrigin()
+			local bossLoot = CreateItem("item_boss_drop_black", nil, nil)
+			bossLoot:SetPurchaseTime(0)
+			CreateItemOnPositionSync(pos, bossLoot)
+			bossLoot:LaunchLoot(false, 300, RandomFloat(0, 1), pos + RandomVector(RandomFloat(0, 150)))
+			Timers:CreateTimer({endTime = 300.0,
+				callback = function()
+				bossLoot:GetContainer():Destroy()
+			end})
+		
 		-- Defence Greevils
 		elseif killed_unit:GetUnitName() == "greevil_red_rad_def" then
 			DefenceGreevil.Radiant.Red = 0
@@ -1204,21 +1240,21 @@ function GameMode:OnEntityKilled(keys)
 			DefenceGreevil.Radiant.White = 0
 		elseif killed_unit:GetUnitName() == "greevil_black_rad_def" then
 			DefenceGreevil.Radiant.Black = 0
-		elseif killed_unit:GetUnitName() == "greevil_red_rad_def" then
+		elseif killed_unit:GetUnitName() == "greevil_red_dire_def" then
 			DefenceGreevil.Dire.Red = 0
-		elseif killed_unit:GetUnitName() == "greevil_orange_rad_def" then
+		elseif killed_unit:GetUnitName() == "greevil_orange_dire_def" then
 			DefenceGreevil.Dire.Orange = 0
-		elseif killed_unit:GetUnitName() == "greevil_yellow_rad_def" then
+		elseif killed_unit:GetUnitName() == "greevil_yellow_dire_def" then
 			DefenceGreevil.Dire.Yellow = 0
-		elseif killed_unit:GetUnitName() == "greevil_green_rad_def" then
+		elseif killed_unit:GetUnitName() == "greevil_green_dire_def" then
 			DefenceGreevil.Dire.Green = 0
-		elseif killed_unit:GetUnitName() == "greevil_blue_rad_def" then
+		elseif killed_unit:GetUnitName() == "greevil_blue_dire_def" then
 			DefenceGreevil.Dire.Blue = 0
-		elseif killed_unit:GetUnitName() == "greevil_purple_rad_def" then
+		elseif killed_unit:GetUnitName() == "greevil_purple_dire_def" then
 			DefenceGreevil.Dire.Purple = 0
-		elseif killed_unit:GetUnitName() == "greevil_white_rad_def" then
+		elseif killed_unit:GetUnitName() == "greevil_white_dire_def" then
 			DefenceGreevil.Dire.White = 0
-		elseif killed_unit:GetUnitName() == "greevil_black_rad_def" then
+		elseif killed_unit:GetUnitName() == "greevil_black_dire_def" then
 			DefenceGreevil.Dire.Black = 0
 		
 		-- Green attack greevil duplication

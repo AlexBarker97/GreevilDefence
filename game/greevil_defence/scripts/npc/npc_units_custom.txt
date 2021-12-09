@@ -3771,8 +3771,8 @@
 				
 		// Abilities
 		//----------------------------------------------------------------
-		"Ability2"					"greevil_bulwark"
-		"Ability1"					"greevil_miniboss_sight"
+		"Ability1"					"greevil_bulwark"
+		"Ability2"					"greevil_miniboss_sight"
 
 		// Armor
 		//----------------------------------------------------------------

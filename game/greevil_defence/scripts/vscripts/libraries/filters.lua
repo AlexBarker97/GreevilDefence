@@ -149,25 +149,30 @@ function GameMode:OrderFilter(filter_table)
 		local destination_x = filter_table.position_x
 		local destination_y = filter_table.position_y
     end
-	if EntIndexToHScript(filter_table.entindex_target):GetModelName() == "models/props_structures/good_barracks001_destruction.vmdl" then
-		filter_table.order_type = DOTA_UNIT_ORDER_MOVE_TO_TARGET
-		print(filter_table.order_type)
-		local jump = EntIndexToHScript(filter_table.entindex_target)
-		local hero = PlayerResource:GetSelectedHeroEntity(filter_table.issuer_player_id_const)
-		local jumppos = jump:GetAbsOrigin()
-		local heropos = hero:GetAbsOrigin()
-		local distvector = jumppos - heropos
-		if distvector:Length() < 175 then
-			if jump.disabled == 0 then
-				if heropos[1] < jumppos[1] then
-					hero:SetAbsOrigin(jumppos+(Vector(300,0,0)))
-				else
-					hero:SetAbsOrigin(jumppos+(Vector(-300,0,0)))
+
+	local EntTable = filter_table.entindex_table
+	if EntTable then
+		local target = EntIndexToHScript(filter_table.entindex_table)
+		if target and target:GetModelName() == "models/props_structures/good_barracks001_destruction.vmdl" then
+			filter_table.order_type = DOTA_UNIT_ORDER_MOVE_TO_TARGET
+			print(filter_table.order_type)
+			local jump = EntIndexToHScript(filter_table.entindex_target)
+			local hero = PlayerResource:GetSelectedHeroEntity(filter_table.issuer_player_id_const)
+			local jumppos = jump:GetAbsOrigin()
+			local heropos = hero:GetAbsOrigin()
+			local distvector = jumppos - heropos
+			if distvector:Length() < 175 then
+				if jump.disabled == 0 then
+					if heropos[1] < jumppos[1] then
+						hero:SetAbsOrigin(jumppos+(Vector(300,0,0)))
+					else
+						hero:SetAbsOrigin(jumppos+(Vector(-300,0,0)))
+					end
+					jump.disabled = 1
+					Timers:CreateTimer(1.0, function()
+						jump.disabled = 0
+					end)
 				end
-				jump.disabled = 1
-				Timers:CreateTimer(1.0, function()
-					jump.disabled = 0
-				end)
 			end
 		end
 	end

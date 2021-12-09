@@ -1,31 +1,41 @@
-///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
---------ToDo--------------------ToDo--------------------ToDo--------------------ToDo--------------------ToDo---------------
-///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+Bugs
+• Lane jump doesnt work with right click force attack
 
 Suggestions
 • Implement "one time" shop items
+• One time use item/ability from each boss
+	• Red    - mini mars ult
+	• Orange - fire breath
+	• Yellow - mini dusa ult
+	• Green  - refresher shard
+	• Blue   - liquid frost
+	• Purple - midnight pulse
+	• White  - summon army
+	• Black  - detonate
+• Rare random item drops from lane greevils
 • Variation between games
-	• random abilities
+	• random abilities (from colour pool)
 	• random start item bundle (greevil starts with pack? or greevil can buy a pack?)
-• Bosses dont spawn on 4, first 6 at 2 mins, white at 8 mins, black at 10 mins with global sound effects
+• Initial boss spawn times, first 6 at 2 mins, white at 4 mins, black at 6 mins with global sound effects
 • Less respawn hp
+• Boss greevil candy drop use (targetted modifier buff)
 
 QoL
-• mana/hp potions should despawn
-• Ability icons
+• Lane atack boss tokens droppable
 • Ability leveling/scaling info
-• Boss greevil candy drop use (targetted modifier buff)
-• Greevil attack range (tweak for unit size)
 • White Boss Summons AI
-• blue attack boss won't hit ancient
 • White Attack Boss AI
 • White Boss summon AI (can all be done on one script)
-• Sendboss effect volume
+• Sendboss effect volume/sound
 
 Balance
 • XP/Gold from bosses
+• Abilities
+• Items
 
 Luxury
+• Greevil attack range (tweak for unit size)
+• Custom ability icons
 • Improve bossfights (more interesting, better AI)
 • Choose one greevil ability to upgrade (5th skill point level 30 requirement?)
 • Custom animations
@@ -45,6 +55,12 @@ Two of these Consumables: Fruit-bit Cake, Wizard Cookie, Cocoa with Marshmallows
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 ----------LINKS---------------------------LINKS---------------------------LINKS---------------------------LINKS------------
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+Sounds
+https://raw.githubusercontent.com/SteamDatabase/GameTracking-Dota2/master/game/dota/bin/linuxsteamrt64/libserver_strings.txt
+DOTA_Item.Sheepstick.Activate
+.Activate
+EmitSoundOn("", handle unit)
 
 AI Thinking
 https://developer.valvesoftware.com/wiki/Thinking

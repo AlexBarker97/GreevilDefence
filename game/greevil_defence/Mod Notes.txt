@@ -1,8 +1,11 @@
 Bugs
 • Lane jump doesnt work with right click force attack
+• Remove/reset max items purchase limit
 
 Suggestions
+• Giftsnatcher at end of lane
 • Implement "one time" shop items
+	• Tree destruction lane (remove barrier)
 • One time use item/ability from each boss
 	• Red    - mini mars ult
 	• Orange - fire breath
@@ -32,6 +35,7 @@ Balance
 • Items
 
 Luxury
+• Remake boss areas (more natural looking)
 • Greevil attack range (tweak for unit size)
 • Custom ability icons
 • Improve bossfights (more interesting, better AI)

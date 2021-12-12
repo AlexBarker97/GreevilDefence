@@ -18,13 +18,11 @@ Suggestions
 	• random start item bundle (greevil starts with pack? or greevil can buy a pack?)
 • Initial boss spawn times, first 6 at 2 mins, white at 4 mins, black at 6 mins with global sound effects
 • Less respawn hp
-• Boss greevil candy drop use (targetted modifier buff)
 
 QoL
-• Lane atack boss tokens droppable
+• Coloured textures on candy modifier buffs
 • Ability leveling/scaling info
 • White Boss Summons AI
-• White Attack Boss AI
 • White Boss summon AI (can all be done on one script)
 • Sendboss effect volume/sound
 

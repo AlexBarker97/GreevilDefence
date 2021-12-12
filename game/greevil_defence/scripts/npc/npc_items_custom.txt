@@ -447,6 +447,7 @@
 		"BaseClass"						"item_datadriven"
 		"AbilityCastAnimation"			"ACT_DOTA_TELEPORT"
 		"AbilityTextureName"			"item_BossRed"
+		"Model"							"models/courier/gold_mega_greevil/gold_mega_greevil.vmdl"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_CHANNELLED"
 
 		"UIPickupSound"					"Item.PickUpGemShop"
@@ -464,11 +465,10 @@
 		"ItemPurchasable"				"0"
 		"ItemCost"						"0"
 		"ItemSellable"					"0"
-		"ItemDroppable"					"0"
+		"ItemDroppable"					"1"
 		"ItemKillable"					"0"
 		"PingOverrideText"				"DOTA_Chat_temp"
 
-		"Model"							"models/props_winter/egg.vmdl"
 		"ItemQuality"    				"artifact"
 		"OnSpellStart"
 		{
@@ -494,6 +494,7 @@
 		"BaseClass"						"item_datadriven"
 		"AbilityCastAnimation"			"ACT_DOTA_TELEPORT"
 		"AbilityTextureName"			"item_BossOrange"
+		"Model"							"models/courier/gold_mega_greevil/gold_mega_greevil.vmdl"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_CHANNELLED"
 
 		"UIPickupSound"					"Item.PickUpGemShop"
@@ -511,11 +512,10 @@
 		"ItemPurchasable"				"0"
 		"ItemCost"						"0"
 		"ItemSellable"					"0"
-		"ItemDroppable"					"0"
+		"ItemDroppable"					"1"
 		"ItemKillable"					"0"
 		"PingOverrideText"				"DOTA_Chat_temp"
 
-		"Model"							"models/props_winter/egg.vmdl"
 		"ItemQuality"    				"artifact"
 		"OnSpellStart"
 		{
@@ -541,6 +541,7 @@
 		"BaseClass"						"item_datadriven"
 		"AbilityCastAnimation"			"ACT_DOTA_TELEPORT"
 		"AbilityTextureName"			"item_BossYellow"
+		"Model"							"models/courier/gold_mega_greevil/gold_mega_greevil.vmdl"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_CHANNELLED"
 
 		"UIPickupSound"					"Item.PickUpGemShop"
@@ -558,11 +559,10 @@
 		"ItemPurchasable"				"0"
 		"ItemCost"						"0"
 		"ItemSellable"					"0"
-		"ItemDroppable"					"0"
+		"ItemDroppable"					"1"
 		"ItemKillable"					"0"
 		"PingOverrideText"				"DOTA_Chat_temp"
 
-		"Model"							"models/props_winter/egg.vmdl"
 		"ItemQuality"    				"artifact"
 		"OnSpellStart"
 		{
@@ -588,6 +588,7 @@
 		"BaseClass"						"item_datadriven"
 		"AbilityCastAnimation"			"ACT_DOTA_TELEPORT"
 		"AbilityTextureName"			"item_BossGreen"
+		"Model"							"models/courier/gold_mega_greevil/gold_mega_greevil.vmdl"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_CHANNELLED"
 
 		"UIPickupSound"					"Item.PickUpGemShop"
@@ -605,11 +606,10 @@
 		"ItemPurchasable"				"0"
 		"ItemCost"						"0"
 		"ItemSellable"					"0"
-		"ItemDroppable"					"0"
+		"ItemDroppable"					"1"
 		"ItemKillable"					"0"
 		"PingOverrideText"				"DOTA_Chat_temp"
 
-		"Model"							"models/props_winter/egg.vmdl"
 		"ItemQuality"    				"artifact"
 		"OnSpellStart"
 		{
@@ -635,6 +635,7 @@
 		"BaseClass"						"item_datadriven"
 		"AbilityCastAnimation"			"ACT_DOTA_TELEPORT"
 		"AbilityTextureName"			"item_BossBlue"
+		"Model"							"models/courier/gold_mega_greevil/gold_mega_greevil.vmdl"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_CHANNELLED"
 
 		"UIPickupSound"					"Item.PickUpGemShop"
@@ -652,11 +653,10 @@
 		"ItemPurchasable"				"0"
 		"ItemCost"						"0"
 		"ItemSellable"					"0"
-		"ItemDroppable"					"0"
+		"ItemDroppable"					"1"
 		"ItemKillable"					"0"
 		"PingOverrideText"				"DOTA_Chat_temp"
 
-		"Model"							"models/props_winter/egg.vmdl"
 		"ItemQuality"    				"artifact"
 		"OnSpellStart"
 		{
@@ -682,6 +682,7 @@
 		"BaseClass"						"item_datadriven"
 		"AbilityCastAnimation"			"ACT_DOTA_TELEPORT"
 		"AbilityTextureName"			"item_BossPurple"
+		"Model"							"models/courier/gold_mega_greevil/gold_mega_greevil.vmdl"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_CHANNELLED"
 
 		"UIPickupSound"					"Item.PickUpGemShop"
@@ -699,11 +700,10 @@
 		"ItemPurchasable"				"0"
 		"ItemCost"						"0"
 		"ItemSellable"					"0"
-		"ItemDroppable"					"0"
+		"ItemDroppable"					"1"
 		"ItemKillable"					"0"
 		"PingOverrideText"				"DOTA_Chat_temp"
 
-		"Model"							"models/props_winter/egg.vmdl"
 		"ItemQuality"    				"artifact"
 		"OnSpellStart"
 		{
@@ -729,6 +729,7 @@
 		"BaseClass"						"item_datadriven"
 		"AbilityCastAnimation"			"ACT_DOTA_TELEPORT"
 		"AbilityTextureName"			"item_BossWhite"
+		"Model"							"models/courier/gold_mega_greevil/gold_mega_greevil.vmdl"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_CHANNELLED"
 
 		"UIPickupSound"					"Item.PickUpGemShop"
@@ -746,11 +747,10 @@
 		"ItemPurchasable"				"0"
 		"ItemCost"						"0"
 		"ItemSellable"					"0"
-		"ItemDroppable"					"0"
+		"ItemDroppable"					"1"
 		"ItemKillable"					"0"
 		"PingOverrideText"				"DOTA_Chat_temp"
 
-		"Model"							"models/props_winter/egg.vmdl"
 		"ItemQuality"    				"artifact"
 		"OnSpellStart"
 		{
@@ -776,6 +776,7 @@
 		"BaseClass"						"item_datadriven"
 		"AbilityCastAnimation"			"ACT_DOTA_TELEPORT"
 		"AbilityTextureName"			"item_BossBlack"
+		"Model"							"models/courier/gold_mega_greevil/gold_mega_greevil.vmdl"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_CHANNELLED"
 
 		"UIPickupSound"					"Item.PickUpGemShop"
@@ -793,11 +794,10 @@
 		"ItemPurchasable"				"0"
 		"ItemCost"						"0"
 		"ItemSellable"					"0"
-		"ItemDroppable"					"0"
+		"ItemDroppable"					"1"
 		"ItemKillable"					"0"
 		"PingOverrideText"				"DOTA_Chat_temp"
 
-		"Model"							"models/props_winter/egg.vmdl"
 		"ItemQuality"    				"artifact"
 		"OnSpellStart"
 		{
@@ -825,7 +825,12 @@
 		"AbilityName"					"item_candy_red"
 		"BaseClass"						"item_datadriven"
 		"Model"							"models/props_gameplay/halloween_candy.vmdl"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_CREEP"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
+		"AbilityCastRange"				"500"
+
 		"AbilityTextureName"			"item_GreevilCandyRed"
 		"ItemSellable"					"0"
 		"ItemShareability"				"ITEM_FULLY_SHAREABLE"
@@ -835,6 +840,21 @@
 		"PingOverrideText"				"DOTA_Chat_Candy_Pinged"
 		"AbilityCastPoint"				"0.2"
 		"ItemDroppable"					"1"
+		
+		"OnSpellStart"
+		{
+			"FireSound"
+			{
+				"EffectName"    "DOTA_Item.Cheese.Activate"
+				"Target"        "CASTER"
+			}
+			"RunScript"
+			{
+				"Target"		"CASTER"
+				"ScriptFile"	"modifiers/candy/candy.lua"
+				"Function"		"Red"
+			}
+		}
 	}
 	
 	"item_candy_orange"
@@ -842,7 +862,12 @@
 		"AbilityName"					"item_candy_orange"
 		"BaseClass"						"item_datadriven"
 		"Model"							"models/props_gameplay/halloween_candy.vmdl"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_CREEP"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
+		"AbilityCastRange"				"500"
+
 		"AbilityTextureName"			"item_GreevilCandyOrange"
 		"ItemSellable"					"0"
 		"ItemShareability"				"ITEM_FULLY_SHAREABLE"
@@ -852,6 +877,21 @@
 		"PingOverrideText"				"DOTA_Chat_Candy_Pinged"
 		"AbilityCastPoint"				"0.2"
 		"ItemDroppable"					"1"
+
+		"OnSpellStart"
+		{
+			"FireSound"
+			{
+				"EffectName"    "DOTA_Item.Cheese.Activate"
+				"Target"        "CASTER"
+			}
+			"RunScript"
+			{
+				"Target"		"CASTER"
+				"ScriptFile"	"modifiers/candy/candy.lua"
+				"Function"		"Orange"
+			}
+		}
 	}
 	
 	"item_candy_yellow"
@@ -859,7 +899,12 @@
 		"AbilityName"					"item_candy_yellow"
 		"BaseClass"						"item_datadriven"
 		"Model"							"models/props_gameplay/halloween_candy.vmdl"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_CREEP"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
+		"AbilityCastRange"				"500"
+
 		"AbilityTextureName"			"item_GreevilCandyYellow"
 		"ItemSellable"					"0"
 		"ItemShareability"				"ITEM_FULLY_SHAREABLE"
@@ -869,6 +914,21 @@
 		"PingOverrideText"				"DOTA_Chat_Candy_Pinged"
 		"AbilityCastPoint"				"0.2"
 		"ItemDroppable"					"1"
+
+		"OnSpellStart"
+		{
+			"FireSound"
+			{
+				"EffectName"    "DOTA_Item.Cheese.Activate"
+				"Target"        "CASTER"
+			}
+			"RunScript"
+			{
+				"Target"		"CASTER"
+				"ScriptFile"	"modifiers/candy/candy.lua"
+				"Function"		"Yellow"
+			}
+		}
 	}
 	
 	"item_candy_green"
@@ -876,7 +936,12 @@
 		"AbilityName"					"item_candy_green"
 		"BaseClass"						"item_datadriven"
 		"Model"							"models/props_gameplay/halloween_candy.vmdl"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_CREEP"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
+		"AbilityCastRange"				"500"
+
 		"AbilityTextureName"			"item_GreevilCandyGreen"
 		"ItemSellable"					"0"
 		"ItemShareability"				"ITEM_FULLY_SHAREABLE"
@@ -886,6 +951,21 @@
 		"PingOverrideText"				"DOTA_Chat_Candy_Pinged"
 		"AbilityCastPoint"				"0.2"
 		"ItemDroppable"					"1"
+
+		"OnSpellStart"
+		{
+			"FireSound"
+			{
+				"EffectName"    "DOTA_Item.Cheese.Activate"
+				"Target"        "CASTER"
+			}
+			"RunScript"
+			{
+				"Target"		"CASTER"
+				"ScriptFile"	"modifiers/candy/candy.lua"
+				"Function"		"Green"
+			}
+		}
 	}
 	
 	"item_candy_blue"
@@ -893,7 +973,12 @@
 		"AbilityName"					"item_candy_blue"
 		"BaseClass"						"item_datadriven"
 		"Model"							"models/props_gameplay/halloween_candy.vmdl"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_CREEP"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
+		"AbilityCastRange"				"500"
+
 		"AbilityTextureName"			"item_GreevilCandyBlue"
 		"ItemSellable"					"0"
 		"ItemShareability"				"ITEM_FULLY_SHAREABLE"
@@ -903,6 +988,21 @@
 		"PingOverrideText"				"DOTA_Chat_Candy_Pinged"
 		"AbilityCastPoint"				"0.2"
 		"ItemDroppable"					"1"
+
+		"OnSpellStart"
+		{
+			"FireSound"
+			{
+				"EffectName"    "DOTA_Item.Cheese.Activate"
+				"Target"        "CASTER"
+			}
+			"RunScript"
+			{
+				"Target"		"CASTER"
+				"ScriptFile"	"modifiers/candy/candy.lua"
+				"Function"		"Blue"
+			}
+		}
 	}
 	
 	"item_candy_purple"
@@ -910,7 +1010,12 @@
 		"AbilityName"					"item_candy_purple"
 		"BaseClass"						"item_datadriven"
 		"Model"							"models/props_gameplay/halloween_candy.vmdl"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_CREEP"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
+		"AbilityCastRange"				"500"
+
 		"AbilityTextureName"			"item_GreevilCandyPurple"
 		"ItemSellable"					"0"
 		"ItemShareability"				"ITEM_FULLY_SHAREABLE"
@@ -920,6 +1025,21 @@
 		"PingOverrideText"				"DOTA_Chat_Candy_Pinged"
 		"AbilityCastPoint"				"0.2"
 		"ItemDroppable"					"1"
+
+		"OnSpellStart"
+		{
+			"FireSound"
+			{
+				"EffectName"    "DOTA_Item.Cheese.Activate"
+				"Target"        "CASTER"
+			}
+			"RunScript"
+			{
+				"Target"		"CASTER"
+				"ScriptFile"	"modifiers/candy/candy.lua"
+				"Function"		"Purple"
+			}
+		}
 	}
 	
 	"item_candy_white"
@@ -927,7 +1047,12 @@
 		"AbilityName"					"item_candy_white"
 		"BaseClass"						"item_datadriven"
 		"Model"							"models/props_gameplay/halloween_candy.vmdl"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_CREEP"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
+		"AbilityCastRange"				"500"
+
 		"AbilityTextureName"			"item_GreevilCandyWhite"
 		"ItemSellable"					"0"
 		"ItemShareability"				"ITEM_FULLY_SHAREABLE"
@@ -937,6 +1062,21 @@
 		"PingOverrideText"				"DOTA_Chat_Candy_Pinged"
 		"AbilityCastPoint"				"0.2"
 		"ItemDroppable"					"1"
+
+		"OnSpellStart"
+		{
+			"FireSound"
+			{
+				"EffectName"    "DOTA_Item.Cheese.Activate"
+				"Target"        "CASTER"
+			}
+			"RunScript"
+			{
+				"Target"		"CASTER"
+				"ScriptFile"	"modifiers/candy/candy.lua"
+				"Function"		"White"
+			}
+		}
 	}
 	
 	"item_candy_black"
@@ -944,7 +1084,12 @@
 		"AbilityName"					"item_candy_black"
 		"BaseClass"						"item_datadriven"
 		"Model"							"models/props_gameplay/halloween_candy.vmdl"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_CREEP"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
+		"AbilityCastRange"				"500"
+
 		"AbilityTextureName"			"item_GreevilCandyBlack"
 		"ItemSellable"					"0"
 		"ItemShareability"				"ITEM_FULLY_SHAREABLE"
@@ -954,6 +1099,21 @@
 		"PingOverrideText"				"DOTA_Chat_Candy_Pinged"
 		"AbilityCastPoint"				"0.2"
 		"ItemDroppable"					"1"
+
+		"OnSpellStart"
+		{
+			"FireSound"
+			{
+				"EffectName"    "DOTA_Item.Cheese.Activate"
+				"Target"        "CASTER"
+			}
+			"RunScript"
+			{
+				"Target"		"CASTER"
+				"ScriptFile"	"modifiers/candy/candy.lua"
+				"Function"		"Black"
+			}
+		}
 	}
 	
 	////////////////////////////////////////////////////////////////////////////

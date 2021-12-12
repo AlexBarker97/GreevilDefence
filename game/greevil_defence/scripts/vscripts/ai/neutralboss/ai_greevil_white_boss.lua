@@ -128,7 +128,7 @@ function AggressiveThink()
 end
 
 function ReturningThink()
-	if (thisEntity.spawnPos - thisEntity:GetAbsOrigin()):Length() < 50 then
+	if (thisEntity.spawnPos - thisEntity:GetAbsOrigin()):Length() < 150 then
 		thisEntity.state = 0
 	else
 		thisEntity:MoveToPosition(thisEntity.spawnPos)

@@ -189,7 +189,6 @@
 		"AttackCapabilities"		"DOTA_UNIT_CAP_RANGED_ATTACK"
 		"AttackDamageMin"			"24"
 		"AttackDamageMax"			"26"
-		"AttackDamageType"			"DAMAGE_TYPE_PHYSICAL"
 		"AttackRate"				"0.8"
 		"AttackAnimationPoint"		"0.3"
 		"AttackAcquisitionRange"	"600"
@@ -1866,9 +1865,8 @@
 		//----------------------------------------------------------------
 		"Ability1"					"greevil_purification"
 		"Ability2"					"greevil_divine_favor"
-		"Ability3"					"greevil_angelic_flight"
-		"Ability4"					"greevil_guardian_angel"
-		"Ability5"					"greevil_miniboss_sight"
+		"Ability3"					"greevil_guardian_angel"
+		"Ability4"					"greevil_miniboss_sight"
 
 		// Bounty
 		//----------------------------------------------------------------
@@ -1895,7 +1893,7 @@
 		
 		"ArmorPhysical"				"15"
 		"MagicalResistance"			"41"
-		"StatusHealth"				"7000"
+		"StatusHealth"				"5000"
 		"StatusHealthRegen"			"15"
 		"StatusMana"				"0"
 		"StatusManaRegen"			"0"

@@ -365,6 +365,7 @@ function GameMode:OnGameRulesStateChange(keys)
 			end})
 	elseif newState == DOTA_GAMERULES_STATE_GAME_IN_PROGRESS then
 		GameMode:OnGameInProgress()
+		Convars:SetInt('dota_max_physical_items_purchase_limit', 9999)
 	end
 end
 
@@ -374,10 +375,18 @@ function GameMode:OnNPCSpawned(keys)
 	--DeepPrintTable(keys)
 	local npc = EntIndexToHScript(keys.entindex)
 
-	if npc:IsRealHero() and npc.bFirstSpawned == nil then
-		npc.bFirstSpawned = true
-		GameMode:OnHeroInGame(npc)
+	if npc:IsRealHero() then
+
+		local satchel = CreateItem("item_satchel_custom", nil, nil)
+		satchel:SetPurchaseTime(0)
+		npc:AddItem(satchel)
+
+		if npc.bFirstSpawned == nil then
+			npc.bFirstSpawned = true
+			GameMode:OnHeroInGame(npc)
+		end
 	end
+
 end
 
 -- An entity somewhere has been hurt.  This event fires very often with many units so don't do too many expensive
@@ -426,9 +435,11 @@ function GameMode:OnItemPurchased(keys)
 		if PlayerResource:GetTeam(playerID) == 2 then
 			location = (Vector(5872, 5200, 304)) + (Vector(RandomInt(0, 1056),RandomInt(0, 944), 0))
 			local unit = CreateUnitByName("greevil_blue_rad_att", location, true, nil, nil, DOTA_TEAM_GOODGUYS)
+			unit.lane = 0
 		else
 			location = (Vector(-6928, 5200, 304)) + (Vector(RandomInt(0, 1056),RandomInt(0, 944), 0))
 			local unit = CreateUnitByName("greevil_blue_dire_att", location, true, nil, nil, DOTA_TEAM_BADGUYS)
+			unit.lane = 0
 		end
 		removeItem(purchaseEntity,"item_blue_egg_att")
 
@@ -1034,6 +1045,10 @@ function GameMode:OnEntityKilled(keys)
 	local killed_unit = EntIndexToHScript(keys.entindex_killed)
 	local deathLocation = killed_unit:GetAbsOrigin()
 	local killedTeam = killed_unit:GetTeam()
+	--killed_unit:GetTeam()
+	--radiant = 2
+	--dire = 3
+	--neturals = 4
 	
 	local owner = killed_unit:GetOwner()
 	if killed_unit.hero == 1 then
@@ -1058,36 +1073,42 @@ function GameMode:OnEntityKilled(keys)
 	end
 
 	if killed_unit:GetUnitName() == "greevil_naked_dire" or
-	   killed_unit:GetUnitName() == "greevil_naked_rad" then
-		local dropRoll = RandomInt(1, 10)
-		if dropRoll == 5 then
+		killed_unit:GetUnitName() == "greevil_naked_rad" then
+		local dropRoll = RandomInt(1, 1000)
+		if (dropRoll > 0) and (dropRoll <= 100) then
 			local pos = killed_unit:GetAbsOrigin()
-			local Heal = CreateItem("item_heal", nil, nil)
-			Heal:SetPurchaseTime(0)
-			CreateItemOnPositionSync(pos, Heal)
-			Heal:LaunchLoot(false, 300, 0.75, pos + RandomVector(RandomFloat(50, 350)))
+			local item = CreateItem("item_heal", nil, nil)
+			item:SetPurchaseTime(0)
+			CreateItemOnPositionSync(pos, item)
+			item:LaunchLoot(true, 300, 0.75, pos + RandomVector(RandomFloat(50, 350)))
 			Timers:CreateTimer({endTime = 60.0,
 				callback = function()
-				Heal:GetContainer():Destroy()
+				item:GetContainer():Destroy()
 			end})
 		end
-		if dropRoll == 10 then
+		if (dropRoll > 100) and (dropRoll <= 200) then
 			local pos = killed_unit:GetAbsOrigin()
-			local Mana = CreateItem("item_mana", nil, nil)
-			Mana:SetPurchaseTime(0)
-			CreateItemOnPositionSync(pos, Mana)
-			Mana:LaunchLoot(false, 300, 0.75, pos + RandomVector(RandomFloat(50, 350)))
+			local item = CreateItem("item_mana", nil, nil)
+			item:SetPurchaseTime(0)
+			CreateItemOnPositionSync(pos, item)
+			item:LaunchLoot(true, 300, 0.75, pos + RandomVector(RandomFloat(50, 350)))
 			Timers:CreateTimer({endTime = 60.0,
 				callback = function()
-				Mana:GetContainer():Destroy()
+				item:GetContainer():Destroy()
+			end})
+		end
+		if (dropRoll > 200) and (dropRoll <= 250) then
+			local pos = killed_unit:GetAbsOrigin()
+			local item = CreateItem("item_present", nil, nil)
+			item:SetPurchaseTime(0)
+			CreateItemOnPositionSync(pos, item)
+			item:LaunchLoot(false, 300, 0.75, pos + RandomVector(RandomFloat(50, 350)))
+			Timers:CreateTimer({endTime = 60.0,
+				callback = function()
+				item:GetContainer():Destroy()
 			end})
 		end
 	end
-	
-	--killed_unit:GetTeam()
-		--radiant = 2
-		--dire = 3
-		--neturals = 4
 	
 	if killer_unit ~= nil then
 		if killed_unit:GetUnitName() == "greevil_red" 
@@ -1137,6 +1158,40 @@ function GameMode:OnEntityKilled(keys)
 					local particle = ParticleManager:CreateParticleForTeam("particles/generic_gameplay/lasthit_coins.vpcf", PATTACH_ABSORIGIN_FOLLOW, hero, killerTeam)
 					ParticleManager:SetParticleControl(particle, 1, hero:GetAbsOrigin())
 					ParticleManager:ReleaseParticleIndex(1)				
+				end
+				local dropRoll = RandomInt(1, 1000)
+				if (dropRoll > 0) and (dropRoll <= 100) then
+					local pos = killed_unit:GetAbsOrigin()
+					local item = CreateItem("item_heal", nil, nil)
+					item:SetPurchaseTime(0)
+					CreateItemOnPositionSync(pos, item)
+					item:LaunchLoot(true, 300, 0.75, pos + RandomVector(RandomFloat(50, 350)))
+					Timers:CreateTimer({endTime = 60.0,
+						callback = function()
+						item:GetContainer():Destroy()
+					end})
+				end
+				if (dropRoll > 100) and (dropRoll <= 200) then
+					local pos = killed_unit:GetAbsOrigin()
+					local item = CreateItem("item_mana", nil, nil)
+					item:SetPurchaseTime(0)
+					CreateItemOnPositionSync(pos, item)
+					item:LaunchLoot(true, 300, 0.75, pos + RandomVector(RandomFloat(50, 350)))
+					Timers:CreateTimer({endTime = 60.0,
+						callback = function()
+						item:GetContainer():Destroy()
+					end})
+				end
+				if (dropRoll > 200) and (dropRoll <= 250) then
+					local pos = killed_unit:GetAbsOrigin()
+					local item = CreateItem("item_present", nil, nil)
+					item:SetPurchaseTime(0)
+					CreateItemOnPositionSync(pos, item)
+					item:LaunchLoot(false, 300, 0.75, pos + RandomVector(RandomFloat(50, 350)))
+					Timers:CreateTimer({endTime = 60.0,
+						callback = function()
+						item:GetContainer():Destroy()
+					end})
 				end
 			end
 		end
@@ -1430,6 +1485,9 @@ function removeItem(purchaseEntity,itemName)
 	for i=0,14 do
 		local itemHero = purchaseEntity:GetItemInSlot(i)
 		if itemHero ~= nil and itemHero:GetAbilityName() == tostring(itemName) then
+			if itemHero:GetContainer() ~= nil then
+				itemHero:GetContainer():Destroy()
+			end
 			purchaseEntity:RemoveItem(itemHero)
 		end
 	end

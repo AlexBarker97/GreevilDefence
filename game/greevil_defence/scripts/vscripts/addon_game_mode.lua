@@ -22,44 +22,34 @@ require('libraries/filters')
 require "math"
 
 function Precache( context )
+	print("Performing pre-load precache")
 	-- NOTE: IT IS RECOMMENDED TO USE A MINIMAL AMOUNT OF LUA PRECACHING, AND A MAXIMAL AMOUNT OF DATADRIVEN PRECACHING.
 	-- Precaching guide: https://moddota.com/forums/discussion/119/precache-fixing-and-avoiding-issues
-
-	--[[
-	This function is used to precache resources/units/items/abilities that will be needed
-	for sure in your game and that cannot or should not be precached asynchronously or 
-	after the game loads.
-
-	See GameMode:PostLoadPrecache() in barebones.lua for more information
-	]]
-
-	print("Performing pre-load precache")
 
 	-- Particles can be precached individually or by folder
 	-- It it likely that precaching a single particle system will precache all of its children, but this may not be guaranteed
 	-- PrecacheResource("particle", "particles/econ/generic/generic_aoe_explosion_sphere_1/generic_aoe_explosion_sphere_1.vpcf", context)
 	-- PrecacheResource("particle_folder", "particles/test_particle", context)
-
 	-- Models can also be precached by folder or individually
 	-- PrecacheModel should generally used over PrecacheResource for individual models
 	-- PrecacheResource("model_folder", "particles/heroes/antimage", context)
 	-- PrecacheResource("model", "particles/heroes/viper/viper.vmdl", context)
 	-- PrecacheModel("models/heroes/viper/viper.vmdl", context)
-
-	-- Sounds can precached here like anything else
-	PrecacheResource("soundfile", "soundevents/game_sounds_heroes/game_sounds_furion.vsndevts", context)
-	PrecacheResource("soundfile", "soundevents/game_sounds_ui_imported.vsndevts", context)
-	PrecacheResource("soundfile", "soundevents/voscripts/game_sounds_vo_siltbreaker.vsndevts", context)
-
 	-- Entire items can be precached by name
 	-- Abilities can also be precached in this way despite the name
 	-- PrecacheItemByNameSync("example_ability", context)
 	-- PrecacheItemByNameSync("item_example_item", context)
-
 	-- Entire heroes (sound effects/voice/models/particles) can be precached with PrecacheUnitByNameSync
 	-- Custom units from npc_units_custom.txt can also have all of their abilities and precache{} blocks precached in this way
 	-- PrecacheUnitByNameSync("npc_dota_hero_ancient_apparition", context)
 	-- PrecacheUnitByNameSync("npc_dota_hero_enigma", context)
+	-- Sounds can precached here like anything else
+
+	PrecacheResource("soundfile", "soundevents/game_sounds_heroes/game_sounds_furion.vsndevts", context)
+	PrecacheResource("soundfile", "soundevents/game_sounds_ui_imported.vsndevts", context)
+	PrecacheResource("soundfile", "soundevents/voscripts/game_sounds_vo_siltbreaker.vsndevts", context)
+	PrecacheResource("soundfile", "soundevents/game_sounds_greevils.vsndevts", context)
+	PrecacheResource("soundfile", "soundevents/game_sounds_cny.vsndevts", context)
 	PrecacheModel("models/courier/greevil/greevil.vmdl", context)
 	PrecacheUnitByNameSync("greevil_red", context)
 	PrecacheUnitByNameSync("greevil_orange", context)
@@ -274,15 +264,39 @@ function GameStart()
 			
 			count = 0;
 			Timers:CreateTimer(0, function()
-			
 				if count == 5 then
 					SpawnBot()
 				end
 				if math.fmod(count,5) == 0 then
 					SpawnFrostWard()
 				end
-				if (math.fmod(count,60) == 0) and (count >= 120) then
-					SpawnBosses()
+				if math.fmod(count,1) == 0 then
+					if count == 0 then
+						EmitGlobalSound("mars_takeover_stinger")
+						--EmitGlobalSound("om_arcana_takeover_stinger")
+						--EmitGlobalSound("jug_arcana_debut_takeover_stinger")
+					end
+					if count >= 120 then
+						SpawnSmallBosses()
+						if count == 120 then
+							EmitGlobalSound("RoshanDT.Scream")
+						end
+					end
+					if count >= 240 then
+						SpawnWhiteBosses()
+						if count == 240 then
+							EmitGlobalSound("earthshaker_takeover_stinger")
+							EmitGlobalSound("RoshanDT.Scream")
+						end
+					end
+					if count >= 360 then
+						SpawnBlackBoss()
+						if count == 360 then
+							EmitGlobalSound("void_spirit_debut_takeover_stinger")
+							EmitGlobalSound("underlord_debut_takeover_stinger")
+							EmitGlobalSound("RoshanDT.Scream")
+						end
+					end
 				end
 				if math.fmod(count,30) == 0 then
 					SpawnCreeps()
@@ -365,7 +379,7 @@ function SpawnFrostWard()
 	end
 end
 
-function SpawnBosses()
+function SpawnSmallBosses()
 	local pointr = Entities:FindAllByName("spawnerino_red")
 	for k,v in pairs(pointr) do				
 		local location = v:GetAbsOrigin()
@@ -480,7 +494,9 @@ function SpawnBosses()
 			unit.spawnPos = location
 		end
 	end
+end
 	
+function SpawnWhiteBosses()
 	local pointr = Entities:FindAllByName("spawnerino_white")
 	for k,v in pairs(pointr) do				
 		local location = v:GetAbsOrigin()
@@ -502,7 +518,9 @@ function SpawnBosses()
 			unit.spawnPos = location
 		end
 	end
-	
+end
+
+function SpawnBlackBoss()	
 	local pointr = Entities:FindAllByName("spawnerino_black")
 	for k,v in pairs(pointr) do				
 		local location = v:GetAbsOrigin()

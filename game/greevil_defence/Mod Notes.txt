@@ -1,11 +1,10 @@
 Bugs
 • Lane jump doesnt work with right click force attack
-• Remove/reset max items purchase limit
 
 Suggestions
 • Giftsnatcher at end of lane
 • Implement "one time" shop items
-	• Tree destruction lane (remove barrier)
+	• Barrier buster
 • One time use item/ability from each boss
 	• Red    - mini mars ult
 	• Orange - fire breath
@@ -15,14 +14,13 @@ Suggestions
 	• Purple - midnight pulse
 	• White  - summon army
 	• Black  - detonate
-• Rare random item drops from lane greevils
 • Variation between games
-	• random abilities (from colour pool)
-	• random start item bundle (greevil starts with pack? or greevil can buy a pack?)
-• Initial boss spawn times, first 6 at 2 mins, white at 4 mins, black at 6 mins with global sound effects
+	• random abilities (from colour pool)	
 • Less respawn hp
 
 QoL
+• Improve/add more satchel items
+• Improve/add more present items
 • Coloured textures on candy modifier buffs
 • Ability leveling/scaling info
 • White Boss Summons AI

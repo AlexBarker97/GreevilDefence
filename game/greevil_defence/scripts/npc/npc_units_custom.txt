@@ -253,7 +253,6 @@
 		"Ability2"					"greevil_fervor"
 		"Ability3"					"greevil_battle_trance"
 		"Ability4"					"greevil_arena_of_blood"
-		"Ability5"					"greevil_miniboss_sight"
 		
 		"precache"
 		{
@@ -332,7 +331,6 @@
 		"Ability2"					"greevil_light_strike_array"
 		"Ability3"					"greevil_infernal_blade"
 		"Ability4"					"greevil_supernova"
-		"Ability5"					"greevil_miniboss_sight"
 		
 		"precache"
 		{
@@ -411,7 +409,6 @@
 		"Ability2"					"greevil_boulder_smash"
 		"Ability3"					"greevil_craggy_boss"
 		"Ability4"					"greevil_stone_gaze"
-		"Ability5"					"greevil_miniboss_sight"
 		
 		"precache"
 		{
@@ -511,7 +508,6 @@
 		"Ability2"					"greevil_acid_spray"
 		"Ability3"					"greevil_cloak_aura"
 		"Ability4"					"greevil_spawnlord_aura"
-		"Ability5"					"greevil_miniboss_sight"
 		
 		"precache"
 		{
@@ -589,7 +585,6 @@
 		"Ability2"					"greevil_crystal_nova"
 		"Ability3"					"greevil_liquid_ice"
 		"Ability4"					"lich_chain_frost_lua"
-		"Ability5"					"greevil_miniboss_sight"
 
 		"precache"
 		{
@@ -687,7 +682,6 @@
 		"Ability2"					"greevil_midnight_pulse"
 		"Ability3"					"greevil_vacuum"
 		"Ability4"					"greevil_smoke_screen"
-		"Ability5"					"greevil_miniboss_sight"
 
 		"precache"
 		{
@@ -926,7 +920,6 @@
 		//----------------------------------------------------------------
 		
 		"Ability1"					"greevil_summon_counter_helix"
-		"Ability2"					"greevil_miniboss_sight"
 
 		// Armor
 		//----------------------------------------------------------------
@@ -1001,7 +994,6 @@
 		//----------------------------------------------------------------
 		
 		"Ability1"					"greevil_summon_permanent_immolation"
-		"Ability2"					"greevil_miniboss_sight"
 
 		// Armor
 		//----------------------------------------------------------------
@@ -1076,7 +1068,6 @@
 		//----------------------------------------------------------------
 		
 		"Ability1"					"greevil_summon_dragonhide_aura"
-		"Ability2"					"greevil_miniboss_sight"
 
 		// Armor
 		//----------------------------------------------------------------
@@ -1146,7 +1137,6 @@
 		//----------------------------------------------------------------
 		
 		"Ability1"					"greevil_summon_natural_order"
-		"Ability2"					"greevil_miniboss_sight"
 
 		// Armor
 		//----------------------------------------------------------------
@@ -1216,7 +1206,6 @@
 		//----------------------------------------------------------------
 		
 		"Ability1"					"greevil_summon_invisibility"
-		"Ability2"					"greevil_miniboss_sight"
 
 		// Armor
 		//----------------------------------------------------------------
@@ -1286,7 +1275,6 @@
 		//----------------------------------------------------------------
 		
 		"Ability1"					"greevil_summon_desolate"
-		"Ability2"					"greevil_miniboss_sight"
 
 		// Armor
 		//----------------------------------------------------------------
@@ -1375,7 +1363,6 @@
 		//----------------------------------------------------------------
 		"Ability1"					"greevil_fervor"
 		"Ability2"					"greevil_red_boss_battle_trance"
-		"Ability3"					"greevil_miniboss_sight"
 
 		// Bounty
 		//----------------------------------------------------------------
@@ -1432,7 +1419,6 @@
 		"Ability1"					"greevil_orange_boss_melting_strike"
 		"Ability2"					"greevil_infernal_blade"
 		"Ability3"					"greevil_supernova"
-		"Ability4"					"greevil_miniboss_sight"
 
 		// Bounty
 		//----------------------------------------------------------------
@@ -1490,7 +1476,6 @@
 		"Ability2"					""
 		"Ability3"					"greevil_yellow_boss_craggy"
 		"Ability4"					"greevil_yellow_boss_stone_gaze"
-		"Ability5"					"greevil_miniboss_sight"
 
 		// Bounty
 		//----------------------------------------------------------------
@@ -1544,7 +1529,6 @@
 		//----------------------------------------------------------------
 		"Ability1"					"greevil_hurl_boulder"
 		"Ability2"					"greevil_destroy"
-		"Ability5"					"greevil_miniboss_sight"
 
 		"precache"
 		{
@@ -1604,7 +1588,6 @@
 		//----------------------------------------------------------------
 		"Ability1"					"greevil_hurl_boulder"
 		"Ability2"					"greevil_destroy"
-		"Ability5"					"greevil_miniboss_sight"
 
 		"precache"
 		{
@@ -1677,7 +1660,6 @@
 		
 		"Ability1"					"greevil_hurl_boulder"
 		"Ability2"					"greevil_destroy"
-		"Ability5"					"greevil_miniboss_sight"
 		
 		"precache"
 		{
@@ -1751,7 +1733,6 @@
 		//----------------------------------------------------------------
 		"Ability1"					"greevil_ice_vortex"
 		"Ability2"					"greevil_chain_frost"
-		"Ability5"					"greevil_miniboss_sight"
 
 		// Bounty
 		//----------------------------------------------------------------
@@ -1809,7 +1790,6 @@
 		"Ability2"					"greevil_midnight_pulse"
 		"Ability3"					"greevil_vacuum"
 		"Ability4"					"greevil_black_hole"
-		"Ability5"					"greevil_miniboss_sight"
 
 		// Bounty
 		//----------------------------------------------------------------
@@ -1978,7 +1958,6 @@
 		//----------------------------------------------------------------
 		
 		"Ability1"					"greevil_bulwark"
-		"Ability2"					"greevil_miniboss_sight"
 
 		// Armor
 		//----------------------------------------------------------------
@@ -2053,7 +2032,6 @@
 		//----------------------------------------------------------------
 		
 		"Ability1"					"greevil_flaming_fists"
-		"Ability2"					"greevil_miniboss_sight"
 
 		// Armor
 		//----------------------------------------------------------------
@@ -2128,7 +2106,6 @@
 		//----------------------------------------------------------------
 		
 		"Ability1"					"greevil_craggy_small"
-		"Ability2"					"greevil_miniboss_sight"
 
 		// Armor
 		//----------------------------------------------------------------
@@ -2203,7 +2180,6 @@
 		//----------------------------------------------------------------
 		
 		"Ability1"					"greevil_pulverize"
-		"Ability2"					"greevil_miniboss_sight"
 
 		// Armor
 		//----------------------------------------------------------------
@@ -2278,7 +2254,6 @@
 		//----------------------------------------------------------------
 		
 		"Ability1"					"greevil_frost_attack"
-		"Ability2"					"greevil_miniboss_sight"
 
 		// Armor
 		//----------------------------------------------------------------
@@ -2348,7 +2323,6 @@
 		//----------------------------------------------------------------
 		
 		"Ability1"					"greevil_time_lock"
-		"Ability2"					"greevil_miniboss_sight"
 
 		// Armor
 		//----------------------------------------------------------------
@@ -2426,7 +2400,6 @@
 		//----------------------------------------------------------------
 		
 		"Ability1"					"greevil_degen_aura_small"
-		"Ability2"					"greevil_miniboss_sight"
 
 		// Armor
 		//----------------------------------------------------------------
@@ -2499,7 +2472,6 @@
 		//----------------------------------------------------------------
 		
 		"Ability1"					"greevil_dark_lord"
-		"Ability2"					"greevil_miniboss_sight"
 
 		// Armor
 		//----------------------------------------------------------------
@@ -2584,7 +2556,6 @@
 		//----------------------------------------------------------------
 		
 		"Ability1"					"greevil_bulwark"
-		"Ability2"					"greevil_miniboss_sight"
 
 		// Armor
 		//----------------------------------------------------------------
@@ -2659,7 +2630,6 @@
 		//----------------------------------------------------------------
 		
 		"Ability1"					"greevil_flaming_fists"
-		"Ability2"					"greevil_miniboss_sight"
 
 		// Armor
 		//----------------------------------------------------------------
@@ -2734,7 +2704,6 @@
 		//----------------------------------------------------------------
 		
 		"Ability1"					"greevil_craggy_small"
-		"Ability2"					"greevil_miniboss_sight"
 
 		// Armor
 		//----------------------------------------------------------------
@@ -2809,7 +2778,6 @@
 		//----------------------------------------------------------------
 		
 		"Ability1"					"greevil_pulverize"
-		"Ability2"					"greevil_miniboss_sight"
 
 		// Armor
 		//----------------------------------------------------------------
@@ -2884,7 +2852,6 @@
 		//----------------------------------------------------------------
 		
 		"Ability1"					"greevil_frost_attack"
-		"Ability2"					"greevil_miniboss_sight"
 
 		// Armor
 		//----------------------------------------------------------------
@@ -2954,7 +2921,6 @@
 		//----------------------------------------------------------------
 		
 		"Ability1"					"greevil_time_lock"
-		"Ability2"					"greevil_miniboss_sight"
 
 		// Armor
 		//----------------------------------------------------------------
@@ -3029,7 +2995,6 @@
 		//----------------------------------------------------------------
 		
 		"Ability1"					"greevil_degen_aura_small"
-		"Ability2"					"greevil_miniboss_sight"
 
 		// Armor
 		//----------------------------------------------------------------
@@ -3102,7 +3067,6 @@
 		//----------------------------------------------------------------
 		
 		"Ability1"					"greevil_dark_lord"
-		"Ability2"					"greevil_miniboss_sight"
 
 		// Armor
 		//----------------------------------------------------------------
@@ -3192,7 +3156,6 @@
 		// Abilities
 		//----------------------------------------------------------------
 		"Ability1"					"greevil_bulwark"
-		"Ability2"					"greevil_miniboss_sight"
 
 		// Armor
 		//----------------------------------------------------------------
@@ -3266,7 +3229,6 @@
 		// Abilities
 		//----------------------------------------------------------------
 		"Ability1"					"greevil_flaming_fists"
-		"Ability2"					"greevil_miniboss_sight"
 
 		// Armor
 		//----------------------------------------------------------------
@@ -3340,7 +3302,6 @@
 		// Abilities
 		//----------------------------------------------------------------
 		"Ability1"					"greevil_craggy_small"
-		"Ability2"					"greevil_miniboss_sight"
 
 		// Armor
 		//----------------------------------------------------------------
@@ -3414,7 +3375,6 @@
 		// Abilities
 		//----------------------------------------------------------------
 		"Ability1"					"greevil_unholy_aura"
-		"Ability2"					"greevil_miniboss_sight"
 
 		// Armor
 		//----------------------------------------------------------------
@@ -3486,7 +3446,6 @@
 		// Abilities
 		//----------------------------------------------------------------
 		"Ability1"					"greevil_mana_aura"
-		"Ability2"					"greevil_miniboss_sight"
 
 		// Armor
 		//----------------------------------------------------------------
@@ -3558,7 +3517,6 @@
 		// Abilities
 		//----------------------------------------------------------------
 		"Ability1"					"greevil_backtrack"
-		"Ability2"					"greevil_miniboss_sight"
 
 		// Armor
 		//----------------------------------------------------------------
@@ -3698,7 +3656,6 @@
 		// Abilities
 		//----------------------------------------------------------------
 		"Ability1"					"greevil_dark_lord"
-		"Ability2"					"greevil_miniboss_sight"
 
 		// Armor
 		//----------------------------------------------------------------
@@ -3770,7 +3727,6 @@
 		// Abilities
 		//----------------------------------------------------------------
 		"Ability1"					"greevil_bulwark"
-		"Ability2"					"greevil_miniboss_sight"
 
 		// Armor
 		//----------------------------------------------------------------
@@ -3844,7 +3800,6 @@
 		// Abilities
 		//----------------------------------------------------------------
 		"Ability1"					"greevil_flaming_fists"
-		"Ability2"					"greevil_miniboss_sight"
 
 		// Armor
 		//----------------------------------------------------------------
@@ -3918,7 +3873,6 @@
 		// Abilities
 		//----------------------------------------------------------------
 		"Ability1"					"greevil_craggy_small"
-		"Ability2"					"greevil_miniboss_sight"
 
 		// Armor
 		//----------------------------------------------------------------
@@ -3992,7 +3946,6 @@
 		// Abilities
 		//----------------------------------------------------------------
 		"Ability1"					"greevil_unholy_aura"
-		"Ability2"					"greevil_miniboss_sight"
 
 		// Armor
 		//----------------------------------------------------------------
@@ -4064,7 +4017,6 @@
 		// Abilities
 		//----------------------------------------------------------------
 		"Ability1"					"greevil_mana_aura"
-		"Ability2"					"greevil_miniboss_sight"
 		
 		// Armor
 		//----------------------------------------------------------------
@@ -4136,7 +4088,6 @@
 		// Abilities
 		//----------------------------------------------------------------
 		"Ability1"					"greevil_backtrack"
-		"Ability2"					"greevil_miniboss_sight"
 
 		// Armor
 		//----------------------------------------------------------------
@@ -4285,7 +4236,6 @@
 		// Abilities
 		//----------------------------------------------------------------
 		"Ability1"					"greevil_dark_lord"
-		"Ability2"					"greevil_miniboss_sight"
 
 		// Armor
 		//----------------------------------------------------------------

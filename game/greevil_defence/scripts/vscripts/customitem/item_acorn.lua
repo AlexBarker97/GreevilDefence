@@ -32,30 +32,6 @@ function item_acorn:OnSpellStart()
         vPoint7 = Vector(5864, vPoint[2], 256)
     end
 
-    --[[
-    local ent1 = SpawnEntityFromTableSynchronous("point_simple_obstruction", {origin = vPoint1})
-    local ent2 = SpawnEntityFromTableSynchronous("point_simple_obstruction", {origin = vPoint2})
-    local ent3 = SpawnEntityFromTableSynchronous("point_simple_obstruction", {origin = vPoint3})
-    local ent4 = SpawnEntityFromTableSynchronous("point_simple_obstruction", {origin = vPoint4})
-    local ent5 = SpawnEntityFromTableSynchronous("point_simple_obstruction", {origin = vPointCentre})
-    local ent6 = SpawnEntityFromTableSynchronous("point_simple_obstruction", {origin = vPoint6})
-    local ent7 = SpawnEntityFromTableSynchronous("point_simple_obstruction", {origin = vPoint7})
-    local ent8 = SpawnEntityFromTableSynchronous("point_simple_obstruction", {origin = vPoint8})
-    local ent9 = SpawnEntityFromTableSynchronous("point_simple_obstruction", {origin = vPoint9})
-    
-    Timers:CreateTimer(duration, function()
-				ent1:RemoveSelf()
-				ent2:RemoveSelf()
-				ent3:RemoveSelf()
-				ent4:RemoveSelf()
-				ent5:RemoveSelf()
-				ent6:RemoveSelf()
-				ent7:RemoveSelf()
-				ent8:RemoveSelf()
-				ent9:RemoveSelf()
-			end)
-    --]]
-
     barrier1 = CreateTempTreeWithModel(vPoint1, duration, "models/buildings/building_plain_reference.vmdl")
     barrier2 = CreateTempTreeWithModel(vPoint2, duration, "models/buildings/building_plain_reference.vmdl")
     barrier3 = CreateTempTreeWithModel(vPoint3, duration, "models/buildings/building_plain_reference.vmdl")

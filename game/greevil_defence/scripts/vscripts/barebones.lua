@@ -303,7 +303,7 @@ end
 
   The hero parameter is the hero entity that just spawned in.
 ]]
-function GameMode:OnHeroInGame(hero)
+function GameMode:OnFirstTimeHeroInGame(hero)
 
 	-- Store a reference to the player handle inside this hero handle.
 	hero.player = PlayerResource:GetPlayer(hero:GetPlayerID())
@@ -314,6 +314,10 @@ function GameMode:OnHeroInGame(hero)
 
 	-- This line for example will set the starting gold of every hero to 500 unreliable gold
 	hero:SetGold(0, false)
+
+	local satchel = CreateItem("item_satchel_custom", nil, nil)
+	satchel:SetPurchaseTime(0)
+	hero:AddItem(satchel)
 	
 end
 
@@ -377,13 +381,9 @@ function GameMode:OnNPCSpawned(keys)
 
 	if npc:IsRealHero() then
 
-		local satchel = CreateItem("item_satchel_custom", nil, nil)
-		satchel:SetPurchaseTime(0)
-		npc:AddItem(satchel)
-
 		if npc.bFirstSpawned == nil then
 			npc.bFirstSpawned = true
-			GameMode:OnHeroInGame(npc)
+			GameMode:OnFirstTimeHeroInGame(npc)
 		end
 	end
 
@@ -1207,6 +1207,7 @@ function GameMode:OnEntityKilled(keys)
 				callback = function()
 				bossLoot:GetContainer():Destroy()
 			end})
+			EmitSoundOnLocationWithCaster(killed_unit:GetAbsOrigin(), "Miniboss_Greevil.Death", killed_unit)
 		elseif killed_unit:GetUnitName() == "greevil_orange" then
 			local pos = killed_unit:GetAbsOrigin()
 			local bossLoot = CreateItem("item_boss_drop_orange", nil, nil)
@@ -1217,6 +1218,7 @@ function GameMode:OnEntityKilled(keys)
 				callback = function()
 				bossLoot:GetContainer():Destroy()
 			end})
+			EmitSoundOnLocationWithCaster(killed_unit:GetAbsOrigin(), "Miniboss_Greevil.Death", killed_unit)
 		elseif killed_unit:GetUnitName() == "greevil_yellow" then
 			local pos = killed_unit:GetAbsOrigin()
 			local bossLoot = CreateItem("item_boss_drop_yellow", nil, nil)
@@ -1227,6 +1229,7 @@ function GameMode:OnEntityKilled(keys)
 				callback = function()
 				bossLoot:GetContainer():Destroy()
 			end})
+			EmitSoundOnLocationWithCaster(killed_unit:GetAbsOrigin(), "Miniboss_Greevil.Death", killed_unit)
 		elseif killed_unit:GetUnitName() == "greevil_green" then
 			local pos = killed_unit:GetAbsOrigin()
 			local bossLoot = CreateItem("item_boss_drop_green", nil, nil)
@@ -1237,6 +1240,7 @@ function GameMode:OnEntityKilled(keys)
 				callback = function()
 				bossLoot:GetContainer():Destroy()
 			end})
+			EmitSoundOnLocationWithCaster(killed_unit:GetAbsOrigin(), "Miniboss_Greevil.Death", killed_unit)
 		elseif killed_unit:GetUnitName() == "greevil_blue" then
 			local pos = killed_unit:GetAbsOrigin()
 			local bossLoot = CreateItem("item_boss_drop_blue", nil, nil)
@@ -1247,6 +1251,7 @@ function GameMode:OnEntityKilled(keys)
 				callback = function()
 				bossLoot:GetContainer():Destroy()
 			end})
+			EmitSoundOnLocationWithCaster(killed_unit:GetAbsOrigin(), "Miniboss_Greevil.Death", killed_unit)
 		elseif killed_unit:GetUnitName() == "greevil_purple" then
 			local pos = killed_unit:GetAbsOrigin()
 			local bossLoot = CreateItem("item_boss_drop_purple", nil, nil)
@@ -1257,6 +1262,7 @@ function GameMode:OnEntityKilled(keys)
 				callback = function()
 				bossLoot:GetContainer():Destroy()
 			end})
+			EmitSoundOnLocationWithCaster(killed_unit:GetAbsOrigin(), "Miniboss_Greevil.Death", killed_unit)
 		elseif killed_unit:GetUnitName() == "greevil_white" then
 			local pos = killed_unit:GetAbsOrigin()
 			local bossLoot = CreateItem("item_boss_drop_white", nil, nil)
@@ -1267,6 +1273,7 @@ function GameMode:OnEntityKilled(keys)
 				callback = function()
 				bossLoot:GetContainer():Destroy()
 			end})
+			EmitSoundOnLocationWithCaster(killed_unit:GetAbsOrigin(), "Miniboss_Greevil.Death", killed_unit)
 		elseif killed_unit:GetUnitName() == "greevil_black" then
 			local pos = killed_unit:GetAbsOrigin()
 			local bossLoot = CreateItem("item_boss_drop_black", nil, nil)
@@ -1277,6 +1284,7 @@ function GameMode:OnEntityKilled(keys)
 				callback = function()
 				bossLoot:GetContainer():Destroy()
 			end})
+			EmitSoundOnLocationWithCaster(killed_unit:GetAbsOrigin(), "Miniboss_Greevil.Death", killed_unit)
 		
 		-- Defence Greevils
 		elseif killed_unit:GetUnitName() == "greevil_red_rad_def" then

@@ -9,6 +9,7 @@ LinkLuaModifier("modifier_greevil_white", "scripts/vscripts/modifiers/modifier_g
 LinkLuaModifier("modifier_greevil_black", "scripts/vscripts/modifiers/modifier_greevil_black", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_greevil_naked", "scripts/vscripts/modifiers/modifier_greevil_naked", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_greevil_boss_sres", "scripts/vscripts/modifiers/modifier_greevil_boss_sres", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier( "lifeline_lua", "modifiers/lifeline_lua", LUA_MODIFIER_MOTION_NONE )
 
 --[[
 	Basic Barebones
@@ -264,17 +265,23 @@ function GameStart()
 			
 			count = 0;
 			Timers:CreateTimer(0, function()
+
 				if count == 5 then
 					SpawnBot()
 				end
+
 				if math.fmod(count,5) == 0 then
 					SpawnFrostWard()
 				end
-				if math.fmod(count,1) == 0 then
+
+				if (math.fmod(count,600) == 0) and (count > 1) then
+					SpawnGiftSnatchers()
+					EmitGlobalSound("FrostivusGameStart.DireSide")
+				end
+
+				if math.fmod(count,60) == 0 then
 					if count == 0 then
 						EmitGlobalSound("mars_takeover_stinger")
-						--EmitGlobalSound("om_arcana_takeover_stinger")
-						--EmitGlobalSound("jug_arcana_debut_takeover_stinger")
 					end
 					if count >= 120 then
 						SpawnSmallBosses()
@@ -298,11 +305,12 @@ function GameStart()
 						end
 					end
 				end
-				if math.fmod(count,30) == 0 then
+
+				if (math.fmod(count,30) == 0) and ((math.fmod(count,600) ~= 0) or (count == 0)) then
 					SpawnCreeps()
 				end
+
 				count = count + 1;
-				
 			return 1
 			end)
 		elseif GameRules:State_Get() == DOTA_GAMERULES_STATE_PRE_GAME then
@@ -377,6 +385,16 @@ function SpawnFrostWard()
 			unit:StartGestureWithPlaybackRate(ACT_DOTA_FLAIL, 0.5)
 		end
 	end
+end
+
+function SpawnGiftSnatchers()
+	local unit = CreateUnitByName("thyg_the_gift_snatcher", Vector(-6400, 6000, 304), true, nil, nil, DOTA_TEAM_GOODGUYS)
+	unit:FaceTowards(unit:GetAbsOrigin()+Vector(0, -100, 0))
+	unit:AddNewModifier(unit, nil, "lifeline_lua", { duration = 72 })
+
+	local unit = CreateUnitByName("thyg_the_gift_snatcher", Vector(6400, 6000, 304), true, nil, nil, DOTA_TEAM_BADGUYS)
+	unit:FaceTowards(unit:GetAbsOrigin()+Vector(0, -100, 0))
+	unit:AddNewModifier(unit, nil, "lifeline_lua", { duration = 72 })
 end
 
 function SpawnSmallBosses()

@@ -26,16 +26,14 @@ function boxtrigger(trigger)
 
         for i=1,#BossSearch do
             if BossSearch[i]:GetUnitName() == "greevil_orange" and heroes == 0 then
-                local ability1 = BossSearch[i]:GetAbilityByIndex(0)  
-                local ability2 = BossSearch[i]:GetAbilityByIndex(1)  
-                local ability3 = BossSearch[i]:GetAbilityByIndex(2)  
-                local ability4 = BossSearch[i]:GetAbilityByIndex(3)  
-                local ability5 = BossSearch[i]:GetAbilityByIndex(4)  
+                local ability1 = BossSearch[i]:GetAbilityByIndex(0)
+                local ability2 = BossSearch[i]:GetAbilityByIndex(1)
+                local ability3 = BossSearch[i]:GetAbilityByIndex(2)
+                local ability4 = BossSearch[i]:GetAbilityByIndex(3)
                 ability1:EndCooldown()
                 ability2:EndCooldown()
                 ability3:EndCooldown()
                 ability4:EndCooldown()
-                ability5:EndCooldown()
                 BossSearch[i]:AddNewModifier(BossSearch[i], nil, "modifier_rune_regen", {duration = 30.0})
             end
 		end

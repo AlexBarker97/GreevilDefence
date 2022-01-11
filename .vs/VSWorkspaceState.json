@@ -5,10 +5,12 @@
     "\\game\\greevil_defence",
     "\\game\\greevil_defence\\resource",
     "\\game\\greevil_defence\\scripts",
+    "\\game\\greevil_defence\\scripts\\npc",
     "\\game\\greevil_defence\\scripts\\vscripts",
-    "\\game\\greevil_defence\\scripts\\vscripts\\modifiers",
-    "\\game\\greevil_defence\\scripts\\vscripts\\modifiers\\candy"
+    "\\game\\greevil_defence\\scripts\\vscripts\\customability",
+    "\\game\\greevil_defence\\scripts\\vscripts\\customitem",
+    "\\game\\greevil_defence\\scripts\\vscripts\\modifiers"
   ],
-  "SelectedNode": "\\game\\greevil_defence\\scripts\\vscripts\\modifiers\\candy\\candy.lua",
+  "SelectedNode": "\\game\\greevil_defence\\scripts\\vscripts\\customability\\summon_turret.lua",
   "PreviewInSolutionExplorer": false
 }

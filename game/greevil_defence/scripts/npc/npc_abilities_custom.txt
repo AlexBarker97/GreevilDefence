@@ -241,6 +241,69 @@
 		}
 	}
 
+	"greevil_ice_wall_ad"
+	{
+		"BaseClass"						"invoker_ice_wall_ad"
+		
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
+		"SpellDispellableType"			"SPELL_DISPELLABLE_NO"
+		"MaxLevel"						"1"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+
+		// Stats
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"0"
+		"AbilityManaCost"				"0"
+		"AbilityCastPoint"				"0.05"
+		
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"duration"				"60.0"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"slow"					"-500"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"slow_duration"			"1.0"
+			}
+			"04"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"damage_per_second"		"50"
+			}
+			"05"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"wall_place_distance"	"200"
+			}
+			"06"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"num_wall_elements"		"18"
+			}
+			"07"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"wall_element_spacing"	"70"
+			}
+			"08"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"wall_element_radius"	"200"
+			}
+		}
+	}
+
 	"item_boss_drop_red"
 	{
 		"BaseClass"						"ability_datadriven"
@@ -3477,7 +3540,7 @@
 
 		// Time		
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"2.2"
+		"AbilityCooldown"				"2.8"
 
 		// Cost
 		//-------------------------------------------------------------------------------------------------------------
@@ -3495,7 +3558,7 @@
 			"02"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"spear_speed"		"900"
+				"spear_speed"		"700"
 			}
 			"03"
 			{
@@ -3510,7 +3573,7 @@
 			"05"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"spear_range"		"1600"
+				"spear_range"		"500"
 			}
 			"06"
 			{
@@ -3525,7 +3588,7 @@
 			"08"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"knockback_duration""2.0"
+				"knockback_duration""1.0"
 			}			
 			"09"
 			{

@@ -287,6 +287,7 @@ function GameStart()
 						SpawnSmallBosses()
 						if count == 120 then
 							EmitGlobalSound("RoshanDT.Scream")
+							EmitGlobalSound("RoshanDT.TakeoverScream.Layer")
 						end
 					end
 					if count >= 240 then
@@ -294,6 +295,7 @@ function GameStart()
 						if count == 240 then
 							EmitGlobalSound("earthshaker_takeover_stinger")
 							EmitGlobalSound("RoshanDT.Scream")
+							EmitGlobalSound("RoshanDT.TakeoverScream.Layer")
 						end
 					end
 					if count >= 360 then
@@ -302,6 +304,7 @@ function GameStart()
 							EmitGlobalSound("void_spirit_debut_takeover_stinger")
 							EmitGlobalSound("underlord_debut_takeover_stinger")
 							EmitGlobalSound("RoshanDT.Scream")
+							EmitGlobalSound("RoshanDT.TakeoverScream.Layer")
 						end
 					end
 				end

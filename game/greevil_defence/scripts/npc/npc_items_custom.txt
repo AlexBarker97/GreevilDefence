@@ -107,6 +107,10 @@
 		"ItemCost"						"0"
 	}
 
+	///////////////////
+	// Satchel Items //
+	///////////////////
+
 	"item_satchel_custom"
 	{
 		"BaseClass"						"item_lua"
@@ -128,6 +132,133 @@
 		"ItemShareability"				"ITEM_NOT_SHAREABLE"
 		"ItemPurchasable"				"0"
 		"ItemCost"						"0"
+	}
+
+	"item_wizard_cookie"
+	{
+		"BaseClass"						"item_lua"
+		"AbilityTextureName"			"Wizard_Cookie_icon"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_CREEP"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
+		"ScriptFile" 					"customitem/item_wizard_cookie.lua"
+		"AbilityName"					"item_wizard_cookie"
+
+		"AbilityCastRange"				"250"
+		"AbilityCastPoint"              "0"
+		"AbilityCooldown"               "0"
+		"AbilityManaCost"               "0"
+		"Model"							"models/props_gameplay/red_box.vmdl"
+		"PingOverrideText"				"DOTA_Chat_wizard_cookie_Pinged"
+		"ItemPermanent"					"0"
+		"ItemStackable"					"1"
+		"ItemDroppable"					"0"
+		"ItemSellable"					"0"
+		"ItemShareability"				"ITEM_FULLY_SHAREABLE"
+		"ItemPurchasable"				"0"
+		"ItemCost"						"0"
+		"ItemInitialCharges"			"5"
+		"ItemDisplayCharges"			"1"
+	}
+	
+	"item_fruitbit_cake"
+	{
+		"BaseClass"						"item_lua"
+		"AbilityTextureName"			"Fruitbit_Cake_icon"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+		"ScriptFile" 					"customitem/item_fruitbit_cake.lua"
+		"AbilityName"					"item_fruitbit_cake"
+
+		"AbilityCastRange"				"0"
+		"AbilityCastPoint"              "0"
+		"AbilityCooldown"               "0"
+		"AbilityManaCost"               "0"
+		"Model"							"models/props_gameplay/red_box.vmdl"
+		"PingOverrideText"				"DOTA_Chat_fruitbit_cake_Pinged"
+		"ItemPermanent"					"0"
+		"ItemStackable"					"1"
+		"ItemDroppable"					"0"
+		"ItemSellable"					"0"
+		"ItemShareability"				"ITEM_FULLY_SHAREABLE"
+		"ItemPurchasable"				"0"
+		"ItemCost"						"0"
+		"ItemInitialCharges"			"2"
+		"ItemDisplayCharges"			"1"
+	}	
+
+	"item_kringle"
+	{
+		"BaseClass"						"item_lua"
+		"AbilityTextureName"			"Kringle_icon"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+		"ScriptFile" 					"customitem/item_kringle.lua"
+		"AbilityName"					"item_kringle"
+
+		"AbilityCastRange"				"0"
+		"AbilityCastPoint"              "0"
+		"AbilityCooldown"               "0"
+		"AbilityManaCost"               "0"
+		"Model"							"models/props_gameplay/red_box.vmdl"
+		"PingOverrideText"				"DOTA_Chat_kringle_Pinged"
+		"ItemPermanent"					"0"
+		"ItemStackable"					"1"
+		"ItemDroppable"					"0"
+		"ItemSellable"					"0"
+		"ItemShareability"				"ITEM_FULLY_SHAREABLE"
+		"ItemPurchasable"				"0"
+		"ItemCost"						"0"
+		"ItemInitialCharges"			"15"
+		"ItemDisplayCharges"			"1"
+	}
+	
+	"item_fishbones"
+	{
+		"BaseClass"						"item_lua"
+		"AbilityTextureName"			"Greevil_Treat_icon"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+		"ScriptFile" 					"customitem/item_fishbones.lua"
+		"AbilityName"					"item_fishbones"
+
+		"AbilityCastRange"				"0"
+		"AbilityCastPoint"              "0"
+		"AbilityCooldown"               "0"
+		"AbilityManaCost"               "0"
+		"Model"							"models/props_gameplay/red_box.vmdl"
+		"PingOverrideText"				"DOTA_Chat_fishbones_Pinged"
+		"ItemPermanent"					"0"
+		"ItemStackable"					"1"
+		"ItemDroppable"					"0"
+		"ItemSellable"					"0"
+		"ItemShareability"				"ITEM_FULLY_SHAREABLE"
+		"ItemPurchasable"				"0"
+		"ItemCost"						"0"
+		"ItemInitialCharges"			"2"
+		"ItemDisplayCharges"			"1"
+	}
+	
+	"item_snow_mushroom"
+	{
+		"BaseClass"						"item_lua"
+		"AbilityTextureName"			"Snow_Mushroom_icon"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+		"ScriptFile" 					"customitem/item_snow_mushroom.lua"
+		"AbilityName"					"item_snow_mushroom"
+
+		"AbilityCastRange"				"0"
+		"AbilityCastPoint"              "0"
+		"AbilityCooldown"               "0"
+		"AbilityManaCost"               "0"
+		"Model"							"models/props_gameplay/red_box.vmdl"
+		"PingOverrideText"				"DOTA_Chat_snow_mushroom_Pinged"
+		"ItemPermanent"					"0"
+		"ItemStackable"					"1"
+		"ItemDroppable"					"0"
+		"ItemSellable"					"0"
+		"ItemShareability"				"ITEM_FULLY_SHAREABLE"
+		"ItemPurchasable"				"0"
+		"ItemCost"						"0"
+		"ItemInitialCharges"			"1"
+		"ItemDisplayCharges"			"1"
 	}
 
 	///////////////////
@@ -244,30 +375,32 @@
 
 	"item_meteor_shower"
 	{
-		"BaseClass"           			"item_datadriven"
-		"HomeShop"						"1"
+		"BaseClass"           			"item_lua"
 		"AbilityTextureName"			"meteor_shower"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+		"ScriptFile" 					"customitem/item_meteor_shower.lua"
+		"AbilityName"					"meteor_shower"
 
-		"AbilityCastRange"              "500"
-		"AbilityCastPoint"              "0.0"
-		"AbilityCooldown"               "5.0"
+		"AbilityCastRange"              "0"
+		"AbilityCastPoint"              "0.2"
+		"AbilityCooldown"               "30.0"
 		"AbilityManaCost"               "0"
 		"Model"							"models/props_gameplay/red_box.vmdl"
-		"PingOverrideText"				""
-		"ItemPermanent"					"1"
-		"ItemStackable"					"0"
+		"PingOverrideText"				"DOTA_Chat_tranquility_Pinged"
+		"ItemPermanent"					"0"
+		"ItemStackable"					"1"
 		"ItemDroppable"					"1"
-		"ItemSellable"					"0"
+		"ItemSellable"					"1"
 		"ItemShareability"				"ITEM_FULLY_SHAREABLE"
 		"ItemPurchasable"				"1"
 		"ItemCost"						"99999"
+		"ItemInitialCharges"			"1"
+		"ItemDisplayCharges"			"1"
 	}
 
 	"item_darkness"
 	{
 		"BaseClass"           			"item_datadriven"
-		"HomeShop"						"1"
 		"AbilityTextureName"			"darkness"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 
@@ -289,7 +422,6 @@
 	"item_voidling"
 	{
 		"BaseClass"           			"item_datadriven"
-		"HomeShop"						"1"
 		"AbilityTextureName"			"voidling"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 
@@ -311,7 +443,6 @@
 	"item_decoy"
 	{
 		"BaseClass"           			"item_datadriven"
-		"HomeShop"						"1"
 		"AbilityTextureName"			"decoy"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 
@@ -333,7 +464,6 @@
 	"item_silence"
 	{
 		"BaseClass"           			"item_datadriven"
-		"HomeShop"						"1"
 		"AbilityTextureName"			"silence"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 

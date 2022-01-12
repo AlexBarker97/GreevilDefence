@@ -24,25 +24,46 @@ function item_satchel_custom:OnSpellStart()
 		end
 	end
 
-	local itemSeed = RandomInt(1, 1000)
+	local itemSeed = RandomInt(1, 800)
 	if (itemSeed > 0) and (itemSeed <= 200) then
 		local item = CreateItem("item_gloves_of_travel", nil, nil)
 		item:SetPurchaseTime(0)
 		caster:AddItem(item)
 	elseif (itemSeed > 200) and (itemSeed <= 400) then
-		local item = CreateItem("item_vengeances_shadow", nil, nil)
+		local item = CreateItem("item_venom_gland", nil, nil)
 		item:SetPurchaseTime(0)
 		caster:AddItem(item)
+		itemSeed = itemSeed - 200
 	elseif (itemSeed > 400) and (itemSeed <= 600) then
 		local item = CreateItem("item_oakheart", nil, nil)
 		item:SetPurchaseTime(0)
 		caster:AddItem(item)
+		itemSeed = itemSeed - 400
 	elseif (itemSeed > 600) and (itemSeed <= 800) then
-		local item = CreateItem("item_light_robes", nil, nil)
+		local item = CreateItem("item_ancient_perseverance", nil, nil)
 		item:SetPurchaseTime(0)
 		caster:AddItem(item)
-	elseif (itemSeed > 800) and (itemSeed <= 1000) then
-		local item = CreateItem("item_ancient_perseverance", nil, nil)
+		itemSeed = itemSeed - 600
+	end
+
+	if (itemSeed > 0) and (itemSeed <= 40) then
+		local item = CreateItem("item_wizard_cookie", nil, nil)
+		item:SetPurchaseTime(0)
+		caster:AddItem(item)
+	elseif (itemSeed > 40) and (itemSeed <= 80) then
+		local item = CreateItem("item_fruitbit_cake", nil, nil)
+		item:SetPurchaseTime(0)
+		caster:AddItem(item)
+	elseif (itemSeed > 80) and (itemSeed <= 120) then
+		local item = CreateItem("item_kringle", nil, nil)
+		item:SetPurchaseTime(0)
+		caster:AddItem(item)
+	elseif (itemSeed > 120) and (itemSeed <= 160) then
+		local item = CreateItem("item_fishbones", nil, nil)
+		item:SetPurchaseTime(0)
+		caster:AddItem(item)
+	elseif (itemSeed > 160) and (itemSeed <= 200) then
+		local item = CreateItem("item_snow_mushroom", nil, nil)
 		item:SetPurchaseTime(0)
 		caster:AddItem(item)
 	end

@@ -318,14 +318,8 @@ function GameMode:OnFirstTimeHeroInGame(hero)
 	local satchel = CreateItem("item_satchel_custom", nil, nil)
 	satchel:SetPurchaseTime(0)
 	hero:AddItem(satchel)
-	
 end
 
---[[
-	This function is called once and only once when the game completely begins (about 0:00 on the clock).  At this point,
-	gold will begin to go up in ticks if configured, creeps will spawn, towers will become damageable etc.  This function
-	is useful for starting any game logic timers/thinkers, beginning the first round, etc.
-]]
 function GameMode:OnGameInProgress()
 	print("The game has officially begun")
 end
@@ -409,6 +403,9 @@ function GameMode:OnItemPickedUp(keys)
 	end
 	local player = PlayerResource:GetPlayer(keys.PlayerID)
 	local itemname = keys.itemname
+	if itemname == "item_present" then
+		EmitSoundOnLocationWithCaster(player:GetAbsOrigin(), "Frostivus.PointScored.Team", player)
+	end
 end
 
 -- A player has reconnected to the game.  This function can be used to repaint Player-based particles or change

@@ -1,10 +1,16 @@
 Bugs
 • Lane jump doesnt work with right click force attack
+• global present & satchel sound
+• ai follows when invis
 
 Suggestions
-• Giftsnatcher at end of lane
-• Implement "one time" shop items
+• items descriptions
+• rename giftsnatcher
+• vacuum fix
+
+• "one time" shop items
 	• Barrier buster
+	• Sunstrike
 • One time use item/ability from each boss
 	• Red    - mini mars ult
 	• Orange - fire breath

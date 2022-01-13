@@ -333,7 +333,7 @@
 		"AttackDamageMin"			"71"
 		"AttackDamageMax"			"78"	
 		"AttackRate"				"1.6"
-		"AttackRange"				"128"
+		"AttackRange"				"175"
 		
 		"MovementSpeed"				"300"
 		"MovementTurnRate"			"0.5"
@@ -413,7 +413,7 @@
 		"AttackDamageMin"			"65"
 		"AttackDamageMax"			"71"	
 		"AttackRate"				"1.0"
-		"AttackRange"				"128"
+		"AttackRange"				"175"
 		
 		"MovementSpeed"				"300"
 		"MovementTurnRate"			"0.5"
@@ -486,7 +486,7 @@
 		"AttackRate"				"1.8"		// Speed of attack.
 		"AttackAnimationPoint"		"0.5"		// Normalized time in animation cycle to attack.
 		"AttackAcquisitionRange"	"600"		// Range within a target can be acquired.
-		"AttackRange"				"128"		// Range within a target can be attacked.
+		"AttackRange"				"175"		// Range within a target can be attacked.
 
 		// Bounty
 		//----------------------------------------------------------------
@@ -511,7 +511,7 @@
 		"AttackDamageMin"			"71"
 		"AttackDamageMax"			"78"	
 		"AttackRate"				"1.8"
-		"AttackRange"				"128"
+		"AttackRange"				"175"
 		
 		"MovementSpeed"				"300"
 		"MovementTurnRate"			"0.5"
@@ -588,7 +588,7 @@
 		"AttackDamageMin"			"0"
 		"AttackDamageMax"			"0"	
 		"AttackRate"				"1.8"
-		"AttackRange"				"128"
+		"AttackRange"				"175"
 		
 		"MovementSpeed"				"300"
 		"MovementTurnRate"			"0.5"
@@ -666,7 +666,7 @@
 		"AttackDamageMin"			"71"
 		"AttackDamageMax"			"78"	
 		"AttackRate"				"1.8"
-		"AttackRange"				"128"
+		"AttackRange"				"175"
 		
 		"MovementSpeed"				"300"
 		"MovementTurnRate"			"0.5"
@@ -764,7 +764,7 @@
 		"AttackDamageMin"			"28"
 		"AttackDamageMax"			"36"	
 		"AttackRate"				"0.4"
-		"AttackRange"				"128"
+		"AttackRange"				"175"
 		
 		"MovementSpeed"				"360"
 		"MovementTurnRate"			"0.5"
@@ -842,7 +842,7 @@
 		"AttackDamageMin"			"71"
 		"AttackDamageMax"			"78"	
 		"AttackRate"				"1.8"
-		"AttackRange"				"200"
+		"AttackRange"				"310"
 		
 		"MovementSpeed"				"310"
 		"MovementTurnRate"			"0.5"
@@ -934,7 +934,7 @@
 		"AttackDamageMin"			"71"
 		"AttackDamageMax"			"78"	
 		"AttackRate"				"1.8"
-		"AttackRange"				"128"
+		"AttackRange"				"285"
 		
 		"MovementSpeed"				"300"
 		"MovementTurnRate"			"0.5"
@@ -966,7 +966,7 @@
 		"Model"						"models/courier/greevil/greevil.vmdl"	// Model.
 		"SoundSet"					"Greevil"								// Name of sound set.
 		"ModelScale"				"2.1"
-		"vscripts"					""
+		"vscripts"					"ai/neutralboss/ai_greevil_white_boss_summon.lua"
 		"MinimapIcon" 				"minimap_plaincircle"
 		"MinimapIconSize" 			"40"
 				
@@ -1040,7 +1040,7 @@
 		"Model"						"models/courier/greevil/greevil.vmdl"	// Model.
 		"SoundSet"					"Greevil"								// Name of sound set.
 		"ModelScale"				"2.1"
-		"vscripts"					""
+		"vscripts"					"ai/neutralboss/ai_greevil_white_boss_summon.lua"
 		"MinimapIcon" 				"minimap_plaincircle"
 		"MinimapIconSize" 			"40"
 				
@@ -1114,7 +1114,7 @@
 		"Model"						"models/courier/greevil/greevil.vmdl"	// Model.
 		"SoundSet"					"Greevil"								// Name of sound set.
 		"ModelScale"				"2.1"
-		"vscripts"					""
+		"vscripts"					"ai/neutralboss/ai_greevil_white_boss_summon.lua"
 		"MinimapIcon" 				"minimap_plaincircle"
 		"MinimapIconSize" 			"40"
 				
@@ -1183,7 +1183,7 @@
 		"Model"						"models/courier/greevil/greevil.vmdl"	// Model.
 		"SoundSet"					"Greevil"								// Name of sound set.
 		"ModelScale"				"2.1"
-		"vscripts"					""
+		"vscripts"					"ai/neutralboss/ai_greevil_white_boss_summon.lua"
 		"MinimapIcon" 				"minimap_plaincircle"
 		"MinimapIconSize" 			"40"
 		
@@ -1252,7 +1252,7 @@
 		"Model"						"models/courier/greevil/greevil.vmdl"	// Model.
 		"SoundSet"					"Greevil"								// Name of sound set.
 		"ModelScale"				"2.1"
-		"vscripts"					""
+		"vscripts"					"ai/neutralboss/ai_greevil_white_boss_summon.lua"
 		"MinimapIcon" 				"minimap_plaincircle"
 		"MinimapIconSize" 			"40"
 				
@@ -1321,7 +1321,7 @@
 		"Model"						"models/courier/greevil/greevil.vmdl"	// Model.
 		"SoundSet"					"Greevil"								// Name of sound set.
 		"ModelScale"				"2.1"
-		"vscripts"					""
+		"vscripts"					"ai/neutralboss/ai_greevil_white_boss_summon.lua"
 		"MinimapIcon" 				"minimap_plaincircle"
 		"MinimapIconSize" 			"40"
 				
@@ -1436,7 +1436,7 @@
 		"AttackDamageMin"			"71"
 		"AttackDamageMax"			"78"	
 		"AttackRate"				"1.2"
-		"AttackRange"				"128"
+		"AttackRange"				"175"
 		
 		"MovementSpeed"				"300"
 		"MovementTurnRate"			"1.5"
@@ -1492,7 +1492,7 @@
 		"AttackDamageMin"			"71"
 		"AttackDamageMax"			"78"	
 		"AttackRate"				"1.8"
-		"AttackRange"				"128"
+		"AttackRange"				"175"
 		
 		"MovementSpeed"				"300"
 		"MovementTurnRate"			"1.5"
@@ -1549,7 +1549,7 @@
 		"AttackDamageMin"			"71"
 		"AttackDamageMax"			"78"	
 		"AttackRate"				"1.8"
-		"AttackRange"				"128"
+		"AttackRange"				"175"
 		
 		"MovementSpeed"				"300"
 		"MovementTurnRate"			"1.5"
@@ -1608,7 +1608,7 @@
 		"AttackDamageMin"			"71"
 		"AttackDamageMax"			"78"	
 		"AttackRate"				"1.8"
-		"AttackRange"				"128"
+		"AttackRange"				"175"
 		
 		"MovementSpeed"				"300"
 		"MovementTurnRate"			"1.5"
@@ -1667,7 +1667,7 @@
 		"AttackDamageMin"			"71"
 		"AttackDamageMax"			"78"	
 		"AttackRate"				"1.8"
-		"AttackRange"				"128"
+		"AttackRange"				"150"
 		
 		"MovementSpeed"				"300"
 		"MovementTurnRate"			"0.5"
@@ -1739,7 +1739,7 @@
 		"AttackDamageMin"			"71"
 		"AttackDamageMax"			"78"	
 		"AttackRate"				"1.8"
-		"AttackRange"				"128"
+		"AttackRange"				"135"
 		
 		"MovementSpeed"				"300"
 		"MovementTurnRate"			"0.5"
@@ -1806,7 +1806,7 @@
 		"AttackDamageMin"			"71"
 		"AttackDamageMax"			"78"	
 		"AttackRate"				"1.8"
-		"AttackRange"				"128"
+		"AttackRange"				"175"
 		
 		"MovementSpeed"				"300"
 		"MovementTurnRate"			"1.5"
@@ -1842,7 +1842,7 @@
 		//----------------------------------------------------------------
 		"Ability1"					"greevil_dissimilate"
 		"Ability2"					"greevil_midnight_pulse"
-		"Ability3"					"greevil_vacuum"
+		"Ability3"					"greevil_vacuum_att"
 		"Ability4"					"greevil_black_hole"
 
 		// Bounty
@@ -1863,7 +1863,7 @@
 		"AttackDamageMin"			"71"
 		"AttackDamageMax"			"78"	
 		"AttackRate"				"1.8"
-		"AttackRange"				"128"
+		"AttackRange"				"175"
 		
 		"MovementSpeed"				"300"
 		"MovementTurnRate"			"1.5"
@@ -1899,7 +1899,7 @@
 		//----------------------------------------------------------------
 		"Ability1"					"greevil_purification"
 		"Ability2"					"greevil_divine_favor"
-		"Ability3"					"greevil_guardian_angel"
+		"Ability3"					"wisp_spirits_datadriven"
 		"Ability4"					"greevil_miniboss_sight"
 
 		// Bounty
@@ -1920,14 +1920,14 @@
 		"AttackDamageMin"			"71"
 		"AttackDamageMax"			"78"	
 		"AttackRate"				"1.8"
-		"AttackRange"				"128"
+		"AttackRange"				"275"
 		
 		"MovementSpeed"				"300"
 		"MovementTurnRate"			"1.5"
 		
 		"ArmorPhysical"				"15"
 		"MagicalResistance"			"41"
-		"StatusHealth"				"5000"
+		"StatusHealth"				"7500"
 		"StatusHealthRegen"			"15"
 		"StatusMana"				"0"
 		"StatusManaRegen"			"0"
@@ -1978,7 +1978,7 @@
 		"AttackDamageMin"			"200"
 		"AttackDamageMax"			"300"
 		"AttackRate"				"2.0"
-		"AttackRange"				"200"
+		"AttackRange"				"275"
 		
 		"MovementSpeed"				"300"
 		"MovementTurnRate"			"1.5"

@@ -403,7 +403,7 @@ function GameMode:OnItemPickedUp(keys)
 	end
 	local player = PlayerResource:GetPlayer(keys.PlayerID)
 	local itemname = keys.itemname
-	if itemname == "item_present" then
+	if itemname == "item_present" or itemname == "item_greater_present" then
 		EmitSoundOnLocationWithCaster(player:GetAbsOrigin(), "Frostivus.PointScored.Team", player)
 	end
 end

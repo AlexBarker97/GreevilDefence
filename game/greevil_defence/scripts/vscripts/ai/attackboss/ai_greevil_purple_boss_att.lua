@@ -4,7 +4,7 @@ function Spawn( entityKeyValues )
 	thisEntity:SetContextThink("GreevilThink", GreevilThink, 0.1)
 	thisEntity.Diss = thisEntity:FindAbilityByName("greevil_dissimilate")
 	thisEntity.MPulse = thisEntity:FindAbilityByName("greevil_midnight_pulse")
-	thisEntity.Vac = thisEntity:FindAbilityByName("greevil_vacuum")
+	thisEntity.Vac = thisEntity:FindAbilityByName("greevil_vacuum_att")
 	thisEntity.BHole = thisEntity:FindAbilityByName("greevil_black_hole")
 end
 

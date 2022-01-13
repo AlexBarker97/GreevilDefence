@@ -1,16 +1,18 @@
 Bugs
-• Lane jump doesnt work with right click force attack
-• global present & satchel sound
+• Lane jump doesnt work
+• global present & satchel sounds
 • ai follows when invis
 
 Suggestions
-• items descriptions
-• rename giftsnatcher
-• vacuum fix
+• tp location for black boss
+• present drops more interesting
+• notification that black boss being killed
 
 • "one time" shop items
 	• Barrier buster
-	• Sunstrike
+• tool shop items
+	• Build a gold farm
+	• Build a tp location
 • One time use item/ability from each boss
 	• Red    - mini mars ult
 	• Orange - fire breath
@@ -29,8 +31,6 @@ QoL
 • Improve/add more present items
 • Coloured textures on candy modifier buffs
 • Ability leveling/scaling info
-• White Boss Summons AI
-• White Boss summon AI (can all be done on one script)
 • Sendboss effect volume/sound
 
 Balance

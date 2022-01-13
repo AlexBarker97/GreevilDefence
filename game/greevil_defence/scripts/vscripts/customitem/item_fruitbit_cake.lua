@@ -13,14 +13,13 @@ end
 
 function item_fruitbit_cake:OnSpellStart()
 	local caster = self:GetCaster()
-	local target = self:GetCursorTarget()
 
 	local healAmount = 20
 	local manaAmount = 8
 	local effectDuration = 10
 	local interval = 0.25
 
-	target:AddNewModifier(caster, item_fruitbit_cake,"modifier_movespeed_percentage", {duration = effectDuration, isHidden = false})
+	caster:AddNewModifier(caster, item_fruitbit_cake,"modifier_movespeed_percentage", {duration = effectDuration, isHidden = false})
 
     for i=0,14 do
 		local item = caster:GetItemInSlot(i)
@@ -40,7 +39,7 @@ function item_fruitbit_cake:OnSpellStart()
 	local counter = 0
 	local timer1 = Timers:CreateTimer(0, function()
 		if counter <= effectDuration then
-			regen(target,healAmount,manaAmount)
+			regen(caster,healAmount,manaAmount)
 			counter = counter + interval;
 		else
 			Timers:RemoveTimer(timer1)
@@ -48,26 +47,26 @@ function item_fruitbit_cake:OnSpellStart()
 		return interval
 	end)
 
-	EmitSoundOn("RoshanDT.Gobble", target)
+	EmitSoundOn("RoshanDT.Gobble", caster)
 end
 
-function regen(target,hp,mana)
+function regen(caster,hp,mana)
 
-	local currentHP = target:GetHealth()
-	local maxHP = target:GetMaxHealth()
-	local currentMP = target:GetMana()
-	local maxMP = target:GetMaxMana()
+	local currentHP = caster:GetHealth()
+	local maxHP = caster:GetMaxHealth()
+	local currentMP = caster:GetMana()
+	local maxMP = caster:GetMaxMana()
 
 	if (currentHP + hp) > maxHP then
-		target:SetHealth(maxHP)
+		caster:SetHealth(maxHP)
 	else
-		target:SetHealth(currentHP + hp)
+		caster:SetHealth(currentHP + hp)
 	end
 
 	if (currentMP + mana) > maxMP then
-		target:SetMana(maxMP)
+		caster:SetMana(maxMP)
 	else
-		target:SetMana(currentMP + mana)
+		caster:SetMana(currentMP + mana)
 	end
 
 end

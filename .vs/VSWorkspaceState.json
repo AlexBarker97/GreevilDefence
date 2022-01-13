@@ -7,9 +7,9 @@
     "\\game\\greevil_defence\\scripts",
     "\\game\\greevil_defence\\scripts\\npc",
     "\\game\\greevil_defence\\scripts\\vscripts",
-    "\\game\\greevil_defence\\scripts\\vscripts\\customitem",
-    "\\game\\greevil_defence\\scripts\\vscripts\\events"
+    "\\game\\greevil_defence\\scripts\\vscripts\\ai",
+    "\\game\\greevil_defence\\scripts\\vscripts\\ai\\neutralboss"
   ],
-  "SelectedNode": "\\game\\greevil_defence\\scripts\\vscripts\\events\\trigger_orange.lua",
+  "SelectedNode": "\\game\\greevil_defence\\scripts\\vscripts\\ai\\neutralboss\\ai_greevil_white_boss.lua",
   "PreviewInSolutionExplorer": false
 }

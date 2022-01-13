@@ -391,13 +391,44 @@ function SpawnFrostWard()
 end
 
 function SpawnGiftSnatchers()
-	local unit = CreateUnitByName("thyg_the_gift_snatcher", Vector(-6400, 6000, 304), true, nil, nil, DOTA_TEAM_GOODGUYS)
-	unit:FaceTowards(unit:GetAbsOrigin()+Vector(0, -100, 0))
-	unit:AddNewModifier(unit, nil, "lifeline_lua", { duration = 72 })
+	local appearDuration = 70
+	local dropInterval = 6
 
-	local unit = CreateUnitByName("thyg_the_gift_snatcher", Vector(6400, 6000, 304), true, nil, nil, DOTA_TEAM_BADGUYS)
-	unit:FaceTowards(unit:GetAbsOrigin()+Vector(0, -100, 0))
-	unit:AddNewModifier(unit, nil, "lifeline_lua", { duration = 72 })
+	local unit1 = CreateUnitByName("thyg_the_gift_snatcher", Vector(-6400, 6000, 304), true, nil, nil, DOTA_TEAM_GOODGUYS)
+	unit1:FaceTowards(unit1:GetAbsOrigin()+Vector(0, -100, 0))
+	unit1:AddNewModifier(unit1, nil, "lifeline_lua", { duration = appearDuration })
+
+	local unit2 = CreateUnitByName("thyg_the_gift_snatcher", Vector(6400, 6000, 304), true, nil, nil, DOTA_TEAM_BADGUYS)
+	unit2:FaceTowards(unit2:GetAbsOrigin()+Vector(0, -100, 0))
+	unit2:AddNewModifier(unit2, nil, "lifeline_lua", { duration = appearDuration })
+
+	local counter = 0
+	local timer1 = Timers:CreateTimer(0, function()
+		if counter <= appearDuration then
+			local pos = unit1:GetAbsOrigin()
+			local item = CreateItem("item_greater_present", nil, nil)
+			item:SetPurchaseTime(0)
+			CreateItemOnPositionSync(pos, item)
+			item:LaunchLoot(false, 350, 0.65, pos + RandomVector(RandomFloat(50, 350)))
+			Timers:CreateTimer({endTime = 60.0,
+				callback = function()
+				item:GetContainer():Destroy()
+			end})
+			local pos = unit2:GetAbsOrigin()
+			local item = CreateItem("item_greater_present", nil, nil)
+			item:SetPurchaseTime(0)
+			CreateItemOnPositionSync(pos, item)
+			item:LaunchLoot(false, 350, 0.65, pos + RandomVector(RandomFloat(50, 350)))
+			Timers:CreateTimer({endTime = 60.0,
+				callback = function()
+				item:GetContainer():Destroy()
+			end})
+			counter = counter + dropInterval;
+		else
+			Timers:RemoveTimer(timer1)
+		end
+		return dropInterval
+	end)
 end
 
 function SpawnSmallBosses()

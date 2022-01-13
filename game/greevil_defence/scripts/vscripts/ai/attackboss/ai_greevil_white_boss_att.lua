@@ -3,7 +3,7 @@ GreevilThink = 1.0
 function Spawn( entityKeyValues )
 	thisEntity:SetContextThink("GreevilThink", GreevilThink, 0.1)
 	thisEntity.Puri = thisEntity:FindAbilityByName("greevil_purification")
-	thisEntity.GAng = thisEntity:FindAbilityByName("greevil_guardian_angel")
+	thisEntity.Spir = thisEntity:FindAbilityByName("wisp_spirits_datadriven")
 end
 
 function GreevilThink()
@@ -44,20 +44,20 @@ function GreevilThink()
 			end
 			target = units[key]
 
-			if thisEntity.GAng:IsFullyCastable() and (thisEntity:GetAbsOrigin())[2] < 1000 then
-				CastGAng(target)
-				GreevilThink = 1.0
+			if thisEntity.Spir:IsFullyCastable() then
+				CastSpir(target)
+				GreevilThink = 0.3
 				return GreevilThink
 			end
 
 			if thisEntity.Puri:IsFullyCastable() then
 				CastPuri(target)
-				GreevilThink = 1.0
+				GreevilThink = 0.3
 				return GreevilThink
 			end
 
   			thisEntity:MoveToTargetToAttack(target)
-			GreevilThink = 2.0
+			GreevilThink = 1.5
 			return GreevilThink
   		end
 	end	
@@ -65,11 +65,10 @@ end
 
 ----------------- Abilities -----------------
 
-function CastGAng()
-	thisEntity:CastAbilityNoTarget(thisEntity.GAng, -1)
+function CastSpir()
+	thisEntity:CastAbilityNoTarget(thisEntity.Spir, -1)
 end
 
 function CastPuri(target)
 	thisEntity:CastAbilityOnTarget(thisEntity, thisEntity.Puri, -1)
 end
-

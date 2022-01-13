@@ -12,7 +12,8 @@ function whiteboss:OOds(caster)
 
 	closestEnemy = nearEnemies[1]
 
-	local unit = CreateUnitByName("greevil_white_red", closestEnemy:GetAbsOrigin(), true, caster, caster, caster:GetTeamNumber())
+	local unit = CreateUnitByName("greevil_white_red", closestEnemy:GetAbsOrigin()+RandomVector(RandomFloat(50, 250)), true, caster, caster, caster:GetTeamNumber())
+	unit.spawnPos = closestEnemy:GetAbsOrigin()+RandomVector(RandomFloat(0, 150))
 	local side = closestEnemy:GetAbsOrigin()[1] < 0
 	if side == true then
 		unit.side = "rad"
@@ -29,7 +30,8 @@ function whiteboss:LSA(caster)
 
 	closestEnemy = nearEnemies[1]
 
-	local unit = CreateUnitByName("greevil_white_orange", closestEnemy:GetAbsOrigin(), true, caster, caster, caster:GetTeamNumber())
+	local unit = CreateUnitByName("greevil_white_orange", closestEnemy:GetAbsOrigin()+RandomVector(RandomFloat(50, 250)), true, caster, caster, caster:GetTeamNumber())
+	unit.spawnPos = closestEnemy:GetAbsOrigin()+RandomVector(RandomFloat(0, 150))
 	local side = closestEnemy:GetAbsOrigin()[1] < 0
 	if side == true then
 		unit.side = "rad"
@@ -46,7 +48,8 @@ function whiteboss:ESlam(caster)
 
 	closestEnemy = nearEnemies[1]
 
-	local unit = CreateUnitByName("greevil_white_yellow", closestEnemy:GetAbsOrigin(), true, caster, caster, caster:GetTeamNumber())
+	local unit = CreateUnitByName("greevil_white_yellow", closestEnemy:GetAbsOrigin()+RandomVector(RandomFloat(50, 250)), true, caster, caster, caster:GetTeamNumber())
+	unit.spawnPos = closestEnemy:GetAbsOrigin()+RandomVector(RandomFloat(0, 150))
 	local side = closestEnemy:GetAbsOrigin()[1] < 0
 	if side == true then
 		unit.side = "rad"
@@ -63,7 +66,8 @@ function whiteboss:Rav(caster)
 
 	closestEnemy = nearEnemies[1]
 
-	local unit = CreateUnitByName("greevil_white_green", closestEnemy:GetAbsOrigin(), true, caster, caster, caster:GetTeamNumber())
+	local unit = CreateUnitByName("greevil_white_green", closestEnemy:GetAbsOrigin()+RandomVector(RandomFloat(50, 250)), true, caster, caster, caster:GetTeamNumber())
+	unit.spawnPos = closestEnemy:GetAbsOrigin()+RandomVector(RandomFloat(0, 150))
 	local side = closestEnemy:GetAbsOrigin()[1] < 0
 	if side == true then
 		unit.side = "rad"
@@ -80,7 +84,8 @@ function whiteboss:FBite(caster)
 
 	closestEnemy = nearEnemies[1]
 
-	local unit = CreateUnitByName("greevil_white_blue", closestEnemy:GetAbsOrigin(), true, caster, caster, caster:GetTeamNumber())
+	local unit = CreateUnitByName("greevil_white_blue", closestEnemy:GetAbsOrigin()+RandomVector(RandomFloat(50, 250)), true, caster, caster, caster:GetTeamNumber())
+	unit.spawnPos = closestEnemy:GetAbsOrigin()+RandomVector(RandomFloat(0, 150))
 	local side = closestEnemy:GetAbsOrigin()[1] < 0
 	if side == true then
 		unit.side = "rad"
@@ -97,7 +102,8 @@ function whiteboss:Vac(caster)
 
 	closestEnemy = nearEnemies[1]
 
-	local unit = CreateUnitByName("greevil_white_purple", closestEnemy:GetAbsOrigin(), true, caster, caster, caster:GetTeamNumber())
+	local unit = CreateUnitByName("greevil_white_purple", closestEnemy:GetAbsOrigin()+RandomVector(RandomFloat(50, 250)), true, caster, caster, caster:GetTeamNumber())
+	unit.spawnPos = closestEnemy:GetAbsOrigin()+RandomVector(RandomFloat(0, 150))
 	local side = closestEnemy:GetAbsOrigin()[1] < 0
 	if side == true then
 		unit.side = "rad"
@@ -115,37 +121,43 @@ function whiteboss:WoW(caster)
 	closestEnemy = nearEnemies[1]
 	local side = closestEnemy:GetAbsOrigin()[1] < 0
 
-	local unit = CreateUnitByName("greevil_white_red", closestEnemy:GetAbsOrigin(), true, caster, caster, caster:GetTeamNumber())
+	local unit = CreateUnitByName("greevil_white_red", closestEnemy:GetAbsOrigin()+RandomVector(RandomFloat(150, 750)), true, caster, caster, caster:GetTeamNumber())
+	unit.spawnPos = closestEnemy:GetAbsOrigin()+RandomVector(RandomFloat(0, 150))
 	if side == true then
 		unit.side = "rad"
 	elseif side == false then
 		unit.side = "dire"
 	end
-	local unit = CreateUnitByName("greevil_white_orange", closestEnemy:GetAbsOrigin(), true, caster, caster, caster:GetTeamNumber())
+	local unit = CreateUnitByName("greevil_white_orange", closestEnemy:GetAbsOrigin()+RandomVector(RandomFloat(150, 750)), true, caster, caster, caster:GetTeamNumber())
+	unit.spawnPos = closestEnemy:GetAbsOrigin()+RandomVector(RandomFloat(0, 150))
 	if side == true then
 		unit.side = "rad"
 	elseif side == false then
 		unit.side = "dire"
 	end
-	local unit = CreateUnitByName("greevil_white_yellow", closestEnemy:GetAbsOrigin(), true, caster, caster, caster:GetTeamNumber())
+	local unit = CreateUnitByName("greevil_white_yellow", closestEnemy:GetAbsOrigin()+RandomVector(RandomFloat(150, 750)), true, caster, caster, caster:GetTeamNumber())
+	unit.spawnPos = closestEnemy:GetAbsOrigin()+RandomVector(RandomFloat(0, 150))
 	if side == true then
 		unit.side = "rad"
 	elseif side == false then
 		unit.side = "dire"
 	end
-	local unit = CreateUnitByName("greevil_white_green", closestEnemy:GetAbsOrigin(), true, caster, caster, caster:GetTeamNumber())
+	local unit = CreateUnitByName("greevil_white_green", closestEnemy:GetAbsOrigin()+RandomVector(RandomFloat(150, 750)), true, caster, caster, caster:GetTeamNumber())
+	unit.spawnPos = closestEnemy:GetAbsOrigin()+RandomVector(RandomFloat(0, 150))
 	if side == true then
 		unit.side = "rad"
 	elseif side == false then
 		unit.side = "dire"
 	end
-	local unit = CreateUnitByName("greevil_white_blue", closestEnemy:GetAbsOrigin(), true, caster, caster, caster:GetTeamNumber())
+	local unit = CreateUnitByName("greevil_white_blue", closestEnemy:GetAbsOrigin()+RandomVector(RandomFloat(150, 750)), true, caster, caster, caster:GetTeamNumber())
+	unit.spawnPos = closestEnemy:GetAbsOrigin()+RandomVector(RandomFloat(0, 150))
 	if side == true then
 		unit.side = "rad"
 	elseif side == false then
 		unit.side = "dire"
 	end
-	local unit = CreateUnitByName("greevil_white_purple", closestEnemy:GetAbsOrigin(), true, caster, caster, caster:GetTeamNumber())
+	local unit = CreateUnitByName("greevil_white_purple", closestEnemy:GetAbsOrigin()+RandomVector(RandomFloat(150, 750)), true, caster, caster, caster:GetTeamNumber())
+	unit.spawnPos = closestEnemy:GetAbsOrigin()+RandomVector(RandomFloat(0, 150))
 	if side == true then
 		unit.side = "rad"
 	elseif side == false then

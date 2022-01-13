@@ -17,7 +17,7 @@ function Spawn( entityKeyValues )
 	
 	thisEntity.state = 0 --Initial state
 	
-	aggroRange = 1000
+	aggroRange = 1500
 	leashRange = 2000
 	
 	thisEntity:SetContextThink("GreevilThink", GreevilThink, AI_THINK_INTERVAL)
@@ -50,7 +50,7 @@ function IdleThink()
 end
 
 function AggressiveThink()
-	AI_THINK_INTERVAL = 0.1
+	AI_THINK_INTERVAL = 1.2
 
 	local units = FindUnitsInRadius(thisEntity:GetTeam(), thisEntity:GetAbsOrigin(), nil,
 		aggroRange, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_NONE, 
@@ -122,9 +122,21 @@ function AggressiveThink()
 			return true
 		end
 	end
-		
-	thisEntity:MoveToTargetToAttack(units[1])
-	
+
+	local units = FindUnitsInRadius( thisEntity:GetTeam(), thisEntity:GetAbsOrigin(), nil,
+		leashRange+200, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_NONE, 
+		FIND_CLOSEST, false )
+
+	local spawnP = thisEntity.spawnPos
+	local enemyP = units[1]:GetAbsOrigin()
+	local distance = (spawnP - enemyP):Length()
+
+	if distance < 250 then
+		thisEntity:MoveToPositionAggressive(enemyP)
+	else
+		thisEntity:MoveToPosition((spawnP*2 + enemyP)/3)
+	end
+
 end
 
 function ReturningThink()

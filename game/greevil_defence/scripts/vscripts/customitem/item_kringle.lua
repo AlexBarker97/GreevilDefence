@@ -13,7 +13,6 @@ end
 
 function item_kringle:OnSpellStart()
 	local caster = self:GetCaster()
-	local target = self:GetCursorTarget()
 
 	local healAmount = 100
 	local manaAmount = 64
@@ -33,26 +32,26 @@ function item_kringle:OnSpellStart()
 		end
 	end
 
-	regen(target,healAmount,manaAmount)
+	regen(caster,healAmount,manaAmount)
 
-	EmitSoundOn("RoshanDT.Gobble", target)
+	EmitSoundOn("RoshanDT.Gobble", caster)
 end
 
-function regen(target,hp,mana)
-	local currentHP = target:GetHealth()
-	local maxHP = target:GetMaxHealth()
-	local currentMP = target:GetMana()
-	local maxMP = target:GetMaxMana()
+function regen(caster,hp,mana)
+	local currentHP = caster:GetHealth()
+	local maxHP = caster:GetMaxHealth()
+	local currentMP = caster:GetMana()
+	local maxMP = caster:GetMaxMana()
 
 	if (currentHP + hp) > maxHP then
-		target:SetHealth(maxHP)
+		caster:SetHealth(maxHP)
 	else
-		target:SetHealth(currentHP + hp)
+		caster:SetHealth(currentHP + hp)
 	end
 
 	if (currentMP + mana) > maxMP then
-		target:SetMana(maxMP)
+		caster:SetMana(maxMP)
 	else
-		target:SetMana(currentMP + mana)
+		caster:SetMana(currentMP + mana)
 	end
 end

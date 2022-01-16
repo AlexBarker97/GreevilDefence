@@ -2,6 +2,7 @@ Bugs
 • some things autoattack jumps
 • global present & satchel sounds
 • ai follows when invis
+• black greevil posession, ai persists (if IsDominated() then return end)
 
 Suggestions
 • present drops more interesting
@@ -33,6 +34,7 @@ QoL
 • Ability leveling/scaling info
 • Sendboss effect volume/sound
 • Custom minimap image
+• boss loot chest open sound
 
 Balance
 • XP/Gold from bosses

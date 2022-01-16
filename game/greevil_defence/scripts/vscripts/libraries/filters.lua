@@ -54,21 +54,6 @@ function GameMode:OrderFilter(filter_table)
 		local caster = EntIndexToHScript(units["0"])
 	end
 
-	--[[
-	if order == DOTA_UNIT_ORDER_PURCHASE_ITEM then
-		print("purchased")
-		for k,v in pairs(filter_table) do
-			print(k,v)
-			if type(v) == "table" then
-				print("table")
-				for k2,v2 in pairs(v) do
-					print(k2,v2)
-				end
-				print("done with table")
-			end
-        end
-	end
-	--]]
 	if order == DOTA_UNIT_ORDER_ATTACK_TARGET then
 		if EntIndexToHScript(filter_table.entindex_target):GetModelName() == "models/props_structures/gate_entrance002.vmdl" then
 			filter_table.order_type = DOTA_UNIT_ORDER_MOVE_TO_TARGET
@@ -90,31 +75,25 @@ function GameMode:OrderFilter(filter_table)
 					end)
 				end
 			end
-		elseif EntIndexToHScript(filter_table.entindex_target):GetModelName() == "models/props_structures/good_barracks001_destruction.vmdl" then
-			filter_table.order_type = DOTA_UNIT_ORDER_MOVE_TO_TARGET
-			print(filter_table.order_type)
+		end
+
+		if EntIndexToHScript(filter_table.entindex_target):GetModelName() == "models/props_structures/good_barracks001_destruction.vmdl" then
 			local jump = EntIndexToHScript(filter_table.entindex_target)
 			local hero = PlayerResource:GetSelectedHeroEntity(filter_table.issuer_player_id_const)
 			local jumppos = jump:GetAbsOrigin()
 			local heropos = hero:GetAbsOrigin()
 			local distvector = jumppos - heropos
 			if distvector:Length() < 175 then
-				if jump.disabled == 0 then
-					if heropos[1] < jumppos[1] then
-						hero:SetAbsOrigin(jumppos+(Vector(300,0,0)))
-					else
-						hero:SetAbsOrigin(jumppos+(Vector(-300,0,0)))
-					end
-					jump.disabled = 1
-					Timers:CreateTimer(1.0, function()
-						jump.disabled = 0
-					end)
+				if heropos[2] < jumppos[2] then
+					hero:SetAbsOrigin(jumppos+(Vector(300,0,0)))
+				else
+					hero:SetAbsOrigin(jumppos+(Vector(-300,0,0)))
 				end
 			end
 		end
 	end
 
-	if order == DOTA_UNIT_ORDER_MOVE_TO_TARGET then	
+	if order == DOTA_UNIT_ORDER_MOVE_TO_TARGET then
 		if EntIndexToHScript(filter_table.entindex_target):GetModelName() == "models/props_structures/gate_entrance002.vmdl" then
 			local gate = EntIndexToHScript(filter_table.entindex_target)
 			local hero = PlayerResource:GetSelectedHeroEntity(filter_table.issuer_player_id_const)
@@ -123,12 +102,6 @@ function GameMode:OrderFilter(filter_table)
 			local distvector = gatepos - heropos
 			if distvector:Length() < 175 then
 				if ((hero:GetTeam() == DOTA_TEAM_GOODGUYS and heropos[1] < 0) or (hero:GetTeam() == DOTA_TEAM_BADGUYS and heropos[1] > 0)) and gate.disabled == 0 then
-					
-					--gate:CastAbility()
-					--DoEntFireByInstanceHandle( gate, "SetAnimation", "gate_entrance002_open", 0.1, self, self )
-					--FireEntityIOInputString(gate:GetEntityHandle(), "DoEntFire", "gate_entrance002_open")
-					--gate:SetAnimation("gate_entrance002_open")
-					
 					if heropos[2] < gatepos[2] then
 						hero:SetAbsOrigin(gatepos+(Vector(0,250,0)))
 					else
@@ -141,6 +114,21 @@ function GameMode:OrderFilter(filter_table)
 				end
 			end
 		end
+
+		if EntIndexToHScript(filter_table.entindex_target):GetModelName() == "models/props_structures/good_barracks001_destruction.vmdl" then
+			local jump = EntIndexToHScript(filter_table.entindex_target)
+			local hero = PlayerResource:GetSelectedHeroEntity(filter_table.issuer_player_id_const)
+			local jumppos = jump:GetAbsOrigin()
+			local heropos = hero:GetAbsOrigin()
+			local distvector = jumppos - heropos
+			if distvector:Length() < 175 then
+				if heropos[2] < jumppos[2] then
+					hero:SetAbsOrigin(jumppos+(Vector(300,0,0)))
+				else
+					hero:SetAbsOrigin(jumppos+(Vector(-300,0,0)))
+				end
+			end
+		end
 	end
 
 	-- If the order is a simple move command
@@ -150,32 +138,6 @@ function GameMode:OrderFilter(filter_table)
 		local destination_y = filter_table.position_y
     end
 
-	local EntTable = filter_table.entindex_table
-	if EntTable then
-		local target = EntIndexToHScript(filter_table.entindex_table)
-		if target and target:GetModelName() == "models/props_structures/good_barracks001_destruction.vmdl" then
-			filter_table.order_type = DOTA_UNIT_ORDER_MOVE_TO_TARGET
-			print(filter_table.order_type)
-			local jump = EntIndexToHScript(filter_table.entindex_target)
-			local hero = PlayerResource:GetSelectedHeroEntity(filter_table.issuer_player_id_const)
-			local jumppos = jump:GetAbsOrigin()
-			local heropos = hero:GetAbsOrigin()
-			local distvector = jumppos - heropos
-			if distvector:Length() < 175 then
-				if jump.disabled == 0 then
-					if heropos[1] < jumppos[1] then
-						hero:SetAbsOrigin(jumppos+(Vector(300,0,0)))
-					else
-						hero:SetAbsOrigin(jumppos+(Vector(-300,0,0)))
-					end
-					jump.disabled = 1
-					Timers:CreateTimer(1.0, function()
-						jump.disabled = 0
-					end)
-				end
-			end
-		end
-	end
 	return true
 end
 
@@ -253,11 +215,7 @@ function GameMode:DamageFilter(keys)
 		PlayerResource:NewSelection(playerid, player)
 	end
 	
-	if victim:GetModelName() == "models/props_structures/gate_entrance002.vmdl" then
-		keys.damage = 0
-	elseif victim:GetModelName() == "models/props_structures/good_barracks001_destruction.vmdl" then
-		keys.damage = 0
-	elseif victim:GetUnitName() == "greevil_white" then
+	if victim:GetUnitName() == "greevil_white" then
 		if damage_type == 8 then
 			keys.damage = 1
 		else

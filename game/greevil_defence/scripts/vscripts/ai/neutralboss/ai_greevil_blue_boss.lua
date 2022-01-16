@@ -108,34 +108,54 @@ function CastLIce()
 	AI_THINK_INTERVAL = 0.9
 	local units = FindUnitsInRadius(thisEntity:GetTeam(), thisEntity:GetAbsOrigin(), nil,
 		aggroRange, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_NONE, 
-		FIND_ANY_ORDER, false)
-	
-	thisEntity:CastAbilityOnTarget(units[1], thisEntity.LIce, -1)
+		FIND_CLOSEST, false)
+
+	for i=1,#units do
+		if not units[i]:IsInvisible() then
+			thisEntity:CastAbilityOnTarget(units[1], thisEntity.LIce, -1)
+			return
+		end
+	end
 end
 
 function CastCFeet()
 	AI_THINK_INTERVAL = 0.2
 	local units = FindUnitsInRadius(thisEntity:GetTeam(), thisEntity:GetAbsOrigin(), nil,
 		aggroRange, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_NONE, 
-		FIND_ANY_ORDER, false)
+		FIND_CLOSEST, false)
 	
-	thisEntity:CastAbilityOnTarget(units[1], thisEntity.CFeet, -1)
+	for i=1,#units do
+		if not units[i]:IsInvisible() then
+			thisEntity:CastAbilityOnTarget(units[1], thisEntity.CFeet, -1)
+			return
+		end
+	end
 end
 
 function CastCFrost()
 	AI_THINK_INTERVAL = 1.0
 	local units = FindUnitsInRadius(thisEntity:GetTeam(), thisEntity:GetAbsOrigin(), nil,
 		aggroRange, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_NONE, 
-		FIND_ANY_ORDER, false)
-	
-	thisEntity:CastAbilityOnTarget(units[1], thisEntity.CFrost, -1)
+		FIND_CLOSEST, false)
+
+	for i=1,#units do
+		if not units[i]:IsInvisible() then
+			thisEntity:CastAbilityOnTarget(units[1], thisEntity.CFrost, -1)
+			return
+		end
+	end
 end
 
 function CastCNova()
 	AI_THINK_INTERVAL = 0.05
 	local units = FindUnitsInRadius(thisEntity:GetTeam(), thisEntity:GetAbsOrigin(), nil,
 		aggroRange, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_NONE, 
-		FIND_ANY_ORDER, false)
-	
-	thisEntity:CastAbilityOnPosition(thisEntity:GetAbsOrigin(), thisEntity.CNova, -1)
+		FIND_CLOSEST, false)
+
+	for i=1,#units do
+		if not units[i]:IsInvisible() then
+			thisEntity:CastAbilityOnPosition(thisEntity:GetAbsOrigin(), thisEntity.CNova, -1)
+			return
+		end
+	end
 end

@@ -411,7 +411,7 @@
 		"AbilityCooldown"               "30.0"
 		"AbilityManaCost"               "0"
 		"Model"							"models/props_gameplay/red_box.vmdl"
-		"PingOverrideText"				"DOTA_Chat_tranquility_Pinged"
+		"PingOverrideText"				"DOTA_Chat_meteor_Pinged"
 		"ItemPermanent"					"0"
 		"ItemStackable"					"1"
 		"ItemDroppable"					"1"
@@ -425,23 +425,27 @@
 
 	"item_darkness"
 	{
-		"BaseClass"           			"item_datadriven"
+		"BaseClass"           			"item_lua"
 		"AbilityTextureName"			"darkness"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+		"ScriptFile" 					"customitem/item_darkness.lua"
+		"AbilityName"					"meteor_shower"
 
-		"AbilityCastRange"              "500"
-		"AbilityCastPoint"              "0.0"
-		"AbilityCooldown"               "5.0"
+		"AbilityCastRange"              "0"
+		"AbilityCastPoint"              "0.2"
+		"AbilityCooldown"               "30.0"
 		"AbilityManaCost"               "0"
 		"Model"							"models/props_gameplay/red_box.vmdl"
-		"PingOverrideText"				""
-		"ItemPermanent"					"1"
-		"ItemStackable"					"0"
+		"PingOverrideText"				"DOTA_Chat_meteor_Pinged"
+		"ItemPermanent"					"0"
+		"ItemStackable"					"1"
 		"ItemDroppable"					"1"
-		"ItemSellable"					"0"
+		"ItemSellable"					"1"
 		"ItemShareability"				"ITEM_FULLY_SHAREABLE"
 		"ItemPurchasable"				"1"
-		"ItemCost"						"99999"
+		"ItemCost"						"800"
+		"ItemInitialCharges"			"1"
+		"ItemDisplayCharges"			"1"
 	}
 	
 	"item_voidling"
@@ -1085,6 +1089,43 @@
 
 	////
 	
+	"item_candy_god"
+	{
+		"AbilityName"					"item_candy_god"
+		"BaseClass"						"item_datadriven"
+		"Model"							"models/props_gameplay/halloween_candy.vmdl"
+
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_CREEP"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
+		"AbilityCastRange"				"500"
+
+		"AbilityTextureName"			"item_GreevilCandyRed"
+		"ItemSellable"					"0"
+		"ItemShareability"				"ITEM_FULLY_SHAREABLE"
+		"ItemStackable" 				"0"
+		"ItemPurchasable"				"0"
+		"ItemCost"						"0"
+		"PingOverrideText"				"DOTA_Chat_Candy_Pinged"
+		"AbilityCastPoint"				"0.2"
+		"ItemDroppable"					"1"
+		
+		"OnSpellStart"
+		{
+			"FireSound"
+			{
+				"EffectName"    "DOTA_Item.Cheese.Activate"
+				"Target"        "CASTER"
+			}
+			"RunScript"
+			{
+				"Target"		"CASTER"
+				"ScriptFile"	"modifiers/candy/candy.lua"
+				"Function"		"God"
+			}
+		}
+	}
+
 	"item_candy_red"
 	{
 		"AbilityName"					"item_candy_red"

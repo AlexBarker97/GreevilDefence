@@ -32,7 +32,7 @@ CUSTOM_BUYBACK_COOLDOWN_ENABLED = true  -- Should we use a custom buyback time?
 CUSTOM_BUYBACK_COOLDOWN_TIME = 60
 BUYBACK_ENABLED = true					-- Should we allow people to buyback when they die?
 
-DISABLE_FOG_OF_WAR_ENTIRELY = true      -- Should we disable fog of war entirely for both teams?
+DISABLE_FOG_OF_WAR_ENTIRELY = false		-- Should we disable fog of war entirely for both teams?
 USE_STANDARD_HERO_GOLD_BOUNTY = true    -- Should we give gold for hero kills the same as in Dota, or allow those values to be changed?
 
 USE_CUSTOM_TOP_BAR_VALUES = false       -- Should we do customized top bar values or use the default kill count per team?
@@ -404,7 +404,7 @@ function GameMode:OnItemPickedUp(keys)
 	local player = PlayerResource:GetPlayer(keys.PlayerID)
 	local itemname = keys.itemname
 	if itemname == "item_present" or itemname == "item_greater_present" then
-		EmitSoundOnLocationWithCaster(player:GetAbsOrigin(), "Frostivus.PointScored.Team", player)
+		EmitSoundOnLocationWithCaster(player:GetAbsOrigin(), "greevil_receive_present_Stinger", player)
 	end
 end
 

@@ -36,7 +36,48 @@
 		"AttackDamageMin"			"0"
 		"AttackDamageMax"			"0"
 		"IsAncient"					"1"
+		"VisionDaytimeRange"		"0"
+		"VisionNighttimeRange"		"0"
 	}
+
+	"vision"
+	{
+		"BaseClass"					"npc_dota_creature"
+		"Model"						"models/heroes/monkey_king/transform_invisiblebox.vmdl"
+		"ModelScale"				"0.3"
+		"Level"						"1"
+		"MinimapIconSize" 			"0"
+
+		"Ability1"					"vision_vision"
+		"Ability2"					"vision_other"
+
+		"ArmorPhysical"				"500"
+		"MagicalResistance"			"100"
+
+		"AttackCapabilities"		"DOTA_UNIT_CAP_MELEE_ATTACK"
+		"AttackDamageMin"			"0"
+		"AttackDamageMax"			"0"
+
+		"BountyXP"					"0"
+		"BountyGoldMin"				"0"
+		"BountyGoldMax"				"0"
+
+		"BoundsHullName"			"DOTA_HULL_SIZE_SMALL"
+		"RingRadius"				"0"
+		"HealthBarOffset"			"200000"
+
+		"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_NONE"
+		"MovementSpeed"				"0"
+		"MovementTurnRate"			"0.5"
+
+		"StatusHealth"				"10000"
+		"StatusHealthRegen"			"0"
+		"StatusMana"				"0"
+		"StatusManaRegen"			"0"
+
+		"VisionDaytimeRange"		"90000"
+		"VisionNighttimeRange"		"90000"
+	}	
 
 	////////////////////////////////////////////////////////////////////////////
 	////////////////////////////////////////////////////////////////////////////
@@ -102,8 +143,8 @@
 		
 		// Vision
 		//----------------------------------------------------------------
-		"VisionDaytimeRange"		"1800"			// Range of vision during day light.
-		"VisionNighttimeRange"		"1100"			// Range of vision at night time.
+		"VisionDaytimeRange"		"300"			// Range of vision during day light.
+		"VisionNighttimeRange"		"300"			// Range of vision at night time.
 	}
 	
 	"greevil_naked_dire"
@@ -164,8 +205,8 @@
 		
 		// Vision
 		//----------------------------------------------------------------
-		"VisionDaytimeRange"		"1800"			// Range of vision during day light.
-		"VisionNighttimeRange"		"1100"			// Range of vision at night time.
+		"VisionDaytimeRange"		"300"			// Range of vision during day light.
+		"VisionNighttimeRange"		"300"			// Range of vision at night time.
 	}
 
 	"thyg_the_gift_snatcher"
@@ -218,8 +259,8 @@
 		
 		// Vision
 		//----------------------------------------------------------------
-		"VisionDaytimeRange"		"1800"			// Range of vision during day light.
-		"VisionNighttimeRange"		"1100"			// Range of vision at night time.
+		"VisionDaytimeRange"		"1000"			// Range of vision during day light.
+		"VisionNighttimeRange"		"1000"			// Range of vision at night time.
 	}
 	
 	"greevil_turret"

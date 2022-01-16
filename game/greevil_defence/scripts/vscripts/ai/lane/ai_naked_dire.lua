@@ -27,7 +27,7 @@ function GreevilThink()
 			end
 			local key, min = 1, unitsdist[1]
 			for k, v in ipairs(unitsdist) do
-				if unitsdist[k] < min then
+				if unitsdist[k] < min and not units[k]:IsInvisible() then
 					key, min = k, v
 				end
 			end

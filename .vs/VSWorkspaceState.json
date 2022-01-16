@@ -1,15 +1,15 @@
 {
   "ExpandedNodes": [
     "",
+    "\\content",
+    "\\content\\greevil_defence",
+    "\\content\\greevil_defence\\soundevents",
+    "\\content\\greevil_defence\\soundevents\\music",
     "\\game",
     "\\game\\greevil_defence",
-    "\\game\\greevil_defence\\resource",
     "\\game\\greevil_defence\\scripts",
-    "\\game\\greevil_defence\\scripts\\npc",
     "\\game\\greevil_defence\\scripts\\vscripts",
-    "\\game\\greevil_defence\\scripts\\vscripts\\ai",
-    "\\game\\greevil_defence\\scripts\\vscripts\\ai\\neutralboss"
+    "\\game\\greevil_defence\\scripts\\vscripts\\modifiers"
   ],
-  "SelectedNode": "\\game\\greevil_defence\\scripts\\vscripts\\ai\\neutralboss\\ai_greevil_white_boss.lua",
   "PreviewInSolutionExplorer": false
 }

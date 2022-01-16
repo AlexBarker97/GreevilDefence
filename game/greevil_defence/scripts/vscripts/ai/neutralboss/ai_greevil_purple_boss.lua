@@ -92,9 +92,13 @@ function AggressiveThink()
 			return true
 		end
 	end
-		
-	thisEntity:MoveToTargetToAttack(units[1])
-	
+
+	for i=1,#units do
+		if not units[i]:IsInvisible() then
+			thisEntity:MoveToTargetToAttack(units[1])
+			return
+		end
+	end
 end
 
 function ReturningThink()
@@ -111,34 +115,54 @@ function CastMPulse()
 	AI_THINK_INTERVAL = 0.3
 	local units = FindUnitsInRadius(thisEntity:GetTeam(), thisEntity:GetAbsOrigin(), nil,
 		aggroRange, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_NONE, 
-		FIND_ANY_ORDER, false)
-	
-	thisEntity:CastAbilityOnPosition(units[1]:GetAbsOrigin(), thisEntity.MPulse, -1)
+		FIND_CLOSEST, false)
+
+	for i=1,#units do
+		if not units[i]:IsInvisible() then
+			thisEntity:CastAbilityOnPosition(units[1]:GetAbsOrigin(), thisEntity.MPulse, -1)
+			return
+		end
+	end
 end
 
 function CastDiss()
 	AI_THINK_INTERVAL = 0.4
 	local units = FindUnitsInRadius(thisEntity:GetTeam(), thisEntity:GetAbsOrigin(), nil,
 		aggroRange, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_NONE, 
-		FIND_ANY_ORDER, false)
+		FIND_CLOSEST, false)
 	
-	thisEntity:CastAbilityOnPosition(units[1]:GetAbsOrigin(), thisEntity.Diss, -1)
+	for i=1,#units do
+		if not units[i]:IsInvisible() then
+			thisEntity:CastAbilityOnPosition(units[1]:GetAbsOrigin(), thisEntity.Diss, -1)
+			return
+		end
+	end
 end
 
 function CastVac()
 	AI_THINK_INTERVAL = 0.7
 	local units = FindUnitsInRadius(thisEntity:GetTeam(), thisEntity:GetAbsOrigin(), nil,
 		aggroRange, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_NONE, 
-		FIND_ANY_ORDER, false)
+		FIND_CLOSEST, false)
 	
-	thisEntity:CastAbilityOnPosition((thisEntity:GetAbsOrigin()+thisEntity:GetAbsOrigin()+units[1]:GetAbsOrigin())/3, thisEntity.Vac, -1)
+	for i=1,#units do
+		if not units[i]:IsInvisible() then
+			thisEntity:CastAbilityOnPosition((thisEntity:GetAbsOrigin()+thisEntity:GetAbsOrigin()+units[1]:GetAbsOrigin())/3, thisEntity.Vac, -1)
+			return
+		end
+	end
 end
 
 function CastSScreen()
 	AI_THINK_INTERVAL = 0.4
 	local units = FindUnitsInRadius(thisEntity:GetTeam(), thisEntity:GetAbsOrigin(), nil,
 		aggroRange, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_NONE, 
-		FIND_ANY_ORDER, false)
+		FIND_CLOSEST, false)
 	
-	thisEntity:CastAbilityOnPosition(units[1]:GetAbsOrigin(), thisEntity.SScreen, -1)
+	for i=1,#units do
+		if not units[i]:IsInvisible() then
+			thisEntity:CastAbilityOnPosition(thisEntity:GetAbsOrigin(), thisEntity.SScreen, -1)
+			return
+		end
+	end
 end

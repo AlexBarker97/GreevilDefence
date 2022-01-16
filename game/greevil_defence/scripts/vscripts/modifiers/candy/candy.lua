@@ -6,6 +6,7 @@ LinkLuaModifier("modifier_candy_blue", "scripts/vscripts/modifiers/candy/modifie
 LinkLuaModifier("modifier_candy_purple", "scripts/vscripts/modifiers/candy/modifier_candy_purple", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_candy_white", "scripts/vscripts/modifiers/candy/modifier_candy_white", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_candy_black", "scripts/vscripts/modifiers/candy/modifier_candy_black", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_candy_god", "scripts/vscripts/modifiers/candy/modifier_candy_god", LUA_MODIFIER_MOTION_NONE)
 
 candy = class({})
 
@@ -126,7 +127,7 @@ function Purple(keys)
 end
 
 function White(keys)
-	local MOVE_SPEED = 10
+	local MOVE_SPEED = 20
 	local caster = keys.caster
 	local target = keys.target
 	local myModifier = target:FindModifierByName("modifier_candy_white")
@@ -157,6 +158,26 @@ function Black(keys)
 	for i=0,8 do
 		local item = caster:GetItemInSlot(i)
 		if item ~= nil and item:GetAbilityName() == "item_candy_black" then
+			caster:RemoveItem(item)
+			break
+		end
+	end
+end
+
+function God(keys)
+	local BONUS = 5000
+	local caster = keys.caster
+	local target = keys.target
+	local myModifier = target:FindModifierByName("modifier_candy_god")
+	if not myModifier then
+		myModifier = target:AddNewModifier(target, nil, "modifier_candy_god", {})
+	end
+
+	myModifier:SetStackCount(myModifier:GetStackCount() + BONUS)
+	
+	for i=0,8 do
+		local item = caster:GetItemInSlot(i)
+		if item ~= nil and item:GetAbilityName() == "item_candy_god" then
 			caster:RemoveItem(item)
 			break
 		end

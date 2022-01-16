@@ -1,10 +1,9 @@
 Bugs
-• Lane jump doesnt work
+• some things autoattack jumps
 • global present & satchel sounds
 • ai follows when invis
 
 Suggestions
-• tp location for black boss
 • present drops more interesting
 • notification that black boss being killed
 
@@ -29,9 +28,11 @@ Suggestions
 QoL
 • Improve/add more satchel items
 • Improve/add more present items
-• Coloured textures on candy modifier buffs
+• Improve/add more greater present items
+• Textures on candy modifier buffs
 • Ability leveling/scaling info
 • Sendboss effect volume/sound
+• Custom minimap image
 
 Balance
 • XP/Gold from bosses

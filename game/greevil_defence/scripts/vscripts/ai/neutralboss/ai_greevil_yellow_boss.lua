@@ -77,9 +77,14 @@ function AggressiveThink()
 	
 	local units = FindUnitsInRadius(thisEntity:GetTeam(), thisEntity:GetAbsOrigin(), nil,
 		aggroRange, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_NONE, 
-		FIND_ANY_ORDER, false)
+		FIND_CLOSEST, false)
 
-	thisEntity:MoveToTargetToAttack(units[1])
+	for i=1,#units do
+		if not units[i]:IsInvisible() then
+			thisEntity:MoveToTargetToAttack(units[1])
+			return
+		end
+	end	
 end
 
 function ReturningThink()
@@ -99,15 +104,25 @@ end
 function CastFissure()
 	local units = FindUnitsInRadius(thisEntity:GetTeam(), thisEntity:GetAbsOrigin(), nil,
 		aggroRange, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_NONE, 
-		FIND_ANY_ORDER, false)
-	
-	thisEntity:CastAbilityOnPosition(units[1]:GetAbsOrigin(), thisEntity.fissure, -1)
+		FIND_CLOSEST, false)
+
+	for i=1,#units do
+		if not units[i]:IsInvisible() then
+			thisEntity:CastAbilityOnPosition(units[1]:GetAbsOrigin(), thisEntity.fissure, -1)
+			return
+		end
+	end
 end
 
 function CastBSmash()
 	local units = FindUnitsInRadius(thisEntity:GetTeam(), thisEntity:GetAbsOrigin(), nil,
 		aggroRange, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_NONE, 
-		FIND_ANY_ORDER, false)
-	
-	thisEntity:CastAbilityOnTarget(units[1], thisEntity.bsmash, -1)
+		FIND_CLOSEST, false)
+
+	for i=1,#units do
+		if not units[i]:IsInvisible() then
+			thisEntity:CastAbilityOnTarget(units[1], thisEntity.bsmash, -1)
+			return
+		end
+	end
 end

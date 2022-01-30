@@ -5,6 +5,7 @@ Bugs
 • black greevil posession, ai persists (if IsDominated() then return end)
 
 Suggestions
+• Purchased attack greevils are spawners that spawn the greevil every wave as an extra (limited charges)
 • present drops more interesting
 • notification that black boss being killed
 

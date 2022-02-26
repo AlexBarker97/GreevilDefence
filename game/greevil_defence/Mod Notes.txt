@@ -11,6 +11,7 @@ Suggestions
 
 • "one time" shop items
 	• Barrier buster
+	• Single use meteor hammer, large AoE, global cast range
 • tool shop items
 	• Build a gold farm
 	• Build a tp location

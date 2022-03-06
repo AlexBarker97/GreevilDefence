@@ -7,6 +7,9 @@ Required
 More items in shop
 
 Suggestions
+• Shop option to double next enemy wave
+• Shop option to spawn a random wave on demand
+• secret shopkeeper that trades greevil eggs for something
 • present drops more interesting
 • notification that black boss being killed
 • Level 25, flying movement talent can attack enemy side (change model to flying model)
@@ -15,6 +18,10 @@ Suggestions
 	• Single use meteor hammer, large AoE, global cast range
 • tool shop items
 	• Build a gold farm
+        • Build a healing hut (spawns healer greevils) 
+        • Build a buffing Station (randomly buffs heroes that come near)
+        • Build an armourers hut (produces chain mail)
+        • Build a Magicians hut
 • One time use item/ability from each boss
 	• Red    - mini mars ult
 	• Orange - fire breath
@@ -26,9 +33,10 @@ Suggestions
 	• Black  - detonate
 • Variation between games
 	• random abilities (from colour pool)	
-• Less respawn hp
+• Less revive hp
 
 QoL
+• add useful text when purchasing second spawner of same colour
 • Improve/add more satchel items
 • Improve/add more present items
 • Improve/add more greater present items

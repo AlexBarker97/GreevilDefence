@@ -7,7 +7,7 @@
 	{
 		"override_hero"				"npc_dota_hero_beastmaster"
 
-		"Model"						"models/courier/greevil/greevil.vmdl"
+		"Model"						"models/courier/greevil/greevil.vmdl"				//is being overwritten in modifier_greevil_naked
 		"SoundSet"					"Greevil"
 		"ModelScale"				"0.9"
 		"DisableWearables"			"1"
@@ -17,6 +17,7 @@
 
 		"precache"
 		{
+			"soundfile"		"soundevents/game_sounds_greevils.vsndevts"
 			"soundfile"		"soundevents/game_sounds_heroes/game_sounds_juggernaut.vsndevts"
 			"soundfile"		"soundevents/game_sounds_heroes/game_sounds_tusk.vsndevts"
 			"soundfile"		"soundevents/game_sounds_heroes/game_sounds_broodmother.vsndevts"

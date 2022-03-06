@@ -1,15 +1,15 @@
 {
   "ExpandedNodes": [
     "",
-    "\\content",
-    "\\content\\greevil_defence",
-    "\\content\\greevil_defence\\soundevents",
-    "\\content\\greevil_defence\\soundevents\\music",
     "\\game",
     "\\game\\greevil_defence",
+    "\\game\\greevil_defence\\resource",
     "\\game\\greevil_defence\\scripts",
     "\\game\\greevil_defence\\scripts\\vscripts",
-    "\\game\\greevil_defence\\scripts\\vscripts\\modifiers"
+    "\\game\\greevil_defence\\scripts\\vscripts\\ai",
+    "\\game\\greevil_defence\\scripts\\vscripts\\ai\\attackboss",
+    "\\game\\greevil_defence\\scripts\\vscripts\\ai\\lane"
   ],
+  "SelectedNode": "\\game\\greevil_defence\\scripts\\vscripts\\ai\\attackboss\\ai_greevil_blue_boss_att.lua",
   "PreviewInSolutionExplorer": false
 }

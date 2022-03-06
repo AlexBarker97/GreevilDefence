@@ -1,20 +1,20 @@
 Bugs
 • some things autoattack jumps
 • global present & satchel sounds
-• ai follows when invis
 • black greevil posession, ai persists (if IsDominated() then return end)
 
+Required
+• Shop upgrade tokens need to be implemented
+
 Suggestions
-• Purchased attack greevils are spawners that spawn the greevil every wave as an extra (limited charges)
 • present drops more interesting
 • notification that black boss being killed
-
+• Level 25, flying movement talent can attack enemy side (change model to flying model)
 • "one time" shop items
 	• Barrier buster
 	• Single use meteor hammer, large AoE, global cast range
 • tool shop items
 	• Build a gold farm
-	• Build a tp location
 • One time use item/ability from each boss
 	• Red    - mini mars ult
 	• Orange - fire breath

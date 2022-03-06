@@ -94,6 +94,26 @@ DefenceGreevil.Dire.Purple = 0
 DefenceGreevil.Dire.White = 0
 DefenceGreevil.Dire.Black = 0
 
+local AttackGreevil = {}
+AttackGreevil.Radiant = {}
+AttackGreevil.Dire = {}
+AttackGreevil.Radiant.Red = 0
+AttackGreevil.Radiant.Orange = 0
+AttackGreevil.Radiant.Yellow = 0
+AttackGreevil.Radiant.Green = 0
+AttackGreevil.Radiant.Blue = 0
+AttackGreevil.Radiant.Purple = 0
+AttackGreevil.Radiant.White = 0
+AttackGreevil.Radiant.Black = 0
+AttackGreevil.Dire.Red = 0
+AttackGreevil.Dire.Orange = 0
+AttackGreevil.Dire.Yellow = 0
+AttackGreevil.Dire.Green = 0
+AttackGreevil.Dire.Blue = 0
+AttackGreevil.Dire.Purple = 0
+AttackGreevil.Dire.White = 0
+AttackGreevil.Dire.Black = 0
+
 -- This function initializes the game mode and is called before anyone loads into the game
 -- It can be used to pre-initialize any values/tables that will be needed later
 function GameMode:InitGameMode()
@@ -198,27 +218,7 @@ end
 
 -- This function is called once when the player fully connects and becomes "Ready" during Loading
 function GameMode:OnConnectFull(keys)
-	--DeepPrintTable(keys)
-	GameMode:CaptureGameMode()
 
-	local entIndex = keys.index+1
-	-- The Player entity of the joining user
-	local ply = EntIndexToHScript(entIndex)
-
-	-- The Player ID of the joining player
-	local playerID = ply:GetPlayerID()
-
-	-- Update the user ID table with this user
-	self.vUserIds[keys.userid] = ply
-
-	-- Update the Steam ID table
-	self.vSteamIds[PlayerResource:GetSteamAccountID(playerID)] = ply
-
-	-- If the player is a broadcaster flag it in the Broadcasters table
-	if PlayerResource:IsBroadcaster(playerID) then
-		self.vBroadcasters[keys.userid] = 1
-		return
-	end
 end
 
 -- This function is called as the first player loads and sets up the GameMode parameters
@@ -428,101 +428,259 @@ function GameMode:OnItemPurchased(keys)
 		return
 	end
 
-	if item_name == "item_blue_egg_att" then
-		if PlayerResource:GetTeam(playerID) == 2 then
-			location = (Vector(5872, 5200, 304)) + (Vector(RandomInt(0, 1056),RandomInt(0, 944), 0))
-			local unit = CreateUnitByName("greevil_blue_rad_att", location, true, nil, nil, DOTA_TEAM_GOODGUYS)
-			unit.lane = 0
+	if item_name == "item_upgrade_att" then
+		if team == 2 then
+			local radUnits = FindUnitsInRadius(DOTA_TEAM_GOODGUYS, Vector(0, 0, 0), nil, FIND_UNITS_EVERYWHERE, DOTA_UNIT_TARGET_TEAM_FRIENDLY, 
+				DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_NONE, FIND_ANY_ORDER, false)
+			for k,v in pairs(radUnits) do
+				if radUnits[k]:GetUnitName() == "greevil_spawner_red" or radUnits[k]:GetUnitName() == "greevil_spawner_orange" 
+						or radUnits[k]:GetUnitName() == "greevil_spawner_yellow" or radUnits[k]:GetUnitName() == "greevil_spawner_green" 
+						or radUnits[k]:GetUnitName() == "greevil_spawner_blue" or radUnits[k]:GetUnitName() == "greevil_spawner_purple" 
+						or radUnits[k]:GetUnitName() == "greevil_spawner_white" or radUnits[k]:GetUnitName() == "greevil_spawner_black" then
+					radUnits[k]:CreatureLevelUp(1)
+				end
+			end
 		else
-			location = (Vector(-6928, 5200, 304)) + (Vector(RandomInt(0, 1056),RandomInt(0, 944), 0))
-			local unit = CreateUnitByName("greevil_blue_dire_att", location, true, nil, nil, DOTA_TEAM_BADGUYS)
-			unit.lane = 0
-		end
-		removeItem(purchaseEntity,"item_blue_egg_att")
-
-	elseif item_name == "item_green_egg_att" then
-		if PlayerResource:GetTeam(playerID) == 2 then
-			location = (Vector(5872, 5200, 304)) + (Vector(RandomInt(0, 1056),RandomInt(0, 944), 0))
-			local unit = CreateUnitByName("greevil_green_rad_att", location, true, nil, nil, DOTA_TEAM_GOODGUYS)
-			unit.lane = 0
+			local direUnits = FindUnitsInRadius(DOTA_TEAM_BADGUYS, Vector(0, 0, 0), nil, FIND_UNITS_EVERYWHERE, DOTA_UNIT_TARGET_TEAM_FRIENDLY, 
+				DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_NONE, FIND_ANY_ORDER, false)
+			for k,v in pairs(direUnits) do
+				if direUnits[k]:GetUnitName() == "greevil_spawner_red" or direUnits[k]:GetUnitName() == "greevil_spawner_orange" 
+						or direUnits[k]:GetUnitName() == "greevil_spawner_yellow" or direUnits[k]:GetUnitName() == "greevil_spawner_green" 
+						or direUnits[k]:GetUnitName() == "greevil_spawner_blue" or direUnits[k]:GetUnitName() == "greevil_spawner_purple" 
+						or direUnits[k]:GetUnitName() == "greevil_spawner_white" or direUnits[k]:GetUnitName() == "greevil_spawner_black" then
+					direUnits[k]:CreatureLevelUp(1)
+				end
+			end
+		end				
+		removeItem(purchaseEntity,"item_upgrade_att")
+		
+	elseif item_name == "item_upgrade_def" then
+		if team == 2 then
+			local radUnits = FindUnitsInRadius(DOTA_TEAM_GOODGUYS, Vector(0, 0, 0), nil, FIND_UNITS_EVERYWHERE, DOTA_UNIT_TARGET_TEAM_FRIENDLY, 
+				DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_NONE, FIND_ANY_ORDER, false)
+			for k,v in pairs(radUnits) do
+				if radUnits[k]:GetUnitName() == "greevil_red_rad_def" or radUnits[k]:GetUnitName() == "greevil_orange_rad_def" 
+						or radUnits[k]:GetUnitName() == "greevil_yellow_rad_def" or radUnits[k]:GetUnitName() == "greevil_green_rad_def" 
+						or radUnits[k]:GetUnitName() == "greevil_blue_rad_def" or radUnits[k]:GetUnitName() == "greevil_purple_rad_def" 
+						or radUnits[k]:GetUnitName() == "greevil_white_rad_def" or radUnits[k]:GetUnitName() == "greevil_black_rad_def" then
+					radUnits[k]:CreatureLevelUp(1)
+				end
+			end
 		else
-			location = (Vector(-6928, 5200, 304)) + (Vector(RandomInt(0, 1056),RandomInt(0, 944), 0))
-			local unit = CreateUnitByName("greevil_green_dire_att", location, true, nil, nil, DOTA_TEAM_BADGUYS)
-			unit.lane = 0
+			local direUnits = FindUnitsInRadius(DOTA_TEAM_BADGUYS, Vector(0, 0, 0), nil, FIND_UNITS_EVERYWHERE, DOTA_UNIT_TARGET_TEAM_FRIENDLY, 
+				DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_NONE, FIND_ANY_ORDER, false)
+			for k,v in pairs(direUnits) do
+				if direUnits[k]:GetUnitName() == "greevil_red_dire_def" or direUnits[k]:GetUnitName() == "greevil_orange_dire_def" 
+						or direUnits[k]:GetUnitName() == "greevil_yellow_dire_def" or direUnits[k]:GetUnitName() == "greevil_green_dire_def" 
+						or direUnits[k]:GetUnitName() == "greevil_blue_dire_def" or direUnits[k]:GetUnitName() == "greevil_purple_dire_def" 
+						or direUnits[k]:GetUnitName() == "greevil_white_dire_def" or direUnits[k]:GetUnitName() == "greevil_black_dire_def" then
+					direUnits[k]:CreatureLevelUp(1)
+				end
+			end
 		end
-		removeItem(purchaseEntity,"item_green_egg_att")
-
-	elseif item_name == "item_yellow_egg_att" then
-		if PlayerResource:GetTeam(playerID) == 2 then
-			location = (Vector(5872, 5200, 304)) + (Vector(RandomInt(0, 1056),RandomInt(0, 944), 0))
-			local unit = CreateUnitByName("greevil_yellow_rad_att", location, true, nil, nil, DOTA_TEAM_GOODGUYS)
-			unit.lane = 0
+		removeItem(purchaseEntity,"item_upgrade_def")
+	
+	elseif item_name == "item_voidling" then
+		if team == 2 then
+			local unit = CreateUnitByName("rex", Vector(6400, 5760, 256), true, nil, nil, DOTA_TEAM_GOODGUYS)
 		else
-			location = (Vector(-6928, 5200, 304)) + (Vector(RandomInt(0, 1056),RandomInt(0, 944), 0))
-			local unit = CreateUnitByName("greevil_yellow_dire_att", location, true, nil, nil, DOTA_TEAM_BADGUYS)
-			unit.lane = 0
+			local unit = CreateUnitByName("rex", Vector(-6400, 5760, 256), true, nil, nil, DOTA_TEAM_BADGUYS)
 		end
-		removeItem(purchaseEntity,"item_yellow_egg_att")
-
-	elseif item_name == "item_orange_egg_att" then
-		if PlayerResource:GetTeam(playerID) == 2 then
-			location = (Vector(5872, 5200, 304)) + (Vector(RandomInt(0, 1056),RandomInt(0, 944), 0))
-			local unit = CreateUnitByName("greevil_orange_rad_att", location, true, nil, nil, DOTA_TEAM_GOODGUYS)
-			unit.lane = 0
-		else
-			location = (Vector(-6928, 5200, 304)) + (Vector(RandomInt(0, 1056),RandomInt(0, 944), 0))
-			local unit = CreateUnitByName("greevil_orange_dire_att", location, true, nil, nil, DOTA_TEAM_BADGUYS)
-			unit.lane = 0
-		end
-		removeItem(purchaseEntity,"item_orange_egg_att")
+		removeItem(purchaseEntity,"item_voidling")
+	
 
 	elseif item_name == "item_red_egg_att" then
 		if PlayerResource:GetTeam(playerID) == 2 then
-			location = (Vector(5872, 5200, 304)) + (Vector(RandomInt(0, 1056),RandomInt(0, 944), 0))
-			local unit = CreateUnitByName("greevil_red_rad_att", location, true, nil, nil, DOTA_TEAM_GOODGUYS)
-			unit.lane = 0
+
+			if AttackGreevil.Radiant.Red == 0 then
+				location = Vector(6880, 5760, 256)
+				local unit = CreateUnitByName("greevil_spawner_red", location, true, nil, nil, DOTA_TEAM_GOODGUYS)
+				unit:FaceTowards(unit:GetAbsOrigin()+Vector(0, RandomInt(-110, -90), 0))
+				AttackGreevil.Radiant.Red = 1
+			elseif AttackGreevil.Radiant.Red == 1 then
+				purchaseEntity:ModifyGold(item_cost,false,0)
+				CustomGameEventManager:Send_ServerToPlayer(PlayerResource:GetPlayer(playerID), "custom_dota_hud_error_message", {reason=80 , message= "#error_max_red_att"})
+			end
 		else
-			location = (Vector(-6928, 5200, 304)) + (Vector(RandomInt(0, 1056),RandomInt(0, 944), 0))
-			local unit = CreateUnitByName("greevil_red_dire_att", location, true, nil, nil, DOTA_TEAM_BADGUYS)
-			unit.lane = 0
+			if AttackGreevil.Dire.Red == 0 then
+				location = Vector(-6880, 5760, 256)
+				local unit = CreateUnitByName("greevil_spawner_red", location, true, nil, nil, DOTA_TEAM_BADGUYS)
+				unit:FaceTowards(unit:GetAbsOrigin()+Vector(0, RandomInt(-110, -90), 0))
+				AttackGreevil.Dire.Red = 1
+			elseif AttackGreevil.Dire.Red == 1 then
+				purchaseEntity:ModifyGold(item_cost,false,0)
+				CustomGameEventManager:Send_ServerToPlayer(PlayerResource:GetPlayer(playerID), "custom_dota_hud_error_message", {reason=80 , message= "#error_max_red_att"})
+			end
 		end
 		removeItem(purchaseEntity,"item_red_egg_att")
 
+	elseif item_name == "item_orange_egg_att" then
+		if PlayerResource:GetTeam(playerID) == 2 then
+			if AttackGreevil.Radiant.Orange == 0 then
+				location = Vector(6560, 5760, 256)
+				local unit = CreateUnitByName("greevil_spawner_orange", location, true, nil, nil, DOTA_TEAM_GOODGUYS)
+				unit:FaceTowards(unit:GetAbsOrigin()+Vector(0, RandomInt(-110, -90), 0))
+				AttackGreevil.Radiant.Orange = 1
+			elseif AttackGreevil.Radiant.Orange == 1 then
+				purchaseEntity:ModifyGold(item_cost,false,0)
+				CustomGameEventManager:Send_ServerToPlayer(PlayerResource:GetPlayer(playerID), "custom_dota_hud_error_message", {reason=80 , message= "#error_max_orange_att"})
+			end
+		else
+			if AttackGreevil.Dire.Orange == 0 then
+				location = Vector(-6560, 5760, 256)
+				local unit = CreateUnitByName("greevil_spawner_orange", location, true, nil, nil, DOTA_TEAM_BADGUYS)
+				unit:FaceTowards(unit:GetAbsOrigin()+Vector(0, RandomInt(-110, -90), 0))
+				AttackGreevil.Dire.Orange = 1
+			elseif AttackGreevil.Dire.Orange == 1 then
+				purchaseEntity:ModifyGold(item_cost,false,0)
+				CustomGameEventManager:Send_ServerToPlayer(PlayerResource:GetPlayer(playerID), "custom_dota_hud_error_message", {reason=80 , message= "#error_max_orange_att"})
+			end
+		end
+		removeItem(purchaseEntity,"item_orange_egg_att")
+
+	elseif item_name == "item_yellow_egg_att" then
+		if PlayerResource:GetTeam(playerID) == 2 then
+			if AttackGreevil.Radiant.Yellow == 0 then
+				location = Vector(6240, 5760, 256)
+				local unit = CreateUnitByName("greevil_spawner_yellow", location, true, nil, nil, DOTA_TEAM_GOODGUYS)
+				unit:FaceTowards(unit:GetAbsOrigin()+Vector(0, RandomInt(-110, -90), 0))
+				AttackGreevil.Radiant.Yellow = 1
+			elseif AttackGreevil.Radiant.Yellow == 1 then
+				purchaseEntity:ModifyGold(item_cost,false,0)
+				CustomGameEventManager:Send_ServerToPlayer(PlayerResource:GetPlayer(playerID), "custom_dota_hud_error_message", {reason=80 , message= "#error_max_yellow_att"})
+			end
+		else
+			if AttackGreevil.Dire.Yellow == 0 then
+				location = Vector(-6240, 5760, 256)
+				local unit = CreateUnitByName("greevil_spawner_yellow", location, true, nil, nil, DOTA_TEAM_BADGUYS)
+				unit:FaceTowards(unit:GetAbsOrigin()+Vector(0, RandomInt(-110, -90), 0))
+				AttackGreevil.Dire.Yellow = 1
+			elseif AttackGreevil.Dire.Yellow == 1 then
+				purchaseEntity:ModifyGold(item_cost,false,0)
+				CustomGameEventManager:Send_ServerToPlayer(PlayerResource:GetPlayer(playerID), "custom_dota_hud_error_message", {reason=80 , message= "#error_max_yellow_att"})
+			end
+		end
+		removeItem(purchaseEntity,"item_yellow_egg_att")
+
+	elseif item_name == "item_green_egg_att" then
+		if PlayerResource:GetTeam(playerID) == 2 then
+			if AttackGreevil.Radiant.Green == 0 then
+				location = Vector(5920, 5760, 256)
+				local unit = CreateUnitByName("greevil_spawner_green", location, true, nil, nil, DOTA_TEAM_GOODGUYS)
+				unit:FaceTowards(unit:GetAbsOrigin()+Vector(0, RandomInt(-110, -90), 0))
+				AttackGreevil.Radiant.Green = 1
+			elseif AttackGreevil.Radiant.Green == 1 then
+				purchaseEntity:ModifyGold(item_cost,false,0)
+				CustomGameEventManager:Send_ServerToPlayer(PlayerResource:GetPlayer(playerID), "custom_dota_hud_error_message", {reason=80 , message= "#error_max_green_att"})
+			end
+		else
+			if AttackGreevil.Dire.Green == 0 then
+				location = Vector(-5920, 5760, 256)
+				local unit = CreateUnitByName("greevil_spawner_green", location, true, nil, nil, DOTA_TEAM_BADGUYS)
+				unit:FaceTowards(unit:GetAbsOrigin()+Vector(0, RandomInt(-110, -90), 0))
+				AttackGreevil.Dire.Green = 1
+			elseif AttackGreevil.Dire.Green == 1 then
+				purchaseEntity:ModifyGold(item_cost,false,0)
+				CustomGameEventManager:Send_ServerToPlayer(PlayerResource:GetPlayer(playerID), "custom_dota_hud_error_message", {reason=80 , message= "#error_max_green_att"})
+			end
+		end
+		removeItem(purchaseEntity,"item_green_egg_att")
+
+	elseif item_name == "item_blue_egg_att" then
+		if PlayerResource:GetTeam(playerID) == 2 then
+			if AttackGreevil.Radiant.Blue == 0 then
+				location = Vector(6880, 6016, 256)
+				local unit = CreateUnitByName("greevil_spawner_blue", location, true, nil, nil, DOTA_TEAM_GOODGUYS)
+				unit:FaceTowards(unit:GetAbsOrigin()+Vector(0, RandomInt(-110, -90), 0))
+				AttackGreevil.Radiant.Blue = 1
+			elseif AttackGreevil.Radiant.Blue == 1 then
+				purchaseEntity:ModifyGold(item_cost,false,0)
+				CustomGameEventManager:Send_ServerToPlayer(PlayerResource:GetPlayer(playerID), "custom_dota_hud_error_message", {reason=80 , message= "#error_max_blue_att"})
+			end
+		else
+			if AttackGreevil.Dire.Blue == 0 then
+				location = Vector(-6880, 6016, 256)
+				local unit = CreateUnitByName("greevil_spawner_blue", location, true, nil, nil, DOTA_TEAM_BADGUYS)
+				unit:FaceTowards(unit:GetAbsOrigin()+Vector(0, RandomInt(-110, -90), 0))
+				AttackGreevil.Dire.Blue = 1
+			elseif AttackGreevil.Dire.Blue == 1 then
+				purchaseEntity:ModifyGold(item_cost,false,0)
+				CustomGameEventManager:Send_ServerToPlayer(PlayerResource:GetPlayer(playerID), "custom_dota_hud_error_message", {reason=80 , message= "#error_max_blue_att"})
+			end
+		end
+		removeItem(purchaseEntity,"item_blue_egg_att")
+
 	elseif item_name == "item_purple_egg_att" then
 		if PlayerResource:GetTeam(playerID) == 2 then
-			location = (Vector(5872, 5200, 304)) + (Vector(RandomInt(0, 1056),RandomInt(0, 944), 0))
-			local unit = CreateUnitByName("greevil_purple_rad_att", location, true, nil, nil, DOTA_TEAM_GOODGUYS)
-			unit.lane = 0
+			if AttackGreevil.Radiant.Purple == 0 then
+				location = Vector(6560, 6016, 256)
+				local unit = CreateUnitByName("greevil_spawner_purple", location, true, nil, nil, DOTA_TEAM_GOODGUYS)
+				unit:FaceTowards(unit:GetAbsOrigin()+Vector(0, RandomInt(-110, -90), 0))
+				AttackGreevil.Radiant.Purple = 1
+			elseif AttackGreevil.Radiant.Purple == 1 then
+				purchaseEntity:ModifyGold(item_cost,false,0)
+				CustomGameEventManager:Send_ServerToPlayer(PlayerResource:GetPlayer(playerID), "custom_dota_hud_error_message", {reason=80 , message= "#error_max_purple_att"})
+			end
 		else
-			location = (Vector(-6928, 5200, 304)) + (Vector(RandomInt(0, 1056),RandomInt(0, 944), 0))
-			local unit = CreateUnitByName("greevil_purple_dire_att", location, true, nil, nil, DOTA_TEAM_BADGUYS)
-			unit.lane = 0
+			if AttackGreevil.Dire.Purple == 0 then
+				location = Vector(-6560, 6016, 256)
+				local unit = CreateUnitByName("greevil_spawner_purple", location, true, nil, nil, DOTA_TEAM_BADGUYS)
+				unit:FaceTowards(unit:GetAbsOrigin()+Vector(0, RandomInt(-110, -90), 0))
+				AttackGreevil.Dire.Purple = 1
+			elseif AttackGreevil.Dire.Purple == 1 then
+				purchaseEntity:ModifyGold(item_cost,false,0)
+				CustomGameEventManager:Send_ServerToPlayer(PlayerResource:GetPlayer(playerID), "custom_dota_hud_error_message", {reason=80 , message= "#error_max_purple_att"})
+			end
 		end
 		removeItem(purchaseEntity,"item_purple_egg_att")
 
-	elseif item_name == "item_black_egg_att" then
-		if PlayerResource:GetTeam(playerID) == 2 then
-			location = (Vector(5872, 5200, 304)) + (Vector(RandomInt(0, 1056),RandomInt(0, 944), 0))
-			local unit = CreateUnitByName("greevil_black_rad_att", location, true, nil, nil, DOTA_TEAM_GOODGUYS)
-			unit.lane = 0
-		else
-			location = (Vector(-6928, 5200, 304)) + (Vector(RandomInt(0, 1056),RandomInt(0, 944), 0))
-			local unit = CreateUnitByName("greevil_black_dire_att", location, true, nil, nil, DOTA_TEAM_BADGUYS)
-			unit.lane = 0
-		end
-		removeItem(purchaseEntity,"item_black_egg_att")
-
 	elseif item_name == "item_white_egg_att" then
 		if PlayerResource:GetTeam(playerID) == 2 then
-			location = (Vector(5872, 5200, 304)) + (Vector(RandomInt(0, 1056),RandomInt(0, 944), 0))
-			local unit = CreateUnitByName("greevil_white_rad_att", location, true, nil, nil, DOTA_TEAM_GOODGUYS)
-			unit.lane = 0
+			if AttackGreevil.Radiant.White == 0 then
+				location = Vector(6240, 6016, 256)
+				local unit = CreateUnitByName("greevil_spawner_white", location, true, nil, nil, DOTA_TEAM_GOODGUYS)
+				unit:FaceTowards(unit:GetAbsOrigin()+Vector(0, RandomInt(-110, -90), 0))
+				AttackGreevil.Radiant.White = 1
+			elseif AttackGreevil.Radiant.White == 1 then
+				purchaseEntity:ModifyGold(item_cost,false,0)
+				CustomGameEventManager:Send_ServerToPlayer(PlayerResource:GetPlayer(playerID), "custom_dota_hud_error_message", {reason=80 , message= "#error_max_white_att"})
+			end
 		else
-			location = (Vector(-6928, 5200, 304)) + (Vector(RandomInt(0, 1056),RandomInt(0, 944), 0))
-			local unit = CreateUnitByName("greevil_white_dire_att", location, true, nil, nil, DOTA_TEAM_BADGUYS)
-			unit.lane = 0
+			if AttackGreevil.Dire.White == 0 then
+				location = Vector(-6240, 6016, 256)
+				local unit = CreateUnitByName("greevil_spawner_white", location, true, nil, nil, DOTA_TEAM_BADGUYS)
+				unit:FaceTowards(unit:GetAbsOrigin()+Vector(0, RandomInt(-110, -90), 0))
+				AttackGreevil.Dire.White = 1
+			elseif AttackGreevil.Dire.White == 1 then
+				purchaseEntity:ModifyGold(item_cost,false,0)
+				CustomGameEventManager:Send_ServerToPlayer(PlayerResource:GetPlayer(playerID), "custom_dota_hud_error_message", {reason=80 , message= "#error_max_white_att"})
+			end
 		end
 		removeItem(purchaseEntity,"item_white_egg_att")
+
+	elseif item_name == "item_black_egg_att" then
+		if PlayerResource:GetTeam(playerID) == 2 then
+			if AttackGreevil.Radiant.Black == 0 then
+				location = Vector(5920, 6016, 256)
+				local unit = CreateUnitByName("greevil_spawner_black", location, true, nil, nil, DOTA_TEAM_GOODGUYS)
+				unit:FaceTowards(unit:GetAbsOrigin()+Vector(0, RandomInt(-110, -90), 0))
+				AttackGreevil.Radiant.Black = 1
+			elseif AttackGreevil.Radiant.Black == 1 then
+				purchaseEntity:ModifyGold(item_cost,false,0)
+				CustomGameEventManager:Send_ServerToPlayer(PlayerResource:GetPlayer(playerID), "custom_dota_hud_error_message", {reason=80 , message= "#error_max_black_att"})
+			end
+		else
+			if AttackGreevil.Dire.Black == 0 then
+				location = Vector(-5920, 6016, 256)
+				local unit = CreateUnitByName("greevil_spawner_black", location, true, nil, nil, DOTA_TEAM_BADGUYS)
+				unit:FaceTowards(unit:GetAbsOrigin()+Vector(0, RandomInt(-110, -90), 0))
+				AttackGreevil.Dire.Black = 1
+			elseif AttackGreevil.Dire.Black == 1 then
+				purchaseEntity:ModifyGold(item_cost,false,0)
+				CustomGameEventManager:Send_ServerToPlayer(PlayerResource:GetPlayer(playerID), "custom_dota_hud_error_message", {reason=80 , message= "#error_max_black_att"})
+			end
+		end
+		removeItem(purchaseEntity,"item_black_egg_att")
 
 	elseif item_name == "item_blue_egg_def" then
 		if PlayerResource:GetTeam(playerID) == 2 then
@@ -1316,6 +1474,40 @@ function GameMode:OnEntityKilled(keys)
 			DefenceGreevil.Dire.White = 0
 		elseif killed_unit:GetUnitName() == "greevil_black_dire_def" then
 			DefenceGreevil.Dire.Black = 0
+		
+		-- Attack Greevils Spawners
+		elseif killed_unit:GetUnitName() == "greevil_spawner_red" and killed_unit:GetTeam() == 2 then
+			AttackGreevil.Radiant.Red = 0
+		elseif killed_unit:GetUnitName() == "greevil_spawner_orange" and killed_unit:GetTeam() == 2 then
+			AttackGreevil.Radiant.Orange = 0
+		elseif killed_unit:GetUnitName() == "greevil_spawner_yellow" and killed_unit:GetTeam() == 2 then
+			AttackGreevil.Radiant.Yellow = 0
+		elseif killed_unit:GetUnitName() == "greevil_spawner_green" and killed_unit:GetTeam() == 2 then
+			AttackGreevil.Radiant.Green = 0
+		elseif killed_unit:GetUnitName() == "greevil_spawner_blue" and killed_unit:GetTeam() == 2 then
+			AttackGreevil.Radiant.Blue = 0
+		elseif killed_unit:GetUnitName() == "greevil_spawner_purple" and killed_unit:GetTeam() == 2 then
+			AttackGreevil.Radiant.Purple = 0
+		elseif killed_unit:GetUnitName() == "greevil_spawner_white" and killed_unit:GetTeam() == 2 then
+			AttackGreevil.Radiant.White = 0
+		elseif killed_unit:GetUnitName() == "greevil_spawner_black" and killed_unit:GetTeam() == 2 then
+			AttackGreevil.Radiant.Black = 0
+		elseif killed_unit:GetUnitName() == "greevil_spawner_red" and killed_unit:GetTeam() == 3 then
+			AttackGreevil.Dire.Red = 0
+		elseif killed_unit:GetUnitName() == "greevil_spawner_orange" and killed_unit:GetTeam() == 3 then
+			AttackGreevil.Dire.Orange = 0
+		elseif killed_unit:GetUnitName() == "greevil_spawner_yellow" and killed_unit:GetTeam() == 3 then
+			AttackGreevil.Dire.Yellow = 0
+		elseif killed_unit:GetUnitName() == "greevil_spawner_green" and killed_unit:GetTeam() == 3 then
+			AttackGreevil.Dire.Green = 0
+		elseif killed_unit:GetUnitName() == "greevil_spawner_blue" and killed_unit:GetTeam() == 3 then
+			AttackGreevil.Dire.Blue = 0
+		elseif killed_unit:GetUnitName() == "greevil_spawner_purple" and killed_unit:GetTeam() == 3 then
+			AttackGreevil.Dire.Purple = 0
+		elseif killed_unit:GetUnitName() == "greevil_spawner_white" and killed_unit:GetTeam() == 3 then
+			AttackGreevil.Dire.White = 0
+		elseif killed_unit:GetUnitName() == "greevil_spawner_black" and killed_unit:GetTeam() == 3 then
+			AttackGreevil.Dire.Black = 0
 		
 		-- Green attack greevil duplication
 		elseif killed_unit:GetUnitName() == "greevil_green_boss_att" then

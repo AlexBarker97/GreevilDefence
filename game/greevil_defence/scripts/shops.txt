@@ -10,6 +10,7 @@
 		"item6" 		"item_purple_egg_att"
 		"item7" 		"item_white_egg_att"
 		"item8" 		"item_black_egg_att"
+		"item9" 		"item_upgrade_att"
 	}
 
 	"attributes"
@@ -22,6 +23,7 @@
 		"item6" 		"item_purple_egg_def"
 		"item7" 		"item_white_egg_def"
 		"item8" 		"item_black_egg_def"
+		"item9" 		"item_upgrade_def"
 	}
 
 	"weapons_armor"

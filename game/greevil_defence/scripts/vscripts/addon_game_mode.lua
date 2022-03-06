@@ -448,11 +448,11 @@ function SpawnGiftSnatchers()
 	local appearDuration = 70
 	local dropInterval = 6
 
-	local unit1 = CreateUnitByName("thyg_the_gift_snatcher", Vector(-6400, 6000, 304), true, nil, nil, DOTA_TEAM_GOODGUYS)
+	local unit1 = CreateUnitByName("thyg_the_gift_snatcher", Vector(-6400, 5000, 304), true, nil, nil, DOTA_TEAM_GOODGUYS)
 	unit1:FaceTowards(unit1:GetAbsOrigin()+Vector(0, -100, 0))
 	unit1:AddNewModifier(unit1, nil, "lifeline_lua", { duration = appearDuration })
 
-	local unit2 = CreateUnitByName("thyg_the_gift_snatcher", Vector(6400, 6000, 304), true, nil, nil, DOTA_TEAM_BADGUYS)
+	local unit2 = CreateUnitByName("thyg_the_gift_snatcher", Vector(6400, 5000, 304), true, nil, nil, DOTA_TEAM_BADGUYS)
 	unit2:FaceTowards(unit2:GetAbsOrigin()+Vector(0, -100, 0))
 	unit2:AddNewModifier(unit2, nil, "lifeline_lua", { duration = appearDuration })
 
@@ -654,6 +654,8 @@ function SpawnCreeps()
 	local PlayerCountOnRad = PlayerResource:GetPlayerCountForTeam(DOTA_TEAM_GOODGUYS)
 	local PlayerCountOnDire = PlayerResource:GetPlayerCountForTeam(DOTA_TEAM_BADGUYS)
 	local totalPlayerCount = PlayerCountOnRad + PlayerCountOnDire
+	locationBAD = (Vector(-6828, 5000, 304)) + (Vector(RandomInt(0, 1000),RandomInt(0, 400), 0))
+	locationGOOD = (Vector(5972, 5000, 304)) + (Vector(RandomInt(0, 1000),RandomInt(0, 400), 0))
 
 	if math.fmod(totalPlayerCount,2) ~= 0 then
 		adjPlayerCount = totalPlayerCount + 1
@@ -693,18 +695,16 @@ function SpawnCreeps()
 
 	if waveType <= 6 then
 		for i=1,x do
-			location = (Vector(-6828, 5400, 304)) + (Vector(RandomInt(0, 1000),RandomInt(0, 400), 0))
+			location = (Vector(-6828, 5000, 304)) + (Vector(RandomInt(0, 1000),RandomInt(0, 400), 0))
 			local unit = CreateUnitByName("greevil_naked_dire", location, true, nil, nil, DOTA_TEAM_BADGUYS)
 			unit:FaceTowards(unit:GetAbsOrigin()+Vector(0 + math.random(-30,40), -100, 0))
 
-			location = (Vector(5972, 5400, 304)) + (Vector(RandomInt(0, 1000),RandomInt(0, 400), 0))
+			location = (Vector(5972, 5000, 304)) + (Vector(RandomInt(0, 1000),RandomInt(0, 400), 0))
 			local unit = CreateUnitByName("greevil_naked_rad", location, true, nil, nil, DOTA_TEAM_GOODGUYS)
 			unit:FaceTowards(unit:GetAbsOrigin()+Vector(0 + math.random(-30,40), -100, 0))
 		end
 	else
 		for i=1,xC do
-			locationBAD = (Vector(-6828, 5400, 304)) + (Vector(RandomInt(0, 1000),RandomInt(0, 400), 0))
-			locationGOOD = (Vector(5972, 5400, 304)) + (Vector(RandomInt(0, 1000),RandomInt(0, 400), 0))
 			if waveType == 7 then
 				local unitBAD = CreateUnitByName("greevil_red_dire_att", locationBAD, true, nil, nil, DOTA_TEAM_BADGUYS)
 				local unitGOOD = CreateUnitByName("greevil_red_rad_att", locationGOOD, true, nil, nil, DOTA_TEAM_GOODGUYS)
@@ -764,8 +764,6 @@ function SpawnCreeps()
 			end
 		end
 		for i=1,xC2 do
-			locationBAD = (Vector(-6828, 5400, 304)) + (Vector(RandomInt(0, 1000),RandomInt(0, 400), 0))
-			locationGOOD = (Vector(5972, 5400, 304)) + (Vector(RandomInt(0, 1000),RandomInt(0, 400), 0))
 			if waveType2 == 1 then
 				local unitBAD = CreateUnitByName("greevil_red_dire_att", locationBAD, true, nil, nil, DOTA_TEAM_BADGUYS)
 				local unitGOOD = CreateUnitByName("greevil_red_rad_att", locationGOOD, true, nil, nil, DOTA_TEAM_GOODGUYS)
@@ -825,6 +823,81 @@ function SpawnCreeps()
 			end
 		end
 	end
+
+	local allUnits = FindUnitsInRadius(DOTA_TEAM_GOODGUYS, Vector(0, 0, 0), nil, FIND_UNITS_EVERYWHERE, DOTA_UNIT_TARGET_TEAM_BOTH, 
+		DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_NONE, FIND_ANY_ORDER, false)
+
+	for k,v in pairs(allUnits) do
+		locationBAD = (Vector(-6828, 5000, 304)) + (Vector(RandomInt(0, 1000),RandomInt(0, 400), 0))
+		locationGOOD = (Vector(5972, 5000, 304)) + (Vector(RandomInt(0, 1000),RandomInt(0, 400), 0))
+
+		if (allUnits[k]:GetUnitName() == "greevil_spawner_red") and (allUnits[k]:GetTeam() == DOTA_TEAM_GOODGUYS) then
+			local unit = CreateUnitByName("greevil_red_rad_att", locationGOOD, true, nil, nil, DOTA_TEAM_GOODGUYS)
+				unit:FaceTowards(unit:GetAbsOrigin()+Vector(0 + math.random(-30,40), -100, 0))
+				unit.lane = 0
+		elseif (allUnits[k]:GetUnitName() == "greevil_spawner_orange") and (allUnits[k]:GetTeam() == DOTA_TEAM_GOODGUYS) then
+			local unit = CreateUnitByName("greevil_orange_rad_att", locationGOOD, true, nil, nil, DOTA_TEAM_GOODGUYS)
+				unit:FaceTowards(unit:GetAbsOrigin()+Vector(0 + math.random(-30,40), -100, 0))
+				unit.lane = 0
+		elseif (allUnits[k]:GetUnitName() == "greevil_spawner_yellow") and (allUnits[k]:GetTeam() == DOTA_TEAM_GOODGUYS) then
+			local unit = CreateUnitByName("greevil_yellow_rad_att", locationGOOD, true, nil, nil, DOTA_TEAM_GOODGUYS)
+				unit:FaceTowards(unit:GetAbsOrigin()+Vector(0 + math.random(-30,40), -100, 0))
+				unit.lane = 0
+		elseif (allUnits[k]:GetUnitName() == "greevil_spawner_green") and (allUnits[k]:GetTeam() == DOTA_TEAM_GOODGUYS) then
+			local unit = CreateUnitByName("greevil_green_rad_att", locationGOOD, true, nil, nil, DOTA_TEAM_GOODGUYS)
+				unit:FaceTowards(unit:GetAbsOrigin()+Vector(0 + math.random(-30,40), -100, 0))
+				unit.lane = 0
+		elseif (allUnits[k]:GetUnitName() == "greevil_spawner_blue") and (allUnits[k]:GetTeam() == DOTA_TEAM_GOODGUYS) then
+			local unit = CreateUnitByName("greevil_blue_rad_att", locationGOOD, true, nil, nil, DOTA_TEAM_GOODGUYS)
+				unit:FaceTowards(unit:GetAbsOrigin()+Vector(0 + math.random(-30,40), -100, 0))
+				unit.lane = 0
+		elseif (allUnits[k]:GetUnitName() == "greevil_spawner_purple") and (allUnits[k]:GetTeam() == DOTA_TEAM_GOODGUYS) then
+			local unit = CreateUnitByName("greevil_purple_rad_att", locationGOOD, true, nil, nil, DOTA_TEAM_GOODGUYS)
+				unit:FaceTowards(unit:GetAbsOrigin()+Vector(0 + math.random(-30,40), -100, 0))
+				unit.lane = 0
+		elseif (allUnits[k]:GetUnitName() == "greevil_spawner_white") and (allUnits[k]:GetTeam() == DOTA_TEAM_GOODGUYS) then
+			local unit = CreateUnitByName("greevil_white_rad_att", locationGOOD, true, nil, nil, DOTA_TEAM_GOODGUYS)
+				unit:FaceTowards(unit:GetAbsOrigin()+Vector(0 + math.random(-30,40), -100, 0))
+				unit.lane = 0
+		elseif (allUnits[k]:GetUnitName() == "greevil_spawner_black") and (allUnits[k]:GetTeam() == DOTA_TEAM_GOODGUYS) then
+			local unit = CreateUnitByName("greevil_black_rad_att", locationGOOD, true, nil, nil, DOTA_TEAM_GOODGUYS)
+				unit:FaceTowards(unit:GetAbsOrigin()+Vector(0 + math.random(-30,40), -100, 0))
+				unit.lane = 0
+		elseif (allUnits[k]:GetUnitName() == "greevil_spawner_red") and (allUnits[k]:GetTeam() == DOTA_TEAM_BADGUYS) then
+			local unit = CreateUnitByName("greevil_red_dire_att", locationBAD, true, nil, nil, DOTA_TEAM_BADGUYS)
+				unit:FaceTowards(unit:GetAbsOrigin()+Vector(0 + math.random(-30,40), -100, 0))
+				unit.lane = 0
+		elseif (allUnits[k]:GetUnitName() == "greevil_spawner_orange") and (allUnits[k]:GetTeam() == DOTA_TEAM_BADGUYS) then
+			local unit = CreateUnitByName("greevil_orange_dire_att", locationBAD, true, nil, nil, DOTA_TEAM_BADGUYS)
+				unit:FaceTowards(unit:GetAbsOrigin()+Vector(0 + math.random(-30,40), -100, 0))
+				unit.lane = 0
+		elseif (allUnits[k]:GetUnitName() == "greevil_spawner_yellow") and (allUnits[k]:GetTeam() == DOTA_TEAM_BADGUYS) then
+			local unit = CreateUnitByName("greevil_yellow_dire_att", locationBAD, true, nil, nil, DOTA_TEAM_BADGUYS)
+				unit:FaceTowards(unit:GetAbsOrigin()+Vector(0 + math.random(-30,40), -100, 0))
+				unit.lane = 0
+		elseif (allUnits[k]:GetUnitName() == "greevil_spawner_green") and (allUnits[k]:GetTeam() == DOTA_TEAM_BADGUYS) then
+			local unit = CreateUnitByName("greevil_green_dire_att", locationBAD, true, nil, nil, DOTA_TEAM_BADGUYS)
+				unit:FaceTowards(unit:GetAbsOrigin()+Vector(0 + math.random(-30,40), -100, 0))
+				unit.lane = 0
+		elseif (allUnits[k]:GetUnitName() == "greevil_spawner_blue") and (allUnits[k]:GetTeam() == DOTA_TEAM_BADGUYS) then
+			local unit = CreateUnitByName("greevil_blue_dire_att", locationBAD, true, nil, nil, DOTA_TEAM_BADGUYS)
+				unit:FaceTowards(unit:GetAbsOrigin()+Vector(0 + math.random(-30,40), -100, 0))
+				unit.lane = 0
+		elseif (allUnits[k]:GetUnitName() == "greevil_spawner_purple") and (allUnits[k]:GetTeam() == DOTA_TEAM_BADGUYS) then
+			local unit = CreateUnitByName("greevil_purple_dire_att", locationBAD, true, nil, nil, DOTA_TEAM_BADGUYS)
+				unit:FaceTowards(unit:GetAbsOrigin()+Vector(0 + math.random(-30,40), -100, 0))
+				unit.lane = 0
+		elseif (allUnits[k]:GetUnitName() == "greevil_spawner_white") and (allUnits[k]:GetTeam() == DOTA_TEAM_BADGUYS) then
+			local unit = CreateUnitByName("greevil_white_dire_att", locationBAD, true, nil, nil, DOTA_TEAM_BADGUYS)
+				unit:FaceTowards(unit:GetAbsOrigin()+Vector(0 + math.random(-30,40), -100, 0))
+				unit.lane = 0
+		elseif (allUnits[k]:GetUnitName() == "greevil_spawner_black") and (allUnits[k]:GetTeam() == DOTA_TEAM_BADGUYS) then
+			local unit = CreateUnitByName("greevil_black_dire_att", locationBAD, true, nil, nil, DOTA_TEAM_BADGUYS)
+				unit:FaceTowards(unit:GetAbsOrigin()+Vector(0 + math.random(-30,40), -100, 0))
+				unit.lane = 0
+		end
+	end
+
 end
 
 function SpawnInitialGreevils()

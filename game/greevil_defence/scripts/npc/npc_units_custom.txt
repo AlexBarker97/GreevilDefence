@@ -77,7 +77,56 @@
 
 		"VisionDaytimeRange"		"90000"
 		"VisionNighttimeRange"		"90000"
-	}	
+	}
+
+	"rex"
+	{
+		// General
+		"BaseClass"					"npc_dota_creature"
+		"Model"						"models/items/courier/faceless_rex/faceless_rex.vmdl"
+		"ModelScale"				"1"
+		"MinimapIcon"				"minimap_courier"
+		"MinimapIconSize" 			"220"
+		"vscripts"					"ai/lane/ai_rex.lua"
+		
+		"Ability1"					"rex_chronosphere"
+
+		"ArmorPhysical"				"1000"			// Physical protection.
+		"MagicalResistance"			"100"			// Magical protection.
+
+		"AttackCapabilities"		"DOTA_UNIT_CAP_NO_ATTACK"
+		"AttackDamageMin"			"0"
+		"AttackDamageMax"			"0"
+		"AttackRate"				"1.5"
+		"AttackAnimationPoint"		"0.5"
+		"AttackRange"				"120"
+		
+		"BountyXP"                  "0"
+		"BountyGoldMin"             "0"
+		"BountyGoldMax"             "0"
+
+		"RingRadius"				"50"
+		"HealthBarOffset"			"120"
+		"BoundsHullName"			"DOTA_HULL_SIZE_SMALL"	
+
+		// Movement
+		//----------------------------------------------------------------
+		"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_GROUND"			
+		"MovementSpeed"				"1000"								
+		"MovementTurnRate"			"0.5"								
+
+		// Status
+		//----------------------------------------------------------------
+		"StatusHealth"				"2000"			// Base health.
+		"StatusMana"				"0"				// Base mana.
+		"StatusHealthRegen"			"0"				// Health regeneration rate.
+		"StatusManaRegen"			"0"				// Mana regeneration rate.
+		
+		// Vision
+		//----------------------------------------------------------------
+		"VisionDaytimeRange"		"800"			// Range of vision during day light.
+		"VisionNighttimeRange"		"1000"			// Range of vision at night time.
+	}
 
 	////////////////////////////////////////////////////////////////////////////
 	////////////////////////////////////////////////////////////////////////////
@@ -2034,6 +2083,660 @@
 
 	////////////////////////////////////////////////////////////////////////////
 	////////////////////////////////////////////////////////////////////////////
+	//// 						Attack Greevil Spawner 						////
+	////////////////////////////////////////////////////////////////////////////
+	////////////////////////////////////////////////////////////////////////////
+	"greevil_spawner_red"
+	{
+		// General
+		"BaseClass"					"npc_dota_creature"						// Class of entity of link to.
+		"Model"						"models/items/courier/mlg_courier_wraith/mlg_courier_wraith.vmdl"	// Model.
+		"SoundSet"					""								// Name of sound set.
+		"ModelScale"				"1.3"
+		"vscripts"					""
+		"MinimapIcon" 				"minimap_miscbuilding"
+		"MinimapIconSize" 			"200"
+				
+		// Abilities
+		//----------------------------------------------------------------
+		
+		"Ability1"					""
+
+		// Armor
+		//----------------------------------------------------------------
+		"ArmorPhysical"				"15"			// Physical protection.
+		"MagicalResistance"			"25"			// Magical protection.
+
+		// Attack
+		//----------------------------------------------------------------
+		"AttackCapabilities"		"DOTA_UNIT_CAP_NO_ATTACK"
+		"AttackDamageMin"			"0"			// Damage range min.
+		"AttackDamageMax"			"0"			// Damage range max.	
+		"AttackRate"				"0.8"		// Speed of attack.
+		"AttackAnimationPoint"		"0.5"		// Normalized time in animation cycle to attack.
+		"AttackAcquisitionRange"	"600"		// Range within a target can be acquired.
+		"AttackRange"				"128"		// Range within a target can be attacked.
+
+		// Bounty
+		//----------------------------------------------------------------
+		"BountyXP"                  "0"
+		"BountyGoldMin"             "0"
+		"BountyGoldMax"             "0"
+
+		// Bounds
+		//----------------------------------------------------------------
+		"RingRadius"				"70"
+		"HealthBarOffset"			"160"
+		"BoundsHullName"			"DOTA_HULL_SIZE_HERO"
+
+		// Movement
+		//----------------------------------------------------------------
+		"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_GROUND"			// Type of locomotion - ground, air
+		"MovementSpeed"				"0"									// Speed
+		"MovementTurnRate"			"0.5"								// Turning rate.
+
+		// Status
+		//----------------------------------------------------------------
+		"StatusHealth"				"650"		// Base health.
+		"StatusMana"				"0"			// Base mana.
+		"StatusHealthRegen"			"2"			// Health regeneration rate.
+		"StatusManaRegen"			"0"			// Mana regeneration rate.
+		
+		// Team
+		//----------------------------------------------------------------
+		"TeamName"					"DOTA_TEAM_NEUTRALS"			// Team name.
+		"CombatClassAttack"			"DOTA_COMBAT_CLASS_ATTACK_HERO"
+		"CombatClassDefend"			"DOTA_COMBAT_CLASS_DEFEND_HERO"
+		"UnitRelationshipClass"		"DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
+		
+		// Vision
+		//----------------------------------------------------------------
+		"VisionDaytimeRange"		"100"		// Range of vision during day light.
+		"VisionNighttimeRange"		"50"		// Range of vision at night time.	
+		
+		"Creature"
+		{	
+			//Level Up Parameters
+			"HPGain"					"50"
+			"DamageGain"				"0"
+			"ArmorGain"					"3"
+			"MagicResistGain"			"3"
+			"MoveSpeedGain"				"0"
+			"BountyGain"				"0"
+			"XPGain"					"0"
+		}
+	}
+
+	"greevil_spawner_orange"
+	{
+		// General
+		"BaseClass"					"npc_dota_creature"						// Class of entity of link to.
+		"Model"						"models/items/courier/blazing_hatchling_the_fortune_bringer_courier/blazing_hatchling_the_fortune_bringer_courier.vmdl"	// Model.
+		"SoundSet"					""								// Name of sound set.
+		"ModelScale"				"1.2"
+		"vscripts"					""
+		"MinimapIcon" 				"minimap_miscbuilding"
+		"MinimapIconSize" 			"200"
+				
+		// Abilities
+		//----------------------------------------------------------------
+		
+		"Ability1"					""
+
+		// Armor
+		//----------------------------------------------------------------
+		"ArmorPhysical"				"15"			// Physical protection.
+		"MagicalResistance"			"25"			// Magical protection.
+
+		// Attack
+		//----------------------------------------------------------------
+		"AttackCapabilities"		"DOTA_UNIT_CAP_NO_ATTACK"
+		"AttackDamageMin"			"0"			// Damage range min.
+		"AttackDamageMax"			"0"			// Damage range max.	
+		"AttackRate"				"0.8"		// Speed of attack.
+		"AttackAnimationPoint"		"0.5"		// Normalized time in animation cycle to attack.
+		"AttackAcquisitionRange"	"600"		// Range within a target can be acquired.
+		"AttackRange"				"128"		// Range within a target can be attacked.
+
+		// Bounty
+		//----------------------------------------------------------------
+		"BountyXP"                  "0"
+		"BountyGoldMin"             "0"
+		"BountyGoldMax"             "0"
+
+		// Bounds
+		//----------------------------------------------------------------
+		"RingRadius"				"70"
+		"HealthBarOffset"			"160"
+		"BoundsHullName"			"DOTA_HULL_SIZE_HERO"
+
+		// Movement
+		//----------------------------------------------------------------
+		"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_GROUND"			// Type of locomotion - ground, air
+		"MovementSpeed"				"0"									// Speed
+		"MovementTurnRate"			"0.5"								// Turning rate.
+
+		// Status
+		//----------------------------------------------------------------
+		"StatusHealth"				"650"		// Base health.
+		"StatusMana"				"0"			// Base mana.
+		"StatusHealthRegen"			"2"			// Health regeneration rate.
+		"StatusManaRegen"			"0"			// Mana regeneration rate.
+		
+		// Team
+		//----------------------------------------------------------------
+		"TeamName"					"DOTA_TEAM_NEUTRALS"			// Team name.
+		"CombatClassAttack"			"DOTA_COMBAT_CLASS_ATTACK_HERO"
+		"CombatClassDefend"			"DOTA_COMBAT_CLASS_DEFEND_HERO"
+		"UnitRelationshipClass"		"DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
+		
+		// Vision
+		//----------------------------------------------------------------
+		"VisionDaytimeRange"		"100"		// Range of vision during day light.
+		"VisionNighttimeRange"		"50"		// Range of vision at night time.	
+		
+		"Creature"
+		{	
+			//Level Up Parameters
+			"HPGain"					"50"
+			"DamageGain"				"0"
+			"ArmorGain"					"3"
+			"MagicResistGain"			"3"
+			"MoveSpeedGain"				"0"
+			"BountyGain"				"0"
+			"XPGain"					"0"
+		}
+	}
+
+	"greevil_spawner_yellow"
+	{
+		// General
+		"BaseClass"					"npc_dota_creature"						// Class of entity of link to.
+		"Model"						"models/items/courier/leafy_the_sea_dragon_courier_courier/leafy_the_sea_dragon_courier_courier.vmdl"	// Model.
+		"SoundSet"					""								// Name of sound set.
+		"ModelScale"				"1.2"
+		"vscripts"					""
+		"MinimapIcon" 				"minimap_miscbuilding"
+		"MinimapIconSize" 			"200"
+				
+		// Abilities
+		//----------------------------------------------------------------
+		
+		"Ability1"					""
+
+		// Armor
+		//----------------------------------------------------------------
+		"ArmorPhysical"				"15"			// Physical protection.
+		"MagicalResistance"			"25"			// Magical protection.
+
+		// Attack
+		//----------------------------------------------------------------
+		"AttackCapabilities"		"DOTA_UNIT_CAP_NO_ATTACK"
+		"AttackDamageMin"			"0"			// Damage range min.
+		"AttackDamageMax"			"0"			// Damage range max.	
+		"AttackRate"				"0.8"		// Speed of attack.
+		"AttackAnimationPoint"		"0.5"		// Normalized time in animation cycle to attack.
+		"AttackAcquisitionRange"	"600"		// Range within a target can be acquired.
+		"AttackRange"				"128"		// Range within a target can be attacked.
+
+		// Bounty
+		//----------------------------------------------------------------
+		"BountyXP"                  "0"
+		"BountyGoldMin"             "0"
+		"BountyGoldMax"             "0"
+
+		// Bounds
+		//----------------------------------------------------------------
+		"RingRadius"				"70"
+		"HealthBarOffset"			"160"
+		"BoundsHullName"			"DOTA_HULL_SIZE_HERO"
+
+		// Movement
+		//----------------------------------------------------------------
+		"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_GROUND"			// Type of locomotion - ground, air
+		"MovementSpeed"				"0"									// Speed
+		"MovementTurnRate"			"0.5"								// Turning rate.
+
+		// Status
+		//----------------------------------------------------------------
+		"StatusHealth"				"650"		// Base health.
+		"StatusMana"				"0"			// Base mana.
+		"StatusHealthRegen"			"2"			// Health regeneration rate.
+		"StatusManaRegen"			"0"			// Mana regeneration rate.
+		
+		// Team
+		//----------------------------------------------------------------
+		"TeamName"					"DOTA_TEAM_NEUTRALS"			// Team name.
+		"CombatClassAttack"			"DOTA_COMBAT_CLASS_ATTACK_HERO"
+		"CombatClassDefend"			"DOTA_COMBAT_CLASS_DEFEND_HERO"
+		"UnitRelationshipClass"		"DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
+		
+		// Vision
+		//----------------------------------------------------------------
+		"VisionDaytimeRange"		"100"		// Range of vision during day light.
+		"VisionNighttimeRange"		"50"		// Range of vision at night time.	
+		
+		"Creature"
+		{	
+			//Level Up Parameters
+			"HPGain"					"50"
+			"DamageGain"				"0"
+			"ArmorGain"					"3"
+			"MagicResistGain"			"3"
+			"MoveSpeedGain"				"0"
+			"BountyGain"				"0"
+			"XPGain"					"0"
+		}
+	}
+
+	"greevil_spawner_green"
+	{
+		// General
+		"BaseClass"					"npc_dota_creature"						// Class of entity of link to.
+		"Model"						"models/items/courier/little_sappling_style1/little_sappling_style1.vmdl"	// Model.
+		"SoundSet"					""								// Name of sound set.
+		"ModelScale"				"1.2"
+		"vscripts"					""
+		"MinimapIcon" 				"minimap_miscbuilding"
+		"MinimapIconSize" 			"200"
+				
+		// Abilities
+		//----------------------------------------------------------------
+		
+		"Ability1"					""
+
+		// Armor
+		//----------------------------------------------------------------
+		"ArmorPhysical"				"15"			// Physical protection.
+		"MagicalResistance"			"25"			// Magical protection.
+
+		// Attack
+		//----------------------------------------------------------------
+		"AttackCapabilities"		"DOTA_UNIT_CAP_NO_ATTACK"
+		"AttackDamageMin"			"0"			// Damage range min.
+		"AttackDamageMax"			"0"			// Damage range max.	
+		"AttackRate"				"0.8"		// Speed of attack.
+		"AttackAnimationPoint"		"0.5"		// Normalized time in animation cycle to attack.
+		"AttackAcquisitionRange"	"600"		// Range within a target can be acquired.
+		"AttackRange"				"128"		// Range within a target can be attacked.
+
+		// Bounty
+		//----------------------------------------------------------------
+		"BountyXP"                  "0"
+		"BountyGoldMin"             "0"
+		"BountyGoldMax"             "0"
+
+		// Bounds
+		//----------------------------------------------------------------
+		"RingRadius"				"70"
+		"HealthBarOffset"			"160"
+		"BoundsHullName"			"DOTA_HULL_SIZE_HERO"
+
+		// Movement
+		//----------------------------------------------------------------
+		"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_GROUND"			// Type of locomotion - ground, air
+		"MovementSpeed"				"0"									// Speed
+		"MovementTurnRate"			"0.5"								// Turning rate.
+
+		// Status
+		//----------------------------------------------------------------
+		"StatusHealth"				"650"		// Base health.
+		"StatusMana"				"0"			// Base mana.
+		"StatusHealthRegen"			"2"			// Health regeneration rate.
+		"StatusManaRegen"			"0"			// Mana regeneration rate.
+		
+		// Team
+		//----------------------------------------------------------------
+		"TeamName"					"DOTA_TEAM_NEUTRALS"			// Team name.
+		"CombatClassAttack"			"DOTA_COMBAT_CLASS_ATTACK_HERO"
+		"CombatClassDefend"			"DOTA_COMBAT_CLASS_DEFEND_HERO"
+		"UnitRelationshipClass"		"DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
+		
+		// Vision
+		//----------------------------------------------------------------
+		"VisionDaytimeRange"		"100"		// Range of vision during day light.
+		"VisionNighttimeRange"		"50"		// Range of vision at night time.	
+		
+		"Creature"
+		{	
+			//Level Up Parameters
+			"HPGain"					"50"
+			"DamageGain"				"0"
+			"ArmorGain"					"3"
+			"MagicResistGain"			"3"
+			"MoveSpeedGain"				"0"
+			"BountyGain"				"0"
+			"XPGain"					"0"
+		}
+	}
+
+	"greevil_spawner_blue"
+	{
+		// General
+		"BaseClass"					"npc_dota_creature"						// Class of entity of link to.
+		"Model"						"models/items/courier/supernova_rave_courier/supernova_rave_courier.vmdl"	// Model.
+		"SoundSet"					""								// Name of sound set.
+		"ModelScale"				"1.2"
+		"vscripts"					""
+		"MinimapIcon" 				"minimap_miscbuilding"
+		"MinimapIconSize" 			"200"
+				
+		// Abilities
+		//----------------------------------------------------------------
+		
+		"Ability1"					""
+
+		// Armor
+		//----------------------------------------------------------------
+		"ArmorPhysical"				"15"			// Physical protection.
+		"MagicalResistance"			"25"			// Magical protection.
+
+		// Attack
+		//----------------------------------------------------------------
+		"AttackCapabilities"		"DOTA_UNIT_CAP_NO_ATTACK"
+		"AttackDamageMin"			"0"			// Damage range min.
+		"AttackDamageMax"			"0"			// Damage range max.	
+		"AttackRate"				"0.8"		// Speed of attack.
+		"AttackAnimationPoint"		"0.5"		// Normalized time in animation cycle to attack.
+		"AttackAcquisitionRange"	"600"		// Range within a target can be acquired.
+		"AttackRange"				"128"		// Range within a target can be attacked.
+
+		// Bounty
+		//----------------------------------------------------------------
+		"BountyXP"                  "0"
+		"BountyGoldMin"             "0"
+		"BountyGoldMax"             "0"
+
+		// Bounds
+		//----------------------------------------------------------------
+		"RingRadius"				"70"
+		"HealthBarOffset"			"160"
+		"BoundsHullName"			"DOTA_HULL_SIZE_HERO"
+
+		// Movement
+		//----------------------------------------------------------------
+		"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_GROUND"			// Type of locomotion - ground, air
+		"MovementSpeed"				"0"									// Speed
+		"MovementTurnRate"			"0.5"								// Turning rate.
+
+		// Status
+		//----------------------------------------------------------------
+		"StatusHealth"				"650"		// Base health.
+		"StatusMana"				"0"			// Base mana.
+		"StatusHealthRegen"			"2"			// Health regeneration rate.
+		"StatusManaRegen"			"0"			// Mana regeneration rate.
+		
+		// Team
+		//----------------------------------------------------------------
+		"TeamName"					"DOTA_TEAM_NEUTRALS"			// Team name.
+		"CombatClassAttack"			"DOTA_COMBAT_CLASS_ATTACK_HERO"
+		"CombatClassDefend"			"DOTA_COMBAT_CLASS_DEFEND_HERO"
+		"UnitRelationshipClass"		"DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
+		
+		// Vision
+		//----------------------------------------------------------------
+		"VisionDaytimeRange"		"100"		// Range of vision during day light.
+		"VisionNighttimeRange"		"50"		// Range of vision at night time.		
+		
+		"Creature"
+		{	
+			//Level Up Parameters
+			"HPGain"					"50"
+			"DamageGain"				"0"
+			"ArmorGain"					"3"
+			"MagicResistGain"			"3"
+			"MoveSpeedGain"				"0"
+			"BountyGain"				"0"
+			"XPGain"					"0"
+		}
+	}
+
+	"greevil_spawner_purple"
+	{
+		// General
+		"BaseClass"					"npc_dota_creature"						// Class of entity of link to.
+		"Model"						"models/courier/trapjaw/trapjaw.vmdl"	// Model.
+		"SoundSet"					""								// Name of sound set.
+		"ModelScale"				"1.2"
+		"vscripts"					""
+		"MinimapIcon" 				"minimap_miscbuilding"
+		"MinimapIconSize" 			"200"
+				
+		// Abilities
+		//----------------------------------------------------------------
+		
+		"Ability1"					""
+
+		// Armor
+		//----------------------------------------------------------------
+		"ArmorPhysical"				"15"			// Physical protection.
+		"MagicalResistance"			"25"			// Magical protection.
+
+		// Attack
+		//----------------------------------------------------------------
+		"AttackCapabilities"		"DOTA_UNIT_CAP_NO_ATTACK"
+		"AttackDamageMin"			"0"			// Damage range min.
+		"AttackDamageMax"			"0"			// Damage range max.	
+		"AttackRate"				"0.8"		// Speed of attack.
+		"AttackAnimationPoint"		"0.5"		// Normalized time in animation cycle to attack.
+		"AttackAcquisitionRange"	"600"		// Range within a target can be acquired.
+		"AttackRange"				"128"		// Range within a target can be attacked.
+
+		// Bounty
+		//----------------------------------------------------------------
+		"BountyXP"                  "0"
+		"BountyGoldMin"             "0"
+		"BountyGoldMax"             "0"
+
+		// Bounds
+		//----------------------------------------------------------------
+		"RingRadius"				"70"
+		"HealthBarOffset"			"160"
+		"BoundsHullName"			"DOTA_HULL_SIZE_HERO"
+
+		// Movement
+		//----------------------------------------------------------------
+		"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_GROUND"			// Type of locomotion - ground, air
+		"MovementSpeed"				"0"									// Speed
+		"MovementTurnRate"			"0.5"								// Turning rate.
+
+		// Status
+		//----------------------------------------------------------------
+		"StatusHealth"				"650"		// Base health.
+		"StatusMana"				"0"			// Base mana.
+		"StatusHealthRegen"			"2"			// Health regeneration rate.
+		"StatusManaRegen"			"0"			// Mana regeneration rate.
+		
+		// Team
+		//----------------------------------------------------------------
+		"TeamName"					"DOTA_TEAM_NEUTRALS"			// Team name.
+		"CombatClassAttack"			"DOTA_COMBAT_CLASS_ATTACK_HERO"
+		"CombatClassDefend"			"DOTA_COMBAT_CLASS_DEFEND_HERO"
+		"UnitRelationshipClass"		"DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
+		
+		// Vision
+		//----------------------------------------------------------------
+		"VisionDaytimeRange"		"100"		// Range of vision during day light.
+		"VisionNighttimeRange"		"50"		// Range of vision at night time.	
+		
+		"Creature"
+		{	
+			//Level Up Parameters
+			"HPGain"					"50"
+			"DamageGain"				"0"
+			"ArmorGain"					"3"
+			"MagicResistGain"			"3"
+			"MoveSpeedGain"				"0"
+			"BountyGain"				"0"
+			"XPGain"					"0"
+		}
+	}
+
+	"greevil_spawner_white"
+	{
+		// General
+		"BaseClass"					"npc_dota_creature"						// Class of entity of link to.
+		"Model"						"models/items/courier/white_the_crystal_courier/white_the_crystal_courier_flying.vmdl"	// Model.
+		"SoundSet"					""								// Name of sound set.
+		"ModelScale"				"1.3"
+		"vscripts"					""
+		"MinimapIcon" 				"minimap_miscbuilding"
+		"MinimapIconSize" 			"200"
+				
+		// Abilities
+		//----------------------------------------------------------------
+		
+		"Ability1"					""
+
+		// Armor
+		//----------------------------------------------------------------
+		"ArmorPhysical"				"15"			// Physical protection.
+		"MagicalResistance"			"25"			// Magical protection.
+
+		// Attack
+		//----------------------------------------------------------------
+		"AttackCapabilities"		"DOTA_UNIT_CAP_NO_ATTACK"
+		"AttackDamageMin"			"0"			// Damage range min.
+		"AttackDamageMax"			"0"			// Damage range max.	
+		"AttackRate"				"0.8"		// Speed of attack.
+		"AttackAnimationPoint"		"0.5"		// Normalized time in animation cycle to attack.
+		"AttackAcquisitionRange"	"600"		// Range within a target can be acquired.
+		"AttackRange"				"128"		// Range within a target can be attacked.
+
+		// Bounty
+		//----------------------------------------------------------------
+		"BountyXP"                  "0"
+		"BountyGoldMin"             "0"
+		"BountyGoldMax"             "0"
+
+		// Bounds
+		//----------------------------------------------------------------
+		"RingRadius"				"70"
+		"HealthBarOffset"			"160"
+		"BoundsHullName"			"DOTA_HULL_SIZE_HERO"
+
+		// Movement
+		//----------------------------------------------------------------
+		"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_GROUND"			// Type of locomotion - ground, air
+		"MovementSpeed"				"0"									// Speed
+		"MovementTurnRate"			"0.5"								// Turning rate.
+
+		// Status
+		//----------------------------------------------------------------
+		"StatusHealth"				"650"		// Base health.
+		"StatusMana"				"0"			// Base mana.
+		"StatusHealthRegen"			"2"			// Health regeneration rate.
+		"StatusManaRegen"			"0"			// Mana regeneration rate.
+		
+		// Team
+		//----------------------------------------------------------------
+		"TeamName"					"DOTA_TEAM_NEUTRALS"			// Team name.
+		"CombatClassAttack"			"DOTA_COMBAT_CLASS_ATTACK_HERO"
+		"CombatClassDefend"			"DOTA_COMBAT_CLASS_DEFEND_HERO"
+		"UnitRelationshipClass"		"DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
+		
+		// Vision
+		//----------------------------------------------------------------
+		"VisionDaytimeRange"		"100"		// Range of vision during day light.
+		"VisionNighttimeRange"		"50"		// Range of vision at night time.		
+		
+		"Creature"
+		{	
+			//Level Up Parameters
+			"HPGain"					"50"
+			"DamageGain"				"0"
+			"ArmorGain"					"3"
+			"MagicResistGain"			"3"
+			"MoveSpeedGain"				"0"
+			"BountyGain"				"0"
+			"XPGain"					"0"
+		}
+	}
+
+	"greevil_spawner_black"
+	{
+		// General
+		"BaseClass"					"npc_dota_creature"						// Class of entity of link to.
+		"Model"						"models/courier/baby_rosh/babyroshan_ti10_dire.vmdl"	// Model.
+		"SoundSet"					""								// Name of sound set.
+		"ModelScale"				"1.2"
+		"vscripts"					""
+		"MinimapIcon" 				"minimap_miscbuilding"
+		"MinimapIconSize" 			"200"
+				
+		// Abilities
+		//----------------------------------------------------------------
+		
+		"Ability1"					""
+
+		// Armor
+		//----------------------------------------------------------------
+		"ArmorPhysical"				"15"			// Physical protection.
+		"MagicalResistance"			"25"			// Magical protection.
+
+		// Attack
+		//----------------------------------------------------------------
+		"AttackCapabilities"		"DOTA_UNIT_CAP_NO_ATTACK"
+		"AttackDamageMin"			"0"			// Damage range min.
+		"AttackDamageMax"			"0"			// Damage range max.	
+		"AttackRate"				"0.8"		// Speed of attack.
+		"AttackAnimationPoint"		"0.5"		// Normalized time in animation cycle to attack.
+		"AttackAcquisitionRange"	"600"		// Range within a target can be acquired.
+		"AttackRange"				"128"		// Range within a target can be attacked.
+
+		// Bounty
+		//----------------------------------------------------------------
+		"BountyXP"                  "0"
+		"BountyGoldMin"             "0"
+		"BountyGoldMax"             "0"
+
+		// Bounds
+		//----------------------------------------------------------------
+		"RingRadius"				"70"
+		"HealthBarOffset"			"160"
+		"BoundsHullName"			"DOTA_HULL_SIZE_HERO"
+
+		// Movement
+		//----------------------------------------------------------------
+		"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_GROUND"			// Type of locomotion - ground, air
+		"MovementSpeed"				"0"									// Speed
+		"MovementTurnRate"			"0.5"								// Turning rate.
+
+		// Status
+		//----------------------------------------------------------------
+		"StatusHealth"				"650"		// Base health.
+		"StatusMana"				"0"			// Base mana.
+		"StatusHealthRegen"			"2"			// Health regeneration rate.
+		"StatusManaRegen"			"0"			// Mana regeneration rate.
+		
+		// Team
+		//----------------------------------------------------------------
+		"TeamName"					"DOTA_TEAM_NEUTRALS"			// Team name.
+		"CombatClassAttack"			"DOTA_COMBAT_CLASS_ATTACK_HERO"
+		"CombatClassDefend"			"DOTA_COMBAT_CLASS_DEFEND_HERO"
+		"UnitRelationshipClass"		"DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
+		
+		// Vision
+		//----------------------------------------------------------------
+		"VisionDaytimeRange"		"100"		// Range of vision during day light.
+		"VisionNighttimeRange"		"50"		// Range of vision at night time.		
+		
+		"Creature"
+		{	
+			//Level Up Parameters
+			"HPGain"					"50"
+			"DamageGain"				"0"
+			"ArmorGain"					"3"
+			"MagicResistGain"			"3"
+			"MoveSpeedGain"				"0"
+			"BountyGain"				"0"
+			"XPGain"					"0"
+		}
+	}
+
+
+	////////////////////////////////////////////////////////////////////////////
+	////////////////////////////////////////////////////////////////////////////
 	//// 							Attack Greevils 						////
 	////////////////////////////////////////////////////////////////////////////
 	////////////////////////////////////////////////////////////////////////////
@@ -3254,8 +3957,8 @@
 
 		// Armor
 		//----------------------------------------------------------------
-		"ArmorPhysical"				"10"			// Physical protection.
-		"MagicalResistance"			"25"			// Magical protection.
+		"ArmorPhysical"				"15"			// Physical protection.
+		"MagicalResistance"			"35"			// Magical protection.
 
 		// Attack
 		//----------------------------------------------------------------
@@ -3307,7 +4010,20 @@
 		// Vision
 		//----------------------------------------------------------------
 		"VisionDaytimeRange"		"1800"		// Range of vision during day light.
-		"VisionNighttimeRange"		"800"		// Range of vision at night time.
+		"VisionNighttimeRange"		"800"		// Range of vision at night time.	
+		
+		"Creature"
+		{	
+			//Level Up Parameters
+			"HPGain"					"100"
+			"HPRegenGain"				"3"
+			"DamageGain"				"0"
+			"ArmorGain"					"3"
+			"MagicResistGain"			"3"
+			"MoveSpeedGain"				"0"
+			"BountyGain"				"0"
+			"XPGain"					"0"
+		}
 	}
 	
 	"greevil_orange_rad_def"
@@ -3327,8 +4043,8 @@
 
 		// Armor
 		//----------------------------------------------------------------
-		"ArmorPhysical"				"10"		// Physical protection.
-		"MagicalResistance"			"25"		// Magical protection.
+		"ArmorPhysical"				"15"		// Physical protection.
+		"MagicalResistance"			"35"		// Magical protection.
 
 		// Attack
 		//----------------------------------------------------------------
@@ -3380,7 +4096,20 @@
 		// Vision
 		//----------------------------------------------------------------
 		"VisionDaytimeRange"		"1800"		// Range of vision during day light.
-		"VisionNighttimeRange"		"800"		// Range of vision at night time.
+		"VisionNighttimeRange"		"800"		// Range of vision at night time.	
+		
+		"Creature"
+		{	
+			//Level Up Parameters
+			"HPGain"					"100"
+			"HPRegenGain"				"3"
+			"DamageGain"				"0"
+			"ArmorGain"					"3"
+			"MagicResistGain"			"3"
+			"MoveSpeedGain"				"0"
+			"BountyGain"				"0"
+			"XPGain"					"0"
+		}
 	}
 	
 	"greevil_yellow_rad_def"
@@ -3400,8 +4129,8 @@
 
 		// Armor
 		//----------------------------------------------------------------
-		"ArmorPhysical"				"10"			// Physical protection.
-		"MagicalResistance"			"25"		// Magical protection.
+		"ArmorPhysical"				"15"			// Physical protection.
+		"MagicalResistance"			"35"		// Magical protection.
 
 		// Attack
 		//----------------------------------------------------------------
@@ -3453,7 +4182,20 @@
 		// Vision
 		//----------------------------------------------------------------
 		"VisionDaytimeRange"		"1800"		// Range of vision during day light.
-		"VisionNighttimeRange"		"800"		// Range of vision at night time.
+		"VisionNighttimeRange"		"800"		// Range of vision at night time.	
+		
+		"Creature"
+		{	
+			//Level Up Parameters
+			"HPGain"					"100"
+			"HPRegenGain"				"3"
+			"DamageGain"				"0"
+			"ArmorGain"					"3"
+			"MagicResistGain"			"3"
+			"MoveSpeedGain"				"0"
+			"BountyGain"				"0"
+			"XPGain"					"0"
+		}
 	}
 	
 	"greevil_green_rad_def"
@@ -3473,8 +4215,8 @@
 
 		// Armor
 		//----------------------------------------------------------------
-		"ArmorPhysical"				"10"		// Physical protection.
-		"MagicalResistance"			"25"		// Magical protection.
+		"ArmorPhysical"				"15"		// Physical protection.
+		"MagicalResistance"			"35"		// Magical protection.
 
 		// Attack
 		//----------------------------------------------------------------
@@ -3524,7 +4266,20 @@
 		// Vision
 		//----------------------------------------------------------------
 		"VisionDaytimeRange"		"1800"		// Range of vision during day light.
-		"VisionNighttimeRange"		"1200"		// Range of vision at night time.
+		"VisionNighttimeRange"		"1200"		// Range of vision at night time.	
+		
+		"Creature"
+		{	
+			//Level Up Parameters
+			"HPGain"					"100"
+			"HPRegenGain"				"3"
+			"DamageGain"				"0"
+			"ArmorGain"					"3"
+			"MagicResistGain"			"3"
+			"MoveSpeedGain"				"0"
+			"BountyGain"				"0"
+			"XPGain"					"0"
+		}
 	}
 	
 	"greevil_blue_rad_def"
@@ -3544,8 +4299,8 @@
 
 		// Armor
 		//----------------------------------------------------------------
-		"ArmorPhysical"				"10"		// Physical protection.
-		"MagicalResistance"			"25"		// Magical protection.
+		"ArmorPhysical"				"15"		// Physical protection.
+		"MagicalResistance"			"35"		// Magical protection.
 
 		// Attack
 		//----------------------------------------------------------------
@@ -3595,7 +4350,20 @@
 		// Vision
 		//----------------------------------------------------------------
 		"VisionDaytimeRange"		"1800"		// Range of vision during day light.
-		"VisionNighttimeRange"		"1200"		// Range of vision at night time.
+		"VisionNighttimeRange"		"1200"		// Range of vision at night time.	
+		
+		"Creature"
+		{	
+			//Level Up Parameters
+			"HPGain"					"100"
+			"HPRegenGain"				"3"
+			"DamageGain"				"0"
+			"ArmorGain"					"3"
+			"MagicResistGain"			"3"
+			"MoveSpeedGain"				"0"
+			"BountyGain"				"0"
+			"XPGain"					"0"
+		}
 	}
 	
 	"greevil_purple_rad_def"
@@ -3615,8 +4383,8 @@
 
 		// Armor
 		//----------------------------------------------------------------
-		"ArmorPhysical"				"10"		// Physical protection.
-		"MagicalResistance"			"25"		// Magical protection.
+		"ArmorPhysical"				"15"		// Physical protection.
+		"MagicalResistance"			"35"		// Magical protection.
 
 		// Attack
 		//----------------------------------------------------------------
@@ -3663,7 +4431,20 @@
 		// Vision
 		//----------------------------------------------------------------
 		"VisionDaytimeRange"		"1800"		// Range of vision during day light.
-		"VisionNighttimeRange"		"1200"		// Range of vision at night time.
+		"VisionNighttimeRange"		"1200"		// Range of vision at night time.	
+		
+		"Creature"
+		{	
+			//Level Up Parameters
+			"HPGain"					"100"
+			"HPRegenGain"				"3"
+			"DamageGain"				"0"
+			"ArmorGain"					"3"
+			"MagicResistGain"			"3"
+			"MoveSpeedGain"				"0"
+			"BountyGain"				"0"
+			"XPGain"					"0"
+		}
 	}
 	
 	"greevil_white_rad_def"
@@ -3684,8 +4465,8 @@
 
 		// Armor
 		//----------------------------------------------------------------
-		"ArmorPhysical"				"10"			// Physical protection.
-		"MagicalResistance"			"25"		// Magical protection.
+		"ArmorPhysical"				"15"			// Physical protection.
+		"MagicalResistance"			"35"		// Magical protection.
 
 		// Attack
 		//----------------------------------------------------------------
@@ -3734,7 +4515,20 @@
 		// Vision
 		//----------------------------------------------------------------
 		"VisionDaytimeRange"		"1800"		// Range of vision during day light.
-		"VisionNighttimeRange"		"800"		// Range of vision at night time.
+		"VisionNighttimeRange"		"800"		// Range of vision at night time.	
+		
+		"Creature"
+		{	
+			//Level Up Parameters
+			"HPGain"					"100"
+			"HPRegenGain"				"3"
+			"DamageGain"				"0"
+			"ArmorGain"					"3"
+			"MagicResistGain"			"3"
+			"MoveSpeedGain"				"0"
+			"BountyGain"				"0"
+			"XPGain"					"0"
+		}
 	}
 	
 	"greevil_black_rad_def"
@@ -3754,8 +4548,8 @@
 
 		// Armor
 		//----------------------------------------------------------------
-		"ArmorPhysical"				"10"			// Physical protection.
-		"MagicalResistance"			"25"		// Magical protection.
+		"ArmorPhysical"				"15"			// Physical protection.
+		"MagicalResistance"			"35"		// Magical protection.
 
 		// Attack
 		//----------------------------------------------------------------
@@ -3805,7 +4599,20 @@
 		// Vision
 		//----------------------------------------------------------------
 		"VisionDaytimeRange"		"1800"		// Range of vision during day light.
-		"VisionNighttimeRange"		"1200"		// Range of vision at night time.
+		"VisionNighttimeRange"		"1200"		// Range of vision at night time.	
+		
+		"Creature"
+		{	
+			//Level Up Parameters
+			"HPGain"					"100"
+			"HPRegenGain"				"3"
+			"DamageGain"				"0"
+			"ArmorGain"					"3"
+			"MagicResistGain"			"3"
+			"MoveSpeedGain"				"0"
+			"BountyGain"				"0"
+			"XPGain"					"0"
+		}
 	}
 
 	"greevil_red_dire_def"
@@ -3825,8 +4632,8 @@
 
 		// Armor
 		//----------------------------------------------------------------
-		"ArmorPhysical"				"10"			// Physical protection.
-		"MagicalResistance"			"25"			// Magical protection.
+		"ArmorPhysical"				"15"			// Physical protection.
+		"MagicalResistance"			"35"			// Magical protection.
 
 		// Attack
 		//----------------------------------------------------------------
@@ -3878,7 +4685,20 @@
 		// Vision
 		//----------------------------------------------------------------
 		"VisionDaytimeRange"		"1800"		// Range of vision during day light.
-		"VisionNighttimeRange"		"800"		// Range of vision at night time.
+		"VisionNighttimeRange"		"800"		// Range of vision at night time.	
+		
+		"Creature"
+		{	
+			//Level Up Parameters
+			"HPGain"					"100"
+			"HPRegenGain"				"3"
+			"DamageGain"				"0"
+			"ArmorGain"					"3"
+			"MagicResistGain"			"3"
+			"MoveSpeedGain"				"0"
+			"BountyGain"				"0"
+			"XPGain"					"0"
+		}
 	}
 	
 	"greevil_orange_dire_def"
@@ -3898,8 +4718,8 @@
 
 		// Armor
 		//----------------------------------------------------------------
-		"ArmorPhysical"				"10"		// Physical protection.
-		"MagicalResistance"			"25"		// Magical protection.
+		"ArmorPhysical"				"15"		// Physical protection.
+		"MagicalResistance"			"35"		// Magical protection.
 
 		// Attack
 		//----------------------------------------------------------------
@@ -3951,7 +4771,20 @@
 		// Vision
 		//----------------------------------------------------------------
 		"VisionDaytimeRange"		"1800"		// Range of vision during day light.
-		"VisionNighttimeRange"		"800"		// Range of vision at night time.
+		"VisionNighttimeRange"		"800"		// Range of vision at night time.	
+		
+		"Creature"
+		{	
+			//Level Up Parameters
+			"HPGain"					"100"
+			"HPRegenGain"				"3"
+			"DamageGain"				"0"
+			"ArmorGain"					"3"
+			"MagicResistGain"			"3"
+			"MoveSpeedGain"				"0"
+			"BountyGain"				"0"
+			"XPGain"					"0"
+		}
 	}
 	
 	"greevil_yellow_dire_def"
@@ -3971,8 +4804,8 @@
 
 		// Armor
 		//----------------------------------------------------------------
-		"ArmorPhysical"				"10"			// Physical protection.
-		"MagicalResistance"			"25"		// Magical protection.
+		"ArmorPhysical"				"15"			// Physical protection.
+		"MagicalResistance"			"35"		// Magical protection.
 
 		// Attack
 		//----------------------------------------------------------------
@@ -4024,7 +4857,20 @@
 		// Vision
 		//----------------------------------------------------------------
 		"VisionDaytimeRange"		"1800"		// Range of vision during day light.
-		"VisionNighttimeRange"		"800"		// Range of vision at night time.
+		"VisionNighttimeRange"		"800"		// Range of vision at night time.	
+		
+		"Creature"
+		{	
+			//Level Up Parameters
+			"HPGain"					"100"
+			"HPRegenGain"				"3"
+			"DamageGain"				"0"
+			"ArmorGain"					"3"
+			"MagicResistGain"			"3"
+			"MoveSpeedGain"				"0"
+			"BountyGain"				"0"
+			"XPGain"					"0"
+		}
 	}
 	
 	"greevil_green_dire_def"
@@ -4044,8 +4890,8 @@
 
 		// Armor
 		//----------------------------------------------------------------
-		"ArmorPhysical"				"10"		// Physical protection.
-		"MagicalResistance"			"25"		// Magical protection.
+		"ArmorPhysical"				"15"		// Physical protection.
+		"MagicalResistance"			"35"		// Magical protection.
 
 		// Attack
 		//----------------------------------------------------------------
@@ -4095,7 +4941,20 @@
 		// Vision
 		//----------------------------------------------------------------
 		"VisionDaytimeRange"		"1800"		// Range of vision during day light.
-		"VisionNighttimeRange"		"1200"		// Range of vision at night time.
+		"VisionNighttimeRange"		"1200"		// Range of vision at night time.	
+		
+		"Creature"
+		{	
+			//Level Up Parameters
+			"HPGain"					"100"
+			"HPRegenGain"				"3"
+			"DamageGain"				"0"
+			"ArmorGain"					"3"
+			"MagicResistGain"			"3"
+			"MoveSpeedGain"				"0"
+			"BountyGain"				"0"
+			"XPGain"					"0"
+		}
 	}
 	
 	"greevil_blue_dire_def"
@@ -4115,8 +4974,8 @@
 		
 		// Armor
 		//----------------------------------------------------------------
-		"ArmorPhysical"				"10"		// Physical protection.
-		"MagicalResistance"			"25"		// Magical protection.
+		"ArmorPhysical"				"15"		// Physical protection.
+		"MagicalResistance"			"35"		// Magical protection.
 
 		// Attack
 		//----------------------------------------------------------------
@@ -4166,7 +5025,20 @@
 		// Vision
 		//----------------------------------------------------------------
 		"VisionDaytimeRange"		"1800"		// Range of vision during day light.
-		"VisionNighttimeRange"		"1200"		// Range of vision at night time.
+		"VisionNighttimeRange"		"1200"		// Range of vision at night time.	
+		
+		"Creature"
+		{	
+			//Level Up Parameters
+			"HPGain"					"100"
+			"HPRegenGain"				"3"
+			"DamageGain"				"0"
+			"ArmorGain"					"3"
+			"MagicResistGain"			"3"
+			"MoveSpeedGain"				"0"
+			"BountyGain"				"0"
+			"XPGain"					"0"
+		}
 	}
 	
 	"greevil_purple_dire_def"
@@ -4186,8 +5058,8 @@
 
 		// Armor
 		//----------------------------------------------------------------
-		"ArmorPhysical"				"10"		// Physical protection.
-		"MagicalResistance"			"25"		// Magical protection.
+		"ArmorPhysical"				"15"		// Physical protection.
+		"MagicalResistance"			"35"		// Magical protection.
 
 		// Attack
 		//----------------------------------------------------------------
@@ -4243,7 +5115,20 @@
 		// Vision
 		//----------------------------------------------------------------
 		"VisionDaytimeRange"		"1800"		// Range of vision during day light.
-		"VisionNighttimeRange"		"1200"		// Range of vision at night time.
+		"VisionNighttimeRange"		"1200"		// Range of vision at night time.	
+		
+		"Creature"
+		{	
+			//Level Up Parameters
+			"HPGain"					"100"
+			"HPRegenGain"				"3"
+			"DamageGain"				"0"
+			"ArmorGain"					"3"
+			"MagicResistGain"			"3"
+			"MoveSpeedGain"				"0"
+			"BountyGain"				"0"
+			"XPGain"					"0"
+		}
 	}
 	
 	"greevil_white_dire_def"
@@ -4264,8 +5149,8 @@
 
 		// Armor
 		//----------------------------------------------------------------
-		"ArmorPhysical"				"10"			// Physical protection.
-		"MagicalResistance"			"25"			// Magical protection.
+		"ArmorPhysical"				"15"			// Physical protection.
+		"MagicalResistance"			"35"			// Magical protection.
 
 		// Attack
 		//----------------------------------------------------------------
@@ -4314,7 +5199,20 @@
 		// Vision
 		//----------------------------------------------------------------
 		"VisionDaytimeRange"		"1800"		// Range of vision during day light.
-		"VisionNighttimeRange"		"800"		// Range of vision at night time.
+		"VisionNighttimeRange"		"800"		// Range of vision at night time.	
+		
+		"Creature"
+		{	
+			//Level Up Parameters
+			"HPGain"					"100"
+			"HPRegenGain"				"3"
+			"DamageGain"				"0"
+			"ArmorGain"					"3"
+			"MagicResistGain"			"3"
+			"MoveSpeedGain"				"0"
+			"BountyGain"				"0"
+			"XPGain"					"0"
+		}
 	}
 	
 	"greevil_black_dire_def"
@@ -4334,8 +5232,8 @@
 
 		// Armor
 		//----------------------------------------------------------------
-		"ArmorPhysical"				"10"			// Physical protection.
-		"MagicalResistance"			"25"		// Magical protection.
+		"ArmorPhysical"				"15"			// Physical protection.
+		"MagicalResistance"			"35"		// Magical protection.
 
 		// Attack
 		//----------------------------------------------------------------
@@ -4385,7 +5283,20 @@
 		// Vision
 		//----------------------------------------------------------------
 		"VisionDaytimeRange"		"1800"		// Range of vision during day light.
-		"VisionNighttimeRange"		"1200"		// Range of vision at night time.
+		"VisionNighttimeRange"		"1200"		// Range of vision at night time.	
+		
+		"Creature"
+		{	
+			//Level Up Parameters
+			"HPGain"					"100"
+			"HPRegenGain"				"3"
+			"DamageGain"				"0"
+			"ArmorGain"					"3"
+			"MagicResistGain"			"3"
+			"MoveSpeedGain"				"0"
+			"BountyGain"				"0"
+			"XPGain"					"0"
+		}
 	}
 
 	////////////////////////////////
@@ -4405,7 +5316,7 @@
 		// Abilities
 		//----------------------------------------------------------------
 		
-		"Ability1"					"greevil_mines_custom"
+		"Ability1"					"greevil_sticky_bomb"
 		"Ability2"					"greevil_tag_team_custom"
 		"Ability3"					"greevil_berserkers_blood_custom"
 		"Ability4"					"greeil_feast_custom"

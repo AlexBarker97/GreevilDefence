@@ -456,7 +456,6 @@
 
 		"AbilityCastRange"              "500"
 		"AbilityCastPoint"              "0.0"
-		"AbilityCooldown"               "5.0"
 		"AbilityManaCost"               "0"
 		"Model"							"models/props_gameplay/red_box.vmdl"
 		"PingOverrideText"				""
@@ -466,7 +465,7 @@
 		"ItemSellable"					"0"
 		"ItemShareability"				"ITEM_FULLY_SHAREABLE"
 		"ItemPurchasable"				"1"
-		"ItemCost"						"99999"
+		"ItemCost"						"500"
 	}
 	
 	"item_decoy"
@@ -1446,7 +1445,7 @@
 
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"75"
+		"ItemCost"						"150"
 		"ItemStackable"					"0"
 		"ItemShareability"				"ITEM_NOT_SHAREABLE"
 		"ItemPermanent"					"1"
@@ -1460,8 +1459,8 @@
 		"ItemDeclarations"        		"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
 		"MaxUpgradeLevel"       		"1"
 		"ItemBaseLevel"         		"1"
-		"ItemStockMax"					"20"
-		"ItemStockTime"					"1"
+		"ItemStockMax"					"1"
+		"ItemStockTime"					"5"
 	}
 	
 	"item_black_egg_att"
@@ -1482,7 +1481,7 @@
 
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"75"
+		"ItemCost"						"150"
 		"ItemStackable"					"0"
 		"ItemShareability"				"ITEM_NOT_SHAREABLE"
 		"ItemPermanent"					"1"
@@ -1496,8 +1495,8 @@
 		"ItemDeclarations"        		"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
 		"MaxUpgradeLevel"       		"1"
 		"ItemBaseLevel"         		"1"
-		"ItemStockMax"					"20"
-		"ItemStockTime"					"1"
+		"ItemStockMax"					"1"
+		"ItemStockTime"					"5"
 	}
 	
 	"item_blue_egg_att"
@@ -1518,7 +1517,7 @@
 
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"75"
+		"ItemCost"						"150"
 		"ItemStackable"					"0"
 		"ItemShareability"				"ITEM_NOT_SHAREABLE"
 		"ItemPermanent"					"1"
@@ -1532,8 +1531,8 @@
 		"ItemDeclarations"        		"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
 		"MaxUpgradeLevel"       		"1"
 		"ItemBaseLevel"         		"1"
-		"ItemStockMax"					"20"
-		"ItemStockTime"					"1"
+		"ItemStockMax"					"1"
+		"ItemStockTime"					"5"
 	}
 	
 	"item_green_egg_att"
@@ -1554,7 +1553,7 @@
 
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"75"
+		"ItemCost"						"150"
 		"ItemStackable"					"0"
 		"ItemShareability"				"ITEM_NOT_SHAREABLE"
 		"ItemPermanent"					"1"
@@ -1568,8 +1567,8 @@
 		"ItemDeclarations"        		"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
 		"MaxUpgradeLevel"       		"1"
 		"ItemBaseLevel"         		"1"
-		"ItemStockMax"					"20"
-		"ItemStockTime"					"1"
+		"ItemStockMax"					"1"
+		"ItemStockTime"					"5"
 	}
 	
 	"item_yellow_egg_att"
@@ -1590,7 +1589,7 @@
 
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"75"
+		"ItemCost"						"150"
 		"ItemStackable"					"0"
 		"ItemShareability"				"ITEM_NOT_SHAREABLE"
 		"ItemPermanent"					"1"
@@ -1604,8 +1603,8 @@
 		"ItemDeclarations"        		"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
 		"MaxUpgradeLevel"       		"1"
 		"ItemBaseLevel"         		"1"
-		"ItemStockMax"					"20"
-		"ItemStockTime"					"1"
+		"ItemStockMax"					"1"
+		"ItemStockTime"					"5"
 	}
 	
 	"item_orange_egg_att"
@@ -1626,7 +1625,7 @@
 
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"75"
+		"ItemCost"						"150"
 		"ItemStackable"					"0"
 		"ItemShareability"				"ITEM_NOT_SHAREABLE"
 		"ItemPermanent"					"1"
@@ -1640,8 +1639,8 @@
 		"ItemDeclarations"        		"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
 		"MaxUpgradeLevel"       		"1"
 		"ItemBaseLevel"         		"1"
-		"ItemStockMax"					"20"
-		"ItemStockTime"					"1"
+		"ItemStockMax"					"1"
+		"ItemStockTime"					"5"
 	}
 	
 	"item_red_egg_att"
@@ -1662,7 +1661,7 @@
 
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"75"
+		"ItemCost"						"150"
 		"ItemStackable"					"0"
 		"ItemShareability"				"ITEM_NOT_SHAREABLE"
 		"ItemPermanent"					"1"
@@ -1676,8 +1675,8 @@
 		"ItemDeclarations"        		"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
 		"MaxUpgradeLevel"       		"1"
 		"ItemBaseLevel"         		"1"
-		"ItemStockMax"					"20"
-		"ItemStockTime"					"1"
+		"ItemStockMax"					"1"
+		"ItemStockTime"					"5"
 	}
 	
 	"item_purple_egg_att"
@@ -1698,7 +1697,7 @@
 
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"75"
+		"ItemCost"						"150"
 		"ItemStackable"					"0"
 		"ItemShareability"				"ITEM_NOT_SHAREABLE"
 		"ItemPermanent"					"1"
@@ -1712,8 +1711,44 @@
 		"ItemDeclarations"        		"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
 		"MaxUpgradeLevel"       		"1"
 		"ItemBaseLevel"         		"1"
-		"ItemStockMax"					"20"
-		"ItemStockTime"					"1"
+		"ItemStockMax"					"1"
+		"ItemStockTime"					"5"
+	}
+
+	"item_upgrade_att"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"           		"item_datadriven"
+		"AbilityTextureName"      	"Upgrade"
+		"AbilityBehavior"			"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"ItemQuality"				"secret_shop"
+		"HomeShop"					"1"
+
+		// Sound
+		//-------------------------------------------------------------------------------------------------------------			
+		"UIPickupSound"					"Item.PickUpGemShop"
+		"UIDropSound"					"Item.DropGemShop"
+		"WorldDropSound"				"Item.DropGemWorld"
+
+		// Item Info
+		//-------------------------------------------------------------------------------------------------------------
+		"ItemCost"						"500"
+		"ItemStackable"					"0"
+		"ItemShareability"				"ITEM_NOT_SHAREABLE"
+		"ItemPermanent"					"1"
+		"ItemInitialCharges"			"0"
+		"ItemPurchasable"				"1"
+		"ItemKillable"					"0"
+		"ItemDroppable"					"0"
+		"ItemSellable"					"0"
+		"AbilityManaCost"       		"0"
+		"ItemRequiresCharges"     		"0"
+		"ItemDeclarations"        		"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
+		"MaxUpgradeLevel"       		"1"
+		"ItemBaseLevel"         		"1"
+		"ItemStockMax"					"1"
+		"ItemStockTime"					"2"
 	}
 	
 	"item_white_egg_def"
@@ -1987,6 +2022,42 @@
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
 		"ItemCost"						"150"
+		"ItemStackable"					"0"
+		"ItemShareability"				"ITEM_NOT_SHAREABLE"
+		"ItemPermanent"					"1"
+		"ItemInitialCharges"			"0"
+		"ItemPurchasable"				"1"
+		"ItemKillable"					"0"
+		"ItemDroppable"					"0"
+		"ItemSellable"					"0"
+		"AbilityManaCost"       		"0"
+		"ItemRequiresCharges"     		"0"
+		"ItemDeclarations"        		"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
+		"MaxUpgradeLevel"       		"1"
+		"ItemBaseLevel"         		"1"
+		"ItemStockMax"					"1"
+		"ItemStockTime"					"5"
+	}
+
+	"item_upgrade_def"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"           		"item_datadriven"
+		"AbilityTextureName"      	"Upgrade"
+		"AbilityBehavior"			"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"ItemQuality"				"secret_shop"
+		"HomeShop"					"1"
+
+		// Sound
+		//-------------------------------------------------------------------------------------------------------------			
+		"UIPickupSound"					"Item.PickUpGemShop"
+		"UIDropSound"					"Item.DropGemShop"
+		"WorldDropSound"				"Item.DropGemWorld"
+
+		// Item Info
+		//-------------------------------------------------------------------------------------------------------------
+		"ItemCost"						"750"
 		"ItemStackable"					"0"
 		"ItemShareability"				"ITEM_NOT_SHAREABLE"
 		"ItemPermanent"					"1"

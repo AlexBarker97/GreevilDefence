@@ -1,10 +1,10 @@
 Bugs
 • some things autoattack jumps
 • global present & satchel sounds
-• black greevil posession, ai persists (if IsDominated() then return end)
+• black greevil posession, ai persists (if IsDominated() then return end)?
 
 Required
-• Shop upgrade tokens need to be implemented
+More items in shop
 
 Suggestions
 • present drops more interesting

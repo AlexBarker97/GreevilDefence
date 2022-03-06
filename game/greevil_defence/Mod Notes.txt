@@ -7,6 +7,7 @@ Required
 More items in shop
 
 Suggestions
+• Attack greevils limited to 5 mins purchase
 • Shop option to double next enemy wave
 • Shop option to spawn a random wave on demand
 • secret shopkeeper that trades greevil eggs for something

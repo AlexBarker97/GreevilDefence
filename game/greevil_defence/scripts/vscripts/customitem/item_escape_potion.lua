@@ -36,6 +36,6 @@ function item_escape_potion:OnSpellStart()
 	caster:AddNewModifier(caster, nil, "modifier_no_healthbar", { duration = effectDuration})
 	caster:AddNewModifier(caster, nil, "modifier_doom_bringer_doom", { duration = effectDuration})
 
-    EmitSoundOnLocationWithCaster(caster:GetAbsOrigin(), "DOTA_Item.SmokeOfDeceit.Activate", caster)
-    EmitSoundOnLocationWithCaster(caster:GetAbsOrigin(), "DOTA_Item.ClarityPotion.Activate", caster)
+    EmitSoundOn("DOTA_Item.SmokeOfDeceit.Activate", caster)
+    EmitSoundOn("DOTA_Item.ClarityPotion.Activate", caster)
 end

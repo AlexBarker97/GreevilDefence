@@ -18,34 +18,46 @@
 		"precache"
 		{
 			"soundfile"		"soundevents/game_sounds_greevils.vsndevts"
-			"soundfile"		"soundevents/game_sounds_heroes/game_sounds_juggernaut.vsndevts"
+
+			"soundfile"		"soundevents/game_sounds_heroes/game_sounds_techies.vsndevts"
 			"soundfile"		"soundevents/game_sounds_heroes/game_sounds_tusk.vsndevts"
 			"soundfile"		"soundevents/game_sounds_heroes/game_sounds_broodmother.vsndevts"
 			"soundfile"		"soundevents/game_sounds_heroes/game_sounds_marci.vsndevts"
-			"soundfile"		"soundevents/game_sounds_heroes/game_sounds_ogre_magi.vsndevts"
+
 			"soundfile"		"soundevents/game_sounds_heroes/game_sounds_mars.vsndevts"
+			"soundfile"		"soundevents/game_sounds_heroes/game_sounds_shadowshaman.vsndevts"
+			"soundfile"		"soundevents/game_sounds_heroes/game_sounds_pangolier.vsndevts"
+			"soundfile"		"soundevents/game_sounds_heroes/game_sounds_ogre_magi.vsndevts"
 			"soundfile"		"soundevents/game_sounds_heroes/game_sounds_earthshaker.vsndevts"
-			"soundfile"		"soundevents/game_sounds_heroes/game_sounds_pudge.vsndevts"
+
+			"soundfile"		"soundevents/game_sounds_heroes/game_sounds_chen.vsndevts"
 			"soundfile"		"soundevents/game_sounds_heroes/game_sounds_dazzle.vsndevts"
+			"soundfile"		"soundevents/game_sounds_heroes/game_sounds_dark_seer.vsndevts"
 			"soundfile"		"soundevents/game_sounds_heroes/game_sounds_venomancer.vsndevts"
+
 			"soundfile"		"soundevents/game_sounds_heroes/game_sounds_windrunner.vsndevts"
 			"soundfile"		"soundevents/game_sounds_heroes/game_sounds_treant.vsndevts"
 			"soundfile"		"soundevents/game_sounds_heroes/game_sounds_enchantress.vsndevts"
 			"soundfile"		"soundevents/game_sounds_heroes/game_sounds_elder_titan.vsndevts"
+
 			"soundfile"		"soundevents/game_sounds_heroes/game_sounds_vengefulspirit.vsndevts"
 			"soundfile"		"soundevents/game_sounds_heroes/game_sounds_lich.vsndevts"
 			"soundfile"		"soundevents/game_sounds_heroes/game_sounds_crystalmaiden.vsndevts"
+
 			"soundfile"		"soundevents/game_sounds_heroes/game_sounds_leshrac.vsndevts"
 			"soundfile"		"soundevents/game_sounds_heroes/game_sounds_shadow_demon.vsndevts"
 			"soundfile"		"soundevents/game_sounds_heroes/game_sounds_void_spirit.vsndevts"
 			"soundfile"		"soundevents/game_sounds_heroes/game_sounds_dark_willow.vsndevts"
+
 			"soundfile"		"soundevents/game_sounds_heroes/game_sounds_omniknight.vsndevts"
 			"soundfile"		"soundevents/game_sounds_heroes/game_sounds_puck.vsndevts"
 			"soundfile"		"soundevents/game_sounds_heroes/game_sounds_wisp.vsndevts"
+			"soundfile"		"soundevents/game_sounds_heroes/game_sounds_drowranger.vsndevts"
+
 			"soundfile"		"soundevents/game_sounds_heroes/game_sounds_bane.vsndevts"
 			"soundfile"		"soundevents/game_sounds_heroes/game_sounds_doombringer.vsndevts"
-			"soundfile"		"soundevents/game_sounds_heroes/game_sounds_enchantress.vsndevts"
 			"soundfile"		"soundevents/game_sounds_heroes/game_sounds_slark.vsndevts"
+			"soundfile"		"soundevents/game_sounds_heroes/game_sounds_alchemist.vsndevts"
 		}
 
 		"Ability1"					"red"

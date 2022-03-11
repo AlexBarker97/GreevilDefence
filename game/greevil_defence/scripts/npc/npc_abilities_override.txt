@@ -284,4 +284,8 @@
 	"item_ultimate_scepter_roshan"				"REMOVE"
 	"item_aghanims_shard_roshan"				"REMOVE"
 	"item_vambrace"								"REMOVE"
+	"item_force_boots"							"REMOVE"
+	"item_boots_of_bearing"						"REMOVE"
+	"item_revenants_brooch"						"REMOVE"
+	"item_wraith_pact"							"REMOVE"
 }

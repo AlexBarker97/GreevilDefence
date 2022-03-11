@@ -14,6 +14,8 @@ end
 function item_acorn:OnSpellStart()
     local duration = 45.0
     local vPoint = self:GetCursorPosition()
+    local caster = self:GetCaster()
+
     if vPoint[1] < 0 then
         vPoint1 = Vector(-6960, vPoint[2], 256)
         vPoint2 = Vector(-6778, vPoint[2], 256)
@@ -46,4 +48,6 @@ function item_acorn:OnSpellStart()
     barrier5:SetForwardVector(Vector(100, 100, 0))
     barrier6:SetForwardVector(Vector(100, 100, 0))
     barrier7:SetForwardVector(Vector(100, 100, 0))
+
+    EmitSoundOn("Damage.Building", caster)
 end

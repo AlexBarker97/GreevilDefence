@@ -1,15 +1,12 @@
 Bugs
 • some things autoattack jumps
-• global present & satchel sounds
+• global present & satchel opening sounds
 • black greevil posession, ai persists (if IsDominated() then return end)?
 
 Required
 More items in shop
 
 Suggestions
-• Attack greevils limited to 5 mins purchase
-• Shop option to double next enemy wave
-• Shop option to spawn a random wave on demand
 • secret shopkeeper that trades greevil eggs for something
 • present drops more interesting
 • notification that black boss being killed
@@ -33,7 +30,7 @@ Suggestions
 	• White  - summon army
 	• Black  - detonate
 • Variation between games
-	• random abilities (from colour pool)	
+	• random abilities (from colour pool)
 • Less revive hp
 
 QoL

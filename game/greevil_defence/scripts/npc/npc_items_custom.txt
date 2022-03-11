@@ -1459,6 +1459,8 @@
 		"ItemDeclarations"        		"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
 		"MaxUpgradeLevel"       		"1"
 		"ItemBaseLevel"         		"1"
+		"ItemStockInitial"              "0"
+		"ItemInitialStockTime"          "386"
 		"ItemStockMax"					"1"
 		"ItemStockTime"					"5"
 	}
@@ -1495,6 +1497,8 @@
 		"ItemDeclarations"        		"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
 		"MaxUpgradeLevel"       		"1"
 		"ItemBaseLevel"         		"1"
+		"ItemStockInitial"              "0"
+		"ItemInitialStockTime"          "386"
 		"ItemStockMax"					"1"
 		"ItemStockTime"					"5"
 	}
@@ -1531,6 +1535,8 @@
 		"ItemDeclarations"        		"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
 		"MaxUpgradeLevel"       		"1"
 		"ItemBaseLevel"         		"1"
+		"ItemStockInitial"              "0"
+		"ItemInitialStockTime"          "386"
 		"ItemStockMax"					"1"
 		"ItemStockTime"					"5"
 	}
@@ -1567,6 +1573,8 @@
 		"ItemDeclarations"        		"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
 		"MaxUpgradeLevel"       		"1"
 		"ItemBaseLevel"         		"1"
+		"ItemStockInitial"              "0"
+		"ItemInitialStockTime"          "386"
 		"ItemStockMax"					"1"
 		"ItemStockTime"					"5"
 	}
@@ -1603,6 +1611,8 @@
 		"ItemDeclarations"        		"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
 		"MaxUpgradeLevel"       		"1"
 		"ItemBaseLevel"         		"1"
+		"ItemStockInitial"              "0"
+		"ItemInitialStockTime"          "386"
 		"ItemStockMax"					"1"
 		"ItemStockTime"					"5"
 	}
@@ -1639,6 +1649,8 @@
 		"ItemDeclarations"        		"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
 		"MaxUpgradeLevel"       		"1"
 		"ItemBaseLevel"         		"1"
+		"ItemStockInitial"              "0"
+		"ItemInitialStockTime"          "386"
 		"ItemStockMax"					"1"
 		"ItemStockTime"					"5"
 	}
@@ -1675,6 +1687,8 @@
 		"ItemDeclarations"        		"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
 		"MaxUpgradeLevel"       		"1"
 		"ItemBaseLevel"         		"1"
+		"ItemStockInitial"              "0"
+		"ItemInitialStockTime"          "386"
 		"ItemStockMax"					"1"
 		"ItemStockTime"					"5"
 	}
@@ -1711,6 +1725,8 @@
 		"ItemDeclarations"        		"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
 		"MaxUpgradeLevel"       		"1"
 		"ItemBaseLevel"         		"1"
+		"ItemStockInitial"              "0"
+		"ItemInitialStockTime"          "386"
 		"ItemStockMax"					"1"
 		"ItemStockTime"					"5"
 	}
@@ -1747,8 +1763,48 @@
 		"ItemDeclarations"        		"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
 		"MaxUpgradeLevel"       		"1"
 		"ItemBaseLevel"         		"1"
+		"ItemStockInitial"              "0"
+		"ItemInitialStockTime"          "386"
 		"ItemStockMax"					"1"
 		"ItemStockTime"					"2"
+	}
+
+	"item_send_att"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"           		"item_datadriven"
+		"AbilityTextureName"      	"Horn"
+		"AbilityBehavior"			"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"ItemQuality"				"secret_shop"
+		"HomeShop"					"1"
+
+		// Sound
+		//-------------------------------------------------------------------------------------------------------------			
+		"UIPickupSound"					"Item.PickUpGemShop"
+		"UIDropSound"					"Item.DropGemShop"
+		"WorldDropSound"				"Item.DropGemWorld"
+
+		// Item Info
+		//-------------------------------------------------------------------------------------------------------------
+		"ItemCost"						"1000"
+		"ItemStackable"					"0"
+		"ItemShareability"				"ITEM_NOT_SHAREABLE"
+		"ItemPermanent"					"1"
+		"ItemInitialCharges"			"0"
+		"ItemPurchasable"				"1"
+		"ItemKillable"					"0"
+		"ItemDroppable"					"0"
+		"ItemSellable"					"0"
+		"AbilityManaCost"       		"0"
+		"ItemRequiresCharges"     		"0"
+		"ItemDeclarations"        		"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
+		"MaxUpgradeLevel"       		"1"
+		"ItemBaseLevel"         		"1"
+		"ItemStockInitial"              "0"
+		"ItemInitialStockTime"          "386"
+		"ItemStockMax"					"1"
+		"ItemStockTime"					"15"
 	}
 	
 	"item_white_egg_def"

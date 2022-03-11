@@ -11,6 +11,7 @@
 		"item7" 		"item_white_egg_att"
 		"item8" 		"item_black_egg_att"
 		"item9" 		"item_upgrade_att"
+		"item10" 		"item_send_att"
 	}
 
 	"attributes"
@@ -43,7 +44,7 @@
 	// Level 1 - Green Recipes
 	"basics"
 	{
-
+		"item1" 		"item_tpscroll"
 	}
 
 	// Level 2 - Blue Recipes

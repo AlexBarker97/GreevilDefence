@@ -40,6 +40,6 @@ function item_present:OnSpellStart()
 		caster:AddItem(tranquility)
 	end
 
-    EmitSoundOnLocationWithCaster(caster:GetAbsOrigin(), "RoshanDT.BucketDrop", caster)
-	EmitSoundOnLocationWithCaster(caster:GetAbsOrigin(), "Item.TomeOfKnowledge", caster)
+    EmitSoundOn("RoshanDT.BucketDrop", caster)
+	EmitSoundOn("Item.TomeOfKnowledge", caster)
 end

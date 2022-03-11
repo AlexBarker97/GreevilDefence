@@ -35,6 +35,6 @@ function item_tranquility:OnSpellStart()
 	caster:AddNewModifier(caster, nil, "modifier_treant_living_armor", { duration = effectDuration})
 	caster:AddNewModifier(caster, nil, "modifier_no_healthbar", { duration = effectDuration})
 
-    EmitSoundOnLocationWithCaster(caster:GetAbsOrigin(), "DOTA_Item.TranquilBoots.Activate", caster)
-    EmitSoundOnLocationWithCaster(caster:GetAbsOrigin(), "DOTA_Item.ClarityPotion.Activate", caster)
+    EmitSoundOn("DOTA_Item.TranquilBoots.Activate", caster)
+    EmitSoundOn("DOTA_Item.ClarityPotion.Activate", caster)
 end

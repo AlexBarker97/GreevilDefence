@@ -52,6 +52,6 @@ function item_greater_present:OnSpellStart()
 		caster:AddItem(item)
 	end
 
-    EmitSoundOnLocationWithCaster(caster:GetAbsOrigin(), "RoshanDT.BucketDrop", caster)
-	EmitSoundOnLocationWithCaster(caster:GetAbsOrigin(), "Item.TomeOfKnowledge", caster)
+    EmitSoundOn("RoshanDT.BucketDrop", caster)
+	EmitSoundOn("Item.TomeOfKnowledge", caster)
 end

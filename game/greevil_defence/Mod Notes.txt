@@ -2,6 +2,11 @@ Bugs
 • some things autoattack jumps
 • global present & satchel opening sounds
 • black greevil posession, ai persists (if IsDominated() then return end)?
+• can stack orange greevil when it eggs (check for egg entity?)
+• no names for spawners
+• minimap ping when giftsnatcher spawns
+• giftsnatcher not uusing ice wall
+• when white greevil dies kill will-o-wisp?
 
 Required
 More items in shop

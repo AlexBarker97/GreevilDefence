@@ -31,6 +31,7 @@
 	{
 		"item1" 		"item_acorn"
 		"item2" 		"item_tower"
+		"item3" 		"item_farm"
 	}
 
 	"misc"

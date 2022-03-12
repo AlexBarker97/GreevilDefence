@@ -2559,6 +2559,36 @@ function SpawnBlackBoss()
 	end
 end
 
+function GoldFarmBonus()	
+	local goldfarmlist = Entities:FindAllByModel("models/props_gameplay/gold_coin001b.vmdl")
+	local radFarmCount = 0
+	local direFarmCount = 0
+	for k,v in pairs(goldfarmlist) do
+		local team = v:GetTeam()
+		if team == DOTA_TEAM_GOODGUYS then
+			radFarmCount = radFarmCount + 1
+		elseif team == DOTA_TEAM_BADGUYS then
+			direFarmCount = direFarmCount + 1
+		end
+	end
+
+	local PlayerCountOnRad = PlayerResource:GetPlayerCountForTeam(DOTA_TEAM_GOODGUYS)
+	local PlayerCountOnDire = PlayerResource:GetPlayerCountForTeam(DOTA_TEAM_BADGUYS)
+
+	if PlayerCountOnRad > 0 then
+		randomPlayerRad = RandomInt(1,PlayerCountOnRad)
+		local playerIdRad = PlayerResource:GetNthPlayerIDOnTeam(DOTA_TEAM_GOODGUYS, randomPlayerRad)
+		local heroRad = PlayerResource:GetSelectedHeroEntity(playerIdRad)
+		heroRad:ModifyGold(2*radFarmCount,false,0)
+	end
+	if PlayerCountOnDire > 0 then
+		randomPlayerDire = RandomInt(1,PlayerCountOnDire)
+		local playerIdDire = PlayerResource:GetNthPlayerIDOnTeam(DOTA_TEAM_BADGUYS, randomPlayerDire)
+		local heroDire = PlayerResource:GetSelectedHeroEntity(playerIdDire)
+		heroDire:ModifyGold(2*direFarmCount,false,0)
+	end
+end
+
 function FindTeam(unit)
 	local unit = unit
 	if unit:GetAbsOrigin()[1] < 0 then

@@ -3,9 +3,6 @@ Bugs
 • black greevil posession, ai persists (if IsDominated() then return end)?
 • when white greevil dies kill will-o-wisp?
 
-Required
-More items in shop
-
 Suggestions
 • secret shopkeeper that trades greevil eggs for something
 • present drops more interesting
@@ -13,13 +10,11 @@ Suggestions
 • Level 25, flying movement talent can attack enemy side (change model to flying model)
 • "one time" shop items
 	• Barrier buster
-	• Single use meteor hammer, large AoE, global cast range
-• tool shop items
-	• Build a gold farm
-        • Build a healing hut (spawns healer greevils) 
-        • Build a buffing Station (randomly buffs heroes that come near)
-        • Build an armourers hut (produces chain mail)
-        • Build a Magicians hut
+• building shop items
+    • Build a healing hut (spawns healer greevils) 
+    • Build a buffing Station (randomly buffs heroes that come near)
+    • Build an armourers hut (produces chain mail)
+    • Build a Magicians hut
 • One time use item/ability from each boss
 	• Red    - mini mars ult
 	• Orange - fire breath

@@ -419,6 +419,31 @@
 		"ItemStockTime"					"-1.0"
 	}
 
+	"item_farm"
+	{
+		"BaseClass"						"item_lua"
+		"HomeShop"						"1"
+		"AbilityTextureName"			"farm"
+		"ScriptFile" 					"customitem/item_farm.lua"
+		"AbilityName"					"farm"
+
+		"AbilityCastRange"              "500"
+		"AbilityCastPoint"              "0.0"
+		"AbilityCooldown"               "360"
+		"AbilityManaCost"               "0"
+		"Model"							"models/props_gameplay/red_box.vmdl"
+		"PingOverrideText"				""
+		"ItemPermanent"					"1"
+		"ItemStackable"					"0"
+		"ItemDroppable"					"1"
+		"ItemSellable"					"0"
+		"ItemShareability"				"ITEM_FULLY_SHAREABLE"
+		"ItemPurchasable"				"1"
+		"ItemCost"						"1000"
+		"ItemStockMax"					"1"
+		"ItemStockTime"					"-1.0"
+	}
+
 	///////////////
 	// SingleUse //
 	///////////////

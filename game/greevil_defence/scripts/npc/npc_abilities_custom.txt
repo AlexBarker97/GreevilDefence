@@ -353,6 +353,17 @@
 		}
 	}
 
+	"farm_gold"
+	{
+		"BaseClass"						"ability_datadriven"
+		"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+		"AbilityCastPoint"				"0.5"
+		"AbilityCooldown"				"0"
+		"AbilityManaCost"				"0"
+		"AbilityTextureName"			"FarmGold"
+	}
+
 	"greevil_ice_wall_ad"
 	{
 		"BaseClass"						"invoker_ice_wall_ad"

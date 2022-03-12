@@ -134,6 +134,8 @@ function GameStart()
 					SpawnCreeps(count,"both")
 				end
 
+				GoldFarmBonus()
+
 				count = count + 1;
 			return 1
 			end)

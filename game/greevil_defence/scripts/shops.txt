@@ -30,6 +30,7 @@
 	"weapons_armor"
 	{
 		"item1" 		"item_acorn"
+		"item2" 		"item_tower"
 	}
 
 	"misc"
@@ -39,6 +40,7 @@
 		"item3" 		"item_voidling"
 		"item4" 		"item_decoy"
 		"item5" 		"item_silence"
+		"item6" 		"item_greevil_hammer"
 	}
 	
 	// Level 1 - Green Recipes

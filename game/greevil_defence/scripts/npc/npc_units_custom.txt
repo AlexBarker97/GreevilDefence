@@ -2181,7 +2181,7 @@
 		//----------------------------------------------------------------
 		"StatusHealth"				"650"		// Base health.
 		"StatusMana"				"0"			// Base mana.
-		"StatusHealthRegen"			"2"			// Health regeneration rate.
+		"StatusHealthRegen"			"4"			// Health regeneration rate.
 		"StatusManaRegen"			"0"			// Mana regeneration rate.
 		
 		// Team
@@ -2262,7 +2262,7 @@
 		//----------------------------------------------------------------
 		"StatusHealth"				"650"		// Base health.
 		"StatusMana"				"0"			// Base mana.
-		"StatusHealthRegen"			"2"			// Health regeneration rate.
+		"StatusHealthRegen"			"4"			// Health regeneration rate.
 		"StatusManaRegen"			"0"			// Mana regeneration rate.
 		
 		// Team
@@ -2343,7 +2343,7 @@
 		//----------------------------------------------------------------
 		"StatusHealth"				"650"		// Base health.
 		"StatusMana"				"0"			// Base mana.
-		"StatusHealthRegen"			"2"			// Health regeneration rate.
+		"StatusHealthRegen"			"4"			// Health regeneration rate.
 		"StatusManaRegen"			"0"			// Mana regeneration rate.
 		
 		// Team
@@ -2424,7 +2424,7 @@
 		//----------------------------------------------------------------
 		"StatusHealth"				"650"		// Base health.
 		"StatusMana"				"0"			// Base mana.
-		"StatusHealthRegen"			"2"			// Health regeneration rate.
+		"StatusHealthRegen"			"4"			// Health regeneration rate.
 		"StatusManaRegen"			"0"			// Mana regeneration rate.
 		
 		// Team
@@ -2505,7 +2505,7 @@
 		//----------------------------------------------------------------
 		"StatusHealth"				"650"		// Base health.
 		"StatusMana"				"0"			// Base mana.
-		"StatusHealthRegen"			"2"			// Health regeneration rate.
+		"StatusHealthRegen"			"4"			// Health regeneration rate.
 		"StatusManaRegen"			"0"			// Mana regeneration rate.
 		
 		// Team
@@ -2586,7 +2586,7 @@
 		//----------------------------------------------------------------
 		"StatusHealth"				"650"		// Base health.
 		"StatusMana"				"0"			// Base mana.
-		"StatusHealthRegen"			"2"			// Health regeneration rate.
+		"StatusHealthRegen"			"4"			// Health regeneration rate.
 		"StatusManaRegen"			"0"			// Mana regeneration rate.
 		
 		// Team
@@ -2667,7 +2667,7 @@
 		//----------------------------------------------------------------
 		"StatusHealth"				"650"		// Base health.
 		"StatusMana"				"0"			// Base mana.
-		"StatusHealthRegen"			"2"			// Health regeneration rate.
+		"StatusHealthRegen"			"4"			// Health regeneration rate.
 		"StatusManaRegen"			"0"			// Mana regeneration rate.
 		
 		// Team
@@ -2748,7 +2748,7 @@
 		//----------------------------------------------------------------
 		"StatusHealth"				"650"		// Base health.
 		"StatusMana"				"0"			// Base mana.
-		"StatusHealthRegen"			"2"			// Health regeneration rate.
+		"StatusHealthRegen"			"4"			// Health regeneration rate.
 		"StatusManaRegen"			"0"			// Mana regeneration rate.
 		
 		// Team

@@ -1292,6 +1292,20 @@ function GameMode:OnAbilityChannelFinished(keys)
 				return
 			end
 		end
+	elseif abilityname == "item_greevil_hammer" and interrupted == false then
+		for i=0,8 do
+			local item = caster:GetItemInSlot(i)
+			if item ~= nil and item:GetAbilityName() == "item_greevil_hammer" then
+				
+				Timers:CreateTimer(4, function()
+					
+					caster:RemoveItem(item)
+				end)
+
+				
+				return
+			end
+		end
 	end
 end
 
@@ -2344,7 +2358,7 @@ function SpawnGiftSnatchers()
 			local item = CreateItem("item_greater_present", nil, nil)
 			item:SetPurchaseTime(0)
 			CreateItemOnPositionSync(pos, item)
-			item:LaunchLoot(false, 350, 0.65, pos + RandomVector(RandomFloat(50, 350)))
+			item:LaunchLoot(false, 350, 0.65, pos + RandomVector(RandomFloat(25, 500)))
 			Timers:CreateTimer({endTime = 60.0,
 				callback = function()
 				item:GetContainer():Destroy()
@@ -2353,7 +2367,7 @@ function SpawnGiftSnatchers()
 			local item = CreateItem("item_greater_present", nil, nil)
 			item:SetPurchaseTime(0)
 			CreateItemOnPositionSync(pos, item)
-			item:LaunchLoot(false, 350, 0.65, pos + RandomVector(RandomFloat(50, 350)))
+			item:LaunchLoot(false, 350, 0.65, pos + RandomVector(RandomFloat(25, 500)))
 			Timers:CreateTimer({endTime = 60.0,
 				callback = function()
 				item:GetContainer():Destroy()
@@ -2396,7 +2410,7 @@ function SpawnSmallBosses()
             FIND_ANY_ORDER, false)
 		local filtUnits = 0
 		for i=1,#findUnits do
-			if findUnits[i]:GetUnitName() == "greevil_orange" then
+			if findUnits[i]:GetUnitName() == "greevil_orange" or findUnits[i]:GetUnitName() == "npc_dota_phoenix_sun" then
 				filtUnits = 1
 			end
 		end
@@ -2515,8 +2529,8 @@ function SpawnWhiteBosses()
 			
 			unit:FaceTowards(unit:GetAbsOrigin()+Vector(0, -100, 0))
 			unit.spawnPos = location
-			MinimapEvent(DOTA_TEAM_BADGUYS, unit, math.floor(location[1]), math.floor(location[2]), DOTA_MINIMAP_EVENT_HINT_LOCATION, 3.0)
-			MinimapEvent(DOTA_TEAM_GOODGUYS, unit, math.floor(location[1]), math.floor(location[2]), DOTA_MINIMAP_EVENT_HINT_LOCATION, 3.0)
+			MinimapEvent(DOTA_TEAM_BADGUYS, unit, math.floor(location[1]), math.floor(location[2]), DOTA_MINIMAP_EVENT_HINT_LOCATION, 4.5)
+			MinimapEvent(DOTA_TEAM_GOODGUYS, unit, math.floor(location[1]), math.floor(location[2]), DOTA_MINIMAP_EVENT_HINT_LOCATION, 4.5)
 		end
 	end
 end
@@ -2539,8 +2553,8 @@ function SpawnBlackBoss()
 			local particle = ParticleManager:CreateParticle("particles/units/heroes/hero_abaddon/abaddon_borrowed_time.vpcf", PATTACH_ABSORIGIN_FOLLOW, unit)
 			unit:FaceTowards(unit:GetAbsOrigin()+Vector(0, -100, 0))
 			unit.spawnPos = location
-			MinimapEvent(DOTA_TEAM_BADGUYS, unit, math.floor(location[1]), math.floor(location[2]), DOTA_MINIMAP_EVENT_HINT_LOCATION, 3.0)
-			MinimapEvent(DOTA_TEAM_GOODGUYS, unit, math.floor(location[1]), math.floor(location[2]), DOTA_MINIMAP_EVENT_HINT_LOCATION, 3.0)
+			MinimapEvent(DOTA_TEAM_BADGUYS, unit, math.floor(location[1]), math.floor(location[2]), DOTA_MINIMAP_EVENT_HINT_LOCATION, 5.0)
+			MinimapEvent(DOTA_TEAM_GOODGUYS, unit, math.floor(location[1]), math.floor(location[2]), DOTA_MINIMAP_EVENT_HINT_LOCATION, 5.0)
 		end
 	end
 end

@@ -33,7 +33,7 @@ function GreevilThink()
 end
 
 function StateN1()
-	if thisEntity:GetAbsOrigin()[2] < 5900 then
+	if thisEntity:GetAbsOrigin()[2] > 5900 then
 		local team = thisEntity:GetTeam()
 		if team == DOTA_TEAM_GOODGUYS then
 			thisEntity:MoveToPosition(Vector(-6400, -3000, 256))

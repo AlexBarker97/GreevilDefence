@@ -394,6 +394,31 @@
 		"ItemStockTime"					"-1.0"
 	}
 
+	"item_tower"
+	{
+		"BaseClass"						"item_lua"
+		"HomeShop"						"1"
+		"AbilityTextureName"			"tower"
+		"ScriptFile" 					"customitem/item_tower.lua"
+		"AbilityName"					"tower"
+
+		"AbilityCastRange"              "500"
+		"AbilityCastPoint"              "0.0"
+		"AbilityCooldown"               "90"
+		"AbilityManaCost"               "0"
+		"Model"							"models/props_gameplay/red_box.vmdl"
+		"PingOverrideText"				""
+		"ItemPermanent"					"1"
+		"ItemStackable"					"0"
+		"ItemDroppable"					"1"
+		"ItemSellable"					"0"
+		"ItemShareability"				"ITEM_FULLY_SHAREABLE"
+		"ItemPurchasable"				"1"
+		"ItemCost"						"1000"
+		"ItemStockMax"					"1"
+		"ItemStockTime"					"-1.0"
+	}
+
 	///////////////
 	// SingleUse //
 	///////////////
@@ -465,7 +490,7 @@
 		"ItemSellable"					"0"
 		"ItemShareability"				"ITEM_FULLY_SHAREABLE"
 		"ItemPurchasable"				"1"
-		"ItemCost"						"500"
+		"ItemCost"						"600"
 	}
 	
 	"item_decoy"
@@ -487,7 +512,7 @@
 		"ItemShareability"				"ITEM_FULLY_SHAREABLE"
 		"ItemPurchasable"				"1"
 		"ItemCost"						"99999"
-	}	
+	}
 	
 	"item_silence"
 	{
@@ -508,6 +533,55 @@
 		"ItemShareability"				"ITEM_FULLY_SHAREABLE"
 		"ItemPurchasable"				"1"
 		"ItemCost"						"99999"
+	}
+
+	"item_greevil_hammer"
+	{
+		"BaseClass"           			"item_meteor_hammer"
+		
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_CHANNELLED"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
+		"AbilityChannelTime"			"2.5"
+		"AbilityCastRange"				"99999"
+		"AbilityCooldown"				"90"
+		"AbilityManaCost"				"0"
+		"ItemInitialCharges"			"1"
+		"ItemRequiresCharges"     		"1"
+		"ItemDisplayCharges"			"1"
+
+		"ItemCost"						"850"
+		"ItemQuality"					"epic"
+		"ItemAliases"					"mh;meteor hammer"
+		"ItemDeclarations"				"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
+		
+		"AbilityValues"
+		{
+				"bonus_all_stats"			"0"
+				"bonus_health_regen"		"0"
+				"bonus_mana_regen"			"0"
+				"burn_dps_buildings"		"75"
+				"burn_dps_units"			"75"
+				"burn_duration"				"4"
+				"stun_duration"				"1.75"
+				"burn_interval"				"1.0"
+				"land_time"					".5"
+				"impact_radius"				"600"
+				"max_duration"				"2.5"
+				"impact_damage_buildings"	"150"
+				"impact_damage_units"		"150"
+				"enemy_particles_visible"	"1"
+		}
+
+		"OnChannelSucceeded"
+		{
+			"RunScript"
+			{
+				"Target"		"CASTER"
+				"ScriptFile"	"boss_drop/bossdrop_red.lua"
+				"Function"		"Summon"
+			}
+		}
 	}
 	
 ///////////////
@@ -1445,7 +1519,7 @@
 
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"150"
+		"ItemCost"						"200"
 		"ItemStackable"					"0"
 		"ItemShareability"				"ITEM_NOT_SHAREABLE"
 		"ItemPermanent"					"1"
@@ -1483,7 +1557,7 @@
 
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"150"
+		"ItemCost"						"200"
 		"ItemStackable"					"0"
 		"ItemShareability"				"ITEM_NOT_SHAREABLE"
 		"ItemPermanent"					"1"
@@ -1521,7 +1595,7 @@
 
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"150"
+		"ItemCost"						"200"
 		"ItemStackable"					"0"
 		"ItemShareability"				"ITEM_NOT_SHAREABLE"
 		"ItemPermanent"					"1"
@@ -1559,7 +1633,7 @@
 
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"150"
+		"ItemCost"						"200"
 		"ItemStackable"					"0"
 		"ItemShareability"				"ITEM_NOT_SHAREABLE"
 		"ItemPermanent"					"1"
@@ -1597,7 +1671,7 @@
 
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"150"
+		"ItemCost"						"200"
 		"ItemStackable"					"0"
 		"ItemShareability"				"ITEM_NOT_SHAREABLE"
 		"ItemPermanent"					"1"
@@ -1635,7 +1709,7 @@
 
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"150"
+		"ItemCost"						"200"
 		"ItemStackable"					"0"
 		"ItemShareability"				"ITEM_NOT_SHAREABLE"
 		"ItemPermanent"					"1"
@@ -1673,7 +1747,7 @@
 
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"150"
+		"ItemCost"						"200"
 		"ItemStackable"					"0"
 		"ItemShareability"				"ITEM_NOT_SHAREABLE"
 		"ItemPermanent"					"1"
@@ -1711,7 +1785,7 @@
 
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"150"
+		"ItemCost"						"200"
 		"ItemStackable"					"0"
 		"ItemShareability"				"ITEM_NOT_SHAREABLE"
 		"ItemPermanent"					"1"

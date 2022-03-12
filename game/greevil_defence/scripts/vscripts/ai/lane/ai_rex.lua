@@ -68,12 +68,6 @@ function GreevilThink()
 		State20(team)
 	elseif thisEntity.state == 21 then
 		State21(team)
-	elseif thisEntity.state == 22 then
-		State22(team)
-	elseif thisEntity.state == 23 then
-		State23(team)
-	elseif thisEntity.state == 24 then
-		State24(team)
 	end
 	return AI_THINK_INTERVAL
 end
@@ -394,51 +388,6 @@ function State20(team)
 end
 
 function State21(team)
-	if thisEntity:GetAbsOrigin()[2] > -3900 then
-		if team == DOTA_TEAM_GOODGUYS then
-			local target = Vector(6400, -4000, 256)
-			thisEntity:MoveToPosition(target)
-		elseif team == DOTA_TEAM_BADGUYS then
-			local target = Vector(-6400, -4000, 256)
-			thisEntity:MoveToPosition(target)
-		end
-	else
-		thisEntity.state = 22
-	end
-	return true
-end
-
-function State22(team)
-	if thisEntity:GetAbsOrigin()[2] < 5400 then
-		if team == DOTA_TEAM_GOODGUYS then
-			local target = Vector(6400, 5500, 256)
-			thisEntity:MoveToPosition(target)
-		elseif team == DOTA_TEAM_BADGUYS then
-			local target = Vector(-6400, 5500, 256)
-			thisEntity:MoveToPosition(target)
-		end
-	else
-		thisEntity.state = 23
-	end
-	return true
-end
-
-function State23(team)
-	if thisEntity:GetAbsOrigin()[2] > -3000 then
-		if team == DOTA_TEAM_GOODGUYS then
-			local target = Vector(6400, -3100, 256)
-			thisEntity:MoveToPosition(target)
-		elseif team == DOTA_TEAM_BADGUYS then
-			local target = Vector(-6400, -3100, 256)
-			thisEntity:MoveToPosition(target)
-		end
-	else
-		thisEntity.state = 24
-	end
-	return true
-end
-
-function State24(team)
 	thisEntity:ForceKill(false)
 	return true
 end

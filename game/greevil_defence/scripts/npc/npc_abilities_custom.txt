@@ -123,6 +123,7 @@
 		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
 		"SpellDispellableType"			"SPELL_DISPELLABLE_NO"
 		"AbilitySound"					"Hero_FacelessVoid.Chronosphere"
+		"MaxLevel"						"1"
 		
 		// Casting
 		"AbilityCastRange"				"50"
@@ -143,7 +144,7 @@
 			"02"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"duration"				"30.0"
+				"duration"				"5.0"
 			}
 			"03"
 			{

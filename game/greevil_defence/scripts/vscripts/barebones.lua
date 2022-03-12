@@ -394,6 +394,7 @@ function GameMode:OnNPCSpawned(keys)
 		ability6 = unit:GetAbilityByIndex(5)
 		ability7 = unit:GetAbilityByIndex(6)
 		ability8 = unit:GetAbilityByIndex(7)
+		unit:RemoveAbility("special_bonus_attributes")
 		unit:UpgradeAbility(ability1)
 		unit:UpgradeAbility(ability2)
 		unit:UpgradeAbility(ability3)
@@ -1611,6 +1612,11 @@ function GameMode:OnEntityKilled(keys)
 			EmitSoundOnLocationWithCaster(killed_unit:GetAbsOrigin(), "Miniboss_Greevil.Death", killed_unit)
 		elseif killed_unit:GetUnitName() == "greevil_white" then
 			local pos = killed_unit:GetAbsOrigin()
+			local willOWisp = FindUnitsInRadius(DOTA_TEAM_NEUTRALS, pos, nil, 4000, DOTA_UNIT_TARGET_TEAM_FRIENDLY,
+                              DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_NONE, FIND_ANY_ORDER, false)
+			for k,v in pairs(willOWisp) do
+				v:ForceKill(false)
+			end
 			local bossLoot = CreateItem("item_boss_drop_white", nil, nil)
 			bossLoot:SetPurchaseTime(0)
 			CreateItemOnPositionSync(pos, bossLoot)
@@ -1981,6 +1987,31 @@ function SpawnDefenders()
 		local location = v:GetAbsOrigin()
 		unit = CreateUnitByName("greevil_defender", location, true, nil, nil, DOTA_TEAM_BADGUYS)
 		unit:FaceTowards(unit:GetAbsOrigin()+Vector(0, 100, 0))
+	end
+end
+
+function SpawnBot()
+	local PlayerCountOnRad = PlayerResource:GetPlayerCountForTeam(DOTA_TEAM_GOODGUYS)
+	local PlayerCountOnDire = PlayerResource:GetPlayerCountForTeam(DOTA_TEAM_BADGUYS)
+	if PlayerCountOnRad < 1 then
+		local unit = CreateUnitByName("npc_dota_hero_necrolyte", Vector(-6400,-2944,256), true, nil, nil, DOTA_TEAM_GOODGUYS)
+		unit:AddExperience(90000,0,false,false)
+		local HStopper = unit:FindAbilityByName("necrolyte_heartstopper_aura")
+		unit:AddAbility("bot_ability")
+		local BotAbility = unit:FindAbilityByName("bot_ability")
+		HStopper:SetLevel(4)
+		BotAbility:SetLevel(1)
+		Say(unit, "0 rad players", false)
+	elseif PlayerCountOnDire < 1 then
+		local unit = CreateUnitByName("npc_dota_hero_necrolyte", Vector(6400,-2944,256), true, nil, nil, DOTA_TEAM_BADGUYS)
+		unit:FaceTowards(unit:GetAbsOrigin()+Vector(0, 100, 0))
+		unit:AddExperience(90000,0,false,false)
+		local HStopper = unit:FindAbilityByName("necrolyte_heartstopper_aura")
+		unit:AddAbility("bot_ability")
+		local BotAbility = unit:FindAbilityByName("bot_ability")
+		HStopper:SetLevel(4)
+		BotAbility:SetLevel(1)
+		Say(unit, "0 dire players", false)
 	end
 end
 

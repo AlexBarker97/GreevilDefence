@@ -1,7 +1,6 @@
 Bugs
 • some things autoattack jumps
 • black greevil posession, ai persists (if IsDominated() then return end)?
-• when white greevil dies kill will-o-wisp?
 
 Suggestions
 • secret shopkeeper that trades greevil eggs for something

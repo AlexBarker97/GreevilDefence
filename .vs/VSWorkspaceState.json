@@ -5,11 +5,9 @@
     "\\game\\greevil_defence",
     "\\game\\greevil_defence\\resource",
     "\\game\\greevil_defence\\scripts",
-    "\\game\\greevil_defence\\scripts\\npc",
     "\\game\\greevil_defence\\scripts\\vscripts",
-    "\\game\\greevil_defence\\scripts\\vscripts\\customitem",
     "\\game\\greevil_defence\\scripts\\vscripts\\modifiers"
   ],
-  "SelectedNode": "\\game\\greevil_defence\\scripts\\npc\\npc_abilities_custom.txt",
+  "SelectedNode": "\\game\\greevil_defence\\scripts\\vscripts\\addon_game_mode.lua",
   "PreviewInSolutionExplorer": false
 }

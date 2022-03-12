@@ -218,28 +218,3 @@ function GameStart()
 		end
 	end, self)
 end
-
-function SpawnBot()
-	local PlayerCountOnRad = PlayerResource:GetPlayerCountForTeam(DOTA_TEAM_GOODGUYS)
-	local PlayerCountOnDire = PlayerResource:GetPlayerCountForTeam(DOTA_TEAM_BADGUYS)
-	if PlayerCountOnRad < 1 then
-		local unit = CreateUnitByName("npc_dota_hero_necrolyte", Vector(-6400,-2944,256), true, nil, nil, DOTA_TEAM_GOODGUYS)
-		unit:AddExperience(90000,0,false,false)
-		local HStopper = unit:FindAbilityByName("necrolyte_heartstopper_aura")
-		unit:AddAbility("bot_ability")
-		local BotAbility = unit:FindAbilityByName("bot_ability")
-		HStopper:SetLevel(4)
-		BotAbility:SetLevel(1)
-		Say(unit, "0 rad players", false)
-	elseif PlayerCountOnDire < 1 then
-		local unit = CreateUnitByName("npc_dota_hero_necrolyte", Vector(6400,-2944,256), true, nil, nil, DOTA_TEAM_BADGUYS)
-		unit:FaceTowards(unit:GetAbsOrigin()+Vector(0, 100, 0))
-		unit:AddExperience(90000,0,false,false)
-		local HStopper = unit:FindAbilityByName("necrolyte_heartstopper_aura")
-		unit:AddAbility("bot_ability")
-		local BotAbility = unit:FindAbilityByName("bot_ability")
-		HStopper:SetLevel(4)
-		BotAbility:SetLevel(1)
-		Say(unit, "0 dire players", false)
-	end
-end

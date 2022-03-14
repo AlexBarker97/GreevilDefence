@@ -43,7 +43,7 @@ function OnUsed(keys)
 	caster:AddAbility("greevil_pulse_nova_custom")
 	caster:AddAbility("greevil_astral_step_custom")
 	caster:AddAbility("generic_hidden")
-	caster:AddAbility("greevil_bramble_maze_custom")
+	caster:AddAbility("greevil_good_juju")
 
 	ParticleManager:CreateParticle("particles/econ/courier/courier_greevil_purple/courier_greevil_purple_ambient_1.vpcf", PATTACH_ABSORIGIN_FOLLOW, caster)
 	ParticleManager:CreateParticle("particles/econ/courier/courier_greevil_purple/courier_greevil_purple_ambient_3_a.vpcf", PATTACH_ABSORIGIN_FOLLOW, caster)

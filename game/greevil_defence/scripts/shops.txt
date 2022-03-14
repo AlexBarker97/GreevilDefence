@@ -36,12 +36,12 @@
 
 	"misc"
 	{
-		"item1" 		"item_meteor_shower"
+		"item1" 		"item_greevil_hammer"
 		"item2" 		"item_darkness"
 		"item3" 		"item_voidling"
 		"item4" 		"item_decoy"
 		"item5" 		"item_silence"
-		"item6" 		"item_greevil_hammer"
+		"item6" 		"item_meteor_shower"
 	}
 	
 	// Level 1 - Green Recipes

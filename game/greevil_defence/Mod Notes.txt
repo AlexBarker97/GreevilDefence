@@ -1,14 +1,14 @@
 Bugs
 • some things autoattack jumps
-• black greevil posession, ai persists (if IsDominated() then return end)?
 
 Suggestions
 • secret shopkeeper that trades greevil eggs for something
+• relocate item 2500g
 • present drops more interesting
 • notification that black boss being killed
-• Level 25, flying movement talent can attack enemy side (change model to flying model)
 • "one time" shop items
 	• Barrier buster
+	• MOAM - mother of all meatballs
 • building shop items
     • Build a healing hut (spawns healer greevils) 
     • Build a buffing Station (randomly buffs heroes that come near)

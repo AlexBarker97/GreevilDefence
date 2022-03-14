@@ -5758,7 +5758,7 @@
 		"Ability3"					"greevil_pulse_nova_custom"
 		"Ability4"					"greevil_astral_step_custom"
 		"Ability5"					"generic_hidden"
-		"Ability6"					"greevil_bramble_maze_custom"
+		"Ability6"					"greevil_good_juju"
 
 		// Armor
 		//----------------------------------------------------------------

@@ -567,15 +567,15 @@
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_CHANNELLED"
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
 		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
-		"AbilityChannelTime"			"2.5"
+		"AbilityChannelTime"			"3"
 		"AbilityCastRange"				"99999"
-		"AbilityCooldown"				"90"
+		"AbilityCooldown"				"2.5"
 		"AbilityManaCost"				"0"
-		"ItemInitialCharges"			"1"
+		"ItemInitialCharges"			"3"
 		"ItemRequiresCharges"     		"1"
 		"ItemDisplayCharges"			"1"
 
-		"ItemCost"						"450"
+		"ItemCost"						"750"
 		"ItemQuality"					"epic"
 		"ItemAliases"					"mh;meteor hammer"
 		"ItemDeclarations"				"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
@@ -585,27 +585,17 @@
 				"bonus_all_stats"			"0"
 				"bonus_health_regen"		"0"
 				"bonus_mana_regen"			"0"
-				"burn_dps_buildings"		"75"
-				"burn_dps_units"			"75"
+				"burn_dps_buildings"		"65"
+				"burn_dps_units"			"65"
 				"burn_duration"				"4"
-				"stun_duration"				"1.75"
+				"stun_duration"				"0.75"
 				"burn_interval"				"1.0"
 				"land_time"					".5"
 				"impact_radius"				"600"
 				"max_duration"				"2.5"
 				"impact_damage_buildings"	"150"
 				"impact_damage_units"		"150"
-				"enemy_particles_visible"	"1"
-		}
-
-		"OnChannelSucceeded"
-		{
-			"RunScript"
-			{
-				"Target"		"CASTER"
-				"ScriptFile"	"boss_drop/bossdrop_red.lua"
-				"Function"		"Summon"
-			}
+				"enemy_particles_visible"	"0"
 		}
 	}
 	

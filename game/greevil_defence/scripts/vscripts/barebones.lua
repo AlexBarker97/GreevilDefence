@@ -1042,6 +1042,15 @@ function GameMode:OnAbilityUsed(keys)
 		caster:SetMana(currMana + 50)
 	end
 
+	if abilityname == "greevil_split_earth_custom" or abilityname == "greevil_demonic_purge_custom" then
+		local ability4 = caster:GetAbilityByIndex(3)
+		local ability4Name = ability4:GetAbilityName()
+		if ability4Name == "greevil_astral_step_custom" then
+			local cooldownRemain = ability4:GetCooldownTimeRemaining()
+			print(cooldownRemain)
+		end
+	end
+
     if ply then
         local hero = ply:GetAssignedHero()
         if hero then
@@ -1297,13 +1306,18 @@ function GameMode:OnAbilityChannelFinished(keys)
 		for i=0,8 do
 			local item = caster:GetItemInSlot(i)
 			if item ~= nil and item:GetAbilityName() == "item_greevil_hammer" then
-				
-				Timers:CreateTimer(4, function()
-					
-					caster:RemoveItem(item)
-				end)
-
-				
+				local curr = item:GetCurrentCharges()
+				if curr > 1 then
+					item:SetCurrentCharges(curr-1)
+				else
+					item:SetCurrentCharges(curr-1)
+					Timers:CreateTimer(4, function()
+						if item:GetContainer() ~= nil then
+							item:GetContainer():Destroy()
+						end
+						caster:RemoveItem(item)
+					end)
+				end
 				return
 			end
 		end

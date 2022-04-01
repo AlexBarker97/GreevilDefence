@@ -42,7 +42,8 @@ function OnUsed(keys)
 	caster:AddAbility("greevil_tag_team_custom")
 	caster:AddAbility("greevil_berserkers_blood_custom")
 	caster:AddAbility("greeil_feast_custom")
-	caster:AddAbility("generic_hidden")
+	--local ability1 = caster:AddAbility("invoker_chaos_meteor_lua")--generic_hidden
+	--caster:UpgradeAbility(ability1)
 	caster:AddAbility("greevil_unleash_custom")
 
 	local particle1 = ParticleManager:CreateParticle("particles/econ/courier/courier_greevil_red/courier_greevil_red_ambient_1.vpcf", PATTACH_ABSORIGIN_FOLLOW, caster)

@@ -53,12 +53,12 @@
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"area_of_effect"		"1000"
+				"area_of_effect"		"450"
 			}
 			"03"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"travel_distance"		"2000"
+				"travel_distance"		"800"
 			}
 			"04"
 			{
@@ -83,7 +83,7 @@
 			"08"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"main_damage"			"180"
+				"main_damage"			"120"
 			}
 			"09"
 			{
@@ -93,7 +93,7 @@
 			"10"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"burn_dps"				"50"
+				"burn_dps"				"45"
 			}
 		}
 	}

@@ -9,7 +9,6 @@ Suggestions
 • notification that black boss being killed
 • "one time" shop items
 	• Barrier buster
-	• MOAM - mother of all meatballs
 • building shop items
     • Build a healing hut (spawns healer greevils) 
     • Build a buffing Station (randomly buffs heroes that come near)
@@ -25,7 +24,7 @@ Suggestions
 	• White  - summon army
 	• Black  - detonate
 • Variation between games
-	• random abilities (from colour pool)
+	• random abilities (from colour pool) for all colours
 • Less revive hp
 
 QoL

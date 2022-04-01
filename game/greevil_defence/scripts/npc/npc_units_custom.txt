@@ -43,8 +43,8 @@
 	"vision"
 	{
 		"BaseClass"					"npc_dota_creature"
-		"Model"						"models/heroes/monkey_king/transform_invisiblebox.vmdl"
-		"ModelScale"				"0.3"
+		"Model"						"models/heroes/monkey_king/transform_invisiblebox.vmdl" //models/items/courier/itsy/itsy.vmdl
+		"ModelScale"				"5"
 		"Level"						"1"
 		"MinimapIconSize" 			"0"
 
@@ -54,7 +54,7 @@
 		"ArmorPhysical"				"500"
 		"MagicalResistance"			"100"
 
-		"AttackCapabilities"		"DOTA_UNIT_CAP_MELEE_ATTACK"
+		"AttackCapabilities"		"DOTA_UNIT_CAP_NO_ATTACK"
 		"AttackDamageMin"			"0"
 		"AttackDamageMax"			"0"
 
@@ -114,6 +114,55 @@
 		"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_GROUND"			
 		"MovementSpeed"				"1000"								
 		"MovementTurnRate"			"0.5"								
+
+		// Status
+		//----------------------------------------------------------------
+		"StatusHealth"				"2000"			// Base health.
+		"StatusMana"				"0"				// Base mana.
+		"StatusHealthRegen"			"0"				// Health regeneration rate.
+		"StatusManaRegen"			"0"				// Mana regeneration rate.
+		
+		// Vision
+		//----------------------------------------------------------------
+		"VisionDaytimeRange"		"800"			// Range of vision during day light.
+		"VisionNighttimeRange"		"1000"			// Range of vision at night time.
+	}
+
+	"meteor_dragon"
+	{
+		// General
+		"BaseClass"					"npc_dota_creature"
+		"Model"						"models/items/courier/ig_dragon/ig_dragon_flying.vmdl"
+		"ModelScale"				"1"
+		"MinimapIcon"				"minimap_courier"
+		"MinimapIconSize" 			"120"
+		"vscripts"					"ai/lane/ai_meteor_dragon.lua"
+		
+		"Ability1"					"invoker_chaos_meteor_lua"
+
+		"ArmorPhysical"				"1000"			// Physical protection.
+		"MagicalResistance"			"100"			// Magical protection.
+
+		"AttackCapabilities"		"DOTA_UNIT_CAP_NO_ATTACK"
+		"AttackDamageMin"			"0"
+		"AttackDamageMax"			"0"
+		"AttackRate"				"1.5"
+		"AttackAnimationPoint"		"0.5"
+		"AttackRange"				"120"
+		
+		"BountyXP"                  "0"
+		"BountyGoldMin"             "0"
+		"BountyGoldMax"             "0"
+
+		"RingRadius"				"50"
+		"HealthBarOffset"			"120"
+		"BoundsHullName"			"DOTA_HULL_SIZE_SMALL"	
+
+		// Movement
+		//----------------------------------------------------------------
+		"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_FLY"			
+		"MovementSpeed"				"550"
+		"MovementTurnRate"			"0.8"
 
 		// Status
 		//----------------------------------------------------------------

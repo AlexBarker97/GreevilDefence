@@ -468,9 +468,13 @@
 		"ItemSellable"					"1"
 		"ItemShareability"				"ITEM_FULLY_SHAREABLE"
 		"ItemPurchasable"				"1"
-		"ItemCost"						"99999"
+		"ItemCost"						"1200"
 		"ItemInitialCharges"			"1"
 		"ItemDisplayCharges"			"1"
+		"ItemStockInitial"              "0"
+		"ItemInitialStockTime"          "326"
+		"ItemStockMax"					"2"
+		"ItemStockTime"					"30"
 	}
 
 	"item_darkness"
@@ -585,7 +589,7 @@
 				"bonus_all_stats"			"0"
 				"bonus_health_regen"		"0"
 				"bonus_mana_regen"			"0"
-				"burn_dps_buildings"		"65"
+				"burn_dps_buildings"		"35"
 				"burn_dps_units"			"65"
 				"burn_duration"				"4"
 				"stun_duration"				"0.75"

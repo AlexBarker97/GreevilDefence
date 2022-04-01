@@ -651,6 +651,14 @@ function GameMode:OnItemPurchased(keys)
 			local unit = CreateUnitByName("rex", Vector(-6400, 5760, 256), true, nil, nil, DOTA_TEAM_BADGUYS)
 		end
 		removeItem(purchaseEntity,"item_voidling")
+		
+	elseif item_name == "item_meteor_shower" then
+		if team == 2 then
+			local unit = CreateUnitByName("meteor_dragon", Vector(6400, 5760, 256), true, nil, nil, DOTA_TEAM_GOODGUYS)
+		else
+			local unit = CreateUnitByName("meteor_dragon", Vector(-6400, 5760, 256), true, nil, nil, DOTA_TEAM_BADGUYS)
+		end
+		removeItem(purchaseEntity,"item_meteor_shower")
 	
 
 	elseif item_name == "item_red_egg_att" then
@@ -2067,7 +2075,7 @@ function SpawnCreeps(count, side)
 		MTPC = totalPlayerCount/2
 	end
 
-	local waveType = RandomInt(1, 14)
+	local waveType = RandomInt(0, 14)
 	local waveType2 = RandomInt(1, 8)
 
 	if count < 0 then		-- special call

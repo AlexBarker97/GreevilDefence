@@ -38,12 +38,19 @@ function OnUsed(keys)
 	caster:RemoveAbility("purple")
 	caster:RemoveAbility("white")
 	caster:RemoveAbility("black")
-	caster:AddAbility("greevil_purification_custom")
-	caster:AddAbility("greevil_dream_coil_custom")
-	caster:AddAbility("greevil_overcharge_custom")
-	caster:AddAbility("greevil_silence_custom")
+	caster:AddAbility("greevil_choice_ab1")
+	caster:AddAbility("greevil_choice_ab2")
+	caster:AddAbility("greevil_choice_ab3")
 	caster:AddAbility("generic_hidden")
+	caster:AddAbility("greevil_overload_custom")
 	caster:AddAbility("greevil_guardian_angel_custom")
+	caster:UpgradeAbility(caster:GetAbilityByIndex(0))
+	caster:UpgradeAbility(caster:GetAbilityByIndex(1))
+	caster:UpgradeAbility(caster:GetAbilityByIndex(2))
+
+	caster.ab1 = nil
+	caster.ab2 = nil
+	caster.ab3 = nil
 
 	ParticleManager:CreateParticle("particles/econ/courier/courier_greevil_white/courier_greevil_white_ambient_1.vpcf", PATTACH_ABSORIGIN_FOLLOW, caster)
 	ParticleManager:CreateParticle("particles/econ/courier/courier_greevil_white/courier_greevil_white_ambient_1b.vpcf", PATTACH_ABSORIGIN_FOLLOW, caster)

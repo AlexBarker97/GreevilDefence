@@ -18,12 +18,17 @@ function item_snow_mushroom:OnSpellStart()
 	local ability2 = caster:GetAbilityByIndex(1)
 	local ability3 = caster:GetAbilityByIndex(2)
 	local ability4 = caster:GetAbilityByIndex(3)
-	local ability5 = caster:GetAbilityByIndex(5)
-	ability1:EndCooldown()
-	ability2:EndCooldown()
-	ability3:EndCooldown()
-	ability4:EndCooldown()
-	ability5:EndCooldown()
+	local ability5 = caster:GetAbilityByIndex(4)
+	local ability6 = caster:GetAbilityByIndex(5)
+	local ability7 = caster:GetAbilityByIndex(6)
+	local abilities = {ability1,ability2,ability3,ability4,ability5,ability6}
+
+	for i=0,6 do
+		local ability = caster:GetAbilityByIndex(i)
+		if ability ~= nil then
+			ability:EndCooldown()
+		end
+	end
 
     for i=0,14 do
 		local item = caster:GetItemInSlot(i)

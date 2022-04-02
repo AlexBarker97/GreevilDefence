@@ -86,7 +86,7 @@
 		"Model"						"models/items/courier/faceless_rex/faceless_rex.vmdl"
 		"ModelScale"				"1"
 		"MinimapIcon"				"minimap_courier"
-		"MinimapIconSize" 			"220"
+		"MinimapIconSize" 			"180"
 		"vscripts"					"ai/lane/ai_rex.lua"
 		
 		"Ability1"					"rex_chronosphere"
@@ -175,6 +175,232 @@
 		//----------------------------------------------------------------
 		"VisionDaytimeRange"		"800"			// Range of vision during day light.
 		"VisionNighttimeRange"		"1000"			// Range of vision at night time.
+	}
+
+	////////////////////////////////////////////////////////////////////////////
+	////////////////////////////////////////////////////////////////////////////
+	//// 								Patrons								////
+	////////////////////////////////////////////////////////////////////////////
+	////////////////////////////////////////////////////////////////////////////
+
+	"underlord_custom"
+	{
+		// General
+		"BaseClass"					"npc_dota_creature"
+		"Model"						"models/heroes/abyssal_underlord/abyssal_underlord_v2.vmdl"
+		"ModelScale"				"1.5"
+		"MinimapIcon"				"minimap_danger"
+		"MinimapIconSize" 			"180"
+		"ConsideredHero"			"1"
+		"vscripts"					""
+		
+		"Ability1"					"patron_firestorm"
+		"Ability2"					"generic_hidden"
+		"Ability3"					"generic_hidden"
+		"Ability4"					"generic_hidden"
+		"Ability5"					"patron_dark_portal"
+		"Ability6"					"patron_dark_rift"
+
+		"ArmorPhysical"				"50"			// Physical protection.
+		"MagicalResistance"			"80"			// Magical protection.
+
+		"AttackCapabilities"		"DOTA_UNIT_CAP_NO_ATTACK"
+		"AttackDamageMin"			"200"
+		"AttackDamageMax"			"300"
+		"AttackRate"				"1.5"
+		"AttackAnimationPoint"		"0.5"
+		"AttackRange"				"120"
+		
+		"BountyXP"                  "0"
+		"BountyGoldMin"             "0"
+		"BountyGoldMax"             "0"
+
+		"RingRadius"				"165"
+		"HealthBarOffset"			"400"
+		"BoundsHullName"			"DOTA_HULL_SIZE_BARRACKS"	
+
+		// Movement
+		//----------------------------------------------------------------
+		"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_GROUND"			
+		"MovementSpeed"				"550"
+		"MovementTurnRate"			"0.8"
+
+		// Status
+		//----------------------------------------------------------------
+		"StatusHealth"				"8000"			// Base health.
+		"StatusMana"				"0"				// Base mana.
+		"StatusHealthRegen"			"0"				// Health regeneration rate.
+		"StatusManaRegen"			"0"				// Mana regeneration rate.
+		
+		// Vision
+		//----------------------------------------------------------------
+		"VisionDaytimeRange"		"100"			// Range of vision during day light.
+		"VisionNighttimeRange"		"100"			// Range of vision at night time.
+	}
+	
+	"spectre_custom"
+	{
+		// General
+		"BaseClass"					"npc_dota_creature"
+		"Model"						"models/heroes/spectre/spectre.vmdl"
+		"ModelScale"				"1.5"
+		"MinimapIcon"				"minimap_danger"
+		"MinimapIconSize" 			"180"
+		"ConsideredHero"			"1"
+		"vscripts"					""
+		
+		"Ability1"					"patron_spectral_dagger"
+		"Ability2"					"patron_desolate"
+		"Ability3"					"generic_hidden"
+		"Ability4"					"generic_hidden"
+		"Ability5"					"generic_hidden"
+		"Ability6"					"patron_haunt_single"
+
+		"ArmorPhysical"				"50"			// Physical protection.
+		"MagicalResistance"			"80"			// Magical protection.
+
+		"AttackCapabilities"		"DOTA_UNIT_CAP_NO_ATTACK"
+		"AttackDamageMin"			"200"
+		"AttackDamageMax"			"300"
+		"AttackRate"				"1.5"
+		"AttackAnimationPoint"		"0.5"
+		"AttackRange"				"120"
+		
+		"BountyXP"                  "0"
+		"BountyGoldMin"             "0"
+		"BountyGoldMax"             "0"
+
+		"RingRadius"				"165"
+		"HealthBarOffset"			"400"
+		"BoundsHullName"			"DOTA_HULL_SIZE_BARRACKS"	
+
+		// Movement
+		//----------------------------------------------------------------
+		"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_GROUND"			
+		"MovementSpeed"				"550"
+		"MovementTurnRate"			"0.8"
+
+		// Status
+		//----------------------------------------------------------------
+		"StatusHealth"				"8000"			// Base health.
+		"StatusMana"				"0"				// Base mana.
+		"StatusHealthRegen"			"0"				// Health regeneration rate.
+		"StatusManaRegen"			"0"				// Mana regeneration rate.
+		
+		// Vision
+		//----------------------------------------------------------------
+		"VisionDaytimeRange"		"100"			// Range of vision during day light.
+		"VisionNighttimeRange"		"100"			// Range of vision at night time.
+	}
+
+	"chen_custom"
+	{
+		// General
+		"BaseClass"					"npc_dota_creature"
+		"Model"						"models/heroes/chen/chen.vmdl"
+		"ModelScale"				"1.7"
+		"MinimapIcon"				"minimap_danger"
+		"MinimapIconSize" 			"180"
+		"ConsideredHero"			"1"
+		"vscripts"					""
+		
+		"Ability1"					"patron_test_of_faith"
+		"Ability2"					"patron_divine_favor"
+		"Ability3"					"generic_hidden"
+		"Ability4"					"generic_hidden"
+		"Ability5"					"generic_hidden"
+		"Ability6"					"patron_holy_persuasion"
+
+		"ArmorPhysical"				"50"			// Physical protection.
+		"MagicalResistance"			"80"			// Magical protection.
+
+		"AttackCapabilities"		"DOTA_UNIT_CAP_NO_ATTACK"
+		"AttackDamageMin"			"200"
+		"AttackDamageMax"			"300"
+		"AttackRate"				"1.5"
+		"AttackAnimationPoint"		"0.5"
+		"AttackRange"				"120"
+		
+		"BountyXP"                  "0"
+		"BountyGoldMin"             "0"
+		"BountyGoldMax"             "0"
+
+		"RingRadius"				"165"
+		"HealthBarOffset"			"400"
+		"BoundsHullName"			"DOTA_HULL_SIZE_BARRACKS"	
+
+		// Movement
+		//----------------------------------------------------------------
+		"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_GROUND"			
+		"MovementSpeed"				"550"
+		"MovementTurnRate"			"0.8"
+
+		// Status
+		//----------------------------------------------------------------
+		"StatusHealth"				"8000"			// Base health.
+		"StatusMana"				"0"				// Base mana.
+		"StatusHealthRegen"			"0"				// Health regeneration rate.
+		"StatusManaRegen"			"0"				// Mana regeneration rate.
+		
+		// Vision
+		//----------------------------------------------------------------
+		"VisionDaytimeRange"		"100"			// Range of vision during day light.
+		"VisionNighttimeRange"		"100"			// Range of vision at night time.
+	}
+
+	"bounty_custom"
+	{
+		// General
+		"BaseClass"					"npc_dota_creature"
+		"Model"						"models/heroes/bounty_hunter/bounty_hunter.vmdl"
+		"ModelScale"				"1.9"
+		"MinimapIcon"				"minimap_danger"
+		"MinimapIconSize" 			"180"
+		"ConsideredHero"			"1"
+		"vscripts"					""
+		
+		"Ability1"					"generic_hidden"
+		"Ability2"					"patron_jinada"
+		"Ability3"					"patron_wind_walk"
+		"Ability4"					"generic_hidden"
+		"Ability5"					"generic_hidden"
+		"Ability6"					"generic_hidden"
+
+		"ArmorPhysical"				"50"			// Physical protection.
+		"MagicalResistance"			"80"			// Magical protection.
+
+		"AttackCapabilities"		"DOTA_UNIT_CAP_NO_ATTACK"
+		"AttackDamageMin"			"200"
+		"AttackDamageMax"			"300"
+		"AttackRate"				"1.5"
+		"AttackAnimationPoint"		"0.5"
+		"AttackRange"				"120"
+		
+		"BountyXP"                  "0"
+		"BountyGoldMin"             "0"
+		"BountyGoldMax"             "0"
+
+		"RingRadius"				"165"
+		"HealthBarOffset"			"400"
+		"BoundsHullName"			"DOTA_HULL_SIZE_BARRACKS"	
+
+		// Movement
+		//----------------------------------------------------------------
+		"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_GROUND"			
+		"MovementSpeed"				"550"
+		"MovementTurnRate"			"0.8"
+
+		// Status
+		//----------------------------------------------------------------
+		"StatusHealth"				"8000"			// Base health.
+		"StatusMana"				"0"				// Base mana.
+		"StatusHealthRegen"			"0"				// Health regeneration rate.
+		"StatusManaRegen"			"0"				// Mana regeneration rate.
+		
+		// Vision
+		//----------------------------------------------------------------
+		"VisionDaytimeRange"		"100"			// Range of vision during day light.
+		"VisionNighttimeRange"		"100"			// Range of vision at night time.
 	}
 
 	////////////////////////////////////////////////////////////////////////////
@@ -506,6 +732,7 @@
 		//----------------------------------------------------------------
 		"RingRadius"				"90"
 		"HealthBarOffset"			"220"
+		"BoundsHullName"			"DOTA_HULL_SIZE_HUGE"
 
 		// Stats
 		//----------------------------------------------------------------
@@ -586,6 +813,7 @@
 		//----------------------------------------------------------------
 		"RingRadius"				"90"
 		"HealthBarOffset"			"220"
+		"BoundsHullName"			"DOTA_HULL_SIZE_HUGE"
 
 		// Stats
 		//----------------------------------------------------------------
@@ -679,6 +907,7 @@
 		//----------------------------------------------------------------
 		"RingRadius"				"90"
 		"HealthBarOffset"			"220"
+		"BoundsHullName"			"DOTA_HULL_SIZE_HUGE"
 		
 		"precache"
 		{
@@ -761,6 +990,7 @@
 		//----------------------------------------------------------------
 		"RingRadius"				"90"
 		"HealthBarOffset"			"220"
+		"BoundsHullName"			"DOTA_HULL_SIZE_HUGE"
 
 		// Stats
 		//----------------------------------------------------------------
@@ -839,6 +1069,7 @@
 		//----------------------------------------------------------------
 		"RingRadius"				"90"
 		"HealthBarOffset"			"220"
+		"BoundsHullName"			"DOTA_HULL_SIZE_HUGE"
 
 		// Stats
 		//----------------------------------------------------------------
@@ -884,6 +1115,7 @@
 		"RingRadius"				"40"
 		"ModelScale"				"1.2"
 		"HealthBarOffset"			"100"
+		"BoundsHullName"			"DOTA_HULL_SIZE_SMALL"
 		"AttackRange"				"0"
 		"AttackDamageMin"			"0"
 		"AttackDamageMax"			"0"
@@ -937,6 +1169,7 @@
 		//----------------------------------------------------------------
 		"RingRadius"				"90"
 		"HealthBarOffset"			"220"
+		"BoundsHullName"			"DOTA_HULL_SIZE_HUGE"
 
 		// Stats
 		//----------------------------------------------------------------
@@ -1015,6 +1248,7 @@
 		//----------------------------------------------------------------
 		"RingRadius"				"100"
 		"HealthBarOffset"			"320"
+		"BoundsHullName"			"DOTA_HULL_SIZE_HUGE"
 
 		// Stats
 		//----------------------------------------------------------------
@@ -1107,6 +1341,7 @@
 		//----------------------------------------------------------------
 		"RingRadius"				"100"
 		"HealthBarOffset"			"320"
+		"BoundsHullName"			"DOTA_HULL_SIZE_HUGE"
 
 		// Stats
 		//----------------------------------------------------------------
@@ -1181,7 +1416,7 @@
 		//----------------------------------------------------------------
 		"RingRadius"				"70"
 		"HealthBarOffset"			"160"
-		"BoundsHullName"			"DOTA_HULL_SIZE_REGULAR"
+		"BoundsHullName"			"DOTA_HULL_SIZE_HUGE"
 		
 		"precache"
 		{
@@ -1255,7 +1490,7 @@
 		//----------------------------------------------------------------
 		"RingRadius"				"70"
 		"HealthBarOffset"			"160"
-		"BoundsHullName"			"DOTA_HULL_SIZE_REGULAR"
+		"BoundsHullName"			"DOTA_HULL_SIZE_HUGE"
 		
 		"precache"
 		{
@@ -1329,7 +1564,7 @@
 		//----------------------------------------------------------------
 		"RingRadius"				"70"
 		"HealthBarOffset"			"160"
-		"BoundsHullName"			"DOTA_HULL_SIZE_REGULAR"
+		"BoundsHullName"			"DOTA_HULL_SIZE_HUGE"
 
 		// Movement
 		//----------------------------------------------------------------
@@ -1398,7 +1633,7 @@
 		//----------------------------------------------------------------
 		"RingRadius"				"70"
 		"HealthBarOffset"			"160"
-		"BoundsHullName"			"DOTA_HULL_SIZE_REGULAR"
+		"BoundsHullName"			"DOTA_HULL_SIZE_HUGE"
 
 		// Movement
 		//----------------------------------------------------------------
@@ -1467,7 +1702,7 @@
 		//----------------------------------------------------------------
 		"RingRadius"				"70"
 		"HealthBarOffset"			"160"
-		"BoundsHullName"			"DOTA_HULL_SIZE_REGULAR"
+		"BoundsHullName"			"DOTA_HULL_SIZE_HUGE"
 
 		// Movement
 		//----------------------------------------------------------------
@@ -1536,7 +1771,7 @@
 		//----------------------------------------------------------------
 		"RingRadius"				"70"
 		"HealthBarOffset"			"160"
-		"BoundsHullName"			"DOTA_HULL_SIZE_REGULAR"
+		"BoundsHullName"			"DOTA_HULL_SIZE_HUGE"
 		
 		"precache"
 		{
@@ -1609,6 +1844,7 @@
 		//----------------------------------------------------------------
 		"RingRadius"				"90"
 		"HealthBarOffset"			"220"
+		"BoundsHullName"			"DOTA_HULL_SIZE_HUGE"
 
 		// Stats
 		//----------------------------------------------------------------
@@ -1665,6 +1901,7 @@
 		//----------------------------------------------------------------
 		"RingRadius"				"90"
 		"HealthBarOffset"			"220"
+		"BoundsHullName"			"DOTA_HULL_SIZE_HUGE"
 
 		// Stats
 		//----------------------------------------------------------------
@@ -1722,6 +1959,7 @@
 		//----------------------------------------------------------------
 		"RingRadius"				"90"
 		"HealthBarOffset"			"220"
+		"BoundsHullName"			"DOTA_HULL_SIZE_HUGE"
 
 		// Stats
 		//----------------------------------------------------------------
@@ -1781,6 +2019,7 @@
 		//----------------------------------------------------------------
 		"RingRadius"				"90"
 		"HealthBarOffset"			"220"
+		"BoundsHullName"			"DOTA_HULL_SIZE_HUGE"
 
 		// Stats
 		//----------------------------------------------------------------
@@ -1840,6 +2079,7 @@
 		//----------------------------------------------------------------
 		"RingRadius"				"90"
 		"HealthBarOffset"			"220"
+		"BoundsHullName"			"DOTA_HULL_SIZE_HUGE"
 
 		// Stats
 		//----------------------------------------------------------------
@@ -1912,6 +2152,7 @@
 		//----------------------------------------------------------------
 		"RingRadius"				"90"
 		"HealthBarOffset"			"220"
+		"BoundsHullName"			"DOTA_HULL_SIZE_HERO"
 
 		// Stats
 		//----------------------------------------------------------------
@@ -1979,6 +2220,7 @@
 		//----------------------------------------------------------------
 		"RingRadius"				"90"
 		"HealthBarOffset"			"220"
+		"BoundsHullName"			"DOTA_HULL_SIZE_HUGE"
 
 		// Stats
 		//----------------------------------------------------------------
@@ -2036,6 +2278,7 @@
 		//----------------------------------------------------------------
 		"RingRadius"				"90"
 		"HealthBarOffset"			"220"
+		"BoundsHullName"			"DOTA_HULL_SIZE_HUGE"
 
 		// Stats
 		//----------------------------------------------------------------
@@ -2093,6 +2336,7 @@
 		//----------------------------------------------------------------
 		"RingRadius"				"90"
 		"HealthBarOffset"			"220"
+		"BoundsHullName"			"DOTA_HULL_SIZE_BARRACKS"
 
 		// Stats
 		//----------------------------------------------------------------
@@ -2151,6 +2395,7 @@
 		//----------------------------------------------------------------
 		"RingRadius"				"100"
 		"HealthBarOffset"			"280"
+		"BoundsHullName"			"DOTA_HULL_SIZE_BARRACKS"
 
 		// Stats
 		//----------------------------------------------------------------
@@ -5438,7 +5683,7 @@
 		//----------------------------------------------------------------
 		"RingRadius"				"50"
 		"HealthBarOffset"			"350"
-		"BoundsHullName"			"DOTA_HULL_SIZE_REGULAR"	
+		"BoundsHullName"			"DOTA_HULL_SIZE_HUGE"
 
 		// Movement
 		//----------------------------------------------------------------
@@ -5516,7 +5761,7 @@
 		//----------------------------------------------------------------
 		"RingRadius"				"50"
 		"HealthBarOffset"			"350"
-		"BoundsHullName"			"DOTA_HULL_SIZE_REGULAR"	
+		"BoundsHullName"			"DOTA_HULL_SIZE_HUGE"
 
 		// Movement
 		//----------------------------------------------------------------
@@ -5595,7 +5840,7 @@
 		//----------------------------------------------------------------
 		"RingRadius"				"50"
 		"HealthBarOffset"			"350"
-		"BoundsHullName"			"DOTA_HULL_SIZE_REGULAR"	
+		"BoundsHullName"			"DOTA_HULL_SIZE_HUGE"
 
 		// Movement
 		//----------------------------------------------------------------
@@ -5674,7 +5919,7 @@
 		//----------------------------------------------------------------
 		"RingRadius"				"50"
 		"HealthBarOffset"			"350"
-		"BoundsHullName"			"DOTA_HULL_SIZE_REGULAR"	
+		"BoundsHullName"			"DOTA_HULL_SIZE_HUGE"
 
 		// Movement
 		//----------------------------------------------------------------
@@ -5754,7 +5999,7 @@
 		//----------------------------------------------------------------
 		"RingRadius"				"50"
 		"HealthBarOffset"			"350"
-		"BoundsHullName"			"DOTA_HULL_SIZE_REGULAR"	
+		"BoundsHullName"			"DOTA_HULL_SIZE_HUGE"
 
 		// Movement
 		//----------------------------------------------------------------
@@ -5833,7 +6078,7 @@
 		//----------------------------------------------------------------
 		"RingRadius"				"50"
 		"HealthBarOffset"			"350"
-		"BoundsHullName"			"DOTA_HULL_SIZE_REGULAR"	
+		"BoundsHullName"			"DOTA_HULL_SIZE_HUGE"
 
 		// Movement
 		//----------------------------------------------------------------
@@ -5881,11 +6126,11 @@
 		// Abilities
 		//----------------------------------------------------------------
 		
-		"Ability1"					"greevil_purification_custom"
-		"Ability2"					"greevil_dream_coil_custom"
-		"Ability3"					"greevil_overcharge_custom"
-		"Ability4"					"greevil_silence_custom"
-		"Ability5"					"generic_hidden"
+		"Ability1"					"greevil_choice_ab1"
+		"Ability2"					"greevil_choice_ab2"
+		"Ability3"					"greevil_choice_ab3"
+		"Ability4"					"generic_hidden"
+		"Ability5"					"greevil_overload_custom"
 		"Ability6"					"greevil_guardian_angel_custom"
 
 		// Armor
@@ -5912,7 +6157,7 @@
 		//----------------------------------------------------------------
 		"RingRadius"				"50"
 		"HealthBarOffset"			"350"
-		"BoundsHullName"			"DOTA_HULL_SIZE_REGULAR"	
+		"BoundsHullName"			"DOTA_HULL_SIZE_HUGE"
 
 		// Movement
 		//----------------------------------------------------------------
@@ -5990,7 +6235,7 @@
 		//----------------------------------------------------------------
 		"RingRadius"				"60"
 		"HealthBarOffset"			"350"
-		"BoundsHullName"			"DOTA_HULL_SIZE_REGULAR"	
+		"BoundsHullName"			"DOTA_HULL_SIZE_HUGE"
 
 		// Movement
 		//----------------------------------------------------------------

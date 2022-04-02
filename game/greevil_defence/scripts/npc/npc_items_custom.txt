@@ -521,48 +521,6 @@
 		"ItemPurchasable"				"1"
 		"ItemCost"						"600"
 	}
-	
-	"item_decoy"
-	{
-		"BaseClass"           			"item_datadriven"
-		"AbilityTextureName"			"decoy"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-
-		"AbilityCastRange"              "500"
-		"AbilityCastPoint"              "0.0"
-		"AbilityCooldown"               "5.0"
-		"AbilityManaCost"               "0"
-		"Model"							"models/props_gameplay/red_box.vmdl"
-		"PingOverrideText"				""
-		"ItemPermanent"					"1"
-		"ItemStackable"					"0"
-		"ItemDroppable"					"1"
-		"ItemSellable"					"0"
-		"ItemShareability"				"ITEM_FULLY_SHAREABLE"
-		"ItemPurchasable"				"1"
-		"ItemCost"						"99999"
-	}
-	
-	"item_silence"
-	{
-		"BaseClass"           			"item_datadriven"
-		"AbilityTextureName"			"silence"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-
-		"AbilityCastRange"              "500"
-		"AbilityCastPoint"              "0.0"
-		"AbilityCooldown"               "5.0"
-		"AbilityManaCost"               "0"
-		"Model"							"models/props_gameplay/red_box.vmdl"
-		"PingOverrideText"				""
-		"ItemPermanent"					"1"
-		"ItemStackable"					"0"
-		"ItemDroppable"					"1"
-		"ItemSellable"					"0"
-		"ItemShareability"				"ITEM_FULLY_SHAREABLE"
-		"ItemPurchasable"				"1"
-		"ItemCost"						"99999"
-	}
 
 	"item_greevil_hammer"
 	{
@@ -601,6 +559,98 @@
 				"impact_damage_units"		"150"
 				"enemy_particles_visible"	"0"
 		}
+	}
+
+////////////
+// Heroes //
+////////////
+
+	"item_underlord"
+	{
+		"BaseClass"           			"item_datadriven"
+		"AbilityTextureName"			"Underlord"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+
+		"AbilityCastRange"              "500"
+		"AbilityCastPoint"              "0.0"
+		"AbilityManaCost"               "0"
+		"Model"							"models/props_gameplay/red_box.vmdl"
+		"PingOverrideText"				""
+		"ItemPermanent"					"1"
+		"ItemStackable"					"0"
+		"ItemDroppable"					"1"
+		"ItemSellable"					"0"
+		"ItemShareability"				"ITEM_FULLY_SHAREABLE"
+		"ItemPurchasable"				"1"
+		"ItemCost"						"3000"
+		"ItemStockMax"					"1"
+		"ItemStockTime"					"-1.0"
+	}
+
+	"item_spectre"
+	{
+		"BaseClass"           			"item_datadriven"
+		"AbilityTextureName"			"Spectre"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+
+		"AbilityCastRange"              "500"
+		"AbilityCastPoint"              "0.0"
+		"AbilityManaCost"               "0"
+		"Model"							"models/props_gameplay/red_box.vmdl"
+		"PingOverrideText"				""
+		"ItemPermanent"					"1"
+		"ItemStackable"					"0"
+		"ItemDroppable"					"1"
+		"ItemSellable"					"0"
+		"ItemShareability"				"ITEM_FULLY_SHAREABLE"
+		"ItemPurchasable"				"1"
+		"ItemCost"						"3000"
+		"ItemStockMax"					"1"
+		"ItemStockTime"					"-1.0"
+	}
+
+	"item_chen"
+	{
+		"BaseClass"           			"item_datadriven"
+		"AbilityTextureName"			"Chen"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+
+		"AbilityCastRange"              "500"
+		"AbilityCastPoint"              "0.0"
+		"AbilityManaCost"               "0"
+		"Model"							"models/props_gameplay/red_box.vmdl"
+		"PingOverrideText"				""
+		"ItemPermanent"					"1"
+		"ItemStackable"					"0"
+		"ItemDroppable"					"1"
+		"ItemSellable"					"0"
+		"ItemShareability"				"ITEM_FULLY_SHAREABLE"
+		"ItemPurchasable"				"1"
+		"ItemCost"						"3000"
+		"ItemStockMax"					"1"
+		"ItemStockTime"					"-1.0"
+	}
+	
+	"item_bounty"
+	{
+		"BaseClass"           			"item_datadriven"
+		"AbilityTextureName"			"Bounty"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+
+		"AbilityCastRange"              "500"
+		"AbilityCastPoint"              "0.0"
+		"AbilityManaCost"               "0"
+		"Model"							"models/props_gameplay/red_box.vmdl"
+		"PingOverrideText"				""
+		"ItemPermanent"					"1"
+		"ItemStackable"					"0"
+		"ItemDroppable"					"1"
+		"ItemSellable"					"0"
+		"ItemShareability"				"ITEM_FULLY_SHAREABLE"
+		"ItemPurchasable"				"1"
+		"ItemCost"						"3000"
+		"ItemStockMax"					"1"
+		"ItemStockTime"					"-1.0"
 	}
 	
 ///////////////
@@ -1842,7 +1892,7 @@
 
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"500"
+		"ItemCost"						"99999" //500
 		"ItemStackable"					"0"
 		"ItemShareability"				"ITEM_NOT_SHAREABLE"
 		"ItemPermanent"					"1"

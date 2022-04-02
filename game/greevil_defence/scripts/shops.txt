@@ -10,8 +10,8 @@
 		"item6" 		"item_purple_egg_att"
 		"item7" 		"item_white_egg_att"
 		"item8" 		"item_black_egg_att"
-		"item9" 		"item_upgrade_att"
-		"item10" 		"item_send_att"
+		//"item9" 		"item_upgrade_att"
+		"item9" 		"item_send_att"
 	}
 
 	"attributes"
@@ -39,9 +39,7 @@
 		"item1" 		"item_greevil_hammer"
 		"item2" 		"item_darkness"
 		"item3" 		"item_voidling"
-		"item4" 		"item_decoy"
-		"item5" 		"item_silence"
-		"item6" 		"item_meteor_shower"
+		"item4" 		"item_meteor_shower"
 	}
 	
 	// Level 1 - Green Recipes
@@ -92,7 +90,10 @@
 
 	"secretshop"
 	{
-
+		"item1" 		"item_underlord"
+		"item2" 		"item_spectre"
+		"item3" 		"item_chen"
+		"item4" 		"item_bounty"
 	}
 
 	// items during Strategy Time

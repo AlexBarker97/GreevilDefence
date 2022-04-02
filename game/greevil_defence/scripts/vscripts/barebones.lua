@@ -659,6 +659,57 @@ function GameMode:OnItemPurchased(keys)
 			local unit = CreateUnitByName("meteor_dragon", Vector(-6400, 5760, 256), true, nil, nil, DOTA_TEAM_BADGUYS)
 		end
 		removeItem(purchaseEntity,"item_meteor_shower")
+		
+	elseif item_name == "item_underlord" then
+		EmitGlobalSound("underlord_debut_takeover_stinger")
+		EmitGlobalSound("underlord_debut_takeover_sfx")
+		if team == 2 then
+			local unit = CreateUnitByName("underlord_custom", Vector(-6400, -7000, 256), true, nil, nil, DOTA_TEAM_GOODGUYS)
+			setupUnderlord(unit)
+		else
+			local unit = CreateUnitByName("underlord_custom", Vector(6400, -7000, 256), true, nil, nil, DOTA_TEAM_BADGUYS)
+			setupUnderlord(unit)
+		end
+		removeItem(purchaseEntity,"item_underlord")
+		
+	elseif item_name == "item_spectre" then
+		EmitGlobalSound("spectre_arc_debut_vo")
+		EmitGlobalSound("spectre_arc_debut_stinger")
+		if team == 2 then
+			local unit = CreateUnitByName("spectre_custom", Vector(-6400, -7000, 256), true, nil, nil, DOTA_TEAM_GOODGUYS)
+			setupSpectre(unit)
+		else
+			local unit = CreateUnitByName("spectre_custom", Vector(6400, -7000, 256), true, nil, nil, DOTA_TEAM_BADGUYS)
+			setupSpectre(unit)
+		end
+		removeItem(purchaseEntity,"item_spectre")
+		
+	elseif item_name == "item_chen" then
+		EmitGlobalSound("Hero_Chen.Projection")
+		EmitGlobalSound("marci_debut_stinger")
+		EmitGlobalSound("chen_chen_spawn_01")
+
+		if team == 2 then
+			local unit = CreateUnitByName("chen_custom", Vector(-6400, -7000, 256), true, nil, nil, DOTA_TEAM_GOODGUYS)
+			setupChen(unit)
+		else
+			local unit = CreateUnitByName("chen_custom", Vector(6400, -7000, 256), true, nil, nil, DOTA_TEAM_BADGUYS)
+			setupChen(unit)
+		end
+		removeItem(purchaseEntity,"item_chen")
+		
+	elseif item_name == "item_bounty" then
+		EmitGlobalSound("bounty_hunter_bount_spawn_01")
+		EmitGlobalSound("UI.Bounty.Claimed")
+
+		if team == 2 then
+			local unit = CreateUnitByName("bounty_custom", Vector(-6400, -7000, 256), true, nil, nil, DOTA_TEAM_GOODGUYS)
+			setupBounty(unit)
+		else
+			local unit = CreateUnitByName("bounty_custom", Vector(6400, -7000, 256), true, nil, nil, DOTA_TEAM_BADGUYS)
+			setupBounty(unit)
+		end
+		removeItem(purchaseEntity,"item_bounty")
 	
 
 	elseif item_name == "item_red_egg_att" then
@@ -2640,6 +2691,90 @@ function GoldFarmBonus()
 		local heroDire = PlayerResource:GetSelectedHeroEntity(playerIdDire)
 		heroDire:ModifyGold(2*direFarmCount,false,0)
 	end
+end
+
+function setupUnderlord(unit)
+	unit:FaceTowards(unit:GetAbsOrigin()+Vector(0, -100, 0))
+	local part = SpawnEntityFromTableSynchronous("prop_dynamic", {model = "models/heroes/abyssal_underlord/mesh/underlord_head.vmdl"})
+	part:FollowEntity(unit, true)
+	unit.head = part
+
+	local part = SpawnEntityFromTableSynchronous("prop_dynamic", {model = "models/items/underlord/abyss_tyrant_head/abyss_tyrant_head.vmdl"})
+	part:FollowEntity(unit, true)
+	unit.helm = part
+	
+	local part = SpawnEntityFromTableSynchronous("prop_dynamic", {model = "models/items/underlord/demonforged_armor_weapon/demonforged_armor_weapon.vmdl"})
+	part:FollowEntity(unit, true)
+	unit.weapon = part
+	
+	local part = SpawnEntityFromTableSynchronous("prop_dynamic", {model = "models/heroes/abyssal_underlord/mesh/underlord_armor.vmdl"})
+	part:FollowEntity(unit, true)
+	unit.armour = part
+
+	local particle = ParticleManager:CreateParticle("particles/units/heroes/heroes_underlord/abbysal_underlord_darkrift_ambient.vpcf", PATTACH_ABSORIGIN_FOLLOW, unit)
+end
+
+function setupSpectre(unit)
+	unit:FaceTowards(unit:GetAbsOrigin()+Vector(0, -100, 0))
+	local part = SpawnEntityFromTableSynchronous("prop_dynamic", {model = "models/items/spectre/spectre_arcana/spectre_arcana_head.vmdl"})
+	part:FollowEntity(unit, true)
+	unit.head = part
+	
+	local part = SpawnEntityFromTableSynchronous("prop_dynamic", {model = "models/items/spectre/spectre_arcana/spectre_arcana_weapon.vmdl"})
+	part:FollowEntity(unit, true)
+	unit.weapon = part
+	
+	local part = SpawnEntityFromTableSynchronous("prop_dynamic", {model = "models/items/spectre/spectre_arcana/spectre_arcana_skirt.vmdl"})
+	part:FollowEntity(unit, true)
+	unit.skirt = part
+	
+	local part = SpawnEntityFromTableSynchronous("prop_dynamic", {model = "models/items/spectre/spectre_arcana/spectre_arcana_shoulder.vmdl"})
+	part:FollowEntity(unit, true)
+	unit.shoulder = part
+
+	local particle = ParticleManager:CreateParticle("particles/econ/items/spectre/spectre_arcana/spectre_arcana_ambient.vpcf", PATTACH_ABSORIGIN_FOLLOW, unit)
+end
+
+function setupChen(unit)
+	unit:FaceTowards(unit:GetAbsOrigin()+Vector(0, -100, 0))
+	local part = SpawnEntityFromTableSynchronous("prop_dynamic", {model = "models/items/chen/ti8_chen_the_rat_king_weapon/ti8_chen_the_rat_king_weapon.vmdl"})
+	part:FollowEntity(unit, true)
+	unit.weapon = part
+	
+	local part = SpawnEntityFromTableSynchronous("prop_dynamic", {model = "models/items/chen/chen_eye_of_power_mount/chen_eye_of_power_mount.vmdl"})
+	part:FollowEntity(unit, true)
+	unit.mount = part
+	
+	local part = SpawnEntityFromTableSynchronous("prop_dynamic", {model = "models/items/chen/pilgrim_of_the_snowy_shrine_shoulder/pilgrim_of_the_snowy_shrine_shoulder.vmdl"})
+	part:FollowEntity(unit, true)
+	unit.shoulder = part
+
+	local particle = ParticleManager:CreateParticle("particles/econ/items/venomancer/veno_2021_immortal_arms/veno_2021_immortal_arms_ambient_metal_highlights.vpcf", PATTACH_ABSORIGIN_FOLLOW, unit)
+	local particle = ParticleManager:CreateParticle("particles/econ/items/venomancer/veno_2021_immortal_back/veno_2021_immortal_ambient_metal_highlights.vpcf", PATTACH_ABSORIGIN_FOLLOW, unit)
+	local particle = ParticleManager:CreateParticle("particles/units/heroes/hero_keeper_of_the_light/keeper_spirit_form_ambient_fogring.vpcf", PATTACH_ABSORIGIN_FOLLOW, unit)
+end
+
+function setupBounty(unit)
+	unit:FaceTowards(unit:GetAbsOrigin()+Vector(0, -100, 0))
+	
+	local part = SpawnEntityFromTableSynchronous("prop_dynamic", {model = "models/items/bounty_hunter/ti6_hunters_hoard/mesh/ti6_hunters_hoard_model.vmdl"})
+	part:FollowEntity(unit, true)
+	unit.hoard = part
+	
+	local part = SpawnEntityFromTableSynchronous("prop_dynamic", {model = "models/items/bounty_hunter/hunternoname_head/hunternoname_head.vmdl"})
+	part:FollowEntity(unit, true)
+	unit.hat = part
+	
+	local part = SpawnEntityFromTableSynchronous("prop_dynamic", {model = "models/items/bounty_hunter/maniac_off_hand/maniac_off_hand.vmdl"})
+	part:FollowEntity(unit, true)
+	unit.weaponOffhand = part
+	
+	local part = SpawnEntityFromTableSynchronous("prop_dynamic", {model = "models/items/bounty_hunter/maniac_weapon/maniac_weapon.vmdl"})
+	part:FollowEntity(unit, true)
+	unit.weaponMain = part
+
+	local particle = ParticleManager:CreateParticle("particles/econ/courier/courier_golden_doomling/courier_golden_doomling_smoke_ambient.vpcf", PATTACH_ABSORIGIN_FOLLOW, unit)
+	local particle = ParticleManager:CreateParticle("particles/econ/courier/courier_golden_doomling/courier_golden_doomling_ambient_glint.vpcf", PATTACH_ABSORIGIN_FOLLOW, unit)
 end
 
 function FindTeam(unit)

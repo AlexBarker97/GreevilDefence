@@ -2,7 +2,6 @@ Bugs
 • some things autoattack jumps
 
 Suggestions
-• purchase a hero
 • secret shopkeeper that trades greevil eggs for something
 • relocate item 2500g
 • present drops more interesting

@@ -3,13 +3,10 @@
     "",
     "\\game",
     "\\game\\greevil_defence",
-    "\\game\\greevil_defence\\resource",
     "\\game\\greevil_defence\\scripts",
-    "\\game\\greevil_defence\\scripts\\npc",
     "\\game\\greevil_defence\\scripts\\vscripts",
-    "\\game\\greevil_defence\\scripts\\vscripts\\lua_abilities",
-    "\\game\\greevil_defence\\scripts\\vscripts\\lua_abilities\\invoker_chaos_meteor_lua"
+    "\\game\\greevil_defence\\scripts\\vscripts\\modifiers"
   ],
-  "SelectedNode": "\\game\\greevil_defence\\scripts\\vscripts\\lua_abilities\\invoker_chaos_meteor_lua\\modifier_invoker_chaos_meteor_lua_thinker.lua",
+  "SelectedNode": "\\game\\greevil_defence\\scripts\\vscripts\\barebones.lua",
   "PreviewInSolutionExplorer": false
 }

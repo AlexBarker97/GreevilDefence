@@ -4,8 +4,7 @@
     "\\game",
     "\\game\\greevil_defence",
     "\\game\\greevil_defence\\scripts",
-    "\\game\\greevil_defence\\scripts\\vscripts",
-    "\\game\\greevil_defence\\scripts\\vscripts\\modifiers"
+    "\\game\\greevil_defence\\scripts\\vscripts"
   ],
   "SelectedNode": "\\game\\greevil_defence\\scripts\\vscripts\\barebones.lua",
   "PreviewInSolutionExplorer": false

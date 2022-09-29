@@ -19,7 +19,7 @@ GOLD_PER_TICK = 0						-- How much gold should players get per tick?
 GOLD_TICK_TIME = 1                      -- How long should we wait in seconds between gold ticks?
 
 RECOMMENDED_BUILDS_DISABLED = true		-- Should we disable the recommened builds for heroes (Note: this is not working currently I believe)
-CAMERA_DISTANCE_OVERRIDE = 1500.0       -- How far out should we allow the camera to go?  1134 is the default in Dota
+CAMERA_DISTANCE_OVERRIDE = 1600.0       -- How far out should we allow the camera to go?  1134 is the default in Dota
 
 MINIMAP_ICON_SIZE = 1                   -- What icon size should we use for our heroes?
 MINIMAP_CREEP_ICON_SIZE = 2             -- What icon size should we use for creeps?
@@ -218,31 +218,52 @@ end
 
 -- This function is called once when the player fully connects and becomes "Ready" during Loading
 function GameMode:OnConnectFull(keys)
+	print("testline")
+	
+	mode = GameRules:GetGameModeEntity()
+	mode:SetRecommendedItemsDisabled( RECOMMENDED_BUILDS_DISABLED )
+	mode:SetCameraDistanceOverride( CAMERA_DISTANCE_OVERRIDE )
+	mode:SetCustomBuybackCostEnabled( CUSTOM_BUYBACK_COST_ENABLED )
+	mode:SetCustomBuybackCooldownEnabled( CUSTOM_BUYBACK_COOLDOWN_ENABLED )
+	mode:SetBuybackEnabled( BUYBACK_ENABLED )
+	mode:SetTopBarTeamValuesOverride ( USE_CUSTOM_TOP_BAR_VALUES )
+	mode:SetTopBarTeamValuesVisible( TOP_BAR_VISIBLE )
+	mode:SetUseCustomHeroLevels ( USE_CUSTOM_HERO_LEVELS )
+	mode:SetCustomHeroMaxLevel ( MAX_LEVEL )
+	mode:SetCustomXPRequiredToReachNextLevel( XP_PER_LEVEL_TABLE )
 
+	--mode:SetBotThinkingEnabled( USE_STANDARD_DOTA_BOT_THINKING )
+	mode:SetTowerBackdoorProtectionEnabled( ENABLE_TOWER_BACKDOOR_PROTECTION )
+
+	mode:SetFogOfWarDisabled(DISABLE_FOG_OF_WAR_ENTIRELY)
+	mode:SetGoldSoundDisabled( DISABLE_GOLD_SOUNDS )
+	mode:SetRemoveIllusionsOnDeath( REMOVE_ILLUSIONS_ON_DEATH )
+	print("testline")
 end
 
 -- This function is called as the first player loads and sets up the GameMode parameters
 function GameMode:CaptureGameMode()
+
 	if mode == nil then
 		-- Set GameMode parameters
-		mode = GameRules:GetGameModeEntity()
-		mode:SetRecommendedItemsDisabled( RECOMMENDED_BUILDS_DISABLED )
-		mode:SetCameraDistanceOverride( CAMERA_DISTANCE_OVERRIDE )
-		mode:SetCustomBuybackCostEnabled( CUSTOM_BUYBACK_COST_ENABLED )
-		mode:SetCustomBuybackCooldownEnabled( CUSTOM_BUYBACK_COOLDOWN_ENABLED )
-		mode:SetBuybackEnabled( BUYBACK_ENABLED )
-		mode:SetTopBarTeamValuesOverride ( USE_CUSTOM_TOP_BAR_VALUES )
-		mode:SetTopBarTeamValuesVisible( TOP_BAR_VISIBLE )
-		mode:SetUseCustomHeroLevels ( USE_CUSTOM_HERO_LEVELS )
-		mode:SetCustomHeroMaxLevel ( MAX_LEVEL )
-		mode:SetCustomXPRequiredToReachNextLevel( XP_PER_LEVEL_TABLE )
+		--mode = GameRules:GetGameModeEntity()
+		--mode:SetRecommendedItemsDisabled( RECOMMENDED_BUILDS_DISABLED )
+		--mode:SetCameraDistanceOverride( CAMERA_DISTANCE_OVERRIDE )
+		--mode:SetCustomBuybackCostEnabled( CUSTOM_BUYBACK_COST_ENABLED )
+		--mode:SetCustomBuybackCooldownEnabled( CUSTOM_BUYBACK_COOLDOWN_ENABLED )
+		--mode:SetBuybackEnabled( BUYBACK_ENABLED )
+		--mode:SetTopBarTeamValuesOverride ( USE_CUSTOM_TOP_BAR_VALUES )
+		--mode:SetTopBarTeamValuesVisible( TOP_BAR_VISIBLE )
+		--mode:SetUseCustomHeroLevels ( USE_CUSTOM_HERO_LEVELS )
+		--mode:SetCustomHeroMaxLevel ( MAX_LEVEL )
+		--mode:SetCustomXPRequiredToReachNextLevel( XP_PER_LEVEL_TABLE )
 
 		--mode:SetBotThinkingEnabled( USE_STANDARD_DOTA_BOT_THINKING )
-		mode:SetTowerBackdoorProtectionEnabled( ENABLE_TOWER_BACKDOOR_PROTECTION )
+		--mode:SetTowerBackdoorProtectionEnabled( ENABLE_TOWER_BACKDOOR_PROTECTION )
 
-		mode:SetFogOfWarDisabled(DISABLE_FOG_OF_WAR_ENTIRELY)
-		mode:SetGoldSoundDisabled( DISABLE_GOLD_SOUNDS )
-		mode:SetRemoveIllusionsOnDeath( REMOVE_ILLUSIONS_ON_DEATH )
+		--mode:SetFogOfWarDisabled(DISABLE_FOG_OF_WAR_ENTIRELY)
+		--mode:SetGoldSoundDisabled( DISABLE_GOLD_SOUNDS )
+		--mode:SetRemoveIllusionsOnDeath( REMOVE_ILLUSIONS_ON_DEATH )
 
 		self:OnFirstPlayerLoaded()
 	end
@@ -2074,7 +2095,7 @@ function SpawnBot()
 		local BotAbility = unit:FindAbilityByName("bot_ability")
 		HStopper:SetLevel(4)
 		BotAbility:SetLevel(1)
-		Say(unit, "0 rad players", false)
+		--Say(unit, "0 rad players", false)
 	elseif PlayerCountOnDire < 1 then
 		local unit = CreateUnitByName("npc_dota_hero_necrolyte", Vector(6400,-2944,256), true, nil, nil, DOTA_TEAM_BADGUYS)
 		unit:FaceTowards(unit:GetAbsOrigin()+Vector(0, 100, 0))
@@ -2084,7 +2105,7 @@ function SpawnBot()
 		local BotAbility = unit:FindAbilityByName("bot_ability")
 		HStopper:SetLevel(4)
 		BotAbility:SetLevel(1)
-		Say(unit, "0 dire players", false)
+		--Say(unit, "0 dire players", false)
 	end
 end
 

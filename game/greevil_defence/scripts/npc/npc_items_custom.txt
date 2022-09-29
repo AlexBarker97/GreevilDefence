@@ -884,8 +884,8 @@
 			"RunScript"
 			{
 				"Target"		"CASTER"
-				"ScriptFile"	"boss_drop/bossdrop_red.lua"
-				"Function"		"Summon"
+				"ScriptFile"	"customitem/bossloot.lua"
+				"Function"		"SummonRed"
 			}
 		}
 	}
@@ -931,8 +931,8 @@
 			"RunScript"
 			{
 				"Target"		"CASTER"
-				"ScriptFile"	"boss_drop/bossdrop_orange.lua"
-				"Function"		"Summon"
+				"ScriptFile"	"customitem/bossloot.lua"
+				"Function"		"SummonOrange"
 			}
 		}
 	}
@@ -978,8 +978,8 @@
 			"RunScript"
 			{
 				"Target"		"CASTER"
-				"ScriptFile"	"boss_drop/bossdrop_yellow.lua"
-				"Function"		"Summon"
+				"ScriptFile"	"customitem/bossloot.lua"
+				"Function"		"SummonYellow"
 			}
 		}
 	}
@@ -1025,8 +1025,8 @@
 			"RunScript"
 			{
 				"Target"		"CASTER"
-				"ScriptFile"	"boss_drop/bossdrop_green.lua"
-				"Function"		"Summon"
+				"ScriptFile"	"customitem/bossloot.lua"
+				"Function"		"SummonGreen"
 			}
 		}
 	}
@@ -1072,8 +1072,8 @@
 			"RunScript"
 			{
 				"Target"		"CASTER"
-				"ScriptFile"	"boss_drop/bossdrop_blue.lua"
-				"Function"		"Summon"
+				"ScriptFile"	"customitem/bossloot.lua"
+				"Function"		"SummonBlue"
 			}
 		}
 	}
@@ -1119,8 +1119,8 @@
 			"RunScript"
 			{
 				"Target"		"CASTER"
-				"ScriptFile"	"boss_drop/bossdrop_purple.lua"
-				"Function"		"Summon"
+				"ScriptFile"	"customitem/bossloot.lua"
+				"Function"		"SummonPurple"
 			}
 		}
 	}
@@ -1176,8 +1176,8 @@
 			"RunScript"
 			{
 				"Target"		"CASTER"
-				"ScriptFile"	"boss_drop/bossdrop_white.lua"
-				"Function"		"Summon"
+				"ScriptFile"	"customitem/bossloot.lua"
+				"Function"		"SummonWhite"
 			}
 		}
 	}
@@ -1223,8 +1223,8 @@
 			"RunScript"
 			{
 				"Target"		"CASTER"
-				"ScriptFile"	"boss_drop/bossdrop_black.lua"
-				"Function"		"Summon"
+				"ScriptFile"	"customitem/bossloot.lua"
+				"Function"		"SummonBlack"
 			}
 		}
 	}

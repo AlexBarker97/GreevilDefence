@@ -148,28 +148,6 @@ function GameStart()
 			diregate:AddNewModifier(nil, nil,"modifier_magic_immune", {})
 			radgate.disabled = 0
 			diregate.disabled = 0
-			local particle1 = ParticleManager:CreateParticle("particles/units/heroes/hero_arc_warden/arc_warden_flux_tgt.vpcf", PATTACH_ABSORIGIN_FOLLOW, radgate)
-			local particle2 = ParticleManager:CreateParticle("particles/units/heroes/hero_arc_warden/arc_warden_flux_tgt.vpcf", PATTACH_ABSORIGIN_FOLLOW, diregate)
-			local jump1 = CreateUnitByName("jump", Vector(-6950, 60, 280), false, nil, nil, DOTA_TEAM_BADGUYS)
-			local jump2 = CreateUnitByName("jump", Vector(-5852, 60, 280), false, nil, nil, DOTA_TEAM_BADGUYS)
-			local jump3 = CreateUnitByName("jump", Vector(5846, 60, 280), false, nil, nil, DOTA_TEAM_GOODGUYS)
-			local jump4 = CreateUnitByName("jump", Vector(6944, 60, 280), false, nil, nil, DOTA_TEAM_GOODGUYS)
-			jump1.disabled = 0
-			jump2.disabled = 0
-			jump3.disabled = 0
-			jump4.disabled = 0
-			local particle3 = ParticleManager:CreateParticle("particles/units/heroes/hero_brewmaster/brewmaster_earth_ambient_glow_b.vpcf", PATTACH_ABSORIGIN_FOLLOW, jump1)
-			local particle4 = ParticleManager:CreateParticle("particles/units/heroes/hero_brewmaster/brewmaster_earth_ambient_glow_b.vpcf", PATTACH_ABSORIGIN_FOLLOW, jump2)
-			local particle5 = ParticleManager:CreateParticle("particles/units/heroes/hero_brewmaster/brewmaster_earth_ambient_glow_b.vpcf", PATTACH_ABSORIGIN_FOLLOW, jump3)
-			local particle6 = ParticleManager:CreateParticle("particles/units/heroes/hero_brewmaster/brewmaster_earth_ambient_glow_b.vpcf", PATTACH_ABSORIGIN_FOLLOW, jump4)
-			jump1:AddNewModifier(nil, nil,"modifier_hidden_nodamage", {})
-			jump1:AddNewModifier(nil, nil,"modifier_magic_immune", {})
-			jump2:AddNewModifier(nil, nil,"modifier_hidden_nodamage", {})
-			jump2:AddNewModifier(nil, nil,"modifier_magic_immune", {})
-			jump3:AddNewModifier(nil, nil,"modifier_hidden_nodamage", {})
-			jump3:AddNewModifier(nil, nil,"modifier_magic_immune", {})
-			jump4:AddNewModifier(nil, nil,"modifier_hidden_nodamage", {})
-			jump4:AddNewModifier(nil, nil,"modifier_magic_immune", {})
 
 			local radvision1 = CreateUnitByName("vision", Vector(-12000, 6500, 128), false, nil, nil, DOTA_TEAM_GOODGUYS)
 			local radvision2 = CreateUnitByName("vision", Vector(-8000, 6500, 128), false, nil, nil, DOTA_TEAM_GOODGUYS)

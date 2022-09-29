@@ -1,7 +1,8 @@
 Bugs
-• some things autoattack jumps
+• blue boss ice attack damage
 
 Suggestions
+• rework brief barrier
 • secret shopkeeper that trades greevil eggs for something
 • relocate item 2500g
 • present drops more interesting
@@ -27,7 +28,7 @@ Suggestions
 • Less revive hp
 
 QoL
-• add useful text when purchasing second spawner of same colour
+• add useful text when purchasing second attack spawner of same colour
 • Improve/add more satchel items
 • Improve/add more present items
 • Improve/add more greater present items

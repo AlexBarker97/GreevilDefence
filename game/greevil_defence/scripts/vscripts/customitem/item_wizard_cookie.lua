@@ -15,9 +15,9 @@ function item_wizard_cookie:OnSpellStart()
 	local caster = self:GetCaster()
 	local target = self:GetCursorTarget()
 
-	local healAmount = 36
-	local manaAmount = 16
-	local effectDuration = 2.5
+	local healAmount = 18
+	local manaAmount = 32
+	local effectDuration = 2.5         -- 2.5 = 10x instances
 	local interval = 0.25
 
 	target:AddNewModifier(caster, item_wizard_cookie,"modifier_movespeed_percentage", {duration = effectDuration})

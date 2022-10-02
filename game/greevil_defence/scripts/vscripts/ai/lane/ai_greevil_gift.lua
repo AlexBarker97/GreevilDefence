@@ -1,4 +1,4 @@
-AI_THINK_INTERVAL = 0.45
+AI_THINK_INTERVAL = 0.4
 
 function Spawn( entityKeyValues )
 	thisEntity:SetContextThink("GreevilThink", GreevilThink, 0.1)
@@ -17,7 +17,7 @@ function GreevilThink()
 	end
 
 	if GameRules:IsGamePaused() == true then
-		AI_THINK_INTERVAL = 0.5
+		AI_THINK_INTERVAL = 1
 		return AI_THINK_INTERVAL
 	end
 	if thisEntity.state == -1 then

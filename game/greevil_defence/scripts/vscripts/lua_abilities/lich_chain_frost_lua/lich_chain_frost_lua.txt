@@ -38,7 +38,7 @@
 
 		// Ability Resource
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"10"
+		"AbilityCooldown"				"18"
 		"AbilityManaCost"				"0"
 
 		// Damage
@@ -51,7 +51,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"damage"				"80"
+				"damage"				"60"
 			}
 			"02"
 			{

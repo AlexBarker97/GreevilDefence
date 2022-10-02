@@ -3,7 +3,7 @@ GreevilThink = 1.0
 function Spawn( entityKeyValues )
 	thisEntity:SetContextThink("GreevilThink", GreevilThink, 0.1)
 	thisEntity.IVort = thisEntity:FindAbilityByName("greevil_ice_vortex")
-	thisEntity.CFrost = thisEntity:FindAbilityByName("greevil_chain_frost")
+	thisEntity.CFrost = thisEntity:FindAbilityByName("lich_chain_frost_lua")
 end
 
 function GreevilThink()

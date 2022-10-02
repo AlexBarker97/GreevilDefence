@@ -246,7 +246,7 @@
 
 		"AbilityCastRange"				"0"
 		"AbilityCastPoint"              "0"
-		"AbilityCooldown"               "0"
+		"AbilityCooldown"               "20"
 		"AbilityManaCost"               "0"
 		"Model"							"models/props_gameplay/red_box.vmdl"
 		"PingOverrideText"				"DOTA_Chat_snow_mushroom_Pinged"
@@ -519,7 +519,11 @@
 		"ItemSellable"					"0"
 		"ItemShareability"				"ITEM_FULLY_SHAREABLE"
 		"ItemPurchasable"				"1"
-		"ItemCost"						"600"
+		"ItemCost"						"800"
+		"ItemStockInitial"              "0"
+		"ItemInitialStockTime"          "326"
+		"ItemStockMax"					"1"
+		"ItemStockTime"					"20"
 	}
 
 	"item_greevil_hammer"

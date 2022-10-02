@@ -1,5 +1,13 @@
-Bugs
-• blue boss ice attack damage
+Show what boss spawns mean (2,4,6min)
+Game crash on win
+gold sound on some occassions that you get gold?
+not obvious which are defence
+isnt obvious what defence upgrade does
+indicator of what greeevils are missing
+gold farm placed out of map aggros greevils
+tower can spawn in you
+fishbones double ATTACK damage
+ability stats/info
 
 Suggestions
 • rework brief barrier

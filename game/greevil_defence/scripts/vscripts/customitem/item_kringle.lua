@@ -14,8 +14,8 @@ end
 function item_kringle:OnSpellStart()
 	local caster = self:GetCaster()
 
-	local healAmount = 100
-	local manaAmount = 64
+	local healAmount = 75
+	local manaAmount = 48
 
     for i=0,14 do
 		local item = caster:GetItemInSlot(i)

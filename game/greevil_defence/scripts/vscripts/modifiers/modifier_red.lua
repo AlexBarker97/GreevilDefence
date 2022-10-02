@@ -42,7 +42,8 @@ function OnUsed(keys)
 	caster:AddAbility("greevil_tag_team_custom")
 	caster:AddAbility("greevil_berserkers_blood_custom")
 	caster:AddAbility("greeil_feast_custom")
-	--local ability1 = caster:AddAbility("invoker_chaos_meteor_lua")--generic_hidden
+	caster:AddAbility("generic_hidden")
+	--local ability1 = caster:AddAbility("invoker_chaos_meteor_lua")
 	--caster:UpgradeAbility(ability1)
 	caster:AddAbility("greevil_unleash_custom")
 

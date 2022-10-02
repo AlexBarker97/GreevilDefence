@@ -593,8 +593,8 @@
 		// Movement
 		//----------------------------------------------------------------
 		"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_GROUND"			
-		"MovementSpeed"				"330"								
-		"MovementTurnRate"			"0.1"								
+		"MovementSpeed"				"450"
+		"MovementTurnRate"			"0.1"
 
 		// Status
 		//----------------------------------------------------------------
@@ -2188,7 +2188,7 @@
 		// Abilities
 		//----------------------------------------------------------------
 		"Ability1"					"greevil_ice_vortex"
-		"Ability2"					"greevil_chain_frost"
+		"Ability2"					"lich_chain_frost_lua"
 
 		// Bounty
 		//----------------------------------------------------------------

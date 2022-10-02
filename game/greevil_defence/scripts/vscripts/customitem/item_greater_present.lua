@@ -30,23 +30,23 @@ function item_greater_present:OnSpellStart()
 	end
 
 	local itemSeed = RandomInt(1, 1000)
-	if (itemSeed > 0) and (itemSeed <= 200) then
+	if (itemSeed > 0) and (itemSeed <= 250) then
 		local item = CreateItem("item_wizard_cookie", nil, nil)
 		item:SetPurchaseTime(0)
 		caster:AddItem(item)
-	elseif (itemSeed > 200) and (itemSeed <= 400) then
+	elseif (itemSeed > 250) and (itemSeed <= 500) then
 		local item = CreateItem("item_fruitbit_cake", nil, nil)
 		item:SetPurchaseTime(0)
 		caster:AddItem(item)
-	elseif (itemSeed > 400) and (itemSeed <= 600) then
+	elseif (itemSeed > 500) and (itemSeed <= 750) then
 		local item = CreateItem("item_kringle", nil, nil)
 		item:SetPurchaseTime(0)
 		caster:AddItem(item)
-	elseif (itemSeed > 600) and (itemSeed <= 800) then
+	elseif (itemSeed > 750) and (itemSeed <= 900) then
 		local item = CreateItem("item_fishbones", nil, nil)
 		item:SetPurchaseTime(0)
 		caster:AddItem(item)
-	elseif (itemSeed > 800) and (itemSeed <= 1000) then
+	elseif (itemSeed > 900) and (itemSeed <= 1000) then
 		local item = CreateItem("item_snow_mushroom", nil, nil)
 		item:SetPurchaseTime(0)
 		caster:AddItem(item)
